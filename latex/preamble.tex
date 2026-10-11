@@ -48,9 +48,9 @@
 
 % Visual framing of the theorem-like environments
 \tcolorboxenvironment{definition}{enhanced,breakable,colback=blue!3,colframe=blue!3,
-  borderline west={2pt}{0pt}{blue!55!black},arc=0pt,boxrule=0pt,left=6pt,right=4pt,top=2pt,bottom=2pt,before skip=10pt,after skip=10pt}
+  borderline west={2pt}{0pt}{blue!55!black},arc=0pt,boxrule=0pt,left=6pt,right=4pt,top=2pt,bottom=2pt,before skip=10pt,after skip=10pt,before upper={\setlength{\parskip}{0.45em}}}
 \tcolorboxenvironment{theorem}{enhanced,breakable,colback=red!2,colframe=red!2,
-  borderline west={2pt}{0pt}{red!55!black},arc=0pt,boxrule=0pt,left=6pt,right=4pt,top=2pt,bottom=2pt,before skip=10pt,after skip=10pt}
+  borderline west={2pt}{0pt}{red!55!black},arc=0pt,boxrule=0pt,left=6pt,right=4pt,top=2pt,bottom=2pt,before skip=10pt,after skip=10pt,before upper={\setlength{\parskip}{0.45em}}}
 \tcolorboxenvironment{lemma}{enhanced,breakable,colback=red!2,colframe=red!2,
   borderline west={2pt}{0pt}{red!55!black},arc=0pt,boxrule=0pt,left=6pt,right=4pt,top=2pt,bottom=2pt}
 \tcolorboxenvironment{corollary}{enhanced,breakable,colback=red!2,colframe=red!2,
@@ -70,19 +70,35 @@
 % Thin separator between logically distinct blocks inside a section
 \newcommand{\sep}{\par\vspace{0.4em}\noindent{\color{gray!45}\rule{\linewidth}{0.4pt}}\par\vspace{0.2em}}
 % Explanation of a step (replaces hand-written side notes): placed directly below/above the math
-\newcommand{\explain}[1]{\par{\small\color{black!70}$\triangleright$\ \textit{#1}}\par}
+\makeatletter
+% If a display follows directly, do not end the paragraph (avoids an empty line before the display).
+\newcommand{\explain}[1]{\par{\small\color{black!70}$\triangleright$\ \textit{#1}}\explain@next}
+\def\explain@next{\@ifnextchar\[{}{\@ifnextchar\begin{\explain@chk}{\par}}}
+\def\explain@chk\begin#1{\ifcsname explain@disp@#1\endcsname
+    \def\explain@tmp{\begin{#1}}\else\def\explain@tmp{\par\begin{#1}}\fi\explain@tmp}
+\@for\explain@env:={align,align*,alignat,alignat*,gather,gather*,equation,equation*,multline,multline*,flalign,flalign*}\do{%
+  \expandafter\let\csname explain@disp@\explain@env\endcsname\@empty}
+\makeatother
 
 % Added explanation (not in the original handwritten notes)
 \newtcolorbox{insight}[1][Explanation]{enhanced,breakable,colback=yellow!4,colframe=orange!60!black,
   boxrule=0.4pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt,fonttitle=\small\bfseries,
-  coltitle=orange!50!black,colbacktitle=yellow!12,title={#1},before skip=8pt,after skip=8pt}
+  coltitle=orange!50!black,colbacktitle=yellow!12,title={#1},before skip=8pt,after skip=8pt,before upper={\setlength{\parskip}{0.45em}}}
 
 % Highlighted box for results that are boxed in the handwritten notes
-\newtcolorbox{keybox}[1][]{colback=blue!3,colframe=blue!50!black,boxrule=0.6pt,arc=2pt,#1}
+\newtcolorbox{keybox}[1][]{colback=blue!3,colframe=blue!50!black,boxrule=0.6pt,arc=2pt,before upper={\setlength{\parskip}{0.45em}},#1}
 % Side comment written in the margin / next to work in the notes
 \newcommand{\sidenote}[1]{\quad\text{\small\textit{(#1)}}}
 % Original page marker (for cross-checking with the scan)
-\newcommand{\origpage}[1]{\leavevmode\marginnote{\raggedright\tiny\color{gray}p.~#1}}
+\makeatletter
+% In vertical mode the tag is set in a zero-height box (no empty paragraph, no change of spacing).
+\newcommand{\origpage@note}[1]{\marginnote{\raggedright\tiny\color{gray}p.~#1}}
+\newcommand{\origpage}[1]{\ifvmode
+    \edef\origpage@pd{\the\prevdepth}\nointerlineskip
+    \vbox to 0pt{\noindent\origpage@note{#1}\par\vss}\nobreak
+    \prevdepth=\origpage@pd\relax
+  \else\origpage@note{#1}\fi}
+\makeatother
 % Illegible / uncertain reading
 \newcommand{\unclear}[1]{{\color{red!70!black}[#1?]}}
 
@@ -110,3 +126,4 @@
 \newcommand{\0}{0_{\F}}
 \newcommand{\1}{1_{\F}}
 \newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\sbmat}[1]{\left[\begin{smallmatrix}#1\end{smallmatrix}\right]}   % small inline matrix

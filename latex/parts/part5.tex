@@ -1,6 +1,6 @@
 % ===== Page 47 =====
-\origpage{47}
 \subsection{General Procedure and the Fundamental Theorem}\label{ss:procedure}
+\origpage{47}%
 
 \begin{itemize}[leftmargin=1.5em]
 \item If $b\in\Range(A)$: \key{$\exists$ an exact solution} to $A\hat{x}=b$.
@@ -10,7 +10,7 @@ b_1=\operatorname{Proj}_{\Range(A)} b, \qquad A\hat{x}=b_1
 \]
 \begin{itemize}
 \item If $\Null(A)=\{0\}$ $\Rightarrow$ \key{$\hat{x}$ is unique}.
-\item If $\Null(A)\neq\{0\}$ $\Rightarrow$ $\hat{x}_1=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}$
+\item If $\Null(A)\neq\{0\}$ $\Rightarrow$ $\hat{x}_1=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}$.
 \end{itemize}
 \end{itemize}
 
@@ -95,7 +95,7 @@ Prove $\Null(A)=\Range^\perp(A\Hm)$, which is easier to prove.
 \end{aligned}\right\}\ \text{prove both}\ \Rightarrow\ \Null(A)=\Range^\perp(A\Hm)
 \]
 
-\paragraph{Part 1:} $x\in\Null(A)\Rightarrow Ax=0$.
+\paragraph{Part 1.} $x\in\Null(A)\Rightarrow Ax=0$.
 
 \begin{minipage}{0.25\textwidth}
 \centering
@@ -116,13 +116,13 @@ Prove $\Null(A)=\Range^\perp(A\Hm)$, which is easier to prove.
 \end{align*}
 \end{minipage}
 
-\paragraph{Part 2:} $x\in\Range^\perp(A\Hm)$.
+\paragraph{Part 2.} $x\in\Range^\perp(A\Hm)$.
 
 \begin{minipage}{0.25\textwidth}
 \centering
 \begin{tikzpicture}
 \draw (0,0) ellipse (0.7 and 0.8);
-\draw (-0.1,0.12) circle (0.38);
+\draw (-0.1,0.12) circle (0.46);
 \node[font=\tiny] at (-0.1,0.12) {$\Range^\perp(A\Hm)$};
 \node[font=\scriptsize,anchor=west] at (0.55,-0.6) {$\Null(A)$};
 \end{tikzpicture}
@@ -173,7 +173,6 @@ Both inclusions hold, so $\Null(A)=\Range^\perp(A\Hm)$. Taking orthogonal comple
 \end{minipage}
 \end{center}
 
-\par\vskip 0pt plus 10\baselineskip\penalty-250\vskip 0pt plus -10\baselineskip
 \subsection{Special Cases by Rank}\label{ss:rank-cases}
 \subsubsection{Case I: Full Column Rank}
 $A$ is/has \term{full column rank}: columns of $A$ are linearly independent.
@@ -183,7 +182,7 @@ m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ \\ \ &\ &\ \\ \ &\ &\ }}}_{\text{ta
 \]
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $n=\#$ of unknowns, \quad $m=\#$ of equations
-\item $m>n$: \term{overdetermined} system of eqn.
+\item $m>n$: \term{overdetermined} system of equations.
 \end{itemize}
 Assume
 \[
@@ -228,7 +227,7 @@ m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ &\ \\ \ &\ &\ &\ }}}_{\text{fat mat
 \]
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $m$: \# of equations, \quad $n$: \# of unknowns
-\item $m<n$: \term{underdetermined} system of eqn.
+\item $m<n$: \term{underdetermined} system of equations.
 \end{itemize}
 \begin{align*}
 \dim(\Range(A\Hm))&=m\\
@@ -280,8 +279,8 @@ Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \Range(A)=\Span\left\{\bmat{1\\1}\right\},\quad b\in\Range(A)
 \ \Rightarrow\ \text{has exact solution},\quad \hat{x}=\bmat{1\\0}
 \]
-
 \begin{minipage}[c]{0.52\textwidth}
+\raggedright
 \begin{align*}
 &\dim\Range(A)=1\\
 &\dim\Null(A)=1\\
@@ -319,7 +318,7 @@ Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \end{tikzpicture}
 \end{minipage}
 
-\explain{Check: $\hat x_1=\tfrac15\bmat{1\\2}$ gives $A\hat x_1=\bmat{1\\1}=b$, and $\norm{\hat x_1}^2=\tfrac15<1=\norm{\hat x}^2$; the right pseudo inverse cannot be used here since $AA\Hm=\bmat{5&5\\5&5}$ is singular ($A$ has rank 1, neither full row nor full column rank), so the projection route is used.}
+\explain{Check: $\hat x_1=\tfrac15[1\ 2]\T$ gives $A\hat x_1=[1\ 1]\T=b$, and $\norm{\hat x_1}^2=\tfrac15<1=\norm{\hat x}^2$; the right pseudo inverse cannot be used here since $AA\Hm=\left[\begin{smallmatrix}5&5\\5&5\end{smallmatrix}\right]$ is singular ($A$ has rank 1, neither full row nor full column rank), so the projection route is used.}
 \end{example}
 
 \subsubsection{Case IV: Neither Full Column nor Full Row Rank}
@@ -376,7 +375,7 @@ b_1=P_{\Range(A)}b&=\frac13\bmat{-1\\4\\5}
 
 % ===== Page 51 =====
 \origpage{51}
-\paragraph{Minimum norm solution.} $A\Hm=A\T$ as matrix is real.
+\paragraph{Minimum-norm solution.} $A\Hm=A\T$ as matrix is real.
 \begin{align*}
 A\Hm&=\bmat{1&1&0\\0&1&1\\1&2&1}\\
 P_{\Range(A\Hm)}&=B(B\Hm B)^{-1}B\Hm,\qquad B=\bmat{1&0\\0&1\\1&1}\\
@@ -384,7 +383,7 @@ P_{\Range(A\Hm)}&=B(B\Hm B)^{-1}B\Hm,\qquad B=\bmat{1&0\\0&1\\1&1}\\
 P_{\Range(A\Hm)}&=\frac13\bmat{2&-1&1\\-1&2&1\\1&1&2}\\
 \hat{x}_1=P_{\Range(A\Hm)}\hat{x}&=\frac19\bmat{-7\\11\\4}
 \end{align*}
-\explain{$\therefore$ \key{$\hat{x}_1$: minimum error, minimum norm solution.}}
+\explain{$\therefore$ \key{$\hat{x}_1$: minimum error, minimum-norm solution.}}
 \begin{insight}[Check]
 $A\hat x_1=\tfrac19[-3\ \ 12\ \ 15]\T=\tfrac13[-1\ \ 4\ \ 5]\T=b_1$, so $\hat x_1$ has the same (minimum) error as $\hat x$. Moreover $\hat x-\hat x_1=\tfrac49[1\ \ 1\ {-1}]\T$ spans $\Null(A)$ (indeed $A[1\ 1\ {-1}]\T=0$), and
 $\norm{\hat x_1}^2=\tfrac{186}{81}\approx2.30<\tfrac{26}{9}\approx2.89=\norm{\hat x}^2$.
@@ -394,9 +393,7 @@ $\norm{\hat x_1}^2=\tfrac{186}{81}\approx2.30<\tfrac{26}{9}\approx2.89=\norm{\ha
 \section{Spectral Analysis of Linear Transformations}\label{sec:spectral}
 \syllabusweek{Weeks 8--9 --- eigenvalues and eigenvectors, invariance under operators, block diagonal forms}
 \subsection{Invariant Subspaces}\label{ss:invariant}
-\[
-A\qquad \{\lambda_1,\lambda_2,\dots,\lambda_n\}:\ \text{\term{spectrum} of a matrix}
-\]
+For a matrix $A$, the set of its eigenvalues $\{\lambda_1,\lambda_2,\dots,\lambda_n\}$ is called the \term{spectrum} of the matrix.
 \begin{definition}
 Let $\mathcal{A}:\V\to\V$ be a linear transformation defined over a vector space $\V$. A subspace $M$ of $\V$ is said to be \term{invariant under $\mathcal{A}$} iff
 \[
@@ -473,7 +470,7 @@ $\Range(\mathcal{A})$ is invariant under $\mathcal{A}$.
 \mathcal{A}^k x=\underbrace{\mathcal{A}(\mathcal{A}\cdots\mathcal{A}(\mathcal{A}x)\dots)}_{\mathcal{A}\text{ is applied }k\text{ times}}
 \]
 \end{definition}
-When domain and co-domains are the same, then we can define the power of a linear transformation.
+When the domain and the codomain are the same, we can define the powers of a linear transformation.
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $\R^n\to\R^m$, $m\neq n$ $\Rightarrow$ not defined.
 \item $\mathcal{A}:\V\to\W$: \ $\mathcal{A}(\underbrace{\mathcal{A}x}_{\in\W})$ \ $\times$ not defined, since $\mathcal{A}$ acts on elements $\in\V$.
@@ -481,7 +478,7 @@ When domain and co-domains are the same, then we can define the power of a linea
 
 \sep
 $\star$ \term{Polynomials of $\mathcal{A}$} can be constructed using linear combinations of powers of $\mathcal{A}$.
-
+\begin{center}
 \begin{minipage}{0.66\textwidth}
 \begin{align*}
 p(s)&=\alpha_0s^n+\alpha_1s^{n-1}+\dots+\alpha_{n-1}s+\alpha_n\,(s^0)\\
@@ -496,7 +493,7 @@ $\mathcal{A}^0x=x=Ix$\\
 $\mathcal{A}^0=I$
 \end{keybox}
 \end{minipage}
-
+\end{center}
 For example, with $p(\mathcal{A})=3\mathcal{A}^3+2\mathcal{A}^2+\mathcal{A}+I$:
 \begin{align*}
 p(\mathcal{A})\mathcal{A}x&=(3\mathcal{A}^3+2\mathcal{A}^2+\mathcal{A}+I)\mathcal{A}x=3\mathcal{A}^4x+2\mathcal{A}^3x+\mathcal{A}^2x+\mathcal{A}x\\
@@ -520,7 +517,8 @@ p(\mathcal{A})\mathcal{A}x&=\mathcal{A}\underbrace{p(\mathcal{A})x}_{0_{\V}}=\ma
 \end{align*}
 
 % ===== Page 53 =====
-\origpage{53}
+\needspace{6\baselineskip}
+\origpage{53}%
 \underline{$\Range(p(\mathcal{A}))$:} \ $x\in\Range(p(\mathcal{A}))$, \ $x=p(\mathcal{A})y$.
 \begin{align*}
 \mathcal{A}x&=\mathcal{A}p(\mathcal{A})y=p(\mathcal{A})\underbrace{\mathcal{A}y}_{y'}=p(\mathcal{A})y'\\
@@ -599,7 +597,7 @@ x_1=\bmat{1\\0}\qquad x_2=\bmat{0\\1}\qquad x_3=\bmat{1\\1}
 \end{minipage}\hfill
 \begin{minipage}{0.55\textwidth}
 \begin{align*}
-&s^2+1=0\qquad\lambda_{1,2}=\mp j\\
+&s^2+1=0\qquad\lambda_{1,2}=\pm j\\
 &\underset{\text{real}}{A}e_i=\underset{\text{complex}}{\lambda_i}e_i\qquad R:\text{ rotation matrix}\\
 &Re_i=\lambda_ie_i\\
 &\norm{Re_i}=\norm{\lambda_ie_i}\\
@@ -610,7 +608,7 @@ x_1=\bmat{1\\0}\qquad x_2=\bmat{0\\1}\qquad x_3=\bmat{1\\1}
 \end{minipage}
 % corrected: notes had "R: rotation vectors"; R denotes the rotation matrix
 \begin{insight}
-No real vector keeps its direction under a $90^\circ$ rotation, so there are no real eigenvectors; the eigenvectors are complex: $A\bmat{1\\-j}=\bmat{j\\1}=j\bmat{1\\-j}$ and $A\bmat{1\\j}=-j\bmat{1\\j}$. A rotation preserves length, $\norm{Re}=\norm{e}$ (also for complex $e$, since $R\Hm R=I$), which is what forces $\abs{\lambda_i}=1$; here $\lambda=\pm j=e^{\pm j\pi/2}$, i.e.\ $\omega=\pm\pi/2$ is the rotation angle.
+No real vector keeps its direction under a $90^\circ$ rotation, so there are no real eigenvectors; the eigenvectors are complex: $A[1\ {-j}]\T=[j\ 1]\T=j\,[1\ {-j}]\T$ and $A[1\ j]\T=-j\,[1\ j]\T$. A rotation preserves length, $\norm{Re}=\norm{e}$ (also for complex $e$, since $R\Hm R=I$), which is what forces $\abs{\lambda_i}=1$; here $\lambda=\pm j=e^{\pm j\pi/2}$, i.e.\ $\omega=\pm\pi/2$ is the rotation angle.
 \end{insight}
 
 % ===== Page 54 =====
@@ -618,7 +616,7 @@ No real vector keeps its direction under a $90^\circ$ rotation, so there are no 
 \sep
 $\star$ Existence of eigenvectors:
 \[
-A\overset{\neq0}{e_i}=\lambda e_i\qquad d(\lambda)=\det(\lambda_iI-A)=0
+A\overset{\neq0}{e_i}=\lambda_ie_i\qquad d(\lambda_i)=\det(\lambda_iI-A)=0
 \]
 \begin{align*}
 &A=[c_1\ c_2\ \dots\ c_n]\\
@@ -634,8 +632,9 @@ A\overset{\neq0}{e_i}=\lambda e_i\qquad d(\lambda)=\det(\lambda_iI-A)=0
 \explain{\key{If there is an eigenvalue, then there is at least 1 eigenvector}: $\alpha\neq0$ is an eigenvector for $\lambda_i$.}
 
 \begin{example}
+$A=\bmat{2&1\\1&2}$:
 \begin{align*}
-A&=\bmat{2&1\\1&2},\qquad d(s)=\det(sI-A)=\det\bmat{s-2&-1\\-1&s-2}\\
+d(s)&=\det(sI-A)=\det\bmat{s-2&-1\\-1&s-2}\\
 &=(s-2)^2-1=s^2-4s+3=(s-3)(s-1)=0\\
 &\Rightarrow\ \lambda_1=3,\quad\lambda_2=1
 \end{align*}
@@ -649,10 +648,10 @@ p(s)&=s-\lambda_i\\
 p(A)&=A-\lambda_iI
 \end{aligned}
 \end{align*}
-\begin{align*}
-A-\lambda_1I&=\bmat{-1&1\\1&-1}, \qquad e_1=\bmat{1\\1}\\
-A-\lambda_2I&=\bmat{1&1\\1&1}, \qquad\quad\ e_2=\bmat{1\\-1}
-\end{align*}
+\begin{alignat*}{2}
+A-\lambda_1I&=\bmat{-1&1\\1&-1},&\qquad e_1&=\bmat{1\\1}\\
+A-\lambda_2I&=\bmat{1&1\\1&1},&\qquad e_2&=\bmat{1\\-1}
+\end{alignat*}
 \begin{align*}
 \Null(A-\lambda_1I)&=\Span\left\{\bmat{1\\1}\right\}\\
 \Null(A-\lambda_2I)&=\Span\left\{\bmat{1\\-1}\right\}
@@ -702,21 +701,26 @@ P=[e_1\mid e_2],\qquad \bar{A}=f(A)=\ ?
 \begin{aligned}Ae_1&=\lambda_1e_1\\Ae_2&=\lambda_2e_2\end{aligned}
 \]
 \begin{align*}
-[\lambda_1e_1,\lambda_2e_2]&=[Ae_1\mid Ae_2]=A[e_1\mid e_2]\\
-\underbrace{[e_1\ e_2]}_{P}\underbrace{\bmat{\lambda_1&0\\0&\lambda_2}}_{\bar{A}}&=A\cdot P
+[\lambda_1e_1\mid\lambda_2e_2]&=[Ae_1\mid Ae_2]=A[e_1\mid e_2]\\
+\underbrace{[e_1\mid e_2]}_{P}\underbrace{\bmat{\lambda_1&0\\0&\lambda_2}}_{\bar{A}}&=A\cdot P
 \ \Rightarrow\ P\bar{A}=AP\\
 &\Rightarrow\ \boxed{\bar{A}=P^{-1}AP}
 \end{align*}
 \explain{$P$ is invertible (full rank: its columns $e_1,e_2$ are linearly indep.).}
 \begin{insight}
-The columns of $P$ are the new basis vectors written in the old basis, so $[x]_B=P[x]_{\bar B}$. Then $[y]_B=A[x]_B$ becomes $P[y]_{\bar B}=AP[x]_{\bar B}$, i.e.\ $[y]_{\bar B}=P^{-1}AP\,[x]_{\bar B}$. Check: $P=\bmat{1&1\\1&-1}$, $P^{-1}=\tfrac12\bmat{1&1\\1&-1}$, $P^{-1}AP=\tfrac12\bmat{1&1\\1&-1}\bmat{3&1\\3&-1}=\bmat{3&0\\0&1}$, as found above.
+The columns of $P$ are the new basis vectors written in the old basis, so $[x]_B=P[x]_{\bar B}$. Then $[y]_B=A[x]_B$ becomes $P[y]_{\bar B}=AP[x]_{\bar B}$, i.e.\ $[y]_{\bar B}=P^{-1}AP\,[x]_{\bar B}$. Check:
+\[
+P=\bmat{1&1\\1&-1},\qquad P^{-1}=\tfrac12\bmat{1&1\\1&-1},\qquad
+P^{-1}AP=\tfrac12\bmat{1&1\\1&-1}\bmat{3&1\\3&-1}=\bmat{3&0\\0&1},
+\]
+as found above.
 \end{insight}
 \[
-\C^2=\underset{1}{\Null(A-\lambda_1I)}\overset{\perp}{\oplus}\underset{1}{\Null(A-\lambda_2I_2)},
+\C^2=\underset{1}{\Null(A-\lambda_1I)}\overset{\perp}{\oplus}\underset{1}{\Null(A-\lambda_2I)},
 \qquad
 \left[\begin{array}{c|c}\overset{1\times1}{\lambda_1}&0\\\hline 0&\lambda_2\end{array}\right]
 \]
-\explain{Each block is $1\times1$ as $\dim\Null(A-\lambda_2I_2)=1$.}
+\explain{Each block is $1\times1$ as $\dim\Null(A-\lambda_1I)=\dim\Null(A-\lambda_2I)=1$.}
 
 \subsection{Block Diagonal Representations}\label{ss:block-diag}
 \begin{theorem}[Block diagonal representation]
@@ -726,7 +730,7 @@ y=Ax\quad\text{where }A\in\C^{n\times n},\ y,x\in\C^n.
 \]
 Suppose that
 \begin{enumerate}[label=\roman*)]
-\item $\C^n=M_1\oplus M_2\oplus\dots\oplus M_k$
+\item $\C^n=M_1\oplus M_2\oplus\dots\oplus M_k$.
 \item $M_i$ is invariant under $A$ $\forall i$.
 \end{enumerate}
 Then, the transformation $A$ has a \key{block diagonal representation}
@@ -734,7 +738,7 @@ Then, the transformation $A$ has a \key{block diagonal representation}
 \bar{A}=\bmat{\bar{A}_1&&&0\\&\bar{A}_2&&\\&&\ddots&\\0&&&\bar{A}_k}
 \]
 % ===== Page 56 =====
-\origpage{56}
+\origpage{56}%
 where $\bar{A}=P^{-1}AP$,
 \begin{align*}
 P&=[P_1\mid P_2\mid\dots\mid P_k]\\
@@ -753,7 +757,7 @@ $b_i^1,\dots,b_i^{n_i}\in\C^n$ are basis vectors of $M_i$. $\bar{A}_i$ is of siz
 \[
 P=[P_1\mid P_2],\qquad
 \begin{aligned}
-P_1&=[b_1^1\mid b_1^2]_{5\times2}\\
+P_1&=[b_1^1\ b_1^2]_{5\times2}\\
 P_2&=[b_2^1\ b_2^2\ b_2^3]_{5\times3}
 \end{aligned}
 \qquad
@@ -767,7 +771,7 @@ P_2&=[b_2^1\ b_2^2\ b_2^3]_{5\times3}
 0&0&\alpha_2^1&\beta_2^1&\gamma_2^1\\
 0&0&\alpha_2^2&\beta_2^2&\gamma_2^2\\
 0&0&\alpha_2^3&\beta_2^3&\gamma_2^3
-\end{array}\right]}}_{\bar{A}\quad\left(\substack{3\times3\\ \dim M_2\times M_2}\right)}
+\end{array}\right]}}_{\bar{A}\quad\left(\substack{3\times3\\ \dim M_2\times\dim M_2}\right)}
 &=A\overbrace{[b_1^1\ b_1^2\ b_2^1\ b_2^2\ b_2^3]}^{P}\\
 &=[\underbrace{Ab_1^1}_{\in M_1}\mid\underbrace{Ab_1^2}_{\in M_1}\mid\underbrace{Ab_2^1}_{\in M_2}\mid\underbrace{Ab_2^2}_{\in M_2}\mid\underbrace{Ab_2^3}_{\in M_2}]
 \end{align*}
@@ -796,15 +800,15 @@ A(\alpha_1b_1^1+\alpha_2b_1^2)&=\alpha_1Ab_1^1+\alpha_2Ab_1^2\\
 $\therefore$ \key{$M_1$ is invariant under $A$.}
 \[
 \left.\begin{aligned}
-Ab_1^1&=2b_1^1 &&\text{-- }b_1^1\text{ is an eigenvector}\\
-Ab_1^2&=1b_1^1+2b_1^2 &&\Rightarrow\ \text{not an eigenvector }(b_1^2)
+Ab_1^1&=2b_1^1 &&\Rightarrow\ b_1^1\text{ is an eigenvector}\\
+Ab_1^2&=1b_1^1+2b_1^2 &&\Rightarrow\ b_1^2\text{ is not an eigenvector}
 \end{aligned}\right\}\ \Rightarrow\ M_1\text{ is not an eigenspace}
 \]
 \[
 Ab_2^1=\bmat{0\\1\\1}=1b_2^1\in M_2\ \Rightarrow\
 \begin{aligned}
 &\therefore\ M_2\text{ is invariant under }A\\
-&M_2\text{ is eigenspace}
+&M_2\text{ is an eigenspace}
 \end{aligned}
 \]
 
@@ -837,7 +841,7 @@ d(s)=\det(sI-A)=(s-2)^{\text{\textcircled{\scriptsize 2}}}(s-1),\qquad\lambda_1=
 \[
 \underbrace{\Null(A-\lambda_1I)}_{\dim=1}+\underbrace{\Null(A-\lambda_2I)}_{\dim=1}\neq\C^3
 \]
-\explain{$\Rightarrow$ only two linearly indep.\ eigenvectors ($[1\ 1\ 0]\T$ and $[0\ 1\ 1]\T$) $\Rightarrow$ \key{Not diagonalizable} as dim's does not hold ($1+1<3$).}
+\explain{$\Rightarrow$ only two linearly indep.\ eigenvectors ($[1\ 1\ 0]\T$ and $[0\ 1\ 1]\T$) $\Rightarrow$ \key{Not diagonalizable} as the dimensions do not add up ($1+1<3$).}
 \[
 \underset{3\ \checkmark}{\C^3}=\underbrace{\Null\big((A-\lambda_1I)^{\text{\textcircled{\scriptsize 2}}}\big)}_{2}\oplus\underbrace{\Null(A-\lambda_2I)}_{1}
 \]

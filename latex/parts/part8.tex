@@ -1,6 +1,6 @@
 % ===== Page 81 =====
-\origpage{81}
 \subsection{Unitary Diagonalization}\label{ss:unitary}
+\origpage{81}%
 \begin{theorem}[Unitary diagonalization]
 Let $A$ be an $n\times n$ Hermitian matrix. Then, \key{there exists a unitary matrix $P$} s.t.
 \[
@@ -10,7 +10,6 @@ J = P\Hm A P .
 \begin{insight}[What $J$ looks like here]
 For a Hermitian matrix the Jordan form $J$ is \emph{diagonal} with \emph{real} entries: the eigenvalues of $A=A\Hm$ are real, and $A$ is always diagonalizable (every eigenvalue has $m_j=1$ in the minimal polynomial). The theorem adds that the diagonalizing matrix can be chosen \emph{unitary}, i.e.\ $P^{-1}=P\Hm$, so that $A = PJP\Hm$ (unitary diagonalization).
 \end{insight}
-
 \begin{itemize}
 \item[$\star$] \term{Unitary matrix}: $P^{-1} = P\Hm$.
 \item[$\rightarrow$] \term{Orthogonal matrix} (real-valued unitary matrix): $P^{-1} = P\T$.
@@ -35,8 +34,7 @@ p_n\Hm p_1 & & & p_n\Hm p_n}\\
 \vdots & & & \\
 \inner{p_1}{p_n} & & & \inner{p_n}{p_n}}
 \end{align*}
-\explain{All inner products, similar to Gram matrix.}
-
+\explain{All entries are inner products, similar to a Gram matrix.}
 $\Rightarrow$ \key{Columns of $P$ are orthonormal!}
 \[
 \inner{p_i}{p_j} = \delta_{ij} = \begin{cases} 1, & i=j\\ 0, & i\neq j\end{cases}
@@ -45,13 +43,14 @@ $\Rightarrow$ \key{Columns of $P$ are orthonormal!}
 % ===== Page 82 =====
 \origpage{82}
 \paragraph{Rows of a unitary matrix.}
+\begingroup\renewcommand{\arraystretch}{1.25}%
 \[
 P = \bmat{r_1\\ \hline r_2\\ \hline \vdots\\ \hline r_n},
 \qquad
 \underbrace{\bmat{r_1\\ r_2\\ \vdots\\ r_n}}_{P}
 \underbrace{\bigl[\, r_1\Hm \;\vdots\; r_2\Hm \;\vdots\; \cdots \;\vdots\; r_n\Hm \,\bigr]}_{P\Hm} = I
-\]
-$\Rightarrow$ \key{Rows are also orthonormal!!}
+\]\endgroup
+$\Rightarrow$ \key{Rows are also orthonormal!}
 
 \begin{proof}[Proof (kind of proof, not an actual one)]
 $A$ is Hermitian, $A\in\C^{5\times 5}$; $\lambda_1,\lambda_2$ are eigenvalues of $A$, $\lambda_1\neq\lambda_2$, and $\Sigma_j = A-\lambda_jI$:
@@ -62,7 +61,6 @@ m(s) &= (s-\lambda_1)(s-\lambda_2)
 \[
 \C^5 = \underbrace{\Null(\Sigma_1)}_{\dim 2} \overset{\perp}{\oplus} \underbrace{\Null(\Sigma_2)}_{\dim 3}
 \]
-
 \begin{center}
 \begin{tikzpicture}[font=\small]
 % ellipse N(Sigma_1)
@@ -87,7 +85,6 @@ m(s) &= (s-\lambda_1)(s-\lambda_2)
 \[
 J = \bmat{\lambda_1 & & & & \\ & \lambda_1 & & \text{\Large 0} & \\ & & \lambda_2 & & \\ & \text{\Large 0} & & \lambda_2 & \\ & & & & \lambda_2}
 \]
-
 \[
 P = \bigl[\, x_1^1 \;\vdots\; x_2^1 \;\vdots\; x_1^2 \;\vdots\; x_2^2 \;\vdots\; x_3^2 \,\bigr]_{5\times 5}
 \]
@@ -105,7 +102,6 @@ If $Ax=\lambda_1x$, $Ay=\lambda_2y$ with $A=A\Hm$ (so $\lambda_1,\lambda_2\in\R$
 \]
 Gram--Schmidt inside each eigenspace keeps the vectors in that eigenspace (they remain eigenvectors), so the orthonormalized set still diagonalizes $A$.
 \end{insight}
-
 $\star$ We can apply \key{Gram--Schmidt orthonormalization to the two basis sets} and obtain the unitary matrix
 \[
 P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\; e_3^2 \,\bigr].
@@ -113,9 +109,10 @@ P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\;
 \end{proof}
 
 % ===== Page 83 =====
-\origpage{83}
 \subsection{Spectral Decomposition}\label{ss:spectral-decomp}
+\origpage{83}%
 With $J = P\Hm A P$, we obtain the \term{spectral decomposition} of $A$:
+\begingroup\renewcommand{\arraystretch}{1.25}%
 \begin{align*}
 A &= PJP\Hm\\
 &= \bigl[\, e_1 \;\vdots\; e_2 \;\vdots\; \cdots \;\vdots\; e_n \,\bigr]
@@ -123,11 +120,9 @@ A &= PJP\Hm\\
 \bmat{e_1\Hm\\ \hline e_2\Hm\\ \hline \vdots\\ \hline e_n\Hm}\\
 &= \bigl[\, \lambda_1 e_1 \;\vdots\; \lambda_2 e_2 \;\vdots\; \cdots \;\vdots\; \lambda_n e_n \,\bigr]
 \bmat{e_1\Hm\\ \hline e_2\Hm\\ \hline \vdots\\ \hline e_n\Hm}\\
-&= \lambda_1 e_1 e_1\Hm + \lambda_2 e_2 e_2\Hm + \cdots + \lambda_n e_n e_n\Hm
-\end{align*}
-\[
-\boxed{A = \sum_{i=1}^{n} \lambda_i e_i e_i\Hm}
-\]
+&= \lambda_1 e_1 e_1\Hm + \lambda_2 e_2 e_2\Hm + \cdots + \lambda_n e_n e_n\Hm\\[4pt]
+&\boxed{A = \sum_{i=1}^{n} \lambda_i e_i e_i\Hm}
+\end{align*}\endgroup
 \begin{insight}
 Each $e_ie_i\Hm$ is the orthogonal projection onto $\Span\{e_i\}$ (rank one, $(e_ie_i\Hm)^2=e_ie_i\Hm$). So a Hermitian matrix is a weighted sum of orthogonal projections onto its eigen-directions, weighted by the (real) eigenvalues. Also $\sum_i e_ie_i\Hm = PP\Hm = I$.
 \end{insight}
@@ -147,11 +142,11 @@ A Hermitian matrix is said to be \term{positive semi-definite} iff
 \begin{theorem}
 If a Hermitian matrix is positive definite, or positive semi-definite, then
 \[
-\underset{\text{(positive definite)}}{\lambda_i > 0} \quad\text{or}\quad \underset{\text{(positive semi-definite)}}{\lambda_i \geq 0} \quad\text{for } \forall i.
+\underset{\text{(positive definite)}}{\lambda_i > 0} \quad\text{or}\quad \underset{\text{(positive semi-definite)}}{\lambda_i \geq 0} \quad\text{for all } i.
 \]
 \end{theorem}
-
-\begin{proof}[Proof (only for positive-definite case)]
+\needspace{9\baselineskip}
+\begin{proof}[Proof (only for the positive-definite case)]
 Let $\lambda_i, e_i$ be an eigenpair, $e_i\neq 0$.
 \begin{align*}
 \inner{e_i}{Ae_i} &> 0\\
@@ -164,7 +159,11 @@ Let $\lambda_i, e_i$ be an eigenpair, $e_i\neq 0$.
 The semi-definite case is identical with ``$>$'' replaced by ``$\geq$''.
 \end{proof}
 \begin{insight}[Converse]
-The converse also holds: with the spectral decomposition, $x\Hm Ax = \sum_i \lambda_i\, x\Hm e_ie_i\Hm x = \sum_i\lambda_i\abs{e_i\Hm x}^2$. If all $\lambda_i>0$ this is $>0$ for $x\neq0$ (not all $e_i\Hm x$ vanish since $\{e_i\}$ is a basis). Hence \key{a Hermitian $A$ is positive definite $\iff$ all $\lambda_i>0$} (semi-definite $\iff$ all $\lambda_i\geq0$).
+The converse also holds: with the spectral decomposition,
+\[
+x\Hm Ax = \sum_i \lambda_i\, x\Hm e_ie_i\Hm x = \sum_i\lambda_i\abs{e_i\Hm x}^2 .
+\]
+If all $\lambda_i>0$ this is $>0$ for $x\neq0$ (not all $e_i\Hm x$ vanish since $\{e_i\}$ is a basis). Hence \key{a Hermitian $A$ is positive definite $\iff$ all $\lambda_i>0$} (semi-definite $\iff$ all $\lambda_i\geq0$).
 \end{insight}
 
 % ===== Page 84 =====
@@ -175,7 +174,6 @@ The converse also holds: with the spectral decomposition, $x\Hm Ax = \sum_i \lam
 \]
 \explain{$\norm{Ax}>0$, otherwise the inner product would be 0.}
 \explain{$\cos\theta>0$ $\hookrightarrow$ $-90^\circ < \theta < 90^\circ$.}
-
 \begin{center}
 \begin{tikzpicture}[scale=1.1]
 \draw[->] (-1.7,0) -- (1.8,0);
@@ -190,10 +188,10 @@ The converse also holds: with the spectral decomposition, $x\Hm Ax = \sum_i \lam
 \end{tikzpicture}
 \end{center}
 
+\needspace{18\baselineskip}
 \section{Functions of a Matrix}\label{sec:functions}
 \syllabusweek{Week 14 --- functions of a matrix}
 \subsection{Definition via Power Series}\label{ss:fn-def}
-
 \key{Functions of a matrix are \emph{not} applied entrywise}:
 \begin{align*}
 &\exp\!\left(\bmat{2&1\\1&2}\right) \neq \cancel{\bmat{e^2 & e\\ e & e^2}}
@@ -257,10 +255,11 @@ f(A) &= c_0I + c_1A + \cdots + c_{\ell-1}A^{\ell-1}
 \[
 \left.\begin{aligned}
 f(s) &= \sum_{i=0}^{\infty}\alpha_i s^i, & f(A) &= \sum_{i=0}^{\infty}\alpha_i A^i\\
-p(s) &= \sum_{i=0}^{\ell-1}c_i s^i, & P(A) &= \sum_{i=0}^{\ell-1}c_i A^i
+p(s) &= \sum_{i=0}^{\ell-1}c_i s^i, & p(A) &= \sum_{i=0}^{\ell-1}c_i A^i
 \end{aligned}\right\rangle
-\ \boxed{f(A) = P(A)}\,.
+\ \boxed{f(A) = p(A)}\,.
 \]
+\needspace{7\baselineskip}
 \begin{insight}[Why a polynomial of degree $\ell-1$ suffices]
 Repeatedly substituting $A^\ell = -g_1A^{\ell-1}-\cdots-g_\ell I$ reduces every power $A^i$ ($i\geq\ell$) to a combination of $I,A,\dots,A^{\ell-1}$; summing the series gives $f(A)=\sum_{i=0}^{\ell-1}c_iA^i$. The coefficients $c_i$ depend on $f$ \emph{and} on $A$ (through $m(s)$), and the scalar polynomial $p(s)$ is in general \emph{not} equal to $f(s)$ --- only the matrix values agree. The next pages show that the $c_i$ are fixed by matching $f$ and $p$ (and derivatives) at the eigenvalues.
 \end{insight}
@@ -272,12 +271,10 @@ Two methods to find $f(A)$:
 \end{itemize}
 
 \subsection{Method I: Interpolating Polynomial (Diagonalizable Case)}\label{ss:method1-diag}
-
-If $A$ is diagonalizable $\Rightarrow$ $m(s) = (s-\lambda_1)(s-\lambda_2)\cdots(s-\lambda_k)$, \ $\ell = k$:
+\paragraph{Case I: $A$ is diagonalizable.} Then $m(s) = (s-\lambda_1)(s-\lambda_2)\cdots(s-\lambda_k)$, \ $\ell = k$:
 \[
 p(s) = \sum_{i=0}^{\ell-1}c_i s^i, \qquad \ell = k \text{ is the \# of unknowns.}
 \]
-
 Let $\lambda_j, e_j$ be the eigenpairs, $j = 1,2,\dots,k$. First note
 \begin{align*}
 A^0 e_j &= \lambda_j^0 e_j = Ie_j\\
@@ -287,7 +284,7 @@ A^i e_j &= \lambda_j^i e_j
 \end{align*}
 Then
 \begin{align*}
-f(A)e_j &= P(A)e_j\\
+f(A)e_j &= p(A)e_j\\
 \sum_{i=0}^{\infty}\alpha_i A^i e_j &= \sum_{i=0}^{\ell-1}c_i A^i e_j\\
 \Bigl(\sum_{i=0}^{\infty}\alpha_i\lambda_j^i\Bigr)e_j &= \Bigl(\sum_{i=0}^{\ell-1}c_i\lambda_j^i\Bigr)e_j\\
 f(\lambda_j)e_j &= p(\lambda_j)e_j\\
@@ -320,7 +317,7 @@ $\Rightarrow$ \key{$k$ equations and $k$ unknowns}; we can solve these.
 \begin{minipage}{0.52\textwidth}
 Although $p(s)$ \& $f(s)$ are different, they have the same values at the eigenvalues. Thus $p(s)$ is called the \term{interpolating polynomial}.
 \[
-\left.\begin{aligned} f(s) &\neq p(s)\\ f(A) &= P(A)\end{aligned}\right\rangle
+\left.\begin{aligned} f(s) &\neq p(s)\\ f(A) &= p(A)\end{aligned}\right\rangle
 \ \text{\small satisfied only at eigenvalues}
 \]
 \end{minipage}
@@ -328,6 +325,7 @@ Although $p(s)$ \& $f(s)$ are different, they have the same values at the eigenv
 
 % ===== Page 86 =====
 \origpage{86}
+\needspace{10\baselineskip}
 \sep
 \[
 \underbrace{f(A)\cdot e_j}_{\text{matrix}\times\text{vector}} = \underbrace{f(\lambda_j)\,e_j}_{\text{scalar}\times\text{vector}}
@@ -347,7 +345,7 @@ e_1 = \bmat{1\\1}, \quad e_2 = \bmat{1\\-1}
 \]
 \explain{Bunları nasıl buluyorduk? (How did we find these?) \ $Ae_1 = \lambda_1 e_1$, \ $[A-\lambda_1 I]e_1 = 0$.}
 % note: "Bunlari nasil buluyorduk?" (Turkish) = "How did we find these?"
-\explain{$d(s)=(s-2)^2-1=(s-3)(s-1)$; \ $A-3I=\bmat{-1&1\\1&-1}\Rightarrow e_1=\bmat{1\\1}$, \ $A-I=\bmat{1&1\\1&1}\Rightarrow e_2=\bmat{1\\-1}$.}
+\explain{$d(s)=(s-2)^2-1=(s-3)(s-1)$; \ $A-3I=\left[\begin{smallmatrix}-1&1\\1&-1\end{smallmatrix}\right]\Rightarrow e_1=\left[\begin{smallmatrix}1\\1\end{smallmatrix}\right]$, \ $A-I=\left[\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\right]\Rightarrow e_2=\left[\begin{smallmatrix}1\\-1\end{smallmatrix}\right]$.}
 \begin{align*}
 m(s) &= (s-3)(s-1)\\
 \ell &= 2\\
@@ -355,27 +353,32 @@ p(s) &= c_0 + c_1 s
 \end{align*}
 Find $e^A$ \& $\log A$.
 
-\paragraph{$e^A$.} $\rightarrow$ $f(A) = p(A)$, \ $f(s) = e^s$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
+\paragraph{$e^A$.} $f(s) = e^s$; \ from $f(A) = p(A)$: \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
 \begin{align*}
 f(3) &= e^3 = p(3) = c_0 + 3c_1\\
-f(1) &= e = p(1) = c_0 + c_1
-\end{align*}
-\begin{align*}
+f(1) &= e = p(1) = c_0 + c_1\\[6pt]
 \bmat{1&3\\1&1}\bmat{c_0\\c_1} &= \bmat{e^3\\e}\\
 \Rightarrow\ \bmat{c_0\\c_1} &= -\frac12\bmat{1&-3\\-1&1}\bmat{e^3\\e}
 = -\frac12\bmat{e^3-3e\\-e^3+e}\\
 \Rightarrow\ c_0 &= \frac{3e-e^3}{2}, \qquad c_1 = \frac{e^3-e}{2}
 \end{align*}
-\explain{$\det\bmat{1&3\\1&1}=-2$, so the inverse is $-\frac12\bmat{1&-3\\-1&1}$.}
+\explain{$\det\left[\begin{smallmatrix}1&3\\1&1\end{smallmatrix}\right]=-2$, so the inverse is $-\frac12\left[\begin{smallmatrix}1&-3\\-1&1\end{smallmatrix}\right]$.}
 \[
 \boxed{e^A = c_0I + c_1A = \frac{3e-e^3}{2}\bmat{1&0\\0&1} + \frac{e^3-e}{2}\bmat{2&1\\1&2}}
 = \frac12\bmat{e^3+e & e^3-e\\ e^3-e & e^3+e}
 \]
 \begin{insight}[Check]
-$e^A e_1 = \frac12\bmat{2e^3\\2e^3}=e^3e_1$ and $e^Ae_2=\frac12\bmat{2e\\-2e}=e\,e_2$, as required by $f(A)e_j=f(\lambda_j)e_j$. Numerically $e^A\approx\bmat{11.402 & 8.684\\ 8.684 & 11.402}$, which agrees with summing the series $\sum_i A^i/i!$ (MATLAB \texttt{expm(A)}), while the entrywise $\bmat{e^2&e\\e&e^2}$ is different.
+\[
+e^A e_1 = \frac12\bmat{2e^3\\2e^3}=e^3e_1, \qquad e^Ae_2=\frac12\bmat{2e\\-2e}=e\,e_2,
+\]
+as required by $f(A)e_j=f(\lambda_j)e_j$. Numerically
+\[
+e^A\approx\bmat{11.402 & 8.684\\ 8.684 & 11.402},
+\]
+which agrees with summing the series $\sum_i A^i/i!$ (MATLAB \texttt{expm(A)}), while the entrywise $\left[\begin{smallmatrix}e^2&e\\e&e^2\end{smallmatrix}\right]$ is different.
 \end{insight}
 
-\paragraph{$\log A$.} $f(s) = \log s$:
+\paragraph{$\log A$.} $f(s) = \log s$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
 \begin{align*}
 \log 3 &= c_0 + 3c_1\\
 \log 1 &= c_0 + c_1 = 0 \ \Rightarrow\ c_0 = -c_1 \\ % corrected: notes had "log 0"; the eigenvalue is 1 and log 1 = 0
@@ -389,7 +392,7 @@ $e^A e_1 = \frac12\bmat{2e^3\\2e^3}=e^3e_1$ and $e^Ae_2=\frac12\bmat{2e\\-2e}=e\
 % corrected: notes had left-hand side "log s"; log A is meant
 \explain{Check: $\log A\,e_1 = \log 3\; e_1$, \ $\log A\,e_2 = 0 = \log 1\; e_2$; and $e^{\log A}=A$.}
 
-\paragraph{$e^{At} = {?}$} $f(s) = e^{st}$, \ $f(\lambda_j) = p(\lambda_j)$:
+\paragraph{$e^{At}$.} $f(s) = e^{st}$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
 % corrected: written like f'(lambda_j) in the notes; f(lambda_j) is meant
 \begin{align*}
 e^{3t} &= c_0 + 3c_1 = c_0(t) + 3c_1(t)\\
@@ -413,8 +416,8 @@ This solves
 \end{example}
 
 % ===== Page 87 =====
-\origpage{87}
 \subsection{Method I: Non-Diagonalizable and General Case}\label{ss:method1-general}
+\origpage{87}%
 \paragraph{Case II: $A$ is not diagonalizable.}
 
 \begin{example}
@@ -446,12 +449,8 @@ J = \left[\begin{array}{cc|c} \lambda_1 & 1 & 0\\ 0 & \lambda_1 & 0\\ \hline 0 &
 \node[right,align=left] at (2.0,-2.4) {$\Null(A-\lambda_2I),\quad 0\neq y\in\Null(\Sigma_2)$\\[2pt] $\{y\}$};
 \end{tikzpicture}
 \end{center}
-
 \[
-\text{?}\left(\begin{aligned}
-P &= [\,\Sigma_1x \;\vdots\; x \;\vdots\; y\,]\\
-P &= [\,e_1 \;\vdots\; f_1 \;\vdots\; e_2\,]
-\end{aligned}\right.
+P = [\,\Sigma_1x \;\vdots\; x \;\vdots\; y\,] = [\,e_1 \;\vdots\; f_1 \;\vdots\; e_2\,],
 \qquad f(A) = p(A)
 \]
 \begin{align*}
@@ -463,7 +462,6 @@ f(\lambda_2) &= p(\lambda_2)
 \ell = 3, \qquad \boxed{p(s) = c_0 + c_1s + c_2s^2}
 \]
 \explain{2 equations, but $c_0,c_1,c_2$: 3 unknowns $\Rightarrow$ we need one more.}
-
 Use the generalized eigenvector $f_1$:
 \[
 f(A)\cdot f_1 = p(A)\cdot f_1,
@@ -482,6 +480,7 @@ Af_1 &= {?}
 \]
 \explain{As $f_1$ is not an eigenvector, $Af_1$ should include $e_1$.}
 \origpage{88}% (page 88 starts at the A^3 f_1 line)
+\needspace{9\baselineskip}
 \begin{align*}
 A^2f_1 = A\cdot(Af_1) &= A(\lambda_1f_1 + e_1)\\
 &= \lambda_1Af_1 + Ae_1\\
@@ -559,6 +558,7 @@ A = \left[\begin{array}{ccc|cc|cc}
  & & & & & 0&1
 \end{array}\right].
 \]
+\needspace{5\baselineskip}
 \begin{align*}
 d(s) &= (s-1)^2 s^5\\
 m(s) &= (s-1)^2 s^3, \qquad \ell = 5\\
@@ -580,6 +580,7 @@ f''(s) &= -\pi^2\sin(\pi s)
 \]
 % ===== Page 89 =====
 \origpage{89}
+\needspace{9\baselineskip}
 \[
 p'(s) = c_1 + 2c_2s + 3c_3s^2 + 4c_4s^3, \qquad
 p''(s) = 2c_2 + 6c_3s + 12c_4s^2
@@ -605,7 +606,12 @@ p''(s) = 2c_2 + 6c_3s + 12c_4s^2
 \]
 We still need to take 3$^{\text{rd}}$ (and 4$^{\text{th}}$) powers of $A$. If $A$ is in JCF, Method II will be much more efficient.
 \begin{insight}[Check]
-From $c_3+c_4=-\pi$: $c_4=-\pi-c_3$, so $3c_3-4\pi-4c_3=-2\pi \Rightarrow c_3=-2\pi$, $c_4=\pi$. Evaluating $\pi A-2\pi A^3+\pi A^4$ blockwise: for the nilpotent blocks $N$ ($3\times3$ and $2\times2$) $N^3=0$, so the result is $\pi N$; for the block $\bmat{1&1\\0&1}$ it gives $\bmat{0&-\pi\\0&0}$. This matches Method II below: $\sin(\pi N)=\pi N-\frac{\pi^3}{6}N^3+\dots=\pi N$, and $\sin\left(\pi\bmat{1&1\\0&1}\right)=\bmat{\sin\pi & \pi\cos\pi\\ 0&\sin\pi}=\bmat{0&-\pi\\0&0}$.
+From $c_3+c_4=-\pi$: $c_4=-\pi-c_3$, so $3c_3-4\pi-4c_3=-2\pi \Rightarrow c_3=-2\pi$, $c_4=\pi$. Evaluating $\pi A-2\pi A^3+\pi A^4$ blockwise: for the nilpotent blocks $N$ ($3\times3$ and $2\times2$) $N^3=0$, so the result is $\pi N$; for the block $\left[\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right]$ it gives $\left[\begin{smallmatrix}0&-\pi\\0&0\end{smallmatrix}\right]$. This matches Method II below:
+\[
+\sin(\pi N)=\pi N-\frac{\pi^3}{6}N^3+\dots=\pi N,
+\qquad
+\sin\left(\pi\bmat{1&1\\0&1}\right)=\bmat{\sin\pi & \pi\cos\pi\\ 0&\sin\pi}=\bmat{0&-\pi\\0&0}.
+\]
 \end{insight}
 \end{example}
 
@@ -626,7 +632,7 @@ A = \bmat{0&0\\0&1}, \qquad \lambda_1 = 0, \quad \lambda_2 = 1
 \]
 \begin{itemize}
 \item $\cancel{\log A = {?}}$, \ $\cancel{\log s}$: gives infinity (at $\lambda_1=0$).
-\item $\cancel{(I-A)^{-1} = {?}}$, \ $\cancel{(1-s)^{-1} = \tfrac{1}{1-s}}$ $\Rightarrow$ for $\lambda = 1$: $\tfrac{1}{0} = \infty$.
+\item $\cancel{(I-A)^{-1} = {?}}$, \ $\cancel{(1-s)^{-1} = \tfrac{1}{1-s}}$ $\Rightarrow$ for $\lambda_2 = 1$: $\tfrac{1}{0} = \infty$.
 \item $A^{-1}$ $\Longrightarrow$ function of a matrix. $s^{-1} = \dfrac1s$ $\Rightarrow$ if one of the eigenvalues is zero, the inverse does not exist.
 \end{itemize}
 \end{example}
@@ -636,20 +642,19 @@ $f(s) = s^{1/2} = \sqrt{s}$, \qquad $A = \bmat{0&1\\0&0}$, \qquad $m(s) = s^2$.
 \begin{align*}
 &f(0) = p(0) && \Rightarrow\ \text{no problem}\\
 &\cancel{f'(0) = p'(0)} && \Rightarrow\ \text{problem:}\quad
-f'(s) = \frac12\frac{1}{\sqrt s}\ @\ s = 0 \ \rightarrow\ \infty
+f'(s) = \frac{1}{2\sqrt s} \to \infty \text{ at } s = 0
 \end{align*}
 \explain{The square root function does not apply here: its derivative is not defined at the eigenvalue $s=0$.}
 % corrected: notes had "Square root function DNA."; read as "does not apply" (f'(0) does not exist), consistent with the remark above
-$\Rightarrow$ $\sqrt{A}$ does not exist for $\bmat{0&1\\0&0}$.
+$\Rightarrow$ $\sqrt{A}$ does not exist for $A=\left[\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right]$.
 \begin{insight}[Direct confirmation]
-Suppose $X^2=A$ with $A=\bmat{0&1\\0&0}$. Then $X^4=A^2=0$, so $X$ is nilpotent; a nilpotent $2\times2$ matrix satisfies $X^2=0$ (its minimal polynomial divides $s^2$). Hence $A=X^2=0$, a contradiction. So \emph{no} matrix squares to this $A$. In contrast, $\bmat{0&0\\0&0}$ (with $m(s)=s$, only $f(0)$ needed) has the square root $0$: whether $f(A)$ exists depends on which derivatives the minimal polynomial requires, not only on the eigenvalues.
+Suppose $X^2=A$ with $A=\left[\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right]$. Then $X^4=A^2=0$, so $X$ is nilpotent; a nilpotent $2\times2$ matrix satisfies $X^2=0$ (its minimal polynomial divides $s^2$). Hence $A=X^2=0$, a contradiction. So \emph{no} matrix squares to this $A$. In contrast, the zero matrix $\left[\begin{smallmatrix}0&0\\0&0\end{smallmatrix}\right]$ (with $m(s)=s$, only $f(0)$ needed) has the square root $0$: whether $f(A)$ exists depends on which derivatives the minimal polynomial requires, not only on the eigenvalues.
 \end{insight}
 \end{example}
 
 % ===== Page 90 =====
-\origpage{90}
 \subsection{Method II: Jordan Canonical Form}\label{ss:method2}
-
+\origpage{90}%
 \[
 J = \underbrace{P^{-1}AP}_{\substack{\text{similarity}\\ \text{transformation}}},
 \qquad J \text{ is similar to } A.
@@ -668,8 +673,9 @@ Powers of $A = PJP^{-1}$:
 (PJP^{-1})^0 &= I = PP^{-1} = P\cdot J^0P^{-1}\\
 (PJP^{-1})^1 &= PJP^{-1}\\
 (PJP^{-1})^2 &= PJ\cancel{P^{-1}}\cancel{P}JP^{-1} = PJ^2P^{-1}\\
-(PJP^{-1})^n &= PJ^nP^{-1}
+(PJP^{-1})^i &= PJ^iP^{-1}
 \end{align*}
+\needspace{9\baselineskip}
 Hence
 \begin{align*}
 f(A) &= \sum_{i=0}^{\infty}\alpha_i(PJP^{-1})^i = \sum_{i=0}^{\infty}\alpha_iP(J^i)P^{-1}\\
@@ -725,16 +731,16 @@ f(J_t) = \sum_{i=0}^{d_t-1}\frac{f^{(i)}(\lambda_j)}{i!}(J_t-\lambda_jI)^i
 \begin{keybox}
 \[
 f(J_t) = \bmat{
-f(\lambda_j) & f'(\lambda_j) & \frac{f''(\lambda_j)}{2} & \cdots & \frac{f^{(d_t-1)}(\lambda_j)}{(d_t-1)!}\\
+f(\lambda_j) & f'(\lambda_j) & \frac{f''(\lambda_j)}{2!} & \cdots & \frac{f^{(d_t-1)}(\lambda_j)}{(d_t-1)!}\\
  & f(\lambda_j) & f'(\lambda_j) & \frac{f''(\lambda_j)}{2!} & \vdots\\
- & & \ddots & \ddots & \frac{f''(\lambda_j)}{2}\\
+ & & \ddots & \ddots & \frac{f''(\lambda_j)}{2!}\\
  & \text{\huge 0} & & \ddots & f'(\lambda_j)\\
  & & & & f(\lambda_j)}
 \]
 \end{keybox}
 \begin{itemize}[nosep]
-\item $0^{\text{th}}$ power contributes to the diagonal.
-\item $1^{\text{st}}$ super diagonal is formed by the first power.
+\item The $0^{\text{th}}$ power ($I$) forms the main diagonal.
+\item The $1^{\text{st}}$ power forms the first superdiagonal.
 \item[] \quad $\vdots$
 \end{itemize}
 \begin{insight}[Link with Method I]
@@ -752,7 +758,7 @@ P = [\,e_1 \;\vdots\; e_2\,], \qquad A = P\underbrace{\left[\begin{array}{c|c}3&
 \qquad\Rightarrow\qquad
 f(A) = P\left[\begin{array}{c|c} f(3) & 0\\ \hline 0 & f(1)\end{array}\right]P^{-1}
 \]
-With $P=\bmat{1&1\\1&-1}$, $P^{-1}=\frac12\bmat{1&1\\1&-1}$:
+With $P=\left[\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right]$ and $P^{-1}=\frac12\left[\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right]$:
 \[
 f(A) = \frac12\bmat{f(3)+f(1) & f(3)-f(1)\\ f(3)-f(1) & f(3)+f(1)} .
 \]
@@ -760,7 +766,7 @@ f(A) = \frac12\bmat{f(3)+f(1) & f(3)-f(1)\\ f(3)-f(1) & f(3)+f(1)} .
 \end{example}
 
 \begin{example}
-$\sin\pi A = {?}$ for
+Find $\sin(\pi A)$ for
 \[
 A = \left[\begin{array}{ccc|cc|c}
 \frac12 & 1 & 0 & & & \\
@@ -783,18 +789,20 @@ A = \left[\begin{array}{ccc|cc|c}
 % ===== Page 92 =====
 \origpage{92}
 \[
-f(s) = \sin\pi s, \qquad f'(s) = \cos\pi s\cdot\pi, \qquad f''(s) = -\pi^2\sin\pi s
+f(s) = \sin(\pi s), \qquad f'(s) = \pi\cos(\pi s), \qquad f''(s) = -\pi^2\sin(\pi s)
 \]
 \[
-\sin\pi J_1 = \bmat{1 & 0 & -\frac{\pi^2}{2}\\ 0 & 1 & 0\\ 0 & 0 & 1},
+\sin(\pi J_1) = \bmat{1 & 0 & -\frac{\pi^2}{2}\\ 0 & 1 & 0\\ 0 & 0 & 1},
 \qquad
-\sin\pi J_2 = \bmat{-1 & 0\\ 0 & -1},
+\sin(\pi J_2) = \bmat{-1 & 0\\ 0 & -1},
 \qquad
-\sin\pi J_3 = \bmat{1}
+\sin(\pi J_3) = \bmat{1}
 \]
-\explain{$J_1$ ($\lambda=\frac12$, size 3): $f(\frac12)=1$, $f'(\frac12)=\pi\cos\frac{\pi}{2}=0$, $\frac{f''(\frac12)}{2}=-\frac{\pi^2}{2}$. \ $J_2$ ($\lambda=\frac32$): $f=-1$, $f'=\pi\cos\frac{3\pi}{2}=0$. \ $J_3$: $\sin\frac{5\pi}{2}=1$.}
+\explain{$J_1$ ($\lambda=\tfrac12$, size 3): $f(\tfrac12)=1$, \ $f'(\tfrac12)=\pi\cos\tfrac{\pi}{2}=0$, \ $f''(\tfrac12)/2!=-\pi^2/2$.}
+\explain{$J_2$ ($\lambda=\tfrac32$, size 2): $f(\tfrac32)=-1$, \ $f'(\tfrac32)=\pi\cos\tfrac{3\pi}{2}=0$.}
+\explain{$J_3$ ($\lambda=\tfrac52$, size 1): $f(\tfrac52)=\sin\tfrac{5\pi}{2}=1$.}
 \[
-\sin\pi A = \left[\begin{array}{ccc|cc|c}
+\sin(\pi A) = \left[\begin{array}{ccc|cc|c}
 1 & 0 & -\frac{\pi^2}{2} & & & \\
 0 & 1 & 0 & & & \\
 0 & 0 & 1 & & & \\ \hline
@@ -813,7 +821,7 @@ A = \bmat{2&1\\1&2},
 \qquad
 A^{1/2} = P\bmat{\sqrt3 & 0\\ 0 & \sqrt1}P^{-1} \ \Rightarrow\ \text{unique}
 \]
-\explain{$\hookrightarrow$ unique p.def.\ sqrt of $A$: MATLAB $\cancel{\texttt{sqrt(A)}}$, \ $\texttt{sqrtm(A)}\ \checkmark$.}
+\explain{$\hookrightarrow$ unique positive-definite square root of $A$: MATLAB $\cancel{\texttt{sqrt(A)}}$, \ $\texttt{sqrtm(A)}\ \checkmark$.}
 But if we only require $A^{1/2}\cdot A^{1/2} = A$ $\Rightarrow$ not unique anymore (compare: $x = \sqrt3$ vs.\ $y\cdot y = 3$):
 \begin{align*}
 A^{1/2}\cdot A^{1/2} &= P\bmat{3&0\\0&1}P^{-1}\\
@@ -823,12 +831,17 @@ A^{1/2} &= P\bmat{\pm\sqrt3 & 0\\ 0 & \pm\sqrt1}P^{-1}
 % corrected: notes had \mp in both entries; the two signs can be chosen independently (4 matrices)
 \explain{These are all valid for the definition $A^{1/2}A^{1/2} = A$ (signs chosen independently: 4 matrices).}
 \begin{insight}[The numbers]
-With $P=\bmat{1&1\\1&-1}$, $P\diag(a,b)P^{-1}=\frac12\bmat{a+b&a-b\\a-b&a+b}$ and its square is $\frac12\bmat{a^2+b^2&a^2-b^2\\a^2-b^2&a^2+b^2}$, which equals $A$ whenever $a^2=3$, $b^2=1$. The principal (function) square root is
+With $P=\left[\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right]$,
+\[
+P\diag(a,b)P^{-1}=\frac12\bmat{a+b&a-b\\a-b&a+b},
+\qquad
+\bigl(P\diag(a,b)P^{-1}\bigr)^2=\frac12\bmat{a^2+b^2&a^2-b^2\\a^2-b^2&a^2+b^2},
+\]
+which equals $A$ whenever $a^2=3$, $b^2=1$. The principal (function) square root is
 \[
 A^{1/2} = \text{\texttt{sqrtm(A)}} =\frac12\bmat{\sqrt3+1 & \sqrt3-1\\ \sqrt3-1 & \sqrt3+1}\approx\bmat{1.366&0.366\\0.366&1.366},
 \]
 whose eigenvalues $\sqrt3,1$ are positive: it is \key{the unique positive-definite square root}. The other three choices $(a,b)=(-\sqrt3,1),(\sqrt3,-1),(-\sqrt3,-1)$ also square to $A$ but are not positive definite.
 \end{insight}
-
 If $A$ is positive definite $\Rightarrow$ the square root is wanted to be positive definite, which is given by the function.
 \end{example}

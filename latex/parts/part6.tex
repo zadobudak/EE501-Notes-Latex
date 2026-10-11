@@ -47,27 +47,27 @@ P=\big[\,e_1\mid e_2\mid\dots\mid e_n\,\big], \qquad \bar A = P^{-1}AP \;\Righta
 \end{align*}
 
 \begin{keybox}
-\begin{align*}
+\noindent\hfil$\displaystyle\begin{aligned}
 \therefore\ \text{Distinct eigenvalues} &\;\Rightarrow\; \text{Diagonalizable matrix}\\
 &\;\Rightarrow\; \text{we can find $P$ matrix \& $\bar A$}\\[2pt]
 \text{Distinct eigenvalues} &\;\not\Leftarrow\; \text{Diagonalizable}
-\end{align*}
+\end{aligned}$\hfil\par\smallskip
 Contrapositive ($p\Rightarrow q \;\equiv\; \bar q\Rightarrow \bar p$):\quad Non-diagonalizable $\;\Rightarrow\;$ repeated eigenvalues.
 \end{keybox}
-
+Two diagonal matrices with repeated eigenvalues:
 \[
 A=\bmat{1&0&0\\0&1&0\\0&0&1},\quad d(s)=(s-1)^3
 \qquad\qquad
 \bmat{2&0&0\\0&2&0\\0&0&1}
 \]
-\explain{Diagonal $\Rightarrow$ but repeated eigenvalues.}
+\explain{Diagonal, but repeated eigenvalues.}
 Both matrices are already diagonal (so trivially diagonalizable with $P=I$), yet their eigenvalues are repeated: this is why the converse implication fails.
 
 % ===== Page 59 =====
 \section{Characteristic and Minimal Polynomials}\label{sec:polys}
 \syllabusweek{Week 10 --- Cayley--Hamilton theorem, characteristic and minimal polynomials}
 \subsection{Similar Matrices and the Characteristic Polynomial}\label{ss:charpoly}
-\origpage{59}
+\origpage{59}%
 % (a rotated personal side note in Turkish in the margin, unrelated to the material, is omitted)
 \key{Similar matrices have the same characteristic polynomial:}
 \begin{align*}
@@ -139,25 +139,27 @@ A^n &= -d_1A^{n-1}-\dots-d_{n-1}A-d_n\underbrace{I}_{A^0}
 \begin{remark}
 CHT says that \key{$n^{\text{th}}$ and higher order powers of an $n\times n$ matrix can be written as a linear combination of its lower powers.}
 \end{remark}
-\[ A^2-4A+3I=0 \;\Rightarrow\; A^2=4A-3I \]
+For the matrix $A$ above, $d(A)=0$ gives:
 \begin{align*}
+A^2-4A+3I=0 \;\Rightarrow\; A^2 &= 4A-3I\\[2pt]
 A^3 &= AA^2 = A(4A-3I)=4A^2-3A = 4(4A-3I)-3A\\
 &= 13A-12I
 \end{align*}
-For $A=\bmat{2&1\\1&2}$:
+The inverse follows in the same way:
 \begin{align*}
 A^2-4A+3I&=0\\
 A-4I+3A^{-1}&=0 \qquad\text{(multiply by $A^{-1}$; $A$ is invertible since $d(0)=3\neq0$)}\\
 A^{-1}&=-\frac{A}{3}+\frac{4I}{3}=\frac13\bmat{2&-1\\-1&2}
 \end{align*}
 % corrected: notes had "A - 4 + 3A^{-1} = 0" (identity matrix missing)
+In general, every power $A^i$ ($i\ge n$) reduces to
 \[
 \therefore\; A^i = \alpha_1A^{n-1}+\alpha_2A^{n-2}+\dots+\alpha_{n-1}A+\alpha_nI
 \]
 % note: a stray "x" mark follows "A = 2x2" in the notes
 
 \sep
-\paragraph{$A=2\times 2$:}
+\paragraph{The $2\times 2$ case.}
 By CHT, for a $2\times2$ matrix every power is a combination of $A$ and $I$. To find the coefficients we use eigenvectors.
 For an eigenpair $Ae_1=\lambda_1e_1$:
 \begin{align*}
@@ -167,6 +169,7 @@ A^ie_1&=\lambda_1^ie_1\\
 p(A)e_1&=p(\lambda_1)e_1
 \end{align*}
 \explain{For any polynomial $p$: $p(A)$ acts on an eigenvector as multiplication by $p(\lambda_1)$.}
+\needspace{9\baselineskip}
 \[
 \boxed{A^i=\alpha_iA+\beta_i I}\qquad
 \lambda_1=3\ (e_1),\qquad \lambda_2=1\ (e_2)
@@ -200,7 +203,7 @@ $i=0$: $0\cdot A+1\cdot I=I$; \ $i=1$: $A+0\cdot I=A$; \ $i=2$: $4A-3I$ (as foun
 
 % ===== Page 61 =====
 \subsection{The Minimal Polynomial}\label{ss:minpoly}
-\origpage{61}
+\origpage{61}Consider
 \[
 A=\bmat{2&0&0\\0&2&0\\0&0&1},\qquad d(s)=(s-2)^2(s-1)
 \]
@@ -217,7 +220,7 @@ m(A)&=(A-2I)(A-I)=\bmat{0&0&0\\0&0&0\\0&0&-1}\bmat{1&0&0\\0&1&0\\0&0&0}=0_{n\tim
 \explain{Lowest order $\Rightarrow$ minimal polynomial. (A degree-1 monic $A-cI$ cannot vanish, since $A$ is not a multiple of $I$.)}
 
 \begin{definition}
-A \term{monic polynomial} is a polynomial whose highest degree of polynomial coefficient is unity ($=1$).
+A \term{monic polynomial} is a polynomial whose coefficient of the highest-degree term is unity ($=1$).
 \begin{itemize}[label=$\ast$]
 \item $s^2+2s+3$ \quad (Monic)
 \item $2s^2+2s+3$ \quad (Not monic)
@@ -228,16 +231,16 @@ For an $n\times n$ matrix $A$, the \term{minimal polynomial} is the monic polyno
 \[ m(A)=0_{n\times n} \]
 \end{definition}
 \begin{theorem}
-Given $A\in\C^{n\times n}$ let $m(s)$ be its minimal polynomial then
-\begin{enumerate}[label=\roman*)]
-\item $m(s)$ is \key{unique}
-\item \key{$m(s)$ divides $d(s)$} without any remainder: $\exists q(s)$ s.t.\ $d(s)=m(s)q(s)$
+Given $A\in\C^{n\times n}$ let $m(s)$ be its minimal polynomial. Then
+\begin{enumerate}[label=\Roman*)]
+\item $m(s)$ is \key{unique};
+\item \key{$m(s)$ divides $d(s)$} without any remainder: $\exists q(s)$ s.t.\ $d(s)=m(s)q(s)$;
 % corrected: notes had "d(s) = m(s) d(s)" 
-\item \key{Every root of $d(s)$ is also a root of $m(s)$}
+\item \key{every root of $d(s)$ is also a root of $m(s)$}.
 \end{enumerate}
 \end{theorem}
 
-\paragraph{Candidates for $d(s)=(s-1)(s-2)^2$:}
+\paragraph{Candidates for $d(s)=(s-1)(s-2)^2$.}
 \begin{itemize}[itemsep=2pt]
 \item $\cancel{m(s)=(s-1)}$,\quad $\cancel{m(s)=(s-2)}$,\quad $\cancel{m(s)=(s-2)^2}$\newline {\small$\triangleright$} not possible, property III (a root of $d(s)$ is missing)
 \item $\cancel{m(s)=(s-1)(s-3)}$,\quad $\cancel{m(s)=(s-2)^3}$\newline {\small$\triangleright$} not possible, property II (they do not divide $d(s)$)
@@ -315,13 +318,12 @@ The proof of II only used $d(A)=0$. Hence: \key{$m(s)$ divides every polynomial 
 
 % ===== Page 63 =====
 \subsection{Minimal Polynomial and Null-Space Decomposition}\label{ss:minpoly-decomp}
-\origpage{63}
 \begin{keybox}
-\begin{align*}
+\origpage{63}\noindent\hfil$\displaystyle\begin{aligned}
 \therefore\; d(s)&=(s-\lambda_1)^{r_1}(s-\lambda_2)^{r_2}\cdots(s-\lambda_k)^{r_k}\\
 m(s)&=(s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k}\\
 &1\le m_i\le r_i, \qquad r_1+r_2+\dots+r_k=n
-\end{align*}
+\end{aligned}$\hfil
 \end{keybox}
 
 \paragraph{Distinct eigenvalue case.}
@@ -340,7 +342,7 @@ A=\bmat{1&0&0\\0&2&0\\0&0&3},\qquad d(s)=(s-1)(s-2)(s-3)=m(s)
 \oplus\underbrace{\Null(A-\underset{\substack{\shortparallel\\3}}{\lambda_3}I)}_{\dim=1}
 \]
 \[
-\C^n=\underbrace{\Null\big((A-\lambda_1I)^1\big)}_{\dim=1}\oplus\cdots\oplus\underbrace{\Null\big((A-\lambda_nI)^1\big)}_{\dim 1}
+\C^n=\underbrace{\Null\big((A-\lambda_1I)^1\big)}_{\dim=1}\oplus\cdots\oplus\underbrace{\Null\big((A-\lambda_nI)^1\big)}_{\dim=1}
 \]
 
 \begin{example}
@@ -354,16 +356,16 @@ m_1(s)&=\boxed{(s-1)(s-2)}\ \checkmark\\
 &=\cancel{(s-1)}\cancel{(s-2)}^2
 \end{align*}
 \begin{alignat*}{2}
-A_1-I&=\bmat{0&0&0\\0&1&0\\0&0&1}, &\qquad&\text{rank}=2,\ \dim=3,\ \text{null}=1\\
-A_1-2I&=\bmat{-1&0&0\\0&0&0\\0&0&0}, &&\text{rank}=1,\ \dim=3,\ \text{null}=2
+A_1-I&=\bmat{0&0&0\\0&1&0\\0&0&1}, &\qquad&\rank=2,\ \dim=3,\ \text{null}=1\\[2pt]
+A_1-2I&=\bmat{-1&0&0\\0&0&0\\0&0&0}, &&\rank=1,\ \dim=3,\ \text{null}=2
 \end{alignat*}
-\explain{Columns 2, 3 of $A_1-I$: lin.\ indep vectors.}
+\explain{Columns 2, 3 of $A_1-I$: linearly independent vectors.}
 \[ (A_1-I)(A_1-2I)=0_{3\times3} \]
 \begin{align*}
 \Null(A_1-I)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
 \Null(A_1-2I)&=\Span\left\{\bmat{0\\1\\0},\bmat{0\\0\\1}\right\}
 \end{align*}
-\explain{Linearly indep $\Rightarrow$ direct sum.}
+\explain{Linearly independent $\Rightarrow$ direct sum.}
 \[
 \underbrace{\Null\big((A_1-I)^1\big)}_{\dim=1}\oplus\underbrace{\Null\big((A_1-2I)^1\big)}_{\dim=2}=\C^3
 \]
@@ -375,8 +377,8 @@ m_2(s)&=\cancel{(s-1)}\cancel{(s-2)}\\
 &=\boxed{(s-1)(s-2)^2}\ \checkmark
 \end{align*}
 \begin{alignat*}{2}
-A_2-I&=\bmat{0&0&0\\0&1&1\\0&0&1}, &\qquad&r=2,\ n=1,\ d=3\\
-A_2-2I&=\bmat{-1&0&0\\0&0&1\\0&0&0}\neq 0_{3\times3}, &&r=2,\ n=1,\ d=3\\
+A_2-I&=\bmat{0&0&0\\0&1&1\\0&0&1}, &\qquad&\rank=2,\ \dim=3,\ \text{null}=1\\[2pt]
+A_2-2I&=\bmat{-1&0&0\\0&0&1\\0&0&0}\neq 0_{3\times3}, &&\rank=2,\ \dim=3,\ \text{null}=1\\[2pt]
 (A_2-2I)^2&=\bmat{1&0&0\\0&0&0\\0&0&0}
 \end{alignat*}
 \[ (A_2-I)(A_2-2I)=\bmat{0&0&0\\0&0&1\\0&0&0}\neq0_{3\times3} \]
@@ -387,7 +389,7 @@ A_2-2I&=\bmat{-1&0&0\\0&0&1\\0&0&0}\neq 0_{3\times3}, &&r=2,\ n=1,\ d=3\\
 \Null\big((A_2-2I)\big)&=\Span\left\{\bmat{0\\1\\0}\right\}
 \end{align*}
 \[
-\C^3\;\cancel{=}\;\underbrace{\Null\big((A_2-I)\big)}_{1}\oplus\underbrace{\Null\big((A_2-2I)\big)}_{1}
+\C^3\;\cancel{=}\;\underbrace{\Null\big((A_2-I)\big)}_{\dim=1}\oplus\underbrace{\Null\big((A_2-2I)\big)}_{\dim=1}
 \]
 \[
 \Null\big((A_2-2I)^2\big)=\Span\left\{\bmat{0\\1\\0},\bmat{0\\0\\1}\right\}
@@ -404,8 +406,8 @@ In both cases $\C^3$ splits into null spaces of powers of $A-\lambda_iI$, and th
 \section{Jordan Canonical Form}\label{sec:jordan}
 \syllabusweek{Weeks 11--12 --- Jordan canonical forms}
 \subsection{Generalized Eigenspaces and the Jordan Form}\label{ss:gen-eigenspaces}
-\origpage{64}
 \begin{theorem}[Null-space decomposition]
+\origpage{64}%
 \[ d(s)=(s-\lambda_1)^{r_1}(s-\lambda_2)^{r_2}\cdots(s-\lambda_k)^{r_k} \]
 \[
 \C^n=\overbrace{\Null\big((A-\lambda_1I)^{m_1}\big)}^{\dim=r_1}\oplus\overbrace{\Null\big((A-\lambda_2I)^{m_2}\big)}^{\dim=r_2}\oplus\cdots\oplus\overbrace{\Null\big((A-\lambda_kI)^{m_k}\big)}^{\dim=r_k}
@@ -441,22 +443,21 @@ A=\bmat{1&0&0\\0&2&1\\0&0&2},\qquad
 \left.\begin{aligned}d(s)&=(s-1)(s-2)^2\\ m(s)&=(s-1)(s-2)^2\end{aligned}\right\}\ \text{found before}
 \]
 \[
-\C^3=\underbrace{\Null\big((A-I)\big)}_{\dim 1}\oplus\underbrace{\Null\big((A-2I)^2\big)}_{\dim 2}
+\C^3=\underbrace{\Null\big((A-I)\big)}_{\dim=1}\oplus\underbrace{\Null\big((A-2I)^2\big)}_{\dim=2}
 \]
 \paragraph{Powers of $A-I$.}
 \begin{align*}
-(A-I)&=\bmat{0&0&0\\0&1&1\\0&0&1}, \quad r=2, & \dim\Null(A-I)&=1, & \Null(A-I)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
-(A-I)^2&=\bmat{0&0&0\\0&1&2\\0&0&1}, \quad r=2,\ \text{Null}=1, & \dim\Null\big((A-I)^2\big)&=1, & \Null\big((A-I)^2\big)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
+(A-I)&=\bmat{0&0&0\\0&1&1\\0&0&1}, \quad \rank=2, & \dim\Null(A-I)&=1, & \Null(A-I)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
+(A-I)^2&=\bmat{0&0&0\\0&1&2\\0&0&1}, \quad \rank=2, & \dim\Null\big((A-I)^2\big)&=1, & \Null\big((A-I)^2\big)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
 &\ \ \vdots\\
-(A-I)^l&=\bmat{0&0&0\\0&1&l\\0&0&1}, & \dim\Null\big((A-I)^l\big)&=1, & \Null\big((A-I)^l\big)&=\Span\left\{\bmat{1\\0\\0}\right\}
+(A-I)^l&=\bmat{0&0&0\\0&1&l\\0&0&1}, \quad \rank=2, & \dim\Null\big((A-I)^l\big)&=1, & \Null\big((A-I)^l\big)&=\Span\left\{\bmat{1\\0\\0}\right\}
 \end{align*}
 \[
 \Null(A-I)=\Null\big((A-I)^2\big)=\dots=\Null\big((A-I)^l\big)
 \]
 
 % ===== Page 65 =====
-\origpage{65}
-\paragraph{Powers of $A-2I$.}
+\paragraph{Powers of $A-2I$.}\origpage{65}
 \begin{align*}
 (A-2I)&=\bmat{-1&0&0\\0&0&1\\0&0&0}, & \dim\Null(A-2I)&=1, & \Null(A-2I)&=\Span\left\{\bmat{0\\1\\0}\right\}\\
 (A-2I)^2&=\bmat{1&0&0\\0&0&0\\0&0&0}, & \dim\Null\big((A-2I)^2\big)&=2, & \Null\big((A-2I)^2\big)&=\Span\left\{\bmat{0\\1\\0},\bmat{0\\0\\1}\right\}
@@ -475,10 +476,10 @@ In general:
 \[\setlength{\arraycolsep}{3pt}
 \begin{array}{ccccccccc}
 \dim & < & \dim & < \cdots < & \dim & = & \dim & = & \cdots\\
-\Null(A-\lambda_iI) & \subsetneq & \Null\big((A-\lambda_iI)^2\big) & \subsetneq\cdots\subsetneq & \underbrace{\Null\big((A-\lambda_iI)^{m_i}\big)}_{\dim r_i} & = & \Null\big((A-\lambda_iI)^{m_i+1}\big) & = & \cdots
+\Null(A-\lambda_iI) & \subsetneq & \Null\big((A-\lambda_iI)^2\big) & \subsetneq\cdots\subsetneq & \underbrace{\Null\big((A-\lambda_iI)^{m_i}\big)}_{\dim=r_i} & = & \Null\big((A-\lambda_iI)^{m_i+1}\big) & = & \cdots
 \end{array}
 \]
-\explain{$\dim r_i$: largest dimension $\hookrightarrow$ exponent $r_i$ in the characteristic polynomial.}
+\explain{$\dim=r_i$: largest dimension $\hookrightarrow$ exponent $r_i$ in the characteristic polynomial.}
 \end{example}
 
 \begin{example}
@@ -496,20 +497,20 @@ m(s)&=\,?\quad\text{3 possibilities:}
 \item $(s-1)^3(s-2)$
 \end{enumerate}
 \begin{align*}
-(A-I)&=\bmat{0&0&0&0\\0&0&1&0\\0&0&0&0\\0&0&0&1}, & \dim\big(\Null(A-I)\big)&=2\\
-(A-I)^2&=\bmat{0&0&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&1}, & \dim\big(\Null((A-I)^2)\big)&=3\ \checkmark
+(A-I)&=\bmat{0&0&0&0\\0&0&1&0\\0&0&0&0\\0&0&0&1}, & \dim\Null(A-I)&=2\\
+(A-I)^2&=\bmat{0&0&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&1}, & \dim\Null\big((A-I)^2\big)&=3\ \checkmark
 \end{align*}
 \explain{$\dim\Null\big((A-I)^2\big)=3=r_1$ is reached at power $2$, so $m_1=2$; for $\lambda_2=2$, $r_2=1$ forces $m_2=1$. Hence $m(s)=(s-1)^2(s-2)$; indeed $(A-I)^2(A-2I)=0$ but $(A-I)(A-2I)\neq0$.}
 \end{example}
 
 % ===== Page 66 =====
 \subsection{Chains of Null Spaces}\label{ss:nullspace-chains}
-\origpage{66}
+\origpage{66}%
 $\ast$\quad Let $\Sigma_i \triangleq A-\lambda_iI$. Then
 \[
 \begin{array}{ccccccccccc}
 \Null(\Sigma_i) & \subsetneq & \Null(\Sigma_i^2) & \subsetneq & \Null(\Sigma_i^3) & \cdots & \subsetneq & \Null(\Sigma_i^{m_i}) & = & \Null(\Sigma_i^{m_i+1}) & \cdots\\
-1\le\dim & < & \dim & < & \dim & \cdots & < & \dim r_i & = & r_i &
+1\le\dim & < & \dim & < & \dim & \cdots & < & \dim=r_i & = & \dim=r_i &
 \end{array}
 \]
 
@@ -539,7 +540,7 @@ If $\Null(\Sigma_i^l)=\Null(\Sigma_i^{l+1})$ then $\Null(\Sigma_i^{l+1})=\Null(\
 % corrected: notes omitted "=" between the two null spaces
 \end{claim}
 Assume $\Null(\Sigma_i^l)=\Null(\Sigma_i^{l+1})$. Need to show $\Null(\Sigma_i^{l+1})=\Null(\Sigma_i^{l+2})$, i.e.
-\begin{itemize}[nosep]
+\begin{itemize}[itemsep=2pt,topsep=2pt]
 \item[$\checkmark$] $\Null(\Sigma_i^{l+1})\subset\Null(\Sigma_i^{l+2})$
 \item[] $\Null(\Sigma_i^{l+2})\subset\Null(\Sigma_i^{l+1})$
 \end{itemize}
@@ -578,33 +579,33 @@ A=\begin{bmatrix}
 A_1=\bmat{2&1&0\\0&2&1\\0&0&2},\qquad d_1(s)=(s-2)^3,\qquad m_1(s)=(s-2)^3
 \]
 \begin{align*}
-A_1-2I&=\bmat{0&1&0\\0&0&1\\0&0&0},\quad \text{rank}=2,\ \Null=1, & \dim\big(\Null(A_1-2I)\big)&=1\\
-(A_1-2I)^2&=\bmat{0&0&1\\0&0&0\\0&0&0}, & \dim\big(\Null((A_1-2I)^2)\big)&=2\\
-(A_1-2I)^3&=\bmat{0&0&0\\0&0&0\\0&0&0}, & \dim\big(\Null((A_1-2I)^3)\big)&=3\\
-(A_1-2I)^4&=0_{3\times3}, & \dim\big(\Null((A_1-2I)^4)\big)&=3\ \dots
+A_1-2I&=\bmat{0&1&0\\0&0&1\\0&0&0},\quad \rank=2, & \dim\Null(A_1-2I)&=1\\
+(A_1-2I)^2&=\bmat{0&0&1\\0&0&0\\0&0&0}, & \dim\Null\big((A_1-2I)^2\big)&=2\\
+(A_1-2I)^3&=\bmat{0&0&0\\0&0&0\\0&0&0}, & \dim\Null\big((A_1-2I)^3\big)&=3\\
+(A_1-2I)^4&=0_{3\times3}, & \dim\Null\big((A_1-2I)^4\big)&=3\ \dots
 \end{align*}
 \explain{For $(A_1-2I)^3$: no need to calculate as it can be max 3 and is not equal to 1 or 2.}
 % corrected: notes write "A" instead of "A_1" in the dimension column and in the last row
 \explain{Each Jordan block of size $p$ behaves the same way: $\dim\Null\big((J-\lambda I)^l\big)=\min(l,p)$. Each block of $A$ contributes to the dimensions of $A$ independently.}
 
 % ===== Page 67 =====
-\origpage{67}
-\paragraph{For $A$:}
+\needspace{14\baselineskip}
+\paragraph{Whole matrix $A$.}\origpage{67}
 \[
 d(s)=(s-2)^7(s-3)^3
 \]
 \explain{$\lambda=2$ appears in blocks of sizes $3,2,1,1$ ($3+2+1+1=7$); $\lambda=3$ in blocks of sizes $2,1$ ($2+1=3$).}
 \begin{align*}
 &\Sigma_1=A-2I & &\Sigma_2=A-3I\\
-&\dim\big(\Null(\Sigma_1)\big)=4 & &\dim\big(\Null(\Sigma_2)\big)=2\\
-&\dim\big(\Null(\Sigma_1^2)\big)=6 \quad(+2) & &\dim\big(\Null(\Sigma_2^2)\big)=3 \quad(+1)\\
-&\dim\big(\Null(\Sigma_1^3)\big)=7 \quad(+1) & &\Rightarrow (s-3)^2 \quad(+0)\\
+&\dim\Null(\Sigma_1)=4 & &\dim\Null(\Sigma_2)=2\\
+&\dim\Null(\Sigma_1^2)=6 \quad(+2) & &\dim\Null(\Sigma_2^2)=3 \quad(+1)\\
+&\dim\Null(\Sigma_1^3)=7 \quad(+1) & &\Rightarrow (s-3)^2 \quad(+0)\\
 &\Rightarrow (s-2)^3 \quad(+0)
 \end{align*}
 \[
 \boxed{\therefore\ m(s)=(s-2)^{3}(s-3)^{2}}
 \]
-\explain{Exponent 3: largest JB for $\lambda_i=2$;\quad exponent 2: largest JB for $\lambda_i=3$.}
+\explain{Exponent 3: largest Jordan block (JB) for $\lambda_i=2$;\quad exponent 2: largest JB for $\lambda_i=3$.}
 \end{example}
 
 \subsection{Counting Jordan Blocks}\label{ss:counting-jb}
@@ -612,7 +613,7 @@ d(s)=(s-2)^7(s-3)^3
 \begin{align*}
 \dim\Null(\Sigma_i)&=\#\text{ of JB's for }\lambda_i\\
 &=\#\text{ of JB's with size}\ge1\text{ for }\lambda_i\\
-&=\max\#\text{ of linearly ind.\ eigenvectors for }\lambda_i
+&=\max\#\text{ of linearly independent eigenvectors for }\lambda_i
 \end{align*}
 \begin{align*}
 \dim\Null(\Sigma_i^2)-\dim\Null(\Sigma_i^1)&=\#\text{ of JB's with size}\ge2\text{ for }\lambda_i\\
@@ -638,6 +639,7 @@ Reason: a block of size $p$ contributes $1$ to $\dim\Null(\Sigma_i^l)$ for each 
 \end{insight}
 
 \sep
+\needspace{10\baselineskip}
 $\Rightarrow$ For diagonalizable matrix, minimal polynomial should have the power at most 1:
 \begin{keybox}
 \centering JCF is diagonal iff $m_i=1\ \forall i$
@@ -646,10 +648,10 @@ $\Rightarrow$ For diagonalizable matrix, minimal polynomial should have the powe
 \C^n&=\Null(\Sigma_1^{m_1})\oplus\cdots\oplus\Null(\Sigma_k^{m_k})\\
 \C^n&=\underbrace{\Null(\Sigma_1)}_{r_1}\oplus\cdots\oplus\underbrace{\Null(\Sigma_k)}_{r_k}
 \end{align*}
-\explain{$\Null(\Sigma_1)$: at most $r_1$ linearly indep eigenvectors.}
+\explain{$\Null(\Sigma_1)$: at most $r_1$ linearly independent eigenvectors.}
 The second decomposition holds exactly when $m_i=1$ for all $i$, i.e.\ when $\dim\Null(\Sigma_i)=r_i$ for every eigenvalue.
 
-$\Rightarrow$ \key{$A$ is diagonalizable iff there exist $n$ linearly indep eigenvectors for $A$.}
+$\Rightarrow$ \key{$A$ is diagonalizable iff there exist $n$ linearly independent eigenvectors for $A$.}
 
 % ===== Page 68 =====
 \begin{example}
@@ -659,7 +661,7 @@ A=\bmat{1&-1&1&0\\1&-1&0&0\\0&0&0&0\\2&-2&-2&0}
 \begin{aligned}
 &d(s)=s^4\\
 &m(s)=\,?\\
-&J=\,?
+&\text{JCF}=\,?
 \end{aligned}
 \]
 \explain{$d(s)=s^4$: Learn to calculate this! (Shortcut: $A^3=0$ below, so every eigenvalue satisfies $\lambda^3=0$, i.e.\ $\lambda=0$ with multiplicity 4.)}
@@ -683,15 +685,16 @@ $\Rightarrow$ one JB with size $=3$, zero JB with size $=2$, one JB with size $=
 \[
 \text{JCF}=\left[\begin{array}{ccc|c}0&1&0&0\\0&0&1&0\\0&0&0&0\\\hline0&0&0&0\end{array}\right]
 \]
-$\Rightarrow$ \key{Not diagonalizable!} \ (only $\dim\Null(A)=2<4$ independent eigenvectors; equivalently $m_1=3\neq1$)
+$\Rightarrow$ \key{Not diagonalizable!} Only $\dim\Null(A)=2<4$ independent eigenvectors exist; equivalently, $m_1=3\neq1$.
 \end{example}
 
+\needspace{12\baselineskip}
 \begin{example}
-Let $A\in\R^{8\times8}$ have the following subspace dimensions
+Let $A\in\R^{8\times8}$ have the following subspace dimensions:
 \begin{alignat*}{2}
-\dim\big(\Null(A-3I)\big)&=5 &\qquad& (+5)\\
-\dim\big(\Null((A-3I)^2)\big)&=7 && (+2)\\
-\dim\big(\Null((A-3I)^3)\big)&=8 && (+1)\\
+\dim\Null(A-3I)&=5 &\qquad& (+5)\\
+\dim\Null\big((A-3I)^2\big)&=7 && (+2)\\
+\dim\Null\big((A-3I)^3\big)&=8 && (+1)\\
 & && (+0)
 \end{alignat*}
 $d(s)=\,?$\quad $m(s)=\,?$\quad $\text{JCF}=\,?$
@@ -699,7 +702,7 @@ $d(s)=\,?$\quad $m(s)=\,?$\quad $\text{JCF}=\,?$
 m(s)&=(s-3)^3\\
 d(s)&=(s-3)^8
 \end{align*}
-\explain{$\Rightarrow$ max linearly indep eigenvectors is 5.}
+\explain{$\Rightarrow$ the maximum number of linearly independent eigenvectors is 5.}
 \explain{$\dim\Null\big((A-3I)^3\big)=8=n$, so $3$ is the only eigenvalue ($r_1=8$) and the chain stops at power $3$ ($m_1=3$).}
 Block sizes from the increments $5,2,1,0$: \ $5$ JB's in total; $5-2=3$ of size $1$, $2-1=1$ of size $2$, $1-0=1$ of size $3$ \ (check: $3\cdot1+1\cdot2+1\cdot3=8$).
 \[
@@ -717,7 +720,7 @@ Block sizes from the increments $5,2,1,0$: \ $5$ JB's in total; $5-2=3$ of size 
 \end{example}
 
 \begin{example}
-Let $A\in\R^{4\times4}$. Single eigenvalue at $\lambda=7$, $m_1=2$. Find all possible JCF the matrix $A$ can have.
+Let $A\in\R^{4\times4}$. Single eigenvalue at $\lambda=7$, $m_1=2$. Find all possible JCFs the matrix $A$ can have.
 \begin{align*}
 d(s)&=(s-7)^4\\
 m(s)&=(s-7)^2
