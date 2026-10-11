@@ -1,6 +1,4 @@
 % ===== Page 25 =====
-\subsection*{Examples}
-
 \begin{example}\origpage{25}
 $\V=\W \triangleq \{\text{polynomials with degree} \le n\}$, \quad $\mathcal{A} = \dfrac{d}{dt}$,
 \[
@@ -46,10 +44,10 @@ Take $x_1=0$, $x_2=3$, $\alpha_1=1$, $\alpha_2=1$:
 \mathcal{A}x_1 &= 1, \qquad \mathcal{A}x_2=-2\\
 \alpha_1\mathcal{A}x_1+\alpha_2\mathcal{A}x_2 &= -1
 \end{align*}
-\explain{$-2$ and $-1$ are not equal $\Rightarrow$ $\therefore$ Not a linear transformation.}
+\explain{$-2$ and $-1$ are not equal $\Rightarrow$ $\therefore$ \key{Not a linear transformation.}}
 
 \sep
-It should cross from zero: $\mathcal{A}0_V=0_W$ should satisfy this.
+It should cross from zero: \key{$\mathcal{A}0_V=0_W$ should satisfy this.}
 \begin{align*}
 \mathcal{A}(\alpha_1x_1+\cancel{\alpha_2x_2}^{\,0}) &= \alpha_1\mathcal{A}x_1+\cancel{\alpha_2\mathcal{A}x_2}^{\,0}
   && \text{(suppose } \alpha_2=0)\\
@@ -57,7 +55,7 @@ It should cross from zero: $\mathcal{A}0_V=0_W$ should satisfy this.
 \mathcal{A}(0_V) &= 0_W
 \end{align*}
 \begin{insight}[Quick test for linearity]
-Every linear transformation maps $0_V$ to $0_W$ (take $\alpha_1=0$ in $\mathcal{A}(\alpha_1x_1)=\alpha_1\mathcal{A}x_1$). Here $\mathcal{A}0=1-0=1\ne0$, so $\mathcal{A}x=1-x$ cannot be linear: the graph is a straight line, but it does not pass through the origin (an \emph{affine} map). The converse is false: $\mathcal{A}0=0$ alone does not guarantee linearity (e.g.\ $\mathcal{A}x=x^2$).
+Every linear transformation maps $0_V$ to $0_W$ (take $\alpha_1=0$ in $\mathcal{A}(\alpha_1x_1)=\alpha_1\mathcal{A}x_1$). Here $\mathcal{A}0=1-0=1\ne0$, so $\mathcal{A}x=1-x$ cannot be linear: the graph is a straight line, but it does not pass through the origin (an \term{affine} map). The converse is false: $\mathcal{A}0=0$ alone does not guarantee linearity (e.g.\ $\mathcal{A}x=x^2$).
 \end{insight}
 \end{example}
 
@@ -70,10 +68,10 @@ Every linear transformation maps $0_V$ to $0_W$ (take $\alpha_1=0$ in $\mathcal{
 \explain{$\checkmark$ A linear transformation: $\int_0^1(af+bg)\,dt=a\int_0^1f\,dt+b\int_0^1g\,dt$ by linearity of the integral.}
 \end{example}
 
-\subsection*{Null Space}
+\subsection{Null Space}\label{ss:null}
 
 \begin{definition}
-Let $\mathcal{A}:\V\to\W$ be a linear transformation. The null space of $\mathcal{A}$ is defined as
+Let $\mathcal{A}:\V\to\W$ be a linear transformation. The \term{null space} of $\mathcal{A}$ is defined as
 \[
 \Null(\mathcal{A}) \triangleq \{v\in\V \mid \mathcal{A}v=0_W\}
 \]
@@ -102,7 +100,7 @@ Let $\mathcal{A}:\V\to\W$ be a linear transformation. The null space of $\mathca
 \explain{$\mathcal{A}_1$: a line through the origin with nonzero slope (only $x=0$ maps to $0$); $\mathcal{A}_2$: the zero map (every $x$ maps to $0$).}
 
 \begin{claim}
-$\Null(\mathcal{A})$ is a subspace of $\V$.
+\key{$\Null(\mathcal{A})$ is a subspace of $\V$.}
 \end{claim}
 
 \begin{center}
@@ -156,10 +154,10 @@ A basis for $\Null(\mathcal{A})$: $\left\{t^2-\frac13,\ t-\frac12\right\}$.
 \explain{Check: $\int_0^1(t^2-\frac13)\,dt=\frac13-\frac13=0$, $\int_0^1(t-\frac12)\,dt=\frac12-\frac12=0$; the two polynomials have different degrees, so they are linearly independent. Consistent with rank--nullity: $\dim\V=3=\dim\Null(\mathcal{A})+\dim\Range(\mathcal{A})=2+1$.}
 \end{example}
 
-\subsection*{One-to-One Transformations}
+\subsection{One-to-One Transformations}\label{ss:one-to-one}
 
 \begin{definition}
-A linear transformation is called \emph{one to one} iff
+A linear transformation is called \term{one to one} iff
 \[
 \mathcal{A}v_1=\mathcal{A}v_2 \quad\text{implies}\quad v_1=v_2.
 \]
@@ -176,7 +174,7 @@ A linear transformation is called \emph{one to one} iff
 \end{center}
 
 \begin{proposition}
-A linear transformation $\mathcal{A}:\V\to\W$ is one to one iff $\Null(\mathcal{A})=\{0_V\}$:
+A linear transformation $\mathcal{A}:\V\to\W$ is \key{one to one iff $\Null(\mathcal{A})=\{0_V\}$}:
 \[
 \text{one to one} \ \iff\ \Null(\mathcal{A})=\{0_V\}
 \ \iff\ \dim\Null(\mathcal{A})=\underline{\underline{0}}.
@@ -224,7 +222,7 @@ $\V=\W=\{\text{polynomials with degree}\le 2\}$, \quad $\mathcal{A}=\dfrac{d}{dt
 \begin{align*}
 &\mathcal{A}(at^2+bt+c)=2at+b=0_W=0(t) \ \Rightarrow\ a=0,\ b=0\\
 &\Null(\mathcal{A})=\{c\}=\{\text{constant polynomials}\}, \qquad \dim(\Null(\mathcal{A}))=1\\
-&\Null(\mathcal{A})\ne\{0_V\}\ \Rightarrow\ \text{Not one to one}
+&\Null(\mathcal{A})\ne\{0_V\}\ \Rightarrow\ \text{\key{Not one to one}}
 \end{align*}
 \explain{Side note in the notes: $\Range(\mathcal{A})=\{\text{poly.\ degree}\le 1\}=\Span\{1,t\}$ (2 elements, $\dim\Range(\mathcal{A})=2$).}
 % corrected: notes had the side note labelled N(A) = {poly degree <= 1}; this is the range of d/dt (cf. p.29), the null space is the constants
@@ -250,17 +248,17 @@ $\V=\W=\R^2$, \quad $x=\bmat{\alpha_1\\ \alpha_2}$, \quad $\mathcal{A}x=\bmat{\a
 \explain{Crossed out: $\Null(\mathcal{A})$ is a subspace (a set), whereas $\bmat{0\\0}$ alone is not a set/subset --- write it inside braces.}
 \end{example}
 
-\subsection*{Range Space}
+\subsection{Range Space, Onto Transformations and the Rank--Nullity Theorem}\label{ss:range}
 
 \begin{definition}
-Let $\mathcal{A}:\V\to\W$ be a linear transformation. The range space of $\mathcal{A}$ is defined as
+Let $\mathcal{A}:\V\to\W$ be a linear transformation. The \term{range space} of $\mathcal{A}$ is defined as
 \[
 \Range(\mathcal{A})\triangleq\{w\in\W\mid \exists v\in\V \text{ s.t. } \mathcal{A}v=w\}
 \]
 \end{definition}
 
 \begin{claim}
-$\Range(\mathcal{A})$ is a subspace of $\W$.
+\key{$\Range(\mathcal{A})$ is a subspace of $\W$.}
 \end{claim}
 Let $w_1,w_2\in\Range(\mathcal{A})$. By the definition of range space,
 \begin{align*}
@@ -299,7 +297,7 @@ $\V=\W=\R$
 \end{example}
 
 \begin{definition}
-A linear transformation $\mathcal{A}:\V\to\W$ is called \emph{onto} iff $\Range(\mathcal{A})=\W$; otherwise, if $\Range(\mathcal{A})\ne\W$ (i.e.\ $\Range(\mathcal{A})\subsetneq\W$), $\mathcal{A}$ is called \emph{into}.
+A linear transformation $\mathcal{A}:\V\to\W$ is called \term{onto} iff \key{$\Range(\mathcal{A})=\W$}; otherwise, if $\Range(\mathcal{A})\ne\W$ (i.e.\ $\Range(\mathcal{A})\subsetneq\W$), $\mathcal{A}$ is called \term{into}.
 % corrected: notes had "R(A) \not\subseteq W"; R(A) is always a subset of W, so "proper subset" (\subsetneq) is meant
 \end{definition}
 
@@ -327,13 +325,13 @@ $\V=\{f:[0,1]\to\R,\ f \text{ is integrable}\}$, \quad $\W=\R$, \quad $\mathcal{
 \sep
 \[
 \left.\begin{aligned}
-\dim\Null(\mathcal{A}) &\triangleq \text{nullity}\\
-\dim\Range(\mathcal{A}) &\triangleq \text{rank}
+\dim\Null(\mathcal{A}) &\triangleq \text{\term{nullity}}\\
+\dim\Range(\mathcal{A}) &\triangleq \text{\term{rank}}
 \end{aligned}\right\}\overset{+}{\longrightarrow} \text{constant}
 \]
 
-\begin{theorem}[Rank Nullity Theorem]
-If $\V$ is finite dimensional and $\mathcal{A}$ is a linear transformation from $\V$ into $\W$, then $\Range(\mathcal{A})$ is finite dimensional and
+\begin{theorem}[Rank--Nullity Theorem]
+If $\V$ is finite dimensional and $\mathcal{A}$ is a linear transformation from $\V$ into $\W$, then $\Range(\mathcal{A})$ is finite dimensional and \key{nullity $+$ rank $=\dim\V$}:
 \[
 \dim\Null(\mathcal{A})+\dim\Range(\mathcal{A})=\dim\V .
 \]
@@ -344,11 +342,11 @@ Take a basis $\{u_1,\dots,u_r\}$ of $\Null(\mathcal{A})$ and extend it to a basi
 Consequences: $\mathcal{A}$ one-to-one $\iff$ $\dim\Range(\mathcal{A})=\dim\V$; and if $\dim\V=\dim\W<\infty$, then one-to-one $\iff$ onto. In the examples above: $\frac{d}{dt}$ on polynomials of degree $\le2$: nullity $+$ rank $=1+2=3=\dim\V$, so it is neither one-to-one nor onto.
 \end{insight}
 
-\section{Matrix Representations of Linear Transformations}
+\subsection{Matrix Representations}\label{ss:matrix-rep}
 
 \begin{definition}
 Let $\V$ ($\dim=n$) and $\W$ ($\dim=m$) be two linear spaces over the same field $\F$.
-Let $\mathcal{A}:\V\to\W$ be a linear transformation. Given the basis $B=\{v_1,v_2,\dots,v_n\}$ and $C=\{w_1,w_2,\dots,w_m\}$ for $\V$ and $\W$, the transformation can be represented by a matrix $A=[a_{ij}]$ ($a_{ij}\in\F$) s.t.
+Let $\mathcal{A}:\V\to\W$ be a linear transformation. Given the basis $B=\{v_1,v_2,\dots,v_n\}$ and $C=\{w_1,w_2,\dots,w_m\}$ for $\V$ and $\W$, the transformation can be represented by a matrix $A=[a_{ij}]$ ($a_{ij}\in\F$), its \term{matrix representation}, s.t.
 \[
 [w]_C=A\,[v]_B
 \]
@@ -375,7 +373,7 @@ C&=\{\underbrace{1}_{w_1},\ \underbrace{1+t}_{w_2},\ \underbrace{1+t+t^2}_{w_3}\
 \]
 \explain{$A\,e_j$ picks out the $j$th column of $A$: this gives the first column for $j=1$, and in general the $j$th column.}
 \item Find $w=\mathcal{A}v_j$.
-\item $j$th column of $A$ is $[\mathcal{A}v_j]_C$.
+\item \key{$j$th column of $A$ is $[\mathcal{A}v_j]_C$.}
 \end{itemize}
 
 \paragraph{Columns of $A$.}
@@ -405,7 +403,7 @@ w&=-w_1+w_2+3w_3\\
 \explain{Indeed $\frac{d}{dt}(t^3+2t^2+3t+4)=3t^2+4t+3$. ($[v]_B$: $v=1\cdot v_1+1\cdot v_2+1\cdot v_3+1\cdot v_4$, since $v_1+v_2+v_3+v_4=4+3t+2t^2+t^3$.)}
 \end{example}
 
-\subsection*{Effect of Basis Change on Matrix Representations}
+\subsection{Change of Basis and Similar Matrices}\label{ss:basis-change-rep}
 
 \paragraph{1) Basis change in the domain.} Let $[v]_B=P\,[v]_{\bar B}$.
 \begin{align*}
@@ -445,7 +443,7 @@ If $\V=\W$, $\mathcal{A}$ is a linear transformation from $\V$ into $\V$. Then t
 \[
 \therefore\ \boxed{\bar A=P^{-1}AP}
 \]
-\explain{Here $Q=P$ since the same basis change is applied to domain and co-domain; $A$ and $\bar A$ are then called \emph{similar} matrices.}
+\explain{Here $Q=P$ since the same basis change is applied to domain and co-domain; $A$ and $\bar A$ are then called \term{similar} matrices.}
 
 \begin{example}
 \begin{align*}
@@ -489,14 +487,18 @@ $\bar{\bar A}$ is the matrix of $\frac{d}{dt}$ in the canonical bases: $1\mapsto
 \end{itemize}
 \end{example}
 
-\section{Direct Sum}
+\needspace{16\baselineskip}
+\section{Direct Sums and Orthogonal Projections}\label{sec:direct-sum}
+\syllabusweek{Week 6 --- direct sum decompositions, projection theorem, orthogonal projections}
+
+\subsection{Direct Sums}\label{ss:direct-sums}
 
 \begin{definition}
-Let $\V$ be a vector space and let $M_1,\dots,M_k$ be subspaces of $\V$. The sum of these subspaces is defined as
+Let $\V$ be a vector space and let $M_1,\dots,M_k$ be subspaces of $\V$. The \term{sum} of these subspaces is defined as
 \[
 M=M_1+M_2+\dots+M_k=\{m\in\V \mid m=m_1+m_2+\dots+m_k,\ m_i\in M_i\ \forall i\}
 \]
-The subspaces are called \emph{linearly independent} iff
+The subspaces are called \term{linearly independent} iff
 \[
 m_1+m_2+\dots+m_k=0_V \quad\text{where } m_i\in M_i\ \forall i
 \quad\Rightarrow\quad m_1=m_2=\dots=m_k=0_V .
@@ -534,7 +536,7 @@ Let $\V=M_1+M_2+\dots+M_k$ and let $M_1,\dots,M_k$ be lin.\ indep. Then for $x\i
 \[
 x=m_1+m_2+\dots+m_k, \qquad m_i\in M_i\ \forall i,
 \]
-$m_1,m_2,\dots,m_k$ are unique.
+\key{$m_1,m_2,\dots,m_k$ are unique.}
 \end{remark}
 
 \begin{proof}
@@ -553,7 +555,7 @@ Let $M_1,\dots,M_k$ be subspaces of $\V$. Let
 \item $M=M_1+M_2+\dots+M_k$
 \item $M_1,M_2,\dots,M_k$ are linearly indep.
 \end{enumerate}
-Then $M$ is said to be the \emph{direct sum} of $M_1,\dots,M_k$. This is shown as
+Then $M$ is said to be the \term{direct sum} of $M_1,\dots,M_k$. This is shown as
 \[
 M=M_1\oplus M_2\oplus\dots\oplus M_k
 \]
@@ -588,10 +590,10 @@ For two subspaces, $M_1+M_2$ is direct $\iff M_1\cap M_2=\{0_V\}\iff\dim(M_1+M_2
 \end{example}
 
 % ===== Page 34 =====
-\subsection*{Orthogonal Direct Sum}
+\subsection{Orthogonal Direct Sums and Orthogonal Complements}\label{ss:orth-complement}
 
 \begin{definition}\origpage{34}
-Let $\V$ be an inner product space. Two subspaces $M_1\,\&\,M_2$ are said to be \emph{orthogonal} iff
+Let $\V$ be an inner product space. Two subspaces $M_1\,\&\,M_2$ are said to be \term{orthogonal} iff
 \[
 \inner{m_1}{m_2}=0 \qquad \forall m_1\in M_1,\ \forall m_2\in M_2 .
 \]
@@ -600,7 +602,7 @@ We denote this $M_1\perp M_2$.
 % corrected: notes had "M_2 & M_2" in the first line; M_1 & M_2 meant.
 
 \begin{definition}
-Let $M$ be equal to $M_1+M_2+\dots+M_k$ and $M_i\perp M_j$ for $i\ne j$. Then $M$ is said to be an \emph{orthogonal direct sum} of $M_1,\dots,M_k$. We show this as
+Let $M$ be equal to $M_1+M_2+\dots+M_k$ and $M_i\perp M_j$ for $i\ne j$. Then $M$ is said to be an \term{orthogonal direct sum} of $M_1,\dots,M_k$. We show this as
 \[
 M=M_1\overset{\perp}{\oplus}M_2\overset{\perp}{\oplus}\dots\overset{\perp}{\oplus}M_k .
 \]
@@ -608,10 +610,10 @@ If $M=\V$ then
 \[
 \V=M_1\overset{\perp}{\oplus}M_2\overset{\perp}{\oplus}\dots\overset{\perp}{\oplus}M_k
 \]
-is called an orthogonal direct sum decomposition of $\V$.
+is called an \term{orthogonal direct sum decomposition} of $\V$.
 \end{definition}
 
-\paragraph{Orthogonality implies linear independence.}
+\paragraph{\key{Orthogonality implies linear independence.}}
 Let $\sum_{i=1}^{k}m_i=0_V$, \ $m_i\in M_i$. Then
 \begin{align*}
 \Big\langle\sum_{i=1}^{k}m_i,\,m_j\Big\rangle&=\inner{0_V}{m_j}=0\\
@@ -623,10 +625,10 @@ Since $\inner{m_i}{m_j}=0$ when $i\ne j$:
 \]
 \explain{The last step uses positive definiteness of the inner product. Since $j$ was arbitrary, all $m_j=0_V$: orthogonality implies linear independence.}
 
-\subsection*{Orthogonal Complement}
+\paragraph{Orthogonal complement.}
 
 \begin{definition}
-Let $M$ be a subspace of an inner product space $\V$. The \emph{orthogonal complement} $M^\perp$ of the subspace is defined as
+Let $M$ be a subspace of an inner product space $\V$. The \term{orthogonal complement} $M^\perp$ of the subspace is defined as
 \[
 M^\perp=\{x\in\V\mid \inner{x}{m}=0\ \forall m\in M\}
 \]
@@ -673,7 +675,7 @@ M^\perp&=\{z \text{ axis}\}\\
 Orthogonality implies linear independency, thus this is a direct sum. Also orthogonal, so orthogonal direct sum.
 
 \begin{claim}
-$M^\perp$ is a subspace of $\V$.
+\key{$M^\perp$ is a subspace of $\V$.}
 \end{claim}
 Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$. Then
 \begin{align*}
@@ -683,8 +685,8 @@ Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$.
 \end{align*}
 
 % ===== Page 35 =====
-\begin{theorem}\origpage{35}
-Let $\V$ be an inner product space and $M$ be a subspace of $\V$, then
+\begin{theorem}[Orthogonal decomposition]\origpage{35}
+Let $\V$ be an inner product space and $M$ be a subspace of $\V$, then \key{$\V$ is the orthogonal direct sum of $M$ and $M^\perp$}:
 \[
 \boxed{\V=M\overset{\perp}{\oplus}M^\perp}
 \]

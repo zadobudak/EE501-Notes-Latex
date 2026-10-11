@@ -1,5 +1,5 @@
 % ===== Page 36 =====
-\section{Projection Theorem}
+\subsection{The Projection Theorem}\label{ss:projection-thm}
 \origpage{36}
 \begin{theorem}[Hilbert's Projection Theorem]
 Let $H$ be a Hilbert space and let $M$ be a finite dimensional subspace of $H$.
@@ -12,10 +12,10 @@ m^* = \arg\min_{m\in M} \norm{x-m}^{2}
   \item $\norm{\cdot}$ is the norm induced by the inner product.
 \end{itemize}
 In other words, we can find the closest vector $m^*$ to $x$ lying in the subspace $M$.
-If $m^*$ is a solution, then $x-m^*$ is orthogonal to $M$.
-Furthermore, the solution $m^*$ is unique:
+If $m^*$ is a solution, then \key{$x-m^*$ is orthogonal to $M$}.
+Furthermore, \key{the solution $m^*$ is unique}:
 \[
-m^* = \operatorname{Proj}_M x : \text{ ``Orthogonal Projection of $x$ onto $M$''}
+m^* = \operatorname{Proj}_M x : \text{ ``\term{Orthogonal Projection} of $x$ onto $M$''}
 \]
 \end{theorem}
 
@@ -265,7 +265,8 @@ $\min_{m\in M}\norm{t^2-m} = \tfrac{1}{6\sqrt5}\approx 0.075$. So $t-\tfrac16$ i
 
 % ===== Page 39 =====
 \origpage{39}
-\subsection*{General space}
+\subsection{Computing Projections: the Gram Matrix and Normal Equations}\label{ss:gram}
+\paragraph{General space.}
 $\V$, $n$ dimensional, \quad $M = \Span\{\underbrace{v_1,v_2,\dots,v_k}_{\text{linearly indep.}}\}$, \quad $k<n$
 \[
 m^* = \sum_{i=1}^k \alpha_i^* v_i,
@@ -281,11 +282,11 @@ x-m^* = x-\sum_{i=1}^k \alpha_i^* v_i \;\perp\; v_1, v_2, \dots, v_k
 \underbrace{\bmat{\alpha_1^*\\ \vdots\\ \alpha_k^*}}_{\alpha^*}
 = \underbrace{\bmat{\inner{x}{v_1}\\ \vdots\\ \inner{x}{v_k}}}_{b}
 \]
-$G$ is invertible iff $v_1,\dots,v_k$ are linearly indep. \qquad $\alpha^* = G^{-1}b$
-\explain{These $k$ equations are the \emph{normal equations}. $G$ is Hermitian and positive definite for independent $v_i$:
+\key{$G$ is invertible iff $v_1,\dots,v_k$ are linearly indep.} \qquad $\alpha^* = G^{-1}b$
+\explain{These $k$ equations are the \term{normal equations}; $G$ is the \term{Gram matrix}. $G$ is Hermitian and positive definite for independent $v_i$:
 $\beta\Hm G\beta = \norm{\textstyle\sum_i\beta_i v_i}^2 > 0$ for $\beta\neq0$ (written for $\F=\C$ with $G_{ji}=\inner{v_i}{v_j}$).}
 
-\subsection*{Specific Case}
+\paragraph{Specific case: orthogonal basis.}
 $v_i\perp v_j$ when $i\neq j$: \quad $\{v_1,\dots,v_k\}$ are orthogonal.
 \[
 \bmat{\inner{v_1}{v_1} & & & 0\\ & \inner{v_2}{v_2} & & \\ & & \ddots & \\ 0 & & & \inner{v_k}{v_k}}
@@ -342,7 +343,7 @@ m^* &= a\bmat{1&0\\0&0} + \frac{b+c}{2}\bmat{0&1\\1&0} + d\bmat{0&0\\0&1}
 \left.\begin{aligned} M &\to 3\text{ dim.}\\ M^\perp &\to 1\text{ dim}\end{aligned}\right\} \;\V \Rightarrow 4\text{ dim}
 \]
 \begin{insight}
-$M^\perp$ is the set of \emph{skew-symmetric} matrices, $M^\perp = \Span\left\{\bmat{0&1\\-1&0}\right\}$:
+$M^\perp$ is the set of \key{skew-symmetric} matrices, $M^\perp = \Span\left\{\bmat{0&1\\-1&0}\right\}$:
 for $S=S\T$ and $K=-K\T$, $\inner{K}{S} = \tr(S\T K) = \tr(SK) = \tr\big((SK)\T\big) = \tr(K\T S) = -\tr(KS) = -\tr(SK)$,
 so $\inner{K}{S}=0$. Thus every square matrix splits uniquely as
 $x = \underbrace{\tfrac{x+x\T}{2}}_{\text{symmetric}} + \underbrace{\tfrac{x-x\T}{2}}_{\text{skew-symmetric}}$,
@@ -351,11 +352,11 @@ and $\tfrac{x+x\T}{2}$ is the symmetric matrix closest to $x$ in the Frobenius n
 \end{example}
 
 \newpage
-\subsection{Application of Projection Theorem onto $\C^n$}
+\subsection{Orthogonal Projections in $\C^n$: Projection Matrices}\label{ss:proj-matrices}
 $\V=\C^n$, \quad $M = \Span\{m_1,\dots,m_k\}$, \quad $m_i = [\ \ ] \in\C^n$ (column vectors), \quad $x\in\C^n$.
 \begin{align*}
 m^* &= \operatorname{Proj}_M x = \,?\\
-m^* &= P_M\cdot x \quad\Rightarrow\quad P_M\text{: projection matrix onto } M.
+m^* &= P_M\cdot x \quad\Rightarrow\quad P_M\text{: \term{projection matrix} onto } M.
 \end{align*}
 \[
 m^* = \alpha_1^* m_1 + \alpha_2^* m_2 + \dots + \alpha_k^* m_k
@@ -443,7 +444,7 @@ $\begin{aligned}
 \end{center}
 
 \begin{remark}
-An orthogonal projection matrix $P\in\C^{n\times n}$ satisfies
+An \term{orthogonal projection matrix} $P\in\C^{n\times n}$ satisfies
 \begin{enumerate}[label=\roman*-), nosep]
   \item $P\Hm = P$
   \item $P^2 = P$ \quad ($P^n = P$)
@@ -457,10 +458,10 @@ Also,
 \end{remark}
 \begin{insight}[Remarks on $P_M$]
 \begin{itemize}[nosep]
-  \item Conversely, any $P$ with $P\Hm=P$ and $P^2=P$ is the orthogonal projection onto $\Range(P)$:
+  \item Conversely, \key{any $P$ with $P\Hm=P$ and $P^2=P$ is the orthogonal projection onto $\Range(P)$}:
         $x = Px + (I-P)x$ with $Px\in\Range(P)$, and $(I-P)x\perp\Range(P)$ because
         $(Py)\Hm(I-P)x = y\Hm(P-P^2)x = 0$ for all $y$.
-  \item $P_M$ depends only on $M$, not on the chosen basis: if $B' = BT$ with $T$ invertible, then
+  \item \key{$P_M$ depends only on $M$}, not on the chosen basis: if $B' = BT$ with $T$ invertible, then
         $B'(B'^H B')^{-1}B'^H = BT\,T^{-1}(B\Hm B)^{-1}T^{-H}\,T\Hm B\Hm = P_M$.
   \item If the columns of $B$ are orthonormal, $B\Hm B = I$ and $P_M = BB\Hm = \sum_i m_i m_i\Hm$,
         which is the matrix form of $m^* = \sum_i\inner{x}{m_i}m_i$.
@@ -496,7 +497,10 @@ B\Hm B = \bmat{3&1\\1&3}, \qquad
 The full matrix is $P_M = \frac18 B\bmat{3&-1\\-1&3}B\T = \frac12\bmat{1&0&1\\0&2&0\\1&0&1}$, whose first column is indeed $\bmat{1/2\\0\\1/2}$.}
 \end{example}
 
-\subsection{Application of Projection Theorem into Solutions of Linear Equations}
+\needspace{18\baselineskip}
+\section{Systems of Linear Equations $Ax=b$}\label{sec:axb}
+\syllabusweek{Week 7 --- systems of linear equations of the form $Ax=b$}
+\subsection{Existence and Uniqueness of Solutions}\label{ss:exist-unique}
 \[
 Ax = b, \qquad A\in\C^{m\times n}, \quad x\in\C^n, \quad b\in\C^m
 \]
@@ -525,8 +529,8 @@ Ax = b, \qquad A\in\C^{m\times n}, \quad x\in\C^n, \quad b\in\C^m
 \end{center}
 \explain{$A$ maps every vector of $\Null(A)$ to $0\in\C^m$.}
 \begin{align*}
-\Range(A) &= \{y\in\C^m \mid \text{s.t. } \exists x\in\C^n \text{ satisfying } y=Ax\}\\
-\Null(A) &= \{x\in\C^n \mid Ax = 0_{\C^m}\}
+\text{\term{range space}: }\Range(A) &= \{y\in\C^m \mid \text{s.t. } \exists x\in\C^n \text{ satisfying } y=Ax\}\\
+\text{\term{null space}: }\Null(A) &= \{x\in\C^n \mid Ax = 0_{\C^m}\}
 \end{align*}
 \[
 \underbrace{\dim(\Range(A))}_{\text{rank}} + \underbrace{\dim(\Null(A))}_{\text{nullity}} = n = \#\text{ of columns of } A
@@ -556,12 +560,12 @@ y = Ax = \big[\,a_1 \,\vdots\, a_2 \,\vdots\, a_3 \,\vdots\, \cdots \,\vdots\, a
 = x_1\vec a_1 + x_2\vec a_2 + \dots + x_n\vec a_n
 \]
 \begin{align*}
-\Range(A) &= \Span\{\vec a_1,\vec a_2,\dots,\vec a_n\} \triangleq \text{column space of } A\\
+\Range(A) &= \Span\{\vec a_1,\vec a_2,\dots,\vec a_n\} \triangleq \text{\term{column space} of } A\\
 \Range(A) &= \Span\left\{\bmat{1\\1}\right\}, \qquad \bmat{2\\1}\notin\Range(A)
 \end{align*}
 
 \begin{keybox}
-$\therefore$ 1-) There exists an exact solution \textbf{iff} $b\in\Range(A)$.
+$\therefore$ 1-) \key{There exists an exact solution iff $b\in\Range(A)$.}
 \end{keybox}
 
 \paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1&2\\1&2}}_{A}\underset{\in\R^2}{x} = \underbrace{\bmat{2\\2}}_{b}$:
@@ -601,26 +605,26 @@ x_1-x_2 = \bmat{2\\-1}, \qquad x_1-x_3 = \bmat{-2\\1}, \qquad x_2-x_3 = \bmat{-4
 \begin{itemize}[nosep]
   \item if $\hat x$ satisfies $A\hat x = b$ exactly $\Rightarrow$ $\hat x + m$ satisfies $A(\hat x+m) = b$ exactly \ ($m\in\Null(A)$);
   \item if $m\neq 0 \Rightarrow \hat x \neq \hat x + m$;
-  \item if $\Null(A)$ includes nonzero vectors $\Rightarrow$ infinitely many exact solutions.
+  \item if $\Null(A)$ includes nonzero vectors $\Rightarrow$ \key{infinitely many exact solutions}.
 \end{itemize}
 
 % ===== Page 44 =====
 \origpage{44}
 \begin{keybox}
-$\therefore$ 2-) If an exact solution $\hat x$ exists, then it is unique
-$\iff \Null(A) = \{0\}$ \ or \ $\dim\Null(A) = 0$.
+$\therefore$ 2-) If an exact solution $\hat x$ exists, then \key{it is unique
+$\iff \Null(A) = \{0\}$} \ or \ $\dim\Null(A) = 0$.
 \end{keybox}
 \begin{insight}
 Conversely, if $A\hat x = b$ and $A\tilde x = b$, then $A(\hat x-\tilde x) = 0$, i.e.\ any two exact solutions
-differ by a vector of $\Null(A)$. Hence the full solution set is the affine set
-$\{\hat x + m : m\in\Null(A)\}$. By rank--nullity, $\Null(A)=\{0\}$ iff $\rank A = n$ (the columns of $A$ are
+differ by a vector of $\Null(A)$. Hence \key{the full solution set is the affine set
+$\{\hat x + m : m\in\Null(A)\}$}. By rank--nullity, $\Null(A)=\{0\}$ iff $\rank A = n$ (the columns of $A$ are
 linearly independent); this requires $m\ge n$.
 \end{insight}
 
-\sep
+\subsection{Least-Squares Solutions}\label{ss:least-squares}
 \paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $Ax = b$, \qquad $b\notin\Range(A)$
 
-\paragraph{Least squares problem:}
+\paragraph{\term{Least squares problem}:}
 \[
 \min_{x\in\C^n} \underbrace{\norm{Ax-b}^{2}}_{\text{error}}
 \]
@@ -628,7 +632,7 @@ linearly independent); this requires $m\ge n$.
 \[
 \hat x = \arg\min_{x\in\C^n}\norm{Ax-b}
 \]
-\explain{$\hat x$: minimum error solution / least square solution.}
+\explain{$\hat x$: \term{minimum error solution} / \term{least square solution}.}
 
 \begin{align*}
 b\in\C^m: \qquad \C^m &= M\overset{\perp}{\oplus}M^\perp\\
@@ -651,7 +655,7 @@ b = \underset{\in\Range(A)}{b_1} + \underset{\in\Range^\perp(A)}{b_2}
 &= \overbrace{\norm{A\underset{\substack{\uparrow\\ \text{find an } x}}{x}-\underset{\in\Range(A)}{b_1}}^2}^{\text{zero}} + \norm{b_2}^2 \geq \norm{b_2}^2
 \end{align*}
 % corrected: notes had the first term without the square, i.e. ||Ax-b_1|| + ||b_2||^2
-\explain{The first term can be made zero: $b_1\in\Range(A)$, so some $x$ satisfies $Ax=b_1$ exactly.}
+\explain{\key{The first term can be made zero}: $b_1\in\Range(A)$, so some $x$ satisfies $Ax=b_1$ exactly.}
 \[
 \boxed{\min_{x\in\C^n}\norm{Ax-b} = \norm{b_2} = \norm{\operatorname{Proj}_{\Range^\perp(A)} b}}
 \]
@@ -668,8 +672,8 @@ column $a_j$ of $A$:
 \[
 A\Hm(b-A\hat x) = 0 \quad\Longleftrightarrow\quad \boxed{A\Hm A\,\hat x = A\Hm b}
 \]
-(the same equations as $B\Hm B\alpha^* = B\Hm x$ before, with $B=A$). These normal equations always have a
-solution. If the columns of $A$ are linearly independent, $A\Hm A$ is invertible and
+(the same equations as $B\Hm B\alpha^* = B\Hm x$ before, with $B=A$). \key{These normal equations always have a
+solution.} If the columns of $A$ are linearly independent, $A\Hm A$ is invertible and
 $\hat x = (A\Hm A)^{-1}A\Hm b$ is unique; otherwise there are infinitely many least squares solutions,
 differing by elements of $\Null(A\Hm A)=\Null(A)$.
 \end{insight}
@@ -698,7 +702,7 @@ b_1 = P_{\Range(A)}b = \bmat{1/2&1/2\\1/2&1/2}\bmat{2\\1} = \bmat{3/2\\3/2}
 % corrected: notes had the multiplied vector as [1;1] (it is b=[2;1])
 \begin{alignat*}{2}
 &A\hat x = b_1, &\qquad& \hat x = 3/2\\
-&\Null(A) = \{0\},\ \dim\Null(A) = 0 &\qquad& \Rightarrow\ \hat x \text{ is unique.}
+&\Null(A) = \{0\},\ \dim\Null(A) = 0 &\qquad& \Rightarrow\ \hat x \text{ \key{is unique.}}
 \end{alignat*}
 
 \paragraph{$\bigstar$} $\displaystyle \bmat{1&2\\1&2}x = \bmat{2\\1}$, \qquad
@@ -708,12 +712,12 @@ $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$, \qquad $b\notin\Range(A)$
 &\bmat{1&2\\1&2}\hat x = \bmat{3/2\\3/2}
 \quad\Rightarrow\quad \hat x = \bmat{3/2\\0}, \quad \hat x = \bmat{0\\3/4}, \quad \hat x = \bmat{1/2\\1/2}\\
 &\Null(A) = \Span\left\{\bmat{2\\-1}\right\}
-\quad\Rightarrow\quad \hat x \text{ is not unique!}
+\quad\Rightarrow\quad \hat x \text{ \key{is not unique!}}
 \end{align*}
 \explain{All least squares solutions: $\hat x = \bmat{3/2\\0} + t\bmat{2\\-1}$, $t\in\R$ (e.g.\ $t=-\tfrac34$ gives $\bmat{0\\3/4}$, $t=-\tfrac12$ gives $\bmat{1/2\\1/2}$). Each leaves the same error $\norm{b_2} = \tfrac1{\sqrt2}$.}
 
-\sep
-\paragraph{Minimum norm solution.}
+\subsection{Minimum-Norm Solutions}\label{ss:min-norm}
+\paragraph{\term{Minimum norm solution}.}
 \[
 b\in\Range(A) \;\Rightarrow\; \min_{Ax=b}\norm{x}, \qquad
 \hat x_1 = \arg\min_{Ax=b}\norm{x}, \qquad x = \hat x + \overset{\in\Null(A)}{m}
@@ -770,12 +774,12 @@ A\hat x_1 + \underbrace{\cancel{A\hat x_2}}_{0} &= b\\
 \begin{insight}[Summary of the method]
 \begin{itemize}[nosep]
   \item $\hat x_1$ does not depend on which solution $\hat x$ we start from: two solutions differ by an element
-        of $\Null(A)$, which the projection onto $\Null^\perp(A)$ removes. So the minimum norm solution is unique.
+        of $\Null(A)$, which the projection onto $\Null^\perp(A)$ removes. So \key{the minimum norm solution is unique}.
   \item $\Null^\perp(A) = \Range(A\Hm)$ (since $Ax=0 \iff x\perp$ every row of $A$, i.e.\ every column of $A\Hm$).
         Hence the minimum norm solution can be written $\hat x_1 = A\Hm z$, and $AA\Hm z = b$; if $A$ has
         linearly independent rows, $\hat x_1 = A\Hm(AA\Hm)^{-1}b$.
   \item If $b\notin\Range(A)$, combine both steps: replace $b$ by $b_1 = \operatorname{Proj}_{\Range(A)}b$, take any
-        least squares solution and project it onto $\Null^\perp(A)$. The result is the \emph{minimum norm least
+        least squares solution and project it onto $\Null^\perp(A)$. The result is the \term{minimum norm least
         squares solution} (this is what the pseudo-inverse $A^{+}b$ computes); the example below does exactly this.
 \end{itemize}
 \end{insight}

@@ -1,30 +1,30 @@
 % ===== Page 47 =====
 \origpage{47}
-\subsection*{Procedure}
+\subsection{General Procedure and the Fundamental Theorem}\label{ss:procedure}
 
 \begin{itemize}[leftmargin=1.5em]
-\item If $b\in\Range(A)$: $\exists$ an exact solution to $A\hat{x}=b$.
+\item If $b\in\Range(A)$: \key{$\exists$ an exact solution} to $A\hat{x}=b$.
 \item If $b\notin\Range(A)$:
 \[
 b_1=\operatorname{Proj}_{\Range(A)} b, \qquad A\hat{x}=b_1
 \]
 \begin{itemize}
-\item If $\Null(A)=\{0\}$ $\Rightarrow$ $\hat{x}$ is unique.
+\item If $\Null(A)=\{0\}$ $\Rightarrow$ \key{$\hat{x}$ is unique}.
 \item If $\Null(A)\neq\{0\}$ $\Rightarrow$ $\hat{x}_1=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}$
 \end{itemize}
 \end{itemize}
 
 \begin{center}
 \begin{tabular}{@{}l@{\quad}l@{}}
-$\hat{x}$: & minimum error solution (least squares)\\
-$\hat{x}_1$: & minimum error-norm solution
+$\hat{x}$: & \term{minimum error solution} (least squares)\\
+$\hat{x}_1$: & \term{minimum error-norm solution}
 \end{tabular}
 \end{center}
 
 \begin{insight}[Why the procedure works]
 \begin{itemize}[nosep,leftmargin=1.2em]
-\item The error $b-A\hat x$ is smallest when $A\hat x$ is the point of $\Range(A)$ closest to $b$, i.e.\ $A\hat x=b_1=\operatorname{Proj}_{\Range(A)}b$ (orthogonality principle: $b-b_1\perp\Range(A)$). Writing this as $A\Hm(b-A\hat x)=0$ gives the \emph{normal equations} $A\Hm A\hat x=A\Hm b$.
-\item If $\Null(A)\neq\{0\}$, every $\hat x+n$ with $n\in\Null(A)$ gives the same $A\hat x=b_1$, so the least-squares solution is not unique. Splitting $\hat x=\hat x_1+\hat x_2$ with $\hat x_1\in\Null^\perp(A)$, $\hat x_2\in\Null(A)$ gives $A\hat x_1=A\hat x=b_1$ and, by Pythagoras, $\norm{\hat x+n}^2=\norm{\hat x_1}^2+\norm{\hat x_2+n}^2\geq\norm{\hat x_1}^2$. Hence $\hat x_1$ is the least-squares solution of minimum norm, and it does not depend on which $\hat x$ we started from.
+\item The error $b-A\hat x$ is smallest when $A\hat x$ is the point of $\Range(A)$ closest to $b$, i.e.\ $A\hat x=b_1=\operatorname{Proj}_{\Range(A)}b$ (orthogonality principle: $b-b_1\perp\Range(A)$). Writing this as $A\Hm(b-A\hat x)=0$ gives the \term{normal equations} $A\Hm A\hat x=A\Hm b$.
+\item If $\Null(A)\neq\{0\}$, every $\hat x+n$ with $n\in\Null(A)$ gives the same $A\hat x=b_1$, so the least-squares solution is not unique. Splitting $\hat x=\hat x_1+\hat x_2$ with $\hat x_1\in\Null^\perp(A)$, $\hat x_2\in\Null(A)$ gives $A\hat x_1=A\hat x=b_1$ and, by Pythagoras, $\norm{\hat x+n}^2=\norm{\hat x_1}^2+\norm{\hat x_2+n}^2\geq\norm{\hat x_1}^2$. Hence \key{$\hat x_1$ is the least-squares solution of minimum norm}, and it does not depend on which $\hat x$ we started from.
 \end{itemize}
 \end{insight}
 
@@ -51,7 +51,7 @@ For $\Null^\perp(A)$, a vector $[a\ b\ c]\T$ orthogonal to both basis vectors of
 \[
 \Null^\perp(A)=\Range(A\Hm)
 \]
-\explain{$\therefore$ Fundamental theorem of linear algebra.}
+\explain{$\therefore$ \key{Fundamental theorem of linear algebra.}}
 \[
 \hat{x}_1=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}
 =\operatorname{Proj}_{\Range(A\Hm)}\hat{x}
@@ -69,17 +69,17 @@ For $\Null^\perp(A)$, a vector $[a\ b\ c]\T$ orthogonal to both basis vectors of
 \left.\begin{aligned}
 \dim(\Range(A))&=\#\text{ of lin.\ indep.\ columns of }A=\text{column rank}=k\\
 \dim(\Range(A\Hm))&=\#\text{ of lin.\ indep.\ rows of }A=\text{row rank}=k
-\end{aligned}\right\}\ k=\text{rank of a matrix}
+\end{aligned}\right\}\ k=\text{\term{rank} of a matrix}
 \]
 \[
 \#\text{ linearly indep.\ rows}=\#\text{ linearly indep.\ columns}
 \quad\text{as}\quad \dim\Range(A)=k=\dim\Range(A\Hm)
 \]
-$k$: \# of linearly indep.\ rows $=$ \# of linearly indep.\ columns.
+$k$: \key{\# of linearly indep.\ rows $=$ \# of linearly indep.\ columns} (column rank $=$ row rank).
 
 % ===== Page 48 =====
 \origpage{48}
-\begin{theorem}
+\begin{theorem}[Fundamental theorem of linear algebra]
 $\Range(A\Hm)=\Null^\perp(A)$
 \end{theorem}
 \begin{proof}
@@ -174,16 +174,16 @@ Both inclusions hold, so $\Null(A)=\Range^\perp(A\Hm)$. Taking orthogonal comple
 \end{center}
 
 \par\vskip 0pt plus 10\baselineskip\penalty-250\vskip 0pt plus -10\baselineskip
-\subsection*{Special Cases}
-\paragraph{Case I: $A$ is/has full column rank.}
-Columns of $A$ are linearly independent.
+\subsection{Special Cases by Rank}\label{ss:rank-cases}
+\subsubsection{Case I: Full Column Rank}
+$A$ is/has \term{full column rank}: columns of $A$ are linearly independent.
 \[
 m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ \\ \ &\ &\ \\ \ &\ &\ }}}_{\text{tall matrix}}
 \overset{n}{\bmat{\ \\ \ \\ \ }}=\bmat{\ \\ \ \\ \ }\Big\}m \qquad m\geq n
 \]
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $n=\#$ of unknowns, \quad $m=\#$ of equations
-\item $m>n$: overdetermined system of eqn.
+\item $m>n$: \term{overdetermined} system of eqn.
 \end{itemize}
 Assume
 \[
@@ -197,7 +197,7 @@ Assume
 &\dim(\Range(A))=n\\
 &\dim(\Null(A))=0\Rightarrow \Null(A)=\{0\} \qquad A\text{ is one-to-one}
 \end{align*}
-If we have an exact solution, then the solution is unique.
+\key{If we have an exact solution, then the solution is unique.}
 
 If $b\notin\Range(A)$:
 \begin{align*}
@@ -210,33 +210,32 @@ b_1=P_{\Range(A)}b&=A(A\Hm A)^{-1}A\Hm b \qquad (A\hat{x}=b_1)\\
 \ \Rightarrow\ \boxed{\hat{x}=(A\Hm A)^{-1}A\Hm b}
 \end{align*}
 \explain{Unique solution as $\Null(A)=\{0\}$.}
-$(A\Hm A)^{-1}A\Hm$: \textbf{Left pseudo inverse} of $A$.
+$(A\Hm A)^{-1}A\Hm$: \term{left pseudo inverse} of $A$.
 
 \begin{insight}
 \begin{itemize}[nosep,leftmargin=1.2em]
-\item $A\Hm A$ ($n\times n$) is invertible exactly when $A$ has full column rank: $A\Hm Ax=0\Rightarrow x\Hm A\Hm Ax=\norm{Ax}^2=0\Rightarrow Ax=0\Rightarrow x=0$.
+\item \key{$A\Hm A$ ($n\times n$) is invertible exactly when $A$ has full column rank}: $A\Hm Ax=0\Rightarrow x\Hm A\Hm Ax=\norm{Ax}^2=0\Rightarrow Ax=0\Rightarrow x=0$.
 \item The same formula comes directly from the normal equations $A\Hm A\hat x=A\Hm b$.
 \item ``Left'' inverse: $\big((A\Hm A)^{-1}A\Hm\big)A=I_n$. If $b\in\Range(A)$, it returns the exact solution.
 \end{itemize}
 \end{insight}
 
-\sep
-\paragraph{Case II: $A$ is/has full row rank.}
-All rows of $A$ are linearly indep.
+\subsubsection{Case II: Full Row Rank}
+$A$ is/has \term{full row rank}: all rows of $A$ are linearly indep.
 \[
 m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ &\ \\ \ &\ &\ &\ }}}_{\text{fat matrix}}
 \bmat{\ \\ \ \\ \ \\ \ }=\bmat{\ \\ \ } \qquad m\leq n
 \]
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $m$: \# of equations, \quad $n$: \# of unknowns
-\item $m<n$: underdetermined system of eqn.
+\item $m<n$: \term{underdetermined} system of eqn.
 \end{itemize}
 \begin{align*}
 \dim(\Range(A\Hm))&=m\\
 \dim(\Range(A))&=m \ \Rightarrow\ \Range(A)=\C^m
 \end{align*}
 \[
-b\in\Range(A)\quad\forall b\in\C^m\Rightarrow\text{Always has an exact solution (at least one): $A$ is onto.}
+b\in\Range(A)\quad\forall b\in\C^m\Rightarrow\text{\key{Always has an exact solution} (at least one): $A$ is onto.}
 % corrected: notes had "b in C^m  for all b in R(A)" (quantifiers swapped)
 \]
 \begin{align*}
@@ -246,18 +245,18 @@ b\in\Range(A)\quad\forall b\in\C^m\Rightarrow\text{Always has an exact solution 
 P_{\Range(A\Hm)}&=A\Hm(AA\Hm)^{-1}A\\
 \hat{x}_1&=A\Hm(AA\Hm)^{-1}\underbrace{A\hat{x}}_{b}\ \Rightarrow\ \hat{x}_1=A\Hm(AA\Hm)^{-1}b
 \end{align*}
-$A\Hm(AA\Hm)^{-1}$: \textbf{Right pseudo inverse} of $A$.
+$A\Hm(AA\Hm)^{-1}$: \term{right pseudo inverse} of $A$.
 
 \begin{insight}
 \begin{itemize}[nosep,leftmargin=1.2em]
 \item $AA\Hm$ ($m\times m$) is invertible since the rows of $A$ are independent (same argument as for $A\Hm A$, applied to $A\Hm$).
 \item ``Right'' inverse: $A\big(A\Hm(AA\Hm)^{-1}\big)=I_m$, so $A\hat x_1=b$ is indeed an exact solution.
-\item $\hat x_1=A\Hm\big((AA\Hm)^{-1}b\big)\in\Range(A\Hm)=\Null^\perp(A)$, so it is the minimum-norm one among the infinitely many exact solutions $\hat x_1+\Null(A)$.
+\item $\hat x_1=A\Hm\big((AA\Hm)^{-1}b\big)\in\Range(A\Hm)=\Null^\perp(A)$, so \key{it is the minimum-norm one} among the infinitely many exact solutions $\hat x_1+\Null(A)$.
 \end{itemize}
 \end{insight}
 
-\sep
-\paragraph{Case III: $A$ is/has both full column and row rank.}
+\subsubsection{Case III: Full Column and Full Row Rank}
+$A$ is/has both full column and row rank.
 \[
 \left.\begin{aligned}m&\geq n\\ n&\geq m\end{aligned}\right\}\ m=n:\quad
 \begin{aligned}
@@ -267,7 +266,7 @@ $A\Hm(AA\Hm)^{-1}$: \textbf{Right pseudo inverse} of $A$.
 \end{aligned}
 \]
 \explain{Both pseudo inverses reduce to $A^{-1}$ here: $(A\Hm A)^{-1}A\Hm=A^{-1}(A\Hm)^{-1}A\Hm=A^{-1}$ and $A\Hm(AA\Hm)^{-1}=A^{-1}$.}
-Exact solution exists. The solution is unique.
+\key{Exact solution exists. The solution is unique.}
 \[
 Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \]
@@ -323,7 +322,8 @@ Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \explain{Check: $\hat x_1=\tfrac15\bmat{1\\2}$ gives $A\hat x_1=\bmat{1\\1}=b$, and $\norm{\hat x_1}^2=\tfrac15<1=\norm{\hat x}^2$; the right pseudo inverse cannot be used here since $AA\Hm=\bmat{5&5\\5&5}$ is singular ($A$ has rank 1, neither full row nor full column rank), so the projection route is used.}
 \end{example}
 
-\paragraph{Case IV: $A$ is/has neither full column rank nor full row rank.}
+\subsubsection{Case IV: Neither Full Column nor Full Row Rank}
+$A$ is/has neither full column rank nor full row rank.
 
 \begin{example}
 \[
@@ -339,7 +339,7 @@ Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \]
 \[
 \bmat{1\\0\\3}=\underset{\alpha}{\underset{\parallel}{1}}\bmat{1\\1\\0}+\underset{\beta}{\underset{\parallel}{3}}\bmat{0\\1\\1}\quad\times
-\qquad\Rightarrow\qquad b\notin\Range(A)\Rightarrow\text{No exact solution.}
+\qquad\Rightarrow\qquad b\notin\Range(A)\Rightarrow\text{\key{No exact solution.}}
 \]
 \explain{Column 3 $=$ column 1 $+$ column 2, so $\Range(A)=\Span\{[1\ 1\ 0]\T,[0\ 1\ 1]\T\}$. Matching the 1st and 3rd entries of $b$ forces $\alpha=1$, $\beta=3$, but then the 2nd entry would be $\alpha+\beta=4\neq0$.}
 
@@ -384,19 +384,21 @@ P_{\Range(A\Hm)}&=B(B\Hm B)^{-1}B\Hm,\qquad B=\bmat{1&0\\0&1\\1&1}\\
 P_{\Range(A\Hm)}&=\frac13\bmat{2&-1&1\\-1&2&1\\1&1&2}\\
 \hat{x}_1=P_{\Range(A\Hm)}\hat{x}&=\frac19\bmat{-7\\11\\4}
 \end{align*}
-\explain{$\hat{x}_1$: minimum error, minimum norm solution.}
+\explain{$\therefore$ \key{$\hat{x}_1$: minimum error, minimum norm solution.}}
 \begin{insight}[Check]
 $A\hat x_1=\tfrac19[-3\ \ 12\ \ 15]\T=\tfrac13[-1\ \ 4\ \ 5]\T=b_1$, so $\hat x_1$ has the same (minimum) error as $\hat x$. Moreover $\hat x-\hat x_1=\tfrac49[1\ \ 1\ {-1}]\T$ spans $\Null(A)$ (indeed $A[1\ 1\ {-1}]\T=0$), and
 $\norm{\hat x_1}^2=\tfrac{186}{81}\approx2.30<\tfrac{26}{9}\approx2.89=\norm{\hat x}^2$.
 \end{insight}
 \end{example}
 
-\section{Spectral Analysis of Linear Operations}
+\section{Spectral Analysis of Linear Transformations}\label{sec:spectral}
+\syllabusweek{Weeks 8--9 --- eigenvalues and eigenvectors, invariance under operators, block diagonal forms}
+\subsection{Invariant Subspaces}\label{ss:invariant}
 \[
-A\qquad \{\lambda_1,\lambda_2,\dots,\lambda_n\}:\ \text{spectrum of a matrix}
+A\qquad \{\lambda_1,\lambda_2,\dots,\lambda_n\}:\ \text{\term{spectrum} of a matrix}
 \]
 \begin{definition}
-Let $\mathcal{A}:\V\to\V$ be a linear transformation defined over a vector space $\V$. A subspace $M$ of $\V$ is said to be \emph{invariant under $\mathcal{A}$} iff
+Let $\mathcal{A}:\V\to\V$ be a linear transformation defined over a vector space $\V$. A subspace $M$ of $\V$ is said to be \term{invariant under $\mathcal{A}$} iff
 \[
 \mathcal{A}x\in M\quad\forall x\in M
 \]
@@ -425,13 +427,13 @@ $\V=\{f\mid f\text{ functions defined over }\R\text{ which are infinitely differ
 \[
 \mathcal{A}(\alpha\sin t)=\alpha\mathcal{A}\sin t=\alpha\cos t\notin M_1
 \]
-$\therefore$ $M_1$ is not invariant under $\mathcal{A}$.
+$\therefore$ \key{$M_1$ is not invariant under $\mathcal{A}$.}
 \begin{align*}
 M_2&\triangleq\Span\{\cos t,\sin t\}\\
 x&=\alpha_1\cos t+\alpha_2\sin t\\
 \mathcal{A}x&=-\alpha_1\sin t+\alpha_2\cos t\in\Span\{\cos t,\sin t\}= M_2
 \end{align*}
-$\therefore$ $M_2$ is invariant under $\mathcal{A}$.
+$\therefore$ \key{$M_2$ is invariant under $\mathcal{A}$.}
 \begin{align*}
 M_3&=\{0\}, \qquad \mathcal{A}0=0\in M_3\\
 M_4&=\Span\{e^{2t}\},\qquad x=\alpha e^{2t},\qquad \mathcal{A}x=2\alpha e^{2t}\in M_4
@@ -440,7 +442,7 @@ $\therefore$ $M_3$ and $M_4$ are invariant under $\mathcal{A}$ ($e^{2t}$ is mapp
 \end{example}
 % corrected: the notes write "not in M" for M_1; made explicit as M_1.
 \begin{insight}
-The trivial subspaces $\{0\}$ and $\V$ are always invariant. A one-dimensional subspace $\Span\{e\}$ is invariant iff $\mathcal{A}e=\lambda e$ for some scalar $\lambda$, i.e.\ iff $e$ is an eigenvector --- this is the link between invariant subspaces and the eigenvalues defined below.
+The trivial subspaces $\{0\}$ and $\V$ are always invariant. \key{A one-dimensional subspace $\Span\{e\}$ is invariant iff $\mathcal{A}e=\lambda e$} for some scalar $\lambda$, i.e.\ iff $e$ is an eigenvector --- this is the link between invariant subspaces and the eigenvalues defined below.
 \end{insight}
 
 % ===== Page 52 =====
@@ -464,8 +466,9 @@ $\Range(\mathcal{A})$ is invariant under $\mathcal{A}$.
 \end{minipage}
 \end{example}
 
+\subsection{Powers and Polynomials of a Linear Transformation}\label{ss:powers}
 \begin{definition}
-Powers of a linear transformation $\mathcal{A}:\V\to\V$ are defined as
+\term{Powers} of a linear transformation $\mathcal{A}:\V\to\V$ are defined as
 \[
 \mathcal{A}^k x=\underbrace{\mathcal{A}(\mathcal{A}\cdots\mathcal{A}(\mathcal{A}x)\dots)}_{\mathcal{A}\text{ is applied }k\text{ times}}
 \]
@@ -477,7 +480,7 @@ When domain and co-domains are the same, then we can define the power of a linea
 \end{itemize}
 
 \sep
-$\star$ Polynomials of $\mathcal{A}$ can be constructed using linear combinations of powers of $\mathcal{A}$.
+$\star$ \term{Polynomials of $\mathcal{A}$} can be constructed using linear combinations of powers of $\mathcal{A}$.
 
 \begin{minipage}{0.66\textwidth}
 \begin{align*}
@@ -505,7 +508,7 @@ p(\mathcal{A})\mathcal{A}x&=(3\mathcal{A}^3+2\mathcal{A}^2+\mathcal{A}+I)\mathca
 \qquad\Rightarrow\qquad
 p(\mathcal{A})\mathcal{A}=\mathcal{A}p(\mathcal{A})
 \]
-\explain{$\mathcal{A}$ commutes with $p(\mathcal{A})$.}
+\explain{\key{$\mathcal{A}$ commutes with $p(\mathcal{A})$.}}
 
 \begin{example}
 $\Null(p(\mathcal{A}))$ \& $\Range(p(\mathcal{A}))$ are invariant under $\mathcal{A}$.
@@ -525,7 +528,7 @@ p(\mathcal{A})\mathcal{A}x&=\mathcal{A}\underbrace{p(\mathcal{A})x}_{0_{\V}}=\ma
 \end{align*}
 \end{example}
 
-\sep
+\subsection{Eigenvalues and Eigenvectors}\label{ss:eigen}
 $\star$ Matrix representation:
 \[
 \mathcal{A}:\underset{\substack{\downarrow\\ B\\ \text{basis set}\\ \text{for }\V}}{\overset{n}{\V}}\to\underset{\substack{\downarrow\\ B\\ \text{basis set}\\ \text{for }\V}}{\overset{n}{\V}}
@@ -544,12 +547,12 @@ y&=\mathcal{A}x &\quad \lambda e&=\mathcal{A}e\\
 \explain{Well defined: another basis gives $\bar A=P^{-1}AP$, and $\det(P^{-1}AP)=\det A$, $\tr(P^{-1}AP)=\tr A$.}
 
 \begin{definition}
-Let $A$ denote the matrix representation of a linear transformation $\mathcal{A}$ from $\V$ into $\V$ ($A$ is a square matrix). The eigenvalues of $\mathcal{A}$ denoted by $\lambda_i$ are defined as the $n$ roots of the equation
+Let $A$ denote the matrix representation of a linear transformation $\mathcal{A}$ from $\V$ into $\V$ ($A$ is a square matrix). The \term{eigenvalues} of $\mathcal{A}$ denoted by $\lambda_i$ are defined as the $n$ roots of the equation
 \[
 \det(sI-A)=0,
 \]
-where $d(s)\triangleq\det(sI-A)$ is called the \emph{characteristic polynomial} of $A$.
-The vectors $e_i\neq0$ satisfying $Ae_i=\lambda_i e_i$ are called \emph{eigenvectors} of $A$.
+where $d(s)\triangleq\det(sI-A)$ is called the \term{characteristic polynomial} of $A$.
+The vectors $e_i\neq0$ satisfying $Ae_i=\lambda_i e_i$ are called \term{eigenvectors} of $A$.
 \end{definition}
 
 \begin{center}
@@ -628,7 +631,7 @@ A\overset{\neq0}{e_i}=\lambda e_i\qquad d(\lambda)=\det(\lambda_iI-A)=0
 &\exists\alpha\ \text{s.t.}\ (\lambda_iI-A)\alpha=0\\
 &\qquad A\alpha=\lambda_i\alpha\ \Rightarrow\ \text{Eğer bir eigenvalue varsa en az 1 eigenvector vardır}
 \end{align*}
-\explain{If there is an eigenvalue, then there is at least 1 eigenvector: $\alpha\neq0$ is an eigenvector for $\lambda_i$.}
+\explain{\key{If there is an eigenvalue, then there is at least 1 eigenvector}: $\alpha\neq0$ is an eigenvector for $\lambda_i$.}
 
 \begin{example}
 \begin{align*}
@@ -639,7 +642,7 @@ A&=\bmat{2&1\\1&2},\qquad d(s)=\det(sI-A)=\det\bmat{s-2&-1\\-1&s-2}\\
 \begin{align*}
 &Ae_i=\lambda_ie_i\\
 &(A-\lambda_iI)e_i=0\\
-&e_i\in\underbrace{\Null(A-\lambda_iI)}_{\text{eigenspace}},\quad\dim\geq1
+&e_i\in\underbrace{\Null(A-\lambda_iI)}_{\text{\term{eigenspace}}},\quad\dim\geq1
 \qquad\qquad
 \begin{aligned}
 p(s)&=s-\lambda_i\\
@@ -715,7 +718,8 @@ The columns of $P$ are the new basis vectors written in the old basis, so $[x]_B
 \]
 \explain{Each block is $1\times1$ as $\dim\Null(A-\lambda_2I_2)=1$.}
 
-\begin{theorem}
+\subsection{Block Diagonal Representations}\label{ss:block-diag}
+\begin{theorem}[Block diagonal representation]
 Consider the linear transformation
 \[
 y=Ax\quad\text{where }A\in\C^{n\times n},\ y,x\in\C^n.
@@ -725,7 +729,7 @@ Suppose that
 \item $\C^n=M_1\oplus M_2\oplus\dots\oplus M_k$
 \item $M_i$ is invariant under $A$ $\forall i$.
 \end{enumerate}
-Then, the transformation $A$ has a block diagonal representation
+Then, the transformation $A$ has a \key{block diagonal representation}
 \[
 \bar{A}=\bmat{\bar{A}_1&&&0\\&\bar{A}_2&&\\&&\ddots&\\0&&&\bar{A}_k}
 \]
@@ -789,7 +793,7 @@ A(\alpha_1b_1^1+\alpha_2b_1^2)&=\alpha_1Ab_1^1+\alpha_2Ab_1^2\\
 &=\alpha_1(2b_1^1)+\alpha_2(1b_1^1+2b_1^2)\\
 &=(2\alpha_1+\alpha_2)b_1^1+2\alpha_2b_1^2\in M_1
 \end{align*}
-$\therefore$ $M_1$ is invariant under $A$.
+$\therefore$ \key{$M_1$ is invariant under $A$.}
 \[
 \left.\begin{aligned}
 Ab_1^1&=2b_1^1 &&\text{-- }b_1^1\text{ is an eigenvector}\\
@@ -833,7 +837,7 @@ d(s)=\det(sI-A)=(s-2)^{\text{\textcircled{\scriptsize 2}}}(s-1),\qquad\lambda_1=
 \[
 \underbrace{\Null(A-\lambda_1I)}_{\dim=1}+\underbrace{\Null(A-\lambda_2I)}_{\dim=1}\neq\C^3
 \]
-\explain{$\Rightarrow$ only two linearly indep.\ eigenvectors ($[1\ 1\ 0]\T$ and $[0\ 1\ 1]\T$) $\Rightarrow$ Not diagonalizable as dim's does not hold ($1+1<3$).}
+\explain{$\Rightarrow$ only two linearly indep.\ eigenvectors ($[1\ 1\ 0]\T$ and $[0\ 1\ 1]\T$) $\Rightarrow$ \key{Not diagonalizable} as dim's does not hold ($1+1<3$).}
 \[
 \underset{3\ \checkmark}{\C^3}=\underbrace{\Null\big((A-\lambda_1I)^{\text{\textcircled{\scriptsize 2}}}\big)}_{2}\oplus\underbrace{\Null(A-\lambda_2I)}_{1}
 \]
@@ -847,8 +851,7 @@ By the result on p.~52 ($\Null(p(A))$ is invariant), this subspace is automatica
 \end{insight}
 \end{example}
 
-\sep
-\paragraph{Distinct eigenvalues.}
+\subsection{Distinct Eigenvalues and Diagonalization}\label{ss:diagonalization}
 Let $A\in\C^{n\times n}$, $\lambda_1\neq\lambda_2$, $Ae_1=\lambda_1e_1$, $Ae_2=\lambda_2e_2$.
 \begin{align*}
 &\alpha_1e_1+\alpha_2e_2=0\\
@@ -862,8 +865,8 @@ where
 \end{align*}
 % corrected: notes had (A - lambda_2 I)e_2 in the second term (which would be 0); applying (A - lambda_1 I) gives (A - lambda_1 I)e_2, computed below.
 % corrected: notes had A in C^n
-Then $\alpha_1e_1=0$ with $e_1\neq0$ gives $\alpha_1=0$ as well, so $e_1,e_2$ are linearly independent.
+Then $\alpha_1e_1=0$ with $e_1\neq0$ gives $\alpha_1=0$ as well, so \key{$e_1,e_2$ are linearly independent}.
 
 \begin{insight}[Eigenvectors of distinct eigenvalues are independent]
-The same trick works for $k$ distinct eigenvalues: if $\sum_{i=1}^k\alpha_ie_i=0$, apply $\prod_{i\neq j}(A-\lambda_iI)$. Every term except the $j$-th is annihilated, leaving $\alpha_j\prod_{i\neq j}(\lambda_j-\lambda_i)\,e_j=0$, so $\alpha_j=0$ for every $j$. Consequently, if $A\in\C^{n\times n}$ has $n$ distinct eigenvalues, its eigenvectors form a basis, $\C^n=\Null(A-\lambda_1I)\oplus\dots\oplus\Null(A-\lambda_nI)$, and $P^{-1}AP=\diag(\lambda_1,\dots,\lambda_n)$ with $P=[e_1\ \dots\ e_n]$. The example above shows this can fail when an eigenvalue is repeated.
+The same trick works for $k$ distinct eigenvalues: if $\sum_{i=1}^k\alpha_ie_i=0$, apply $\prod_{i\neq j}(A-\lambda_iI)$. Every term except the $j$-th is annihilated, leaving $\alpha_j\prod_{i\neq j}(\lambda_j-\lambda_i)\,e_j=0$, so $\alpha_j=0$ for every $j$. Consequently, \key{if $A\in\C^{n\times n}$ has $n$ distinct eigenvalues, it is diagonalizable}: its eigenvectors form a basis, $\C^n=\Null(A-\lambda_1I)\oplus\dots\oplus\Null(A-\lambda_nI)$, and $P^{-1}AP=\diag(\lambda_1,\dots,\lambda_n)$ with $P=[e_1\ \dots\ e_n]$. The example above shows this can fail when an eigenvalue is repeated.
 \end{insight}

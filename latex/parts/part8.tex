@@ -1,7 +1,8 @@
 % ===== Page 81 =====
 \origpage{81}
-\begin{theorem}
-Let $A$ be an $n\times n$ Hermitian matrix. Then, there exists a unitary matrix $P$ s.t.
+\subsection{Unitary Diagonalization}\label{ss:unitary}
+\begin{theorem}[Unitary diagonalization]
+Let $A$ be an $n\times n$ Hermitian matrix. Then, \key{there exists a unitary matrix $P$} s.t.
 \[
 J = P\Hm A P .
 \]
@@ -11,8 +12,8 @@ For a Hermitian matrix the Jordan form $J$ is \emph{diagonal} with \emph{real} e
 \end{insight}
 
 \begin{itemize}
-\item[$\star$] \textbf{Unitary matrix:} $P^{-1} = P\Hm$.
-\item[$\rightarrow$] \textbf{Orthogonal matrix} (real-valued unitary matrix): $P^{-1} = P\T$.
+\item[$\star$] \term{Unitary matrix}: $P^{-1} = P\Hm$.
+\item[$\rightarrow$] \term{Orthogonal matrix} (real-valued unitary matrix): $P^{-1} = P\T$.
 \item[$\star$] $P^{-1}P = PP^{-1} = I$, \quad i.e.\ \quad $P\Hm P = PP\Hm = I$.
 \end{itemize}
 
@@ -36,7 +37,7 @@ p_n\Hm p_1 & & & p_n\Hm p_n}\\
 \end{align*}
 \explain{All inner products, similar to Gram matrix.}
 
-$\Rightarrow$ Columns of $P$ are orthonormal!
+$\Rightarrow$ \key{Columns of $P$ are orthonormal!}
 \[
 \inner{p_i}{p_j} = \delta_{ij} = \begin{cases} 1, & i=j\\ 0, & i\neq j\end{cases}
 \]
@@ -50,7 +51,7 @@ P = \bmat{r_1\\ \hline r_2\\ \hline \vdots\\ \hline r_n},
 \underbrace{\bmat{r_1\\ r_2\\ \vdots\\ r_n}}_{P}
 \underbrace{\bigl[\, r_1\Hm \;\vdots\; r_2\Hm \;\vdots\; \cdots \;\vdots\; r_n\Hm \,\bigr]}_{P\Hm} = I
 \]
-$\Rightarrow$ Rows are also orthonormal!!
+$\Rightarrow$ \key{Rows are also orthonormal!!}
 
 \begin{proof}[Proof (kind of proof, not an actual one)]
 $A$ is Hermitian, $A\in\C^{5\times 5}$; $\lambda_1,\lambda_2$ are eigenvalues of $A$, $\lambda_1\neq\lambda_2$, and $\Sigma_j = A-\lambda_jI$:
@@ -105,7 +106,7 @@ If $Ax=\lambda_1x$, $Ay=\lambda_2y$ with $A=A\Hm$ (so $\lambda_1,\lambda_2\in\R$
 Gram--Schmidt inside each eigenspace keeps the vectors in that eigenspace (they remain eigenvectors), so the orthonormalized set still diagonalizes $A$.
 \end{insight}
 
-$\star$ We can apply Gram--Schmidt orthonormalization to the two basis sets and obtain the unitary matrix
+$\star$ We can apply \key{Gram--Schmidt orthonormalization to the two basis sets} and obtain the unitary matrix
 \[
 P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\; e_3^2 \,\bigr].
 \]
@@ -113,7 +114,8 @@ P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\;
 
 % ===== Page 83 =====
 \origpage{83}
-\paragraph{Spectral decomposition.} With $J = P\Hm A P$:
+\subsection{Spectral Decomposition}\label{ss:spectral-decomp}
+With $J = P\Hm A P$, we obtain the \term{spectral decomposition} of $A$:
 \begin{align*}
 A &= PJP\Hm\\
 &= \bigl[\, e_1 \;\vdots\; e_2 \;\vdots\; \cdots \;\vdots\; e_n \,\bigr]
@@ -130,12 +132,13 @@ A &= PJP\Hm\\
 Each $e_ie_i\Hm$ is the orthogonal projection onto $\Span\{e_i\}$ (rank one, $(e_ie_i\Hm)^2=e_ie_i\Hm$). So a Hermitian matrix is a weighted sum of orthogonal projections onto its eigen-directions, weighted by the (real) eigenvalues. Also $\sum_i e_ie_i\Hm = PP\Hm = I$.
 \end{insight}
 
+\subsection{Positive Definite and Positive Semi-Definite Matrices}\label{ss:posdef}
 \begin{definition}
-A Hermitian matrix is said to be \emph{positive definite} iff
+A Hermitian matrix is said to be \term{positive definite} iff
 \[
 \inner{x}{Ax} > 0 \quad \forall x\neq 0 \qquad (x\Hm A x > 0).
 \]
-A Hermitian matrix is said to be \emph{positive semi-definite} iff
+A Hermitian matrix is said to be \term{positive semi-definite} iff
 \[
 \inner{x}{Ax} \geq 0 \quad \forall x \qquad (x\Hm A x \geq 0).
 \]
@@ -161,7 +164,7 @@ Let $\lambda_i, e_i$ be an eigenpair, $e_i\neq 0$.
 The semi-definite case is identical with ``$>$'' replaced by ``$\geq$''.
 \end{proof}
 \begin{insight}[Converse]
-The converse also holds: with the spectral decomposition, $x\Hm Ax = \sum_i \lambda_i\, x\Hm e_ie_i\Hm x = \sum_i\lambda_i\abs{e_i\Hm x}^2$. If all $\lambda_i>0$ this is $>0$ for $x\neq0$ (not all $e_i\Hm x$ vanish since $\{e_i\}$ is a basis). Hence a Hermitian $A$ is positive definite $\iff$ all $\lambda_i>0$ (semi-definite $\iff$ all $\lambda_i\geq0$).
+The converse also holds: with the spectral decomposition, $x\Hm Ax = \sum_i \lambda_i\, x\Hm e_ie_i\Hm x = \sum_i\lambda_i\abs{e_i\Hm x}^2$. If all $\lambda_i>0$ this is $>0$ for $x\neq0$ (not all $e_i\Hm x$ vanish since $\{e_i\}$ is a basis). Hence \key{a Hermitian $A$ is positive definite $\iff$ all $\lambda_i>0$} (semi-definite $\iff$ all $\lambda_i\geq0$).
 \end{insight}
 
 % ===== Page 84 =====
@@ -187,9 +190,11 @@ The converse also holds: with the spectral decomposition, $x\Hm Ax = \sum_i \lam
 \end{tikzpicture}
 \end{center}
 
-\section{Functions of a matrix}
+\section{Functions of a Matrix}\label{sec:functions}
+\syllabusweek{Week 14 --- functions of a matrix}
+\subsection{Definition via Power Series}\label{ss:fn-def}
 
-Functions of a matrix are \emph{not} applied entrywise:
+\key{Functions of a matrix are \emph{not} applied entrywise}:
 \begin{align*}
 &\exp\!\left(\bmat{2&1\\1&2}\right) \neq \cancel{\bmat{e^2 & e\\ e & e^2}}
 && \text{MATLAB: } \cancel{\texttt{exp(A)}},\ \texttt{expm(A)}\ \checkmark\\
@@ -234,7 +239,7 @@ d(s) &= s^n + d_1 s^{n-1} + \cdots + d_n\\
 d(A) &= 0_{n\times n}\\
 A^n &= -d_1A^{n-1} - d_2A^{n-2} - \cdots - d_nI
 \end{align*}
-Hence all powers $A^i$, $i\geq n$, can be written using $I, A, \dots, A^{n-1}$:
+Hence \key{all powers $A^i$, $i\geq n$, can be written using $I, A, \dots, A^{n-1}$}:
 \[
 f(A) = \sum_{i=0}^{\infty}\alpha_i A^i = c_0I + c_1A + c_2A^2 + \cdots + c_{n-1}A^{n-1}
 \]
@@ -266,7 +271,7 @@ Two methods to find $f(A)$:
 \item \textbf{Method II:} Jordan canonical form
 \end{itemize}
 
-\subsection*{$\blacktriangleright$ Method I -- Case I: $A$ is diagonalizable}
+\subsection{Method I: Interpolating Polynomial (Diagonalizable Case)}\label{ss:method1-diag}
 
 If $A$ is diagonalizable $\Rightarrow$ $m(s) = (s-\lambda_1)(s-\lambda_2)\cdots(s-\lambda_k)$, \ $\ell = k$:
 \[
@@ -292,7 +297,7 @@ f(\lambda_j)e_j - p(\lambda_j)e_j &= 0
 \[
 \boxed{f(\lambda_j) = p(\lambda_j)}, \qquad j = 1,2,\dots,k
 \]
-$\Rightarrow$ $k$ equations and $k$ unknowns; we can solve these.
+$\Rightarrow$ \key{$k$ equations and $k$ unknowns}; we can solve these.
 
 \begin{center}
 \begin{minipage}{0.44\textwidth}
@@ -313,7 +318,7 @@ $\Rightarrow$ $k$ equations and $k$ unknowns; we can solve these.
 \end{tikzpicture}
 \end{minipage}\hfill
 \begin{minipage}{0.52\textwidth}
-Although $p(s)$ \& $f(s)$ are different, they have the same values at the eigenvalues. Thus $p(s)$ is called the \emph{interpolating polynomial}.
+Although $p(s)$ \& $f(s)$ are different, they have the same values at the eigenvalues. Thus $p(s)$ is called the \term{interpolating polynomial}.
 \[
 \left.\begin{aligned} f(s) &\neq p(s)\\ f(A) &= P(A)\end{aligned}\right\rangle
 \ \text{\small satisfied only at eigenvalues}
@@ -332,7 +337,7 @@ Although $p(s)$ \& $f(s)$ are different, they have the same values at the eigenv
 \[
 \begin{array}{lll} e^A & e^{\lambda_j} & e_j\\ \log A & \log\lambda_j & e_j \end{array}
 \]
-\explain{Eigenvectors are invariant under functions: $f(A)$ has the same eigenvectors $e_j$ as $A$, with eigenvalues $f(\lambda_j)$.}
+\explain{\key{Eigenvectors are invariant under functions}: $f(A)$ has the same eigenvectors $e_j$ as $A$, with eigenvalues $f(\lambda_j)$.}
 % corrected: notes had "eigenvalues invariant under functions"; the eigenvectors e_j are what stays the same (eigenvalues become f(lambda_j))
 
 \begin{example}
@@ -409,7 +414,8 @@ This solves
 
 % ===== Page 87 =====
 \origpage{87}
-\subsection*{$\blacktriangleright$ Method I -- Case II: $A$ is not diagonalizable}
+\subsection{Method I: Non-Diagonalizable and General Case}\label{ss:method1-general}
+\paragraph{Case II: $A$ is not diagonalizable.}
 
 \begin{example}
 Let us have $A\in\R^{3\times3}$ and
@@ -526,7 +532,7 @@ p''(\lambda_1) &= f''(\lambda_1) & &
 % note: the notes write only "p'  f'" and "p''  f''" in the last two rows
 \end{example}
 
-\subsection*{General Case}
+\subsubsection{General Case}
 \[
 m(s) = (s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k}
 \]
@@ -607,7 +613,7 @@ From $c_3+c_4=-\pi$: $c_4=-\pi-c_3$, so $3c_3-4\pi-4c_3=-2\pi \Rightarrow c_3=-2
 \[
 f^{(t)}(\lambda_j), \qquad t = 0,\dots,m_j-1, \quad j = 1,\dots,k
 \]
-If any derivative does not exist ($\infty$ or div 0), then $f(A)$ does not exist.
+If any derivative does not exist ($\infty$ or div 0), then \key{$f(A)$ does not exist}.
 
 \begin{remark}
 $f(A)$ does not exist when one of the $f^{(t)}(\lambda_j)$, $j = 1,2,\dots,k$; $t = 0,\dots,m_j-1$ does not exist.
@@ -642,13 +648,13 @@ Suppose $X^2=A$ with $A=\bmat{0&1\\0&0}$. Then $X^4=A^2=0$, so $X$ is nilpotent;
 
 % ===== Page 90 =====
 \origpage{90}
-\subsection*{$\blacktriangleright$ Method II: Jordan Canonical Form}
+\subsection{Method II: Jordan Canonical Form}\label{ss:method2}
 
 \[
 J = \underbrace{P^{-1}AP}_{\substack{\text{similarity}\\ \text{transformation}}},
 \qquad J \text{ is similar to } A.
 \]
-Similar matrices have the same characteristic polynomial:
+\key{Similar matrices have the same characteristic polynomial}:
 \begin{align*}
 B &= P^{-1}AP \qquad \bigl(\text{scalar analogue: } b = \cancel{p^{-1}}a\cancel{p} = a\bigr)\\
 d_B(s) &= \det(sI-B) = \det(sI - P^{-1}AP)\\
@@ -821,7 +827,7 @@ With $P=\bmat{1&1\\1&-1}$, $P\diag(a,b)P^{-1}=\frac12\bmat{a+b&a-b\\a-b&a+b}$ an
 \[
 A^{1/2} = \text{\texttt{sqrtm(A)}} =\frac12\bmat{\sqrt3+1 & \sqrt3-1\\ \sqrt3-1 & \sqrt3+1}\approx\bmat{1.366&0.366\\0.366&1.366},
 \]
-whose eigenvalues $\sqrt3,1$ are positive: it is the unique positive-definite square root. The other three choices $(a,b)=(-\sqrt3,1),(\sqrt3,-1),(-\sqrt3,-1)$ also square to $A$ but are not positive definite.
+whose eigenvalues $\sqrt3,1$ are positive: it is \key{the unique positive-definite square root}. The other three choices $(a,b)=(-\sqrt3,1),(\sqrt3,-1),(-\sqrt3,-1)$ also square to $A$ but are not positive definite.
 \end{insight}
 
 If $A$ is positive definite $\Rightarrow$ the square root is wanted to be positive definite, which is given by the function.

@@ -24,6 +24,8 @@
 \titleformat{\subsection}{\needspace{6\baselineskip}\large\bfseries\color{blue!35!black}}{\thesubsection}{0.7em}{}[{\color{gray!60}\titlerule[0.5pt]}]
 \titleformat{name=\subsection,numberless}{\needspace{6\baselineskip}\large\bfseries\color{blue!35!black}}{}{0pt}{}[{\color{gray!60}\titlerule[0.5pt]}]
 \titlespacing*{\subsection}{0pt}{1.6em}{0.8em}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{blue!35!black}}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\subsubsection}{0pt}{1.2em}{0.5em}
 \titleformat{\paragraph}[runin]{\normalsize\bfseries\color{blue!30!black}}{}{0pt}{}[]
 \titlespacing*{\paragraph}{0pt}{1.0em}{0.6em}
 
@@ -57,6 +59,13 @@
   borderline west={2pt}{0pt}{red!55!black},arc=0pt,boxrule=0pt,left=6pt,right=4pt,top=2pt,bottom=2pt}
 \tcolorboxenvironment{example}{enhanced,breakable,colback=white,colframe=white,
   borderline west={1.2pt}{0pt}{green!45!black},arc=0pt,boxrule=0pt,left=8pt,right=2pt,top=2pt,bottom=2pt,before skip=12pt,after skip=12pt}
+
+% Emphasis for important parts
+\newcommand{\term}[1]{\textbf{\color{blue!50!black}#1}}   % a term being defined
+\newcommand{\key}[1]{\textbf{#1}}                         % key statement / takeaway phrase
+% Syllabus week tag shown under a section heading
+\newcommand{\syllabusweek}[1]{\par\vspace{-0.6em}{\small\color{gray}\textit{Syllabus: #1}}\par\vspace{0.4em}}
+\setcounter{tocdepth}{2}
 
 % Thin separator between logically distinct blocks inside a section
 \newcommand{\sep}{\par\vspace{0.4em}\noindent{\color{gray!45}\rule{\linewidth}{0.4pt}}\par\vspace{0.2em}}

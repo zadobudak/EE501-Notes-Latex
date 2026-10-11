@@ -60,16 +60,15 @@ The increment $\dim\Null(A-7I)^{k}-\dim\Null(A-7I)^{k-1}$ equals the number of J
 \end{insight}
 \end{example}
 
-\sep
-\paragraph{Generalized eigenvectors.}
+\subsection{Generalized Eigenvectors and Jordan Chains}\label{ss:chains}
 Let $x\in\Null(\Sigma_i^{m_i})$, $x\notin\Null(\Sigma_i^{m_i-1})$:
 % corrected: notes had "Sigma_i^{m_i-1} != 0" (the vector x was missing)
 \[
-\Sigma_i^{m_i}x=0, \qquad \Sigma_i^{m_i-1}x\neq 0 \quad\Rightarrow\quad \text{generalized eigenvectors}
+\Sigma_i^{m_i}x=0, \qquad \Sigma_i^{m_i-1}x\neq 0 \quad\Rightarrow\quad x\text{: \term{generalized eigenvector}}
 \]
 \[
 \{\underbrace{\Sigma_i^{m_i-1}x}_{\text{not zero}},\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}
-\quad\Rightarrow\quad \text{none of the vectors are equal to zero.}
+\quad\Rightarrow\quad \text{none of the vectors are equal to zero.}\sidenote{\term{Jordan chain}}
 \]
 \explain{If $\Sigma_i^{m_i-2}x$ were zero, then $\Sigma_i(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x$ would be zero $\Rightarrow$ it cannot be.}
 
@@ -90,7 +89,7 @@ Multiplying the remaining equation
 \end{align*}
 Continuing in this way (multiplying by $\Sigma_i^{m_i-3},\dots,\Sigma_i,I$) gives $\alpha_{m_i-2}=\dots=\alpha_1=0$.
 
-$\therefore$ All vectors should be linearly independent.
+$\therefore$ \key{All vectors of the chain are linearly independent.}
 
 % ===== Page 70 =====
 \origpage{70}
@@ -120,6 +119,8 @@ $\therefore$ All vectors should be linearly independent.
 \end{tikzpicture}
 \end{center}
 
+\needspace{14\baselineskip}
+\subsection{Computing \texorpdfstring{$J$}{J} and \texorpdfstring{$P$}{P}: Worked Examples}\label{ss:jordan-examples}
 \begin{example}
 \[
 A=\bmat{1&1&-1\\-1&3&2\\0&0&1}
@@ -198,7 +199,7 @@ $x\in\Null(\Sigma_1^2)$, \quad $x\notin\Null(\Sigma_1)$:
 \[
 x=\bmat{0\\1\\0}\quad\text{or}\quad x=\bmat{1\\0\\0}\quad\cdots
 \]
-$P$ matrix is not unique, e.g.:
+\key{$P$ matrix is not unique}, e.g.:
 \begin{align*}
 J&=P^{-1}AP, \qquad P_1=2P\\
 P_1^{-1}AP_1&=\tfrac12 P^{-1}AP\cdot 2=P^{-1}AP=J
@@ -210,7 +211,7 @@ Choosing the first one:
 x=\bmat{0\\1\\0},\qquad \Sigma_1x=\bmat{1\\1\\0},\qquad \{\Sigma_1 x, x\}
 \]
 \begin{itemize}[nosep]
-\item $x$: generalized eigenvector; \quad $\Sigma_1 x$: should be eigenvector.
+\item $x$: generalized eigenvector; \quad \key{$\Sigma_1 x$: should be eigenvector.}
 \item $\{\Sigma_1x,x\}$: linearly indep., form a basis for $\Null(\Sigma_1^2)$.
 \end{itemize}
 
@@ -271,7 +272,7 @@ The ordering \emph{eigenvector first} is what produces the 1's above the diagona
 \end{insight}
 \end{example}
 
-\subsection*{Special Cases}
+\subsection{Special Cases}\label{ss:jordan-special}
 
 \paragraph{Case I: $A\in\C^{n\times n}$, single eigenvalue $\lambda_i$.}
 We have $m_i=r_i$.
@@ -294,7 +295,7 @@ d(s)=(s-\lambda_i)^{r_i},\qquad m(s)=(s-\lambda_i)^{m_i=r_i}=d(s)
 \#\text{ of JB's with size}\geq 2&=1\\
 \#\text{ of JB's with size}\geq 3&=1\\
 &\ \,\vdots\\
-\#\text{ of JB's with size}\geq m_i&=1\quad\Rightarrow\ \text{single JB with size } m_i=r_i=n\\
+\#\text{ of JB's with size}\geq m_i&=1\quad\Rightarrow\ \text{\key{single JB with size $m_i=r_i=n$}}\\
 \#\text{ of JB's with size}\geq m_i+1&=0
 \end{align*}
 \[
@@ -375,7 +376,7 @@ r_i&\underbrace{=}_{+0}&r_i&&
 \#\text{ of JB}&=r_i=n\\
 \#\text{ of JB size}\geq 2&=0\quad\Rightarrow\ n\text{ JB size }=1
 \end{align*}
-\explain{$m_i$ is the size of the largest JB for $\lambda_i$.}
+\explain{\key{$m_i$ is the size of the largest JB for $\lambda_i$.}}
 
 % ===== Page 74 =====
 \origpage{74}
@@ -429,6 +430,7 @@ m(A)&=0_{n\times n}\ \Rightarrow\ A-\lambda_iI=0_{n\times n}\ \Rightarrow\ A=\la
 
 % ===== Page 75 =====
 \origpage{75}
+\subsection{Further Examples}\label{ss:jordan-more}
 \begin{example}
 $A$ is a $6\times6$ matrix, $\lambda_i$ is the only eigenvalue.
 \begin{align*}
@@ -446,7 +448,7 @@ m(s)&=(s-\lambda_i)^3, & \dim\Null(\Sigma_i^2)&=4.
 \begin{itemize}[nosep]
 \item $m(s)=(s-\lambda_i)$ should be happen for diagonalizability.
 \item At most 2 linearly indep.\ eigenvectors.
-\item $\Rightarrow$ not diagonalizable (it should be 6).
+\item $\Rightarrow$ \key{not diagonalizable} (it should be 6).
 \end{itemize}
 Jordan blocks:
 \[
@@ -495,7 +497,7 @@ Chains:
 \end{align*}
 \explain{The two chains together should be linearly indep.\ to form a basis.}
 
-$\Rightarrow$ Condition: $\Sigma_i^2x$ \& $\Sigma_i^2y$ should be linearly indep.
+$\Rightarrow$ Condition: \key{$\Sigma_i^2x$ \& $\Sigma_i^2y$ should be linearly indep.}
 
 \begin{insight}[Why this condition suffices]
 Suppose a combination of the six vectors vanishes. Applying $\Sigma_i^2$ kills everything except the coefficients of $x$ and $y$, leaving $a\Sigma_i^2x+b\Sigma_i^2y=0$, so $a=b=0$ by the condition. Applying $\Sigma_i$ to what remains gives the same relation for the coefficients of $\Sigma_ix,\Sigma_iy$, and finally for $\Sigma_i^2x,\Sigma_i^2y$. So independence of the eigenvectors at the bottom of the chains implies independence of the whole set (the same argument as for a single chain).
@@ -557,7 +559,7 @@ Chains:
 &y\in\Null(\Sigma_i^2),\ y\notin\Null(\Sigma_i): && \{\Sigma_iy,y\}\\
 &z\in\Null(\Sigma_i),\ z\notin\Null(\Sigma_i^0)\Rightarrow z\neq0: && \{z\}
 \end{align*}
-$\Rightarrow$ $\Sigma_i^2x,\ \Sigma_iy,\ z$ should be linearly indep.
+$\Rightarrow$ \key{$\Sigma_i^2x,\ \Sigma_iy,\ z$ should be linearly indep.}
 
 % ===== Page 76 =====
 \origpage{76}
@@ -662,10 +664,13 @@ so indeed $P^{-1}AP=J$. ($\Sigma_1^2$ has rank $1$, so $\dim\Null(\Sigma_1^2)=3=
 
 % ===== Page 77 =====
 \origpage{77}
-\section{Hermitian Matrices}
+\section{Hermitian and Positive Definite Matrices}\label{sec:hermitian}
+\syllabusweek{Week 13 --- Hermitian, positive definite and positive semi-definite matrices}
+
+\subsection{Hermitian Matrices and Their Eigenstructure}\label{ss:hermitian-props}
 
 \begin{itemize}[label=$\ast$]
-\item An $n\times n$, in general, complex matrix $A\in\C^{n\times n}$ is called Hermitian iff
+\item An $n\times n$, in general, complex matrix $A\in\C^{n\times n}$ is called \term{Hermitian} iff
 \[
 \bar A^{T}=A, \qquad\text{i.e.}\qquad A\Hm=A,
 \]
@@ -678,12 +683,12 @@ A\T=A:\ \text{Symmetric matrices are Hermitian.}
 \[
 \bmat{2&1\\1&2},\qquad \lambda_1=3,\ \lambda_2=1,\qquad e_1=\bmat{1\\1},\quad e_2=\bmat{1\\-1}
 \]
-\item \sloppy In addition to being linearly independent, eigenvectors of the Hermitian matrices are \underline{orthogonal}.\par
-\item Eigenvalues are always real in Hermitian matrices.
+\item \sloppy In addition to being linearly independent, eigenvectors of the Hermitian matrices are \key{\underline{orthogonal}}.\par
+\item \key{Eigenvalues are always real} in Hermitian matrices.
 \end{itemize}
 
 \begin{theorem}
-Let $A\in\C^{n\times n}$ be Hermitian. Then, $\inner{x}{Ax}$ is real $\forall x\in\C^n$.
+Let $A\in\C^{n\times n}$ be Hermitian. Then, \key{$\inner{x}{Ax}$ is real $\forall x\in\C^n$}.
 \end{theorem}
 
 $\ast$ $\inner{x}{y}=y\Hm x$: $\ell_2$-inner product. Properties:
@@ -698,7 +703,7 @@ $\ast$ $\inner{x}{y}=y\Hm x$: $\ell_2$-inner product. Properties:
 
 \begin{proof}[Proof]
 \[
-\inner{x}{Ax}=(Ax)\Hm x=x\Hm A\Hm x\overset{A\Hm=A}{=}x\Hm Ax:\ \text{Quadratic Form}
+\inner{x}{Ax}=(Ax)\Hm x=x\Hm A\Hm x\overset{A\Hm=A}{=}x\Hm Ax:\ \text{\term{Quadratic Form}}
 \]
 \begin{align*}
 \overline{\inner{x}{Ax}}&=\inner{Ax}{x}\\
@@ -711,7 +716,7 @@ The complex conjugate is equal to itself $\Rightarrow$ $\inner{x}{Ax}$ is real.
 % ===== Page 78 =====
 \origpage{78}
 \begin{theorem}
-If $A$ is Hermitian, then, its eigenvalues are all real.
+If $A$ is Hermitian, then, \key{its eigenvalues are all real}.
 \end{theorem}
 \begin{proof}[Proof]
 $\lambda_i, e_i$: one eigenvalue of $A$ and corresponding eigenvector.
@@ -729,7 +734,7 @@ $\lambda_i, e_i$: one eigenvalue of $A$ and corresponding eigenvector.
 \end{proof}
 
 \begin{theorem}
-Let $A$ be Hermitian, \& $\lambda_i,\lambda_j$ are two distinct eigenvalues of $A$, with eigenvectors $e_i$ \& $e_j$. $e_i$ \& $e_j$ are orthogonal.
+Let $A$ be Hermitian, \& $\lambda_i,\lambda_j$ are two distinct eigenvalues of $A$, with eigenvectors $e_i$ \& $e_j$. \key{$e_i$ \& $e_j$ are orthogonal.}
 \[
 \lambda_i\neq\lambda_j\ \Rightarrow\ \inner{e_i}{e_j}=0
 \]
@@ -760,7 +765,7 @@ Let $A$ be Hermitian. Then, its minimal polynomial is
 \[
 m(s)=(s-\lambda_1)(s-\lambda_2)\cdots(s-\lambda_k)
 \]
-when $A$ has $k$ distinct eigenvalues $\lambda_1,\lambda_2,\dots,\lambda_k$, i.e.\ $m_i=1$ $\forall i$.
+when $A$ has $k$ distinct eigenvalues $\lambda_1,\lambda_2,\dots,\lambda_k$, i.e.\ \key{$m_i=1$ $\forall i$}.
 \end{theorem}
 In general:
 \begin{align*}
@@ -834,14 +839,14 @@ J=\left[\begin{array}{ccc|ccc|c|ccc}
 \ :\ \text{Diagonal Matrix.}
 \]
 \explain{The $\lambda_1$ block is $r_1\times r_1$, the $\lambda_2$ block $r_2\times r_2$, \dots, the $\lambda_k$ block $r_k\times r_k$.}
-\item $J$ is diagonal for a Hermitian matrix. Any Hermitian matrix is diagonalizable:
+\item $J$ is diagonal for a Hermitian matrix. \key{Any Hermitian matrix is diagonalizable}:
 \[
 J=\bmat{\lambda_1I_{r_1\times r_1}&&&\\&\lambda_2I_{r_2\times r_2}&&\\&&\ddots&\\&&&\lambda_kI_{r_k\times r_k}}_{n\times n}
 \]
 \item Any Hermitian matrix has $n$ linearly independent eigenvectors.
 \item For diagonalization with orthonormal eigenvectors (unitary diagonalization), we need to have:
 \begin{align*}
-&N\Hm N=NN\Hm\ :\ \text{Normal matrix (Outside of the scope)}\\
+&N\Hm N=NN\Hm\ :\ \text{\term{Normal matrix} (Outside of the scope)}\\
 &N\Hm N=N^2=NN\Hm\ \text{for Hermitian matrices (Inherently satisfy normal matrix condition).}
 \end{align*}
 % corrected: notes had "For diagonalization, we need" (normality is needed for unitary diagonalization, not for diagonalization in general) and "N^2 = N^2" (meaning N^H N = N^2 = N N^H when N^H = N)

@@ -2,7 +2,7 @@
 \origpage{13}
 \paragraph{1st method (Frobenius norm).}
 \begin{align*}
-\norm{A}_2 = \Big(\sum_{i,j} |a_{ij}|^2\Big)^{1/2} \;\Rightarrow\; \text{Frobenius Norm }
+\norm{A}_2 = \Big(\sum_{i,j} |a_{ij}|^2\Big)^{1/2} \;\Rightarrow\; \text{\term{Frobenius norm} }
 &= \sqrt{\tr(A\T A)}\\
 &= \sqrt{\tr(A\Hm A)} \quad \text{for complex}
 \end{align*}
@@ -25,9 +25,10 @@ In general $(A\Hm A)_{jj} = \sum_i \overline{a_{ij}}\,a_{ij} = \sum_i |a_{ij}|^2
 $\tr(A\Hm A) = \sum_j\sum_i |a_{ij}|^2$. The Frobenius norm is simply the Euclidean norm of $A$ viewed as a long vector in $\F^{mn}$; it is usually written $\norm{A}_F$, to distinguish it from the \emph{induced} $2$-norm of the 2nd method below (which is in general different, e.g.\ $\norm{I_n}_F = \sqrt n$ but the induced norm of $I_n$ is $1$).
 \end{insight}
 
-\subsection*{2nd Method}
+\subsubsection{Induced Matrix Norms}
+\paragraph{2nd Method.}
 \begin{definition}
-Let $A \in \R^n \to \R^m$ be an $m\times n$ matrix. Let $\norm{\cdot}_{\R^n}$ and $\norm{\cdot}_{\R^m}$ denote the norms in $\R^n$ \& $\R^m$ respectively. The induced matrix norm is defined as
+Let $A \in \R^n \to \R^m$ be an $m\times n$ matrix. Let $\norm{\cdot}_{\R^n}$ and $\norm{\cdot}_{\R^m}$ denote the norms in $\R^n$ \& $\R^m$ respectively. The \term{induced matrix norm} is defined as
 \[
 \norm{A} \triangleq \max_{\substack{x\in\R^n\\ x\neq 0_{\V}}} \frac{\norm{Ax}_{\R^m}}{\norm{x}_{\R^n}}
 \]
@@ -45,7 +46,7 @@ Let $A \in \R^n \to \R^m$ be an $m\times n$ matrix. Let $\norm{\cdot}_{\R^n}$ an
 \norm{Ax} &\le \norm{A}\norm{x}\\
 \norm{Ax} &= \frac{\norm{Ax}}{\norm{x}}\cdot\norm{x} \le \left(\max\frac{\norm{Ax}}{\norm{x}}\right)\cdot\norm{x} = \norm{A}\norm{x}
 \end{align*}
-\explain{``Cauchy--Schwarz''-like inequality for matrices.}
+\explain{``Cauchy--Schwarz''-like inequality for matrices: \key{$\norm{Ax}\le\norm{A}\norm{x}$ for every $x$}.}
 \begin{insight}[Why the induced norm is useful]
 The induced norm is the largest ``gain'' $\norm{Ax}/\norm{x}$ of $A$, so $\norm{Ax}\le\norm{A}\norm{x}$ holds for every $x$ with the smallest possible constant. It is also submultiplicative: $\norm{ABx}\le\norm{A}\norm{Bx}\le\norm{A}\norm{B}\norm{x}$, hence $\norm{AB}\le\norm{A}\norm{B}$, which is what makes it convenient for bounding $\norm{A^k}$ in system analysis.
 \end{insight}
@@ -191,15 +192,15 @@ $\norm{Ax}_1 = \big\|\sum_j x_j a_j\big\|_1 \le \sum_j |x_j|\,\norm{a_j}_1 \le \
 with equality for $x = e_{j^*}$ (a corner of the diamond), $j^*$ the column of largest absolute sum.
 \end{insight}
 
-\section{Convergence}
+\subsection{Convergence of Sequences}\label{ss:convergence}
 \begin{definition}
-Let $(\V,\F,\norm{\cdot})$ be a normed space. Let $\{v_n\}_{n=1}^\infty$ be a sequence of vectors in $\V$, i.e., $v_n\in\V\ \forall n$. The sequence $\{v_n\}_{n=1}^\infty$ is said to converge to the limit $\boxed{v\in\V}$ iff
+Let $(\V,\F,\norm{\cdot})$ be a normed space. Let $\{v_n\}_{n=1}^\infty$ be a sequence of vectors in $\V$, i.e., $v_n\in\V\ \forall n$. The sequence $\{v_n\}_{n=1}^\infty$ is said to \term{converge} to the \term{limit} $\boxed{v\in\V}$ iff
 \[
 \boxed{\norm{v_n - v} \to 0 \quad \text{as } n\to\infty}
 \]
 \end{definition}
 \begin{remark}
-A sequence is divergent if it is not convergent.
+A sequence is \term{divergent} if it is not convergent.
 \end{remark}
 \begin{example}
 $\V = \R$, $\norm{v} = |v|$.
@@ -224,7 +225,7 @@ Try $v = 1$:
 \]
 % corrected: notes had ||(-1)^n - 1|| = (-1)^n - 1 (absolute value missing; that expression is negative for odd n)
 \explain{The distance keeps jumping back to $2$, so it does not tend to $0$.}
-$\therefore$ Sequence is not convergent anywhere.
+$\therefore$ \key{Sequence is not convergent anywhere.}
 \begin{insight}
 For an arbitrary candidate $v\in\R$: the even terms are $1$ and the odd terms are $-1$, so by the triangle inequality $2 = |1-(-1)| \le |v_{2k}-v| + |v - v_{2k+1}|$. Thus at least one of two consecutive distances is $\ge 1$, and $\norm{v_n - v}\not\to 0$ for every $v$.
 \end{insight}
@@ -298,11 +299,11 @@ Candidate limit: the zero function $0(t)$.\\ $v\in\V$ is satisfied \checkmark
 \norm{f_n(t) - 0(t)} &= -\frac{2}{n}\big(\underbrace{e^{-n} - 1}_{\to -1}\big) = \frac{2\,(1-e^{-n})}{n} \le \frac2n\\
 \lim_{n\to\infty}\norm{f_n(t) - 0(t)} &= 0 \;\Rightarrow\; \norm{v_n - v}\to 0 \text{ as } n\to\infty \ \checkmark
 \end{align*}
-$\therefore$ It is convergent to the zero function.
+$\therefore$ \key{It is convergent to the zero function.}
 \end{example}
 
 \sep
-Convergence depends on the distance definition:
+\key{Convergence depends on the distance definition} (the norm):
 \begin{itemize}[nosep]
 \item for $\ell_1$ norm $\Rightarrow$ convergent
 \item for $\ell_\infty$ norm $\Rightarrow$ divergent
@@ -311,14 +312,15 @@ Convergence depends on the distance definition:
 With $\norm{f}_\infty = \max_{-1\le t\le 1}|f(t)|$ we get $\norm{f_n - 0}_\infty = \max_t e^{-n|t|} = 1$ (at $t=0$) for every $n$, so $f_n\not\to 0$. No other continuous $g$ works either: $\norm{f_n - g}_\infty\to0$ would force $g(t) = \lim_n f_n(t)$ pointwise, i.e.\ $g(0)=1$ and $g(t)=0$ for $t\neq0$, which is not continuous. The $\mathcal L_1$ norm only ``sees'' area, and the area under the narrowing peak vanishes; the $\ell_\infty$ (sup) norm sees the peak height, which stays $1$.
 \end{insight}
 
+\subsection{Cauchy Sequences and Completeness}\label{ss:cauchy}
 \begin{definition}
-Let $(\V,\F,\norm{\cdot})$ be a normed space. A sequence $\{v_n\}_{n=0}^\infty$ is said to be \emph{Cauchy sequence} iff
+Let $(\V,\F,\norm{\cdot})$ be a normed space. A sequence $\{v_n\}_{n=0}^\infty$ is said to be a \term{Cauchy sequence} iff
 \[
 \lim_{n,m\to\infty}\norm{v_n - v_m} = 0
 \]
 \end{definition}
 \begin{claim}
-Every convergent sequence is a Cauchy sequence. The reverse statement, in general, is not correct.
+\key{Every convergent sequence is a Cauchy sequence.} The reverse statement, in general, is not correct.
 \[
 \text{Convergent} \;\underset{\not\Leftarrow}{\Rightarrow}\; \text{Cauchy}
 \]
@@ -374,17 +376,17 @@ $\therefore \{v_n\}$ is not convergent.
 $v_n$ is actually Cauchy as elements are approaching each other.
 \explain{Indeed $v_n$ and $v_m$ agree in the first $\min(n,m)$ decimals, so $|v_n - v_m| < 10^{-\min(n,m)} \to 0$.}
 \[
-\therefore\ \text{Convergent} \Rightarrow \text{Cauchy} \quad\text{but}\quad \text{Cauchy} \not\Rightarrow \text{Convergent}
+\therefore\ \text{\key{Convergent $\Rightarrow$ Cauchy}} \quad\text{but}\quad \text{Cauchy} \not\Rightarrow \text{Convergent}
 \]
 \explain{Margin note (Turkish): ``ben bi sequence olsam sana converge ederdim.''}
 \end{example}
-If a set does not have holes $\Rightarrow$ Complete set.
+If a set does not have holes $\Rightarrow$ \key{complete} set.
 \begin{insight}
 The same sequence viewed in $\V=\R$ converges (to $\sqrt2\in\R$): convergence depends on the space, not only on the terms. $\R$ is complete (it ``fills the holes'' of $\Q$), and so is every finite-dimensional normed space over $\R$ or $\C$, e.g.\ $(\R^n,\norm{\cdot}_p)$. Incompleteness is therefore a phenomenon of infinite-dimensional spaces such as function spaces, as the next example shows.
 \end{insight}
 
 \begin{definition}
-A normed space is said to be \emph{complete} iff every Cauchy sequence is convergent. A complete normed space is called \emph{Banach Space}.
+A normed space is said to be \term{complete} iff \key{every Cauchy sequence is convergent}. A complete normed space is called a \term{Banach space}.
 \end{definition}
 \begin{example}
 A normed space defined as
@@ -462,7 +464,7 @@ The limit $\notin\V$ (not continuous).
 
 $\Rightarrow \{f_n\}$ is Cauchy but not convergent.
 
-$\therefore (\V,\F,\norm{\cdot}_1)$ is not complete.
+$\therefore$ \key{$(\V,\F,\norm{\cdot}_1)$ is not complete.}
 \end{minipage}
 \end{center}
 \begin{insight}
@@ -512,11 +514,14 @@ $n$ ve $m$'in nasıl $\infty$'a gittiği fark etmez, her zaman limit sonucu sıf
 % In this scenario the limit is zero only if n = m, not otherwise.
 \explain{It does not matter how $n$ and $m$ go to $\infty$; the limit must always be zero. Here it is zero only if $n=m$.}
 \explain{The maximum is at $t=\frac1m$: on $[0,\frac1m]$ the difference $(m-n)t$ increases, and on $[\frac1m,\frac1n]$ it equals $1-nt$, which decreases.}
-$\therefore \{f_n\}$ is not Cauchy.
+$\therefore$ \key{$\{f_n\}$ is not Cauchy} in the sup norm.
 
-\section{Inner Product Spaces}
+\needspace{16\baselineskip}
+\section{Inner Product Spaces}\label{sec:ips}
+\syllabusweek{Week 4 --- inner product spaces, orthogonality, Gram--Schmidt}
+\subsection{Inner Products}\label{ss:inner-products}
 \begin{definition}
-Let $(\V,\C)$ be a vector space. An inner product is a function from $\V\times\V$ into $\C$,
+Let $(\V,\C)$ be a vector space. An \term{inner product} is a function from $\V\times\V$ into $\C$,
 \[
 \inner{\cdot}{\cdot} : \V\times\V\to\C
 \]
@@ -532,7 +537,7 @@ satisfying the following properties:
   $\inner{x}{x}\ge 0$, equality holds iff $x = 0_{\V}$, i.e.\
   $\inner{x}{x} = 0 \Leftrightarrow x = 0_{\V}$.
 \end{enumerate}
-$\therefore$ The triplet $(\V,\C,\inner{\cdot}{\cdot})$ is called an \emph{inner product space}.
+$\therefore$ The triplet $(\V,\C,\inner{\cdot}{\cdot})$ is called an \term{inner product space}.
 \end{definition}
 \begin{align*}
 \inner{x}{y+z} &= \overline{\inner{y+z}{x}} = \overline{\inner{y}{x}} + \overline{\inner{z}{x}} = \inner{x}{y} + \inner{x}{z}
@@ -541,7 +546,7 @@ $\therefore$ The triplet $(\V,\C,\inner{\cdot}{\cdot})$ is called an \emph{inner
 \begin{align*}
 \inner{x}{\alpha y} &= \overline{\inner{\alpha y}{x}} = \bar\alpha\,\overline{\inner{y}{x}} = \bar\alpha\inner{x}{y}
 \end{align*}
-\explain{Homogeneity wrt second argument $\times$ ($\alpha$ should be real). We have conjugate homogeneity wrt second argument.}
+\explain{Homogeneity wrt second argument $\times$ ($\alpha$ should be real). We have \key{conjugate homogeneity wrt second argument}.}
 \begin{insight}
 So an inner product is linear in the first argument and \emph{conjugate}-linear in the second:
 $\inner{\textstyle\sum_i\alpha_i x_i}{\sum_j\beta_j y_j} = \sum_{i,j}\alpha_i\bar\beta_j\inner{x_i}{y_j}$.
@@ -596,12 +601,13 @@ $\V = \left\{ f(\cdot) \;\middle|\; f:[0,1]\to\C \text{ s.t. } \int_0^1 |f(t)|^2
 \inner{f_1}{f_2} \triangleq \int_0^1 f_1(t)\overline{f_2(t)}\,dt \qquad (L_2 \text{ inner product})
 \]
 \end{example}
+\subsection{The Cauchy--Schwarz Inequality and the Induced Norm}\label{ss:cauchy-schwarz}
 \begin{theorem}[Cauchy--Schwarz Inequality]
 Let $\V$ be an inner product space. Let $x,y\in\V$.
 \[
 |\inner{x}{y}|^2 \le \inner{x}{x}\inner{y}{y}
 \]
-Equality is satisfied iff (only) $x = cy$ for some $c\in\C$ (or $y = 0_\V$), i.e.\ iff $x$ and $y$ are linearly dependent.
+Equality is satisfied iff (only) $x = cy$ for some $c\in\C$ (or $y = 0_\V$), i.e.\ \key{equality iff $x$ and $y$ are linearly dependent}.
 \end{theorem}
 % corrected: notes stated equality iff x = cy; the case y = 0_V (x arbitrary) also gives equality 0 = 0, so the condition is linear dependence
 \paragraph{Equality check for $x = cy$:}
@@ -647,7 +653,7 @@ Equality in the theorem (with $y\neq 0_\V$) holds iff $\inner{x-\alpha y}{x-\alp
 \end{insight}
 
 \begin{remark}
-An inner product induces a norm defined as
+An inner product \key{induces a norm} (the \term{induced norm}) defined as
 \[
 \norm{x}^2 \triangleq \inner{x}{x}, \qquad \norm{x} \triangleq \sqrt{\inner{x}{x}}
 \]
@@ -684,18 +690,19 @@ $\ast$\; $|\inner{x}{y}| \le \norm{x}\norm{y}$; \ suppose $x\neq 0_{\V}$, $y\neq
 \]
 \explain{Cauchy--Schwarz is exactly what makes this angle well defined. With the absolute value $\theta\in[0,\frac\pi2]$; in a real space one often drops it, $\cos\theta = \frac{\inner{x}{y}}{\norm{x}\norm{y}}\in[-1,1]$, which for $\R^2,\R^3$ is the usual geometric angle. $\theta = \frac\pi2$ $\Leftrightarrow$ $\inner{x}{y}=0$ (orthogonal), $\theta = 0$ $\Leftrightarrow$ $x = cy$.}
 \begin{remark}
-Every inner product space is also a normed space. The converse/reverse is not correct in general.
+\key{Every inner product space is also a normed space.} The converse/reverse is not correct in general.
 \end{remark}
 \begin{insight}
-A norm comes from an inner product iff it satisfies the parallelogram law
+A norm comes from an inner product \key{iff it satisfies the parallelogram law}
 $\norm{x+y}^2 + \norm{x-y}^2 = 2\norm{x}^2 + 2\norm{y}^2$.
 For example $\norm{\cdot}_1$ on $\R^2$ fails it: $x = e_1$, $y = e_2$ give $4+4 = 8 \neq 4 = 2+2$. So $\ell_1$ and $\ell_\infty$ are norms without an inner product behind them; only $\ell_2$ is induced by $\inner{x}{y} = y\T x$.
 \end{insight}
 \begin{definition}
-An inner product space that is complete wrt the induced norm is called a \emph{complete inner product space / Hilbert space}.
+An inner product space that is complete wrt the induced norm is called a \term{complete inner product space} / \term{Hilbert space}.
 \end{definition}
+\subsection{Orthogonality and Orthogonal Expansions}\label{ss:orthogonality}
 \begin{definition}
-Two vectors $x,y\in\V$ are said to be \emph{orthogonal} iff $\inner{x}{y} = 0$.
+Two vectors $x,y\in\V$ are said to be \term{orthogonal} iff $\inner{x}{y} = 0$.
 Similarly subsets $S_1, S_2\subset\V$ are orthogonal iff $\inner{x}{y} = 0$ $\forall x\in S_1$, $\forall y\in S_2$.
 \end{definition}
 \paragraph{Examples:}
@@ -748,7 +755,7 @@ Consider $\{e^{jnt}\}_{n=-\infty}^{\infty}$, \quad $e^{jnt}\in\V$ for all $n$.
 \end{align*}
 \explain{Product-to-sum: $\sin a\cos b = \frac12[\sin(a+b)+\sin(a-b)]$; both terms are odd functions (or zero when $n=m$), so they integrate to $0$ over the symmetric interval $[-\pi,\pi]$.}
 \[
-\therefore\ S_1\perp S_2
+\therefore\ \key{$S_1\perp S_2$}
 \]
 \end{enumerate}
 
@@ -765,7 +772,7 @@ In general,
 \[
 z = \sum_{i=1}^n \alpha_i z_i, \qquad \alpha_i = \frac{\inner{z}{z_i}}{\inner{z_i}{z_i}} \quad \forall i
 \]
-\explain{Valid when $z\in\Span\{z_1,\ldots,z_n\}$ and the $z_i\neq 0_\V$ are mutually orthogonal: take $\inner{\cdot}{z_k}$ of both sides and all terms with $i\neq k$ vanish. No linear system has to be solved; each coefficient is computed independently.}
+\explain{Valid when $z\in\Span\{z_1,\ldots,z_n\}$ and the $z_i\neq 0_\V$ are mutually orthogonal: take $\inner{\cdot}{z_k}$ of both sides and all terms with $i\neq k$ vanish. \key{No linear system has to be solved; each coefficient is computed independently.}}
 Example (as $z_1\perp z_2$):
 \[
 \underbrace{\bmat{2\\ 3}}_{z} = \beta_1\underbrace{\bmat{1\\ 1}}_{z_1} + \beta_2\underbrace{\bmat{1\\ -1}}_{z_2},
@@ -785,14 +792,15 @@ $f(t) = \sum_{n=-\infty}^{\infty}\alpha_n e^{jnt}$:
 
 % ===== Page 23 =====
 \origpage{23}
+\subsection{Gram--Schmidt Orthogonalization}\label{ss:gram-schmidt}
 \paragraph{Question:} Let $\V$ be an inner product space. Let $S_1 = \{v_1, v_2, \ldots, v_n\}$ be a linearly indep.\ set. Can we obtain another set $S_2 = \{w_1, w_2, \ldots, w_n\}$ s.t.
 \begin{enumerate}[label=\arabic*-]
 \item $w_i\perp w_j$ when $i\neq j$
 \item $\Span\{S_1\} = \Span\{S_2\}$?
 \end{enumerate}
-\textbf{Yes!} (constructively, by the following algorithm)
+\key{Yes!} (constructively, by the following algorithm)
 
-\subsection*{Gram--Schmidt Orthogonalization Algorithm}
+\paragraph{Gram--Schmidt Orthogonalization Algorithm.}\leavevmode
 \paragraph{Step 1:} $w_1 = v_1$
 
 \paragraph{Step 2:} $\displaystyle w_2 = v_2 - \frac{\inner{v_2}{w_1}}{\inner{w_1}{w_1}}\cdot w_1$
@@ -838,7 +846,7 @@ $f(t) = \sum_{n=-\infty}^{\infty}\alpha_n e^{jnt}$:
 
 \paragraph{Step 3:} $\displaystyle w_3 = v_3 - \frac{\inner{v_3}{w_1}}{\inner{w_1}{w_1}}\cdot w_1 - \frac{\inner{v_3}{w_2}}{\inner{w_2}{w_2}}\cdot w_2$
 \[
-\frac{\inner{v_i}{w_j}}{\inner{w_j}{w_j}}\cdot w_j \;:\; \text{Projection of } v_i \text{ onto } w_j
+\frac{\inner{v_i}{w_j}}{\inner{w_j}{w_j}}\cdot w_j \;:\; \text{\term{projection} of } v_i \text{ onto } w_j
 \]
 
 \paragraph{Step $n$:} $\displaystyle w_n = v_n - \sum_{i=1}^{n-1}\frac{\inner{v_n}{w_i}}{\inner{w_i}{w_i}}\cdot w_i$
@@ -848,7 +856,7 @@ $\inner{w_k}{w_j} = \inner{v_k}{w_j} - \sum_{i<k}\frac{\inner{v_k}{w_i}}{\inner{
 since only the $i=j$ term survives.
 \emph{Same span}: each $w_k$ is $v_k$ minus a combination of $w_1,\ldots,w_{k-1}\in\Span\{v_1,\ldots,v_{k-1}\}$, so $\Span\{w_1,\ldots,w_k\} = \Span\{v_1,\ldots,v_k\}$ for every $k$.
 \emph{No division by zero}: $w_k = 0_\V$ would make $v_k\in\Span\{v_1,\ldots,v_{k-1}\}$, impossible for a linearly independent $S_1$; so $\inner{w_k}{w_k}>0$.
-In words: $w_k$ is the component of $v_k$ orthogonal to the span of the previous vectors.
+In words: \key{$w_k$ is the component of $v_k$ orthogonal to the span of the previous vectors.}
 \end{insight}
 
 \begin{example}
@@ -880,7 +888,7 @@ using
 \[
 S_2 = \left\{1,\ t,\ t^2 - \tfrac13\right\}
 \]
-\centering Legendre polynomials
+\centering \term{Legendre polynomials}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
 \centering
@@ -907,10 +915,10 @@ S_2 = \left\{1,\ t,\ t^2 - \tfrac13\right\}
 w_1 &= v_1\\
 w_2 &= v_1 - \frac{\overset{1}{\cancel{\inner{v_1}{v_1}}}}{\cancel{\inner{v_1}{v_1}}}\cdot v_1 = 0
 \end{align*}
-\explain{When this is the case, remove the redundant vector and resume the process. In general $w_k = 0_\V$ exactly when $v_k$ depends linearly on $v_1,\ldots,v_{k-1}$; discarding such vectors, Gram--Schmidt returns an orthogonal basis of $\Span\{S_1\}$ (and its size is $\dim\Span\{S_1\}$).}
+\explain{When this is the case, \key{remove the redundant vector and resume the process}. In general $w_k = 0_\V$ exactly when $v_k$ depends linearly on $v_1,\ldots,v_{k-1}$; discarding such vectors, Gram--Schmidt returns an orthogonal basis of $\Span\{S_1\}$ (and its size is $\dim\Span\{S_1\}$).}
 
 \needspace{12\baselineskip}
-\subsection*{Gram--Schmidt Orthonormalization}
+\paragraph{Gram--Schmidt Orthonormalization.}
 Require $\norm{w_i} = 1$, i.e.\ $\inner{w_i}{w_i} = 1$:
 \begin{alignat*}{2}
 \bar w_1 &= v_1, &\qquad w_1 &= \frac{\bar w_1}{\norm{\bar w_1}}\\*
@@ -919,11 +927,14 @@ Require $\norm{w_i} = 1$, i.e.\ $\inner{w_i}{w_i} = 1$:
 \bar w_n &= v_n - \sum_{i=1}^{n-1}\inner{v_n}{w_i}w_i, &\qquad w_n &= \frac{\bar w_n}{\norm{\bar w_n}}
 \end{alignat*}
 % corrected: notes had w_2 = \bar w_2 / ||w_2||; the normalisation divides by ||\bar w_2||. The last normalisation w_n = \bar w_n/||\bar w_n|| is implied by the pattern and added.
-\explain{Since $\inner{w_i}{w_i} = 1$, the projection coefficients $\frac{\inner{v_k}{w_i}}{\inner{w_i}{w_i}}$ simplify to $\inner{v_k}{w_i}$. The resulting set is \emph{orthonormal}: $\inner{w_i}{w_j} = \delta_{ij}$.}
+\explain{Since $\inner{w_i}{w_i} = 1$, the projection coefficients $\frac{\inner{v_k}{w_i}}{\inner{w_i}{w_i}}$ simplify to $\inner{v_k}{w_i}$. The resulting set is \term{orthonormal}: $\inner{w_i}{w_j} = \delta_{ij}$.}
 
-\section{Linear Transformations}
+\needspace{16\baselineskip}
+\section{Linear Transformations}\label{sec:lt}
+\syllabusweek{Week 5 --- linear transformations, null space, range space, matrix representations}
+\subsection{Definition and Examples}\label{ss:lt-def}
 \begin{definition}
-Let $\V$ \& $\W$ be two vector spaces over the same field $\F$. A linear transformation $\mathcal{A}$ is a mapping from $\V$ into $\W$ shown as $\mathcal{A}:\V\to\W$ s.t.
+Let $\V$ \& $\W$ be two vector spaces over the same field $\F$. A \term{linear transformation} $\mathcal{A}$ is a mapping from $\V$ into $\W$ shown as $\mathcal{A}:\V\to\W$ s.t.
 \[
 \mathcal{A}(\alpha_1 v_1 + \alpha_2 v_2) = \alpha_1\mathcal{A}v_1 + \alpha_2\mathcal{A}v_2
 \]
@@ -943,7 +954,7 @@ for all $v_1,v_2\in\V$ and all $\alpha_1,\alpha_2\in\F$.
   \node[below,align=center] at (2.4,-0.8) {Co-Domain\\ range};
 \end{tikzpicture}
 \end{center}
-\explain{$\V$ is the domain and $\W$ the co-domain; the range $\Range(\mathcal A) = \{\mathcal A v : v\in\V\}$ is the subset of $\W$ actually reached (in general $\Range(\mathcal A)\subseteq\W$).}
+\explain{$\V$ is the \term{domain} and $\W$ the \term{co-domain}; the \term{range} $\Range(\mathcal A) = \{\mathcal A v : v\in\V\}$ is the subset of $\W$ actually reached (in general $\Range(\mathcal A)\subseteq\W$).}
 \begin{insight}
 The single condition is equivalent to additivity $\mathcal A(v_1+v_2) = \mathcal Av_1+\mathcal Av_2$ together with homogeneity $\mathcal A(\alpha v) = \alpha\mathcal Av$. Taking $\alpha_1=\alpha_2=0$ gives $\mathcal A 0_\V = 0_\W$. Standard examples: $x\mapsto Ax$ for $A\in\F^{m\times n}$ ($\V=\F^n$, $\W=\F^m$, as in the induced-norm section), differentiation $f\mapsto f'$ on polynomials, and $f\mapsto\int_0^1 f(t)\,dt$.
 \end{insight}
