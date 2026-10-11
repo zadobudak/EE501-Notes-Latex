@@ -1,0 +1,875 @@
+% ============================================================
+% PART 7 : original pages 69--80
+% ============================================================
+% (continues the example opened at the end of part6: A in R^{4x4}, single eigenvalue 7)
+
+% ===== Page 69 =====
+\origpage{69}
+\paragraph{Case I: $\dim\Null(A-7I)=3$.}
+\[
+\begin{array}{r@{\quad}ccccccc}
+ & \{0\} & \subsetneq & \Null(A-7I) & \subsetneq & \Null(A-7I)^2 & \subsetneq & \cdots\\
+\dim: & 0 & & 3 & & 4 & & 4\\
+\text{increment:} & & +3 & & +1 & & +0 &\\
+ & & \downarrow & & \downarrow & & &\\
+ & & \text{\small 2 JB size 1} & & \text{\small 1 JB size 2} & & &
+\end{array}
+\]
+\[
+A=\left[\begin{array}{cc|c|c}
+7 & 1 & 0 & 0\\
+0 & 7 & 0 & 0\\ \hline
+0 & 0 & 7 & 0\\ \hline
+0 & 0 & 0 & 7
+\end{array}\right]
+\qquad \text{\textcircled{\small 1} 1st possibility}
+\]
+
+\paragraph{Case II: $\dim\Null(A-7I)=2$.}
+\[
+\begin{array}{r@{\quad}ccccccc}
+ & \{0\} & \subsetneq & \Null(A-7I) & \subsetneq & \Null(A-7I)^2 & \subsetneq & \cdots\\
+\dim: & 0 & & 2 & & 4 & & 4\\
+\text{increment:} & & +2 & & +2 & & +0 &
+\end{array}
+\]
+\[
+A=\left[\begin{array}{cc|cc}
+7 & 1 & 0 & 0\\
+0 & 7 & 0 & 0\\ \hline
+0 & 0 & 7 & 1\\
+0 & 0 & 0 & 7
+\end{array}\right]
+\qquad \text{\textcircled{\small 2} 2nd possibility}
+\]
+
+\paragraph{Case III: $\dim\Null(A-7I)=1$.}
+\[
+\begin{array}{r@{\quad}ccccccc}
+ & \{0\} & \subsetneq & \Null(A-7I) & \subsetneq & \Null(A-7I)^2 & \subsetneq & \cdots\\
+\dim: & 0 & & 1 & & 4 & & 4\\
+\text{increment:} & & +1 & & +3 & & +0 &
+\end{array}
+\]
+\explain{These differences either should decrease or stay constant $\Rightarrow$ No $A$ matrix exists!}
+
+$\therefore$ Two possibilities.
+
+\begin{insight}[Why the increments cannot grow]
+The increment $\dim\Null(A-7I)^{k}-\dim\Null(A-7I)^{k-1}$ equals the number of Jordan blocks of size $\geq k$. Every block of size $\geq k+1$ also has size $\geq k$, so the increments form a non-increasing sequence. In Case~III they would be $1,3,0$: there would be one block in total but three blocks of size $\geq2$, which is impossible. Equivalently: with $\dim\Null(A-7I)=1$ there is a single Jordan block, so it must be $4\times4$; then $m(s)=(s-7)^4$ and $\dim\Null(A-7I)^2=2$, not $4$.
+\end{insight}
+\end{example}
+
+\sep
+\paragraph{Generalized eigenvectors.}
+Let $x\in\Null(\Sigma_i^{m_i})$, $x\notin\Null(\Sigma_i^{m_i-1})$:
+% corrected: notes had "Sigma_i^{m_i-1} != 0" (the vector x was missing)
+\[
+\Sigma_i^{m_i}x=0, \qquad \Sigma_i^{m_i-1}x\neq 0 \quad\Rightarrow\quad \text{generalized eigenvectors}
+\]
+\[
+\{\underbrace{\Sigma_i^{m_i-1}x}_{\text{not zero}},\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}
+\quad\Rightarrow\quad \text{none of the vectors are equal to zero.}
+\]
+\explain{If $\Sigma_i^{m_i-2}x$ were zero, then $\Sigma_i(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x$ would be zero $\Rightarrow$ it cannot be.}
+
+Linear independence: suppose
+\begin{align*}
+&\alpha_1\Sigma_i^{m_i-1}x+\alpha_2\Sigma_i^{m_i-2}x+\dots+\alpha_{m_i-1}\Sigma_i x+\alpha_{m_i}x=0.
+\end{align*}
+Multiplying by $\Sigma_i^{m_i-1}$:
+\begin{align*}
+&\alpha_1\underbrace{\cancel{\Sigma_i^{2m_i-2}}}_{0}x+\alpha_2\underbrace{\cancel{\Sigma_i^{2m_i-3}}}_{0}x+\dots+\alpha_{m_i-1}\underbrace{\cancel{\Sigma_i^{m_i}}}_{0}x+\alpha_{m_i}\Sigma_i^{m_i-1}x=0\\
+&\Rightarrow\ \alpha_{m_i}\Sigma_i^{m_i-1}x=0\ \Rightarrow\ \alpha_{m_i}=0.
+\end{align*}
+Multiplying the remaining equation
+\begin{align*}
+&\alpha_1\Sigma_i^{m_i-1}x+\alpha_2\Sigma_i^{m_i-2}x+\dots+\alpha_{m_i-1}\Sigma_i x=0
+\intertext{by $\Sigma_i^{m_i-2}$, every term except the last again contains a power $\geq m_i$ of $\Sigma_i$:}
+&\alpha_{m_i-1}\Sigma_i^{m_i-1}x=0\ \Rightarrow\ \alpha_{m_i-1}=0.
+\end{align*}
+Continuing in this way (multiplying by $\Sigma_i^{m_i-3},\dots,\Sigma_i,I$) gives $\alpha_{m_i-2}=\dots=\alpha_1=0$.
+
+$\therefore$ All vectors should be linearly independent.
+
+% ===== Page 70 =====
+\origpage{70}
+\begin{align*}
+\Sigma_i(\Sigma_i^{m_i-1}x)&=0 &&\Rightarrow\ \Sigma_i^{m_i-1}x\in\Null(\Sigma_i)\\
+\Sigma_i^{m_i-1}(\Sigma_i x)&=0 &&\Rightarrow\ \Sigma_i x\in\Null(\Sigma_i^{m_i-1})\\
+\Sigma_i^{m_i-2}\Sigma_i x&=\Sigma_i^{m_i-1}x\neq 0 &&\Rightarrow\ \Sigma_i x\notin\Null(\Sigma_i^{m_i-2})
+\end{align*}
+
+\explain{In general $\Sigma_i^{k}x\in\Null(\Sigma_i^{m_i-k})$ but $\Sigma_i^{k}x\notin\Null(\Sigma_i^{m_i-k-1})$: the $k$-th vector of the chain sits exactly in the ``layer'' $\Null(\Sigma_i^{m_i-k})\setminus\Null(\Sigma_i^{m_i-k-1})$.}
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (4.2 and 2.1);
+\draw (-0.5,0) ellipse (3.3 and 1.75);
+\draw (-1.75,-0.1) ellipse (1.75 and 1.3);
+\draw (-2.45,-0.25) ellipse (0.9 and 0.72);
+\node at (-2.45,0.12) {$\Null(\Sigma_i)$};
+\fill (-2.95,-0.45) circle (1.3pt) node[right] {\scriptsize $\Sigma_i^{m_i-1}x$};
+\node at (-1.55,0.8) {$\Null(\Sigma_i^2)$};
+\fill (-1.3,-0.3) circle (1.3pt) node[right] {\scriptsize $\Sigma_i^{m_i-2}x$};
+\node at (0.9,0.95) {$\Null(\Sigma_i^{m_i-1})$};
+\node at (0.6,0.35) {$\cdots$};
+\fill (1.2,-0.4) circle (1.3pt) node[right] {$\Sigma_i x$};
+\node at (3.3,0.45) {$\Null(\Sigma_i^{m_i})$};
+\fill (3.3,-0.45) circle (1.3pt) node[below] {$x$};
+\end{tikzpicture}
+\end{center}
+
+\begin{example}
+\[
+A=\bmat{1&1&-1\\-1&3&2\\0&0&1}
+\qquad d(s)=?\quad m(s)=?\quad \text{JCF}=?\quad P=?
+\]
+\[
+sI-A=\bmat{s-1&-1&1\\1&s-3&-2\\0&0&s-1}
+\]
+Expanding along the last row (signs $+\ -\ +$; only the $(3,3)$ entry is nonzero):
+\begin{align*}
+d(s)=\det(sI-A)&=(s-1)\begin{vmatrix}s-1&-1\\1&s-3\end{vmatrix}\\
+&=(s-1)\big[(s-1)(s-3)+1\big]\\
+&=(s-1)(s^2-4s+4)\\
+\Aboxed{d(s)&=(s-1)(s-2)^2} \qquad \lambda_1=2,\ \ \lambda_2=1
+\end{align*}
+\[
+\Sigma_1=A-2I=\bmat{-1&1&-1\\-1&1&2\\0&0&-1}\qquad \rank=2,\quad N=1
+\]
+$m(s)$ possibilities:
+\begin{enumerate}[label=\arabic*-,nosep]
+\item $(s-1)(s-2)$ \quad $\times$
+\item $(s-1)(s-2)^2$ \quad $\checkmark$
+\end{enumerate}
+\begin{center}
+$\dim\Null(\Sigma_1)=1\ \Rightarrow\ \text{not }2\quad\Rightarrow\quad
+\boxed{m(s)=(s-1)(s-2)^2}$
+\end{center}
+\explain{If $m_1=1$, then $\Null(\Sigma_1)=\Null(\Sigma_1^{m_1})$ would have dimension $r_1=2$; but $\dim\Null(\Sigma_1)=3-\rank\Sigma_1=1$, so $m_1=2$.}
+\[
+\Sigma_1^2=\bmat{0&0&4\\0&0&1\\0&0&1}
+\qquad\qquad
+\Sigma_2=A-I=\bmat{0&1&-1\\-1&2&2\\0&0&0},\quad \rank=2,\quad \dim\Null(\Sigma_2)=1
+\]
+
+% ===== Page 71 =====
+\origpage{71}
+\[
+\begin{array}{r@{\quad}ccccc}
+ & \Null(\Sigma_1) & \subsetneq & \Null(\Sigma_1^2) & = & \Null(\Sigma_1^3)\\
+\dim: & 1 & & 2 & & 2\\
+\text{increment:} & +1 & & +1 & & +0
+\end{array}
+\qquad\qquad
+\begin{array}{r@{\quad}ccc}
+ & \Null(\Sigma_2) & = & \Null(\Sigma_2^2)\\
+\dim: & 1 & & 1
+\end{array}
+\]
+$\Rightarrow$ 1 JB with size 1 for $\lambda_2$.
+% corrected: notes had "# of JB w.s.=2 for lambda_2" and "# of JB with size=3 for lambda_2"; these counts are for lambda_1 and mean size >= 2, >= 3
+\begin{align*}
+(\#\text{ of JB for }\lambda_1)&=\dim\Null(\Sigma_1)=1\\
+(\#\text{ of JB with size}\geq2\text{ for }\lambda_1)&=\dim\Null(\Sigma_1^2)-\dim\Null(\Sigma_1)=1\\
+(\#\text{ of JB with size}\geq3\text{ for }\lambda_1)&=\dim\Null(\Sigma_1^3)-\dim\Null(\Sigma_1^2)=0
+\end{align*}
+\explain{Differences of consecutive counts: $1-1=0$ JB of size exactly $1$, \ $1-0=1$ JB of size exactly $2$.}
+$\Rightarrow$ 1 JB with size equal to 2 for $\lambda_1$:
+\[
+J=\left[\begin{array}{cc|c}2&1&0\\0&2&0\\\hline 0&0&1\end{array}\right]
+\]
+
+\sep
+\begin{minipage}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (2.0 and 1.3);
+\draw (-0.6,-0.15) ellipse (0.95 and 0.75);
+\node at (0.75,0.85) {$\Null_2(\Sigma_1^2)$};
+\node at (-0.6,0.2) {$\Null_1(\Sigma_1)$};
+\fill (-0.95,-0.35) circle (1.3pt) node[right] {$\Sigma_1 x$};
+\fill (0.95,-0.15) circle (1.3pt) node[right] {$x$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.64\textwidth}
+$x\in\Null(\Sigma_1^2)$, \quad $x\notin\Null(\Sigma_1)$:
+\[
+x=\bmat{0\\1\\0}\quad\text{or}\quad x=\bmat{1\\0\\0}\quad\cdots
+\]
+$P$ matrix is not unique, e.g.:
+\begin{align*}
+J&=P^{-1}AP, \qquad P_1=2P\\
+P_1^{-1}AP_1&=\tfrac12 P^{-1}AP\cdot 2=P^{-1}AP=J
+\end{align*}
+\end{minipage}
+
+Choosing the first one:
+\[
+x=\bmat{0\\1\\0},\qquad \Sigma_1x=\bmat{1\\1\\0},\qquad \{\Sigma_1 x, x\}
+\]
+\begin{itemize}[nosep]
+\item $x$: generalized eigenvector; \quad $\Sigma_1 x$: should be eigenvector.
+\item $\{\Sigma_1x,x\}$: linearly indep., form a basis for $\Null(\Sigma_1^2)$.
+\end{itemize}
+
+\medskip
+
+\begin{minipage}[c]{0.2\textwidth}
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (0.8 and 0.6);
+\node at (0,0.2) {$\Null_1(\Sigma_2)$};
+\fill (-0.2,-0.25) circle (1.3pt) node[right] {$y$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.76\textwidth}
+$y\in\Null(\Sigma_2)$, \quad $y\notin\Null(\Sigma_2^0)=\Null(I)=\{0\}$ \quad ($y$ should be nonzero)
+\[
+y=\bmat{4\\1\\1}
+\]
+\end{minipage}
+
+\sep
+\[
+\bar A=P^{-1}AP,\qquad P\bar A=AP,\qquad P=\left[\begin{array}{cc|c}\Sigma_1x & x & y\end{array}\right]
+\]
+\[
+\underbrace{\bmat{1&0&4\\1&1&1\\0&0&1}}_{P}
+\underbrace{\left[\begin{array}{cc|c}2&1&0\\0&2&0\\\hline 0&0&1\end{array}\right]}_{\bar A=J}
+=A\bmat{1&0&4\\1&1&1\\0&0&1}=\bmat{2&1&4\\2&3&1\\0&0&1}
+\]
+% note: in the notes the line starts with "P=" labelling the first matrix (the line shows P*Abar = A*P)
+\explain{Check: column by column, $PJ=[\,2\Sigma_1x\ \big|\ \Sigma_1x+2x\ \big|\ y\,]$ and $AP=[\,A\Sigma_1x\ |\ Ax\ |\ Ay\,]$ both equal the matrix on the right, and $\det P=1\neq0$, so $P^{-1}AP=J$.}
+
+For $P=\left[\begin{array}{cc|c}x&\Sigma_1x&y\end{array}\right]$:
+\[
+J=\left[\begin{array}{cc|c}2&0&\\1&2&\\\hline &&1\end{array}\right]
+\qquad \times\ \text{not accepted}
+\]
+\explain{This is also a Jordan CF but not responsible in this course.}
+
+% ===== Page 72 =====
+\origpage{72}
+\[
+P=\left[\begin{array}{c|cc}y&\Sigma_1x&x\end{array}\right]:\quad
+\bar A=\left[\begin{array}{c|cc}1&0&0\\\hline 0&2&1\\0&0&2\end{array}\right]\ \checkmark
+\qquad
+P=\left[\begin{array}{c|cc}y&x&\Sigma_1x\end{array}\right]:\quad
+\bar A=\left[\begin{array}{c|cc}1&0&0\\\hline 0&2&0\\0&1&2\end{array}\right]\ \times
+\]
+\explain{The second one (crossed out in the notes): this will not be expected etc.\ in this course.}
+
+\begin{insight}[Recipe used in this example]
+\begin{enumerate}[nosep]
+\item Factor $d(s)$; for each $\lambda_i$ form $\Sigma_i=A-\lambda_iI$ and compute $\dim\Null(\Sigma_i^k)$, $k=1,2,\dots$ until it reaches $r_i$; the first such $k$ is $m_i$.
+\item Increments of these dimensions give the number of JBs of size $\geq k$; their differences give the number of JBs of each size.
+\item For each block of size $p$ pick a vector $x\in\Null(\Sigma_i^{p})\setminus\Null(\Sigma_i^{p-1})$ and put the chain $\Sigma_i^{p-1}x,\dots,\Sigma_ix,x$ (eigenvector first) into consecutive columns of $P$, choosing the chains so that all columns are linearly independent.
+\end{enumerate}
+The ordering \emph{eigenvector first} is what produces the 1's above the diagonal; reversing a chain puts them below the diagonal.
+\end{insight}
+\end{example}
+
+\subsection*{Special Cases}
+
+\paragraph{Case I: $A\in\C^{n\times n}$, single eigenvalue $\lambda_i$.}
+We have $m_i=r_i$.
+\[
+d(s)=(s-\lambda_i)^{r_i},\qquad m(s)=(s-\lambda_i)^{m_i=r_i}=d(s)
+\]
+\[
+\underbrace{\C^n}_{\dim n}=\Null(\Sigma_i^{m_i}),\qquad \dim\Null(\Sigma_i^{m_i})=r_i=n,\qquad n=r_i=m_i
+\]
+\[
+\begin{array}{ccccccccc}
+\Null(\Sigma_i) &\subsetneq& \Null(\Sigma_i^2) &\subsetneq& \cdots &\subsetneq& \Null(\Sigma_i^{m_i-1}) &\subsetneq& \Null(\Sigma_i^{m_i})\\
+1 &\underbrace{<}_{+1}& 2 &<& \cdots &<& m_i-1 &\underbrace{<}_{+1}& r_i=m_i=n
+\end{array}
+\]
+% corrected: notes had "1 <= 1" under N(Sigma_i) (i.e. dim N(Sigma_i) >= 1 and = 1)
+\explain{$n$ dimensions have to be gained in $m_i=n$ strict steps, each of at least $+1$ $\Rightarrow$ every increment is exactly $+1$, in particular $\dim\Null(\Sigma_i)=1$.}
+\begin{align*}
+\#\text{ of JB's}&=1\\
+\#\text{ of JB's with size}\geq 2&=1\\
+\#\text{ of JB's with size}\geq 3&=1\\
+&\ \,\vdots\\
+\#\text{ of JB's with size}\geq m_i&=1\quad\Rightarrow\ \text{single JB with size } m_i=r_i=n\\
+\#\text{ of JB's with size}\geq m_i+1&=0
+\end{align*}
+\[
+\text{JB}=\bmat{\lambda_i&1&&&\\&\lambda_i&1&&0\\&&\lambda_i&\ddots&\\0&&&\ddots&1\\&&&&\lambda_i}_{n\times n}
+\qquad\qquad J=P^{-1}AP\ \Rightarrow\ P=?
+\]
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (4.6 and 1.35);
+\draw (-0.75,0) ellipse (3.55 and 1.15);
+\draw (-2.3,0) ellipse (1.7 and 0.97);
+\draw (-2.95,0) ellipse (0.75 and 0.78);
+\node at (-2.95,0.25) {$\Null(\Sigma_i)$};
+\node at (-2.95,-0.3) {$\Sigma_i^{m_i-1}x$};
+\node at (-1.4,0.25) {$\Null(\Sigma_i^2)$};
+\node at (-1.4,-0.3) {$\Sigma_i^{m_i-2}x$};
+\node at (1.1,0.25) {$\cdots\ \Null(\Sigma_i^{m_i-1})$};
+\node at (1.3,-0.3) {$\Sigma_i x$};
+\node at (3.6,0.2) {$\Null(\Sigma_i^{m_i})$};
+\node at (3.6,-0.35) {$x$};
+\end{tikzpicture}
+
+\medskip
+$\displaystyle\underbrace{\{\Sigma_i^{m_i-1}x,\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}}_{m_i=r_i=n\ \text{l.\ indep.\ vectors}}
+\qquad \text{1 chain with $n$ elements}$
+\end{center}
+
+% ===== Page 73 =====
+\origpage{73}
+\[
+P=\left[\begin{array}{c|c|c|c}\Sigma_i^{m_i-1}x&\cdots&\Sigma_i x&x\end{array}\right],\qquad P\bar A=AP
+\]
+\begin{align*}
+\left[\begin{array}{c|c|c|c}\Sigma_i^{m_i-1}x&\cdots&\Sigma_i x&x\end{array}\right]
+\bmat{\lambda_i&1&0&\cdots&0\\0&\lambda_i&1&\cdots&\vdots\\\vdots&0&\lambda_i&\ddots&\vdots\\\vdots&\vdots&0&\ddots&1\\0&0&0&\cdots&\lambda_i}
+&=A\left[\begin{array}{c|c|c|c}\Sigma_i^{m_i-1}x&\cdots&\Sigma_i x&x\end{array}\right]\\
+&=\left[\begin{array}{c|c|c|c}A\Sigma_i^{m_i-1}x&\cdots&A\Sigma_i x&Ax\end{array}\right]
+\end{align*}
+
+$\Rightarrow$ $x\in\Null(\Sigma_i^{m_i})$ \& $x\notin\Null(\Sigma_i^{m_i-1})$:
+\begin{align*}
+&\Sigma_i^{m_i}x=0,\qquad \Sigma_i^{m_i-1}x\neq 0\\
+&\Sigma_i(\Sigma_i^{m_i-1}x)=0\\
+&(A-\lambda_iI)(\Sigma_i^{m_i-1}x)=A\Sigma_i^{m_i-1}x-\lambda_i\underbrace{I}_{1}\Sigma_i^{m_i-1}x=0\\
+&A\Sigma_i^{m_i-1}x=\lambda_i\Sigma_i^{m_i-1}x
+\end{align*}
+$\Rightarrow$ Next vector of the chain:
+\begin{align*}
+% corrected: notes had "(Sigma_i^{m_i-2}x) Sigma_i" (factor order) and "(lambda_i + Sigma_i)" (lambda_i I + Sigma_i)
+&\Sigma_i(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x\\
+&(A-\lambda_iI)(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x\\
+&A\Sigma_i^{m_i-2}x=\lambda_i\Sigma_i^{m_i-2}x+\Sigma_i^{m_i-1}x
+\end{align*}
+$\Rightarrow$ and similarly:
+\begin{align*}
+&\Sigma_i(\Sigma_i^{m_i-3}x)=\Sigma_i^{m_i-2}x\\
+&(A-\lambda_iI)(\Sigma_i^{m_i-3}x)=\Sigma_i^{m_i-2}x\ \Rightarrow\ A\Sigma_i^{m_i-3}x=\lambda_i\Sigma_i^{m_i-3}x+\Sigma_i^{m_i-2}x
+\end{align*}
+\explain{Hence column $k$ of $AP$ equals $\lambda_i\cdot(\text{column }k\text{ of }P)+(\text{column }k-1\text{ of }P)$, which is exactly column $k$ of $PJ$: a $\lambda_i$ on the diagonal and a $1$ just above it.}
+\[
+\{\Sigma_i^{m_i-1}x,\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}\quad\text{Single chain with size } m_i.
+\]
+
+\sep
+\paragraph{Case II: $A\in\C^{n\times n}$, single eigenvalue $\lambda_i$, $m_i=1$.}
+\[
+d(s)=(s-\lambda_i)^{r_i},\qquad m(s)=(s-\lambda_i)
+\]
+\[
+\C^n=\underset{r_i=n}{\Null(\Sigma_i^1)}
+\qquad\qquad
+\begin{array}{ccccc}
+\Null(\Sigma_i)&=&\Null(\Sigma_i^2)&=&\cdots\\
+r_i&\underbrace{=}_{+0}&r_i&&
+\end{array}
+\]
+\begin{align*}
+\#\text{ of JB}&=r_i=n\\
+\#\text{ of JB size}\geq 2&=0\quad\Rightarrow\ n\text{ JB size }=1
+\end{align*}
+\explain{$m_i$ is the size of the largest JB for $\lambda_i$.}
+
+% ===== Page 74 =====
+\origpage{74}
+\[
+J=\bmat{\boxed{\lambda_i}&&&\\&\boxed{\lambda_i}&&\\&&\boxed{\lambda_i}&\\&&&\ddots\ \ \boxed{\lambda_i}}
+\]
+
+\begin{minipage}[c]{0.24\textwidth}
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (1.35 and 0.95);
+\node at (1.1,1.4) {$r_i=n$};
+\draw[->] (0.95,1.22) -- (0.65,0.85);
+\node at (0,0.45) {$\Null(\Sigma_i)$};
+\fill (-0.45,0.0) circle (1.2pt) node[right] {$x_1$};
+\fill (0.35,0.05) circle (1.2pt) node[right] {$x_2$};
+\node at (-0.85,-0.4) {$\cdots$};
+\fill (-0.35,-0.45) circle (1.2pt) node[right] {$x_{r_i}$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.73\textwidth}
+\begin{itemize}[nosep,leftmargin=1em]
+\item[] $x_1\in\Null(\Sigma_i)$, \quad $x_1\notin\underbrace{\Null(\Sigma_i^0)}_{I}\ \Rightarrow\ x_1\neq 0$: \quad chain $\{x_1\}$
+\item[] $x_2\in\Null(\Sigma_i)$, \quad $x_2\notin\Null(\Sigma_i^0)$: \quad chain $\{x_2\}$
+\item[] \qquad $\Rightarrow$ $x_1$ \& $x_2$ are linearly indep.
+\item[] \quad$\vdots$
+\item[] $x_{r_i}\in\Null(\Sigma_i)$, \quad $x_{r_i}\notin\Null(\Sigma_i^0)$: \quad chain $\{x_{r_i}\}$
+\end{itemize}
+$\Rightarrow$ $r_i=n$ chains with size 1.
+\end{minipage}
+
+Each one of the vectors are eigenvectors.
+\begin{align*}
+P&=\left[\begin{array}{c|c|c|c}x_1&x_2&\cdots&x_{r_i}\end{array}\right]\\
+P\bar A&=AP\\
+\left[\begin{array}{c|c|c|c}x_1&x_2&\cdots&x_{r_i}\end{array}\right]
+\underbrace{\bmat{\lambda_i&&0\\&\ddots&\\0&&\lambda_i}}_{\bar A}
+&=\left[\begin{array}{cccc}Ax_1&Ax_2&\cdots&Ax_{r_i}\end{array}\right]\\
+&=\left[\begin{array}{cccc}\lambda_ix_1&\lambda_ix_2&\cdots&\lambda_ix_{r_i}\end{array}\right]
+\quad\text{(as they are eigenvectors)}
+\end{align*}
+\begin{align*}
+J&=\lambda_iI\\
+J&=P^{-1}AP\ \Rightarrow\ A=PJP^{-1}=P(\lambda_iI)P^{-1}=\lambda_iPP^{-1}=\lambda_iI
+\end{align*}
+Equivalently, from the minimal polynomial:
+\begin{align*}
+m(s)&=s-\lambda_i\\
+m(A)&=0_{n\times n}\ \Rightarrow\ A-\lambda_iI=0_{n\times n}\ \Rightarrow\ A=\lambda_iI
+\end{align*}
+
+% ===== Page 75 =====
+\origpage{75}
+\begin{example}
+$A$ is a $6\times6$ matrix, $\lambda_i$ is the only eigenvalue.
+\begin{align*}
+d(s)&=(s-\lambda_i)^6, & \dim\Null(\Sigma_i)&=2,\\
+m(s)&=(s-\lambda_i)^3, & \dim\Null(\Sigma_i^2)&=4.
+\end{align*}
+\[
+\begin{array}{ccccccc}
+\Null(\Sigma_i)&\subsetneq&\Null(\Sigma_i^2)&\subsetneq&\Null(\Sigma_i^3)&=&\Null(\Sigma_i^4)\\
+2&&4&&6&&6
+\end{array}
+\qquad\qquad
+\C^6=\Null(\Sigma_i^3)
+\]
+\begin{itemize}[nosep]
+\item $m(s)=(s-\lambda_i)$ should be happen for diagonalizability.
+\item At most 2 linearly indep.\ eigenvectors.
+\item $\Rightarrow$ not diagonalizable (it should be 6).
+\end{itemize}
+Jordan blocks:
+\[
+\left.\begin{array}{l}
+\#\text{ JB}=2\\
+\#\text{ JB size}\geq2=2\\
+\#\text{ JB size}\geq3=2\\
+\#\text{ JB size}\geq4=0
+\end{array}\right\}\ \text{2 JB w.s.\ 3}
+\qquad\qquad
+J=\left[\begin{array}{ccc|ccc}
+\lambda_i&1&0&&&\\
+0&\lambda_i&1&&0&\\
+&&\lambda_i&&&\\\hline
+&&&\lambda_i&1&0\\
+&0&&&\lambda_i&1\\
+&&&0&&\lambda_i
+\end{array}\right]
+\]
+\explain{$\#$ JB of size $\geq k$ $=\dim\Null(\Sigma_i^k)-\dim\Null(\Sigma_i^{k-1})$: here $2-0$, $4-2$, $6-4$, $6-6$.}
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (3.4 and 1.85);
+\draw (-0.75,0) ellipse (2.4 and 1.45);
+\draw (-1.95,-0.05) ellipse (1.05 and 0.95);
+\node at (-1.95,0.45) {$\Null(\Sigma_i)_{\,2}$};
+\fill (-2.4,0.0) circle (1.2pt) node[right] {\scriptsize $\Sigma_i^2x$};
+\fill (-2.4,-0.4) circle (1.2pt) node[right] {\scriptsize $\Sigma_i^2y$};
+\node at (-0.3,0.95) {$\Null(\Sigma_i^2)$};
+\node at (-0.3,0.6) {$4$};
+\fill (-0.35,0.05) circle (1.2pt) node[right] {$\Sigma_i x$};
+\fill (-0.35,-0.55) circle (1.2pt) node[right] {$\Sigma_i y$};
+\node at (2.35,0.95) {$\Null(\Sigma_i^3)$};
+\node (six) at (2.35,0.6) {$6$};
+\node (dim) at (4.0,0.6) {\scriptsize dim};
+\draw[->] (dim.west) -- (six.east);
+\fill (2.15,0.0) circle (1.2pt) node[right] {$x$};
+\fill (2.15,-0.55) circle (1.2pt) node[right] {$y$};
+\end{tikzpicture}
+\end{center}
+Chains:
+\begin{align*}
+&x\in\Null(\Sigma_i^3),\ x\notin\Null(\Sigma_i^2): && \{\Sigma_i^2x,\Sigma_ix,x\}\ \Rightarrow\ \text{alone not sufficient to form a basis}\\
+&y\in\Null(\Sigma_i^3),\ y\notin\Null(\Sigma_i^2): && \{\Sigma_i^2y,\Sigma_iy,y\}
+\end{align*}
+\explain{The two chains together should be linearly indep.\ to form a basis.}
+
+$\Rightarrow$ Condition: $\Sigma_i^2x$ \& $\Sigma_i^2y$ should be linearly indep.
+
+\begin{insight}[Why this condition suffices]
+Suppose a combination of the six vectors vanishes. Applying $\Sigma_i^2$ kills everything except the coefficients of $x$ and $y$, leaving $a\Sigma_i^2x+b\Sigma_i^2y=0$, so $a=b=0$ by the condition. Applying $\Sigma_i$ to what remains gives the same relation for the coefficients of $\Sigma_ix,\Sigma_iy$, and finally for $\Sigma_i^2x,\Sigma_i^2y$. So independence of the eigenvectors at the bottom of the chains implies independence of the whole set (the same argument as for a single chain).
+\end{insight}
+\[
+P=\left[\begin{array}{ccc|ccc}\Sigma_i^2x&\Sigma_ix&x&\Sigma_i^2y&\Sigma_iy&y\end{array}\right]
+\]
+
+\sep
+$\Rightarrow$ Continue same example but $\dim\Null(\Sigma_i)=3$, $\dim\Null(\Sigma_i^2)=5$.
+\[
+\begin{aligned}
+\#\text{ JB}&=3\\
+\#\text{ JB size}\geq2&=2\\
+\geq3&=1\\
+\geq4&=0
+\end{aligned}
+\qquad\Longrightarrow\qquad
+\begin{aligned}
+&m_i=\text{size of largest JB}=3\\
+&1\text{ JB size }3\\
+&1\text{ JB size }2\\
+&1\text{ JB size }1
+\end{aligned}
+\]
+\[
+J=\left[\begin{array}{ccc|cc|c}
+\lambda_i&1&0&&&\\
+0&\lambda_i&1&&&\\
+0&0&\lambda_i&&&\\\hline
+&&&\lambda_i&1&\\
+&&&0&\lambda_i&\\\hline
+&&&&&\lambda_i
+\end{array}\right]
+\]
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (3.2 and 1.75);
+\draw (-0.8,0) ellipse (2.2 and 1.4);
+\draw (-1.95,-0.05) ellipse (0.9 and 1.0);
+\node at (-1.95,0.5) {$\Null(\Sigma_i)$};
+\draw[->] (-1.65,0.9) -- (-1.35,2.0) node[above] {$3$};
+\fill (-2.35,0.15) circle (1.2pt) node[right] {\scriptsize $\Sigma_i^2x$};
+\fill (-2.35,-0.2) circle (1.2pt) node[right] {\scriptsize $\Sigma_iy$};
+\fill (-2.35,-0.55) circle (1.2pt) node[right] {\scriptsize $z$};
+\node at (-0.35,0.85) {$\Null(\Sigma_i^2)$};
+\node at (-0.35,0.5) {$5$};
+\fill (-0.55,-0.05) circle (1.2pt) node[right] {$\Sigma_ix$};
+\fill (-0.55,-0.6) circle (1.2pt) node[right] {$y$};
+\node at (2.15,0.85) {$\Null(\Sigma_i^3)$};
+\node at (2.15,0.5) {$6$};
+\fill (2.0,-0.1) circle (1.2pt) node[right] {$x$};
+\end{tikzpicture}
+\end{center}
+Chains:
+\begin{align*}
+&x\in\Null(\Sigma_i^3),\ x\notin\Null(\Sigma_i^2): && \{\Sigma_i^2x,\Sigma_ix,x\}\\
+&y\in\Null(\Sigma_i^2),\ y\notin\Null(\Sigma_i): && \{\Sigma_iy,y\}\\
+&z\in\Null(\Sigma_i),\ z\notin\Null(\Sigma_i^0)\Rightarrow z\neq0: && \{z\}
+\end{align*}
+$\Rightarrow$ $\Sigma_i^2x,\ \Sigma_iy,\ z$ should be linearly indep.
+
+% ===== Page 76 =====
+\origpage{76}
+\[
+P=\left[\begin{array}{ccc|cc|c}\Sigma_i^2x&\Sigma_ix&x&\Sigma_iy&y&z\end{array}\right]
+\]
+\end{example}
+
+\begin{example}
+\[
+A=\bmat{1&1&0&0\\0&1&0&0\\0&0&1&0\\-1&1&0&2}
+\qquad
+\begin{aligned}
+&d(s)=(s-1)^3(s-2)\quad(\text{know to calculate}),\qquad \lambda_1=1,\ \lambda_2=2\\
+&m(s)\,?\quad J\,?\quad P\,?
+\end{aligned}
+\]
+\[
+\Sigma_1=\bmat{0&1&0&0\\0&0&0&0\\0&0&0&0\\-1&1&0&1},
+\quad
+\Sigma_1^2=\bmat{0&0&0&0\\0&0&0&0\\0&0&0&0\\-1&0&0&1}
+\]
+\[
+\begin{array}{l}\dim\Null(\Sigma_1)=2,\quad \rank=2\\ \text{it should increase (to }r_1=3)\end{array}
+\quad\Rightarrow\quad (s-1)^2(s-2)=m(s)
+\]
+\[
+\begin{array}{ccc}
+\Null(\Sigma_1)&\subsetneq&\Null(\Sigma_1^2)\\
+2&&3
+\end{array}
+\ \Rightarrow\
+\begin{array}{l}
+\text{1 JB w.s.\ 2}\\ \text{1 JB w.s.\ 1}
+\end{array}
+\qquad\qquad
+\begin{array}{ccc}
+\Null(\Sigma_2)&=&\Null(\Sigma_2^2)\\
+1&&1
+\end{array}
+\ \Rightarrow\ \text{1 JB w.s.\ 1}
+\]
+\[
+\begin{aligned}
+\#\text{ of JB}&=2\\
+\text{size JB}\geq2&=1\\
+\geq3&=0
+\end{aligned}
+\qquad\qquad
+\C^4=\underset{3}{\Null(\Sigma_1^2)}\oplus\underset{1}{\Null(\Sigma_2)}
+\qquad
+J=\left[\begin{array}{cc|c|c}1&1&&\\0&1&&\\\hline &&1&\\\hline &&&2\end{array}\right]
+\]
+
+\begin{minipage}[c]{0.34\textwidth}
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (2.0 and 1.35);
+\draw (-0.5,-0.1) ellipse (1.0 and 0.85);
+\node at (0.85,0.95) {$\Null(\Sigma_1^2)_{\,3}$};
+\node at (-0.5,0.3) {$\Null(\Sigma_1)_{\,2}$};
+\fill (-0.85,-0.2) circle (1.2pt) node[right] {$\Sigma_1x$};
+\fill (-0.65,-0.55) circle (1.2pt) node[right] {$y$};
+\fill (1.05,-0.05) circle (1.2pt) node[right] {$x$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.64\textwidth}
+$x\in\Null(\Sigma_1^2)\notin\Null(\Sigma_1)$\\
+$y\in\Null(\Sigma_1)$ \& $y\neq0$;\quad $y$ \& $\Sigma_1x$ lin.\ indep.
+\[
+x=\bmat{0\\1\\0\\0},\qquad \Sigma_1x=\bmat{1\\0\\0\\1},\qquad
+y=\bmat{0\\0\\1\\0}\ \text{(eigenvector)}
+\]
+Chains: $\{\Sigma_1x,\ x\}$ and $\{y\}$.
+\end{minipage}
+
+\medskip
+
+\begin{minipage}[c]{0.34\textwidth}
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw (0,0) ellipse (0.95 and 0.62);
+\node at (0,0.2) {$\Null(\Sigma_2)_{\,1}$};
+\fill (-0.2,-0.22) circle (1.2pt) node[right] {$z$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.64\textwidth}
+$z\in\Null(\Sigma_2)$, $z\neq0$:
+\[
+z=\bmat{0\\0\\0\\1}\qquad\qquad P=\left[\begin{array}{cc|c|c}\Sigma_1x&x&y&z\end{array}\right]
+\]
+\end{minipage}
+
+\begin{insight}[Check]
+\[
+P=\bmat{1&0&0&0\\0&1&0&0\\0&0&1&0\\1&0&0&1},\qquad
+AP=PJ=\bmat{1&1&0&0\\0&1&0&0\\0&0&1&0\\1&1&0&2},\qquad \det P=1\neq0,
+\]
+so indeed $P^{-1}AP=J$. ($\Sigma_1^2$ has rank $1$, so $\dim\Null(\Sigma_1^2)=3=r_1$, confirming $m_1=2$.)
+\end{insight}
+\end{example}
+
+% ===== Page 77 =====
+\origpage{77}
+\section{Hermitian Matrices}
+
+\begin{itemize}[label=$\ast$]
+\item An $n\times n$, in general, complex matrix $A\in\C^{n\times n}$ is called Hermitian iff
+\[
+\bar A^{T}=A, \qquad\text{i.e.}\qquad A\Hm=A,
+\]
+where $\bar{\ }^{T}\triangleq{}^{H}$: the complex conjugate transpose is denoted as Hermitian.
+\item If $A\in\R^{n\times n}$:
+\[
+A\T=A:\ \text{Symmetric matrices are Hermitian.}
+\]
+\item Example:
+\[
+\bmat{2&1\\1&2},\qquad \lambda_1=3,\ \lambda_2=1,\qquad e_1=\bmat{1\\1},\quad e_2=\bmat{1\\-1}
+\]
+\item \sloppy In addition to being linearly independent, eigenvectors of the Hermitian matrices are \underline{orthogonal}.\par
+\item Eigenvalues are always real in Hermitian matrices.
+\end{itemize}
+
+\begin{theorem}
+Let $A\in\C^{n\times n}$ be Hermitian. Then, $\inner{x}{Ax}$ is real $\forall x\in\C^n$.
+\end{theorem}
+
+$\ast$ $\inner{x}{y}=y\Hm x$: $\ell_2$-inner product. Properties:
+\begin{align*}
+&\inner{\alpha x}{y}=\alpha\inner{x}{y}, & &\inner{x}{x}\text{ is real},\\
+&\inner{x}{\alpha y}=\bar\alpha\inner{x}{y}, & &\inner{x}{x}\geq0\ \ \forall x\in\C^n,\\
+&\inner{x}{y}=\overline{\inner{y}{x}}, & &\inner{x}{x}=0\iff x=0,
+\end{align*}
+\[
+\inner{x}{Ay}=(Ay)\Hm x=y\Hm(A\Hm x)=\inner{A\Hm x}{y}.
+\]
+
+\begin{proof}[Proof]
+\[
+\inner{x}{Ax}=(Ax)\Hm x=x\Hm A\Hm x\overset{A\Hm=A}{=}x\Hm Ax:\ \text{Quadratic Form}
+\]
+\begin{align*}
+\overline{\inner{x}{Ax}}&=\inner{Ax}{x}\\
+&=\inner{x}{A\Hm x}\qquad\text{(identity above for $A\Hm$, with $y=x$)}\\
+&=\inner{x}{Ax}\qquad\text{if $A$ is Hermitian}
+\end{align*}
+The complex conjugate is equal to itself $\Rightarrow$ $\inner{x}{Ax}$ is real.
+\end{proof}
+
+% ===== Page 78 =====
+\origpage{78}
+\begin{theorem}
+If $A$ is Hermitian, then, its eigenvalues are all real.
+\end{theorem}
+\begin{proof}[Proof]
+$\lambda_i, e_i$: one eigenvalue of $A$ and corresponding eigenvector.
+\begin{align*}
+\inner{x}{Ax}\Big|_{x=e_i}&=\inner{e_i}{Ae_i}\\
+&=\inner{A\Hm e_i}{e_i}\\
+&=\inner{Ae_i}{e_i}\\
+&=\inner{\lambda_ie_i}{e_i}\\
+&=\lambda_i\underbrace{\inner{e_i}{e_i}}_{\text{always real}}\ \Rightarrow\ \text{Should be real}
+\end{align*}
+\[
+\Rightarrow\ \underline{\underline{\lambda_i\text{ is real}}}
+\]
+\explain{By the previous theorem $\inner{e_i}{Ae_i}$ is real, and $\inner{e_i}{e_i}=\norm{e_i}_2^2>0$ since $e_i\neq0$; hence $\lambda_i=\inner{e_i}{Ae_i}/\inner{e_i}{e_i}$ is real.}
+\end{proof}
+
+\begin{theorem}
+Let $A$ be Hermitian, \& $\lambda_i,\lambda_j$ are two distinct eigenvalues of $A$, with eigenvectors $e_i$ \& $e_j$. $e_i$ \& $e_j$ are orthogonal.
+\[
+\lambda_i\neq\lambda_j\ \Rightarrow\ \inner{e_i}{e_j}=0
+\]
+% corrected: notes had "lambda_i = lambda_j"; the hypothesis is lambda_i != lambda_j
+\end{theorem}
+\begin{proof}[Proof]
+\[
+\begin{array}{c@{\ }c@{\ }c@{\ }c@{\ }c}
+\inner{e_i}{Ae_j} &=& \inner{e_i}{\lambda_je_j} &=& \lambda_j\inner{e_i}{e_j}\\
+\shortparallel & & & & \\
+\inner{Ae_i}{e_j} &=& \inner{\lambda_ie_i}{e_j} &=& \lambda_i\inner{e_i}{e_j}
+\end{array}
+\]
+\begin{align*}
+\lambda_j\inner{e_i}{e_j}&=\lambda_i\inner{e_i}{e_j}\\
+\underbrace{(\lambda_i-\lambda_j)}_{\neq0}\underbrace{\inner{e_i}{e_j}}_{=0}&=0
+\end{align*}
+\explain{Top row: $\inner{e_i}{\lambda_je_j}=\bar\lambda_j\inner{e_i}{e_j}=\lambda_j\inner{e_i}{e_j}$ since $\lambda_j$ is real. Left equality: $\inner{e_i}{Ae_j}=\inner{A\Hm e_i}{e_j}=\inner{Ae_i}{e_j}$.}
+\[
+\Null(A-\lambda_iI)\perp\Null(A-\lambda_jI)\ :\ \text{Eigenspaces are also orthogonal.}
+\]
+\end{proof}
+
+% ===== Page 79 =====
+\origpage{79}
+\begin{theorem}
+Let $A$ be Hermitian. Then, its minimal polynomial is
+\[
+m(s)=(s-\lambda_1)(s-\lambda_2)\cdots(s-\lambda_k)
+\]
+when $A$ has $k$ distinct eigenvalues $\lambda_1,\lambda_2,\dots,\lambda_k$, i.e.\ $m_i=1$ $\forall i$.
+\end{theorem}
+In general:
+\begin{align*}
+d(s)&=(s-\lambda_1)^{r_1}(s-\lambda_2)^{r_2}\cdots(s-\lambda_k)^{r_k}\\
+m(s)&=(s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k},\qquad 1\leq m_i\leq r_i\ \text{in general case.}
+\end{align*}
+% corrected: notes had "1 <= m_i <= r_k" (meaning r_i)
+
+\begin{proof}[Proof]
+Let $\Sigma_i=A-\lambda_iI$. In general
+\[
+\Null(\Sigma_i)\subsetneq\Null(\Sigma_i^2)\subsetneq\cdots\subsetneq\Null(\Sigma_i^{m_i})=\Null(\Sigma_i^{m_i+1}).
+\]
+\[
+\Null(\Sigma_i)=\Null(\Sigma_i^2)\ :\ \text{Theorem's Claim.}
+\]
+Show that
+\begin{align*}
+&\Null(\Sigma_i)\subset\Null(\Sigma_i^2)\colon\quad \Sigma_ix=0\ \text{implies}\ \Sigma_i(\Sigma_ix)=0 \qquad\checkmark\\
+&\Null(\Sigma_i^2)\subset\Null(\Sigma_i)\colon
+\end{align*}
+\begin{align*}
+x\in\Null(\Sigma_i^2)\ &\Rightarrow\ \Sigma_i^2x=0\\
+&\Rightarrow\ \inner{x}{\Sigma_i^2x}=0\\
+&\Rightarrow\ \inner{x}{\Sigma_i\Sigma_ix}=0\\
+&\Rightarrow\ \inner{\Sigma_i\Hm x}{\Sigma_ix}=0\\
+&\Rightarrow\ \inner{\Sigma_ix}{\Sigma_ix}=0\\
+&\Rightarrow\ \norm{\Sigma_ix}_2^2=0\ \Rightarrow\ \Sigma_ix=0\ \Rightarrow\ x\in\Null(\Sigma_i)
+\end{align*}
+\explain{Used: $\Sigma_i\Hm=(A-\lambda_iI)\Hm=A\Hm-\bar\lambda_iI\Hm=A-\lambda_iI=\Sigma_i$ (since $\lambda_i$ is real).}
+Hence $\Null(\Sigma_i)=\Null(\Sigma_i^2)$, the chain of null spaces stops at the first step, and $m_i=1$ for every $i$.
+\end{proof}
+
+\begin{itemize}[label=$\ast$]
+\item Direct sum decompositions:
+\begin{align*}
+\C^n&=\Null(\Sigma_1^{m_1})\oplus\Null(\Sigma_2^{m_2})\oplus\cdots\oplus\Null(\Sigma_k^{m_k})\\
+\C^n&=\Null(\Sigma_1)\overset{\perp}{\oplus}\Null(\Sigma_2)\overset{\perp}{\oplus}\cdots\overset{\perp}{\oplus}\Null(\Sigma_k)
+\end{align*}
+\explain{Orthogonal as every subspace defines a unique eigenspace: since $m_i=1$, $\Null(\Sigma_i^{m_i})=\Null(\Sigma_i)$ is the eigenspace of $\lambda_i$, and eigenspaces of distinct eigenvalues are orthogonal.}
+\item $m_i$ is the size of the largest Jordan block for $\lambda_i$.
+
+% ===== Page 80 =====
+\origpage{80}
+\item For a Hermitian matrix:
+\[
+\begin{array}{ccc}
+\Null(\Sigma_i)&=&\Null(\Sigma_i^2)\\
+\scriptstyle\dim r_i&&\scriptstyle\dim r_i
+\end{array}
+\qquad\Rightarrow\qquad
+\begin{aligned}
+&(\#\text{ of JB's for }\lambda_i)=r_i\\
+&(\#\text{ of JB's with size}\geq2)=0\\
+&r_i\text{ JB's w.s.}=1\text{ for }\lambda_i
+\end{aligned}
+\]
+\[
+J=\left[\begin{array}{ccc|ccc|c|ccc}
+\lambda_1&0&0&&&&&&&\\
+0&\lambda_1&0&&&&&&&\\
+&&\lambda_1&&&&&&&\\\hline
+&&&\lambda_2&0&0&&&&\\
+&&&&\lambda_2&0&&&&\\
+&&&0&&\lambda_2&&&&\\\hline
+&&&&&&\ddots&&&\\\hline
+&&&&&&&\lambda_k&0&0\\
+&&&&&&&&\lambda_k&0\\
+&&&&&&&0&&\lambda_k
+\end{array}\right]
+\ :\ \text{Diagonal Matrix.}
+\]
+\explain{The $\lambda_1$ block is $r_1\times r_1$, the $\lambda_2$ block $r_2\times r_2$, \dots, the $\lambda_k$ block $r_k\times r_k$.}
+\item $J$ is diagonal for a Hermitian matrix. Any Hermitian matrix is diagonalizable:
+\[
+J=\bmat{\lambda_1I_{r_1\times r_1}&&&\\&\lambda_2I_{r_2\times r_2}&&\\&&\ddots&\\&&&\lambda_kI_{r_k\times r_k}}_{n\times n}
+\]
+\item Any Hermitian matrix has $n$ linearly independent eigenvectors.
+\item For diagonalization with orthonormal eigenvectors (unitary diagonalization), we need to have:
+\begin{align*}
+&N\Hm N=NN\Hm\ :\ \text{Normal matrix (Outside of the scope)}\\
+&N\Hm N=N^2=NN\Hm\ \text{for Hermitian matrices (Inherently satisfy normal matrix condition).}
+\end{align*}
+% corrected: notes had "For diagonalization, we need" (normality is needed for unitary diagonalization, not for diagonalization in general) and "N^2 = N^2" (meaning N^H N = N^2 = N N^H when N^H = N)
+\end{itemize}
+
+\sep
+\paragraph{Summary.}
+\[
+\text{Hermitian}\ \Longrightarrow\
+\begin{array}{l}
+\lambda_i\text{'s are real}\\
+e_i\perp e_j\text{ when }\lambda_i\neq\lambda_j\\
+\left.\begin{array}{l}
+m_i=1\ \ \forall i\\
+J\text{ is diagonal}\\
+n\text{ linearly independent eigenvectors}
+\end{array}\right\}
+\end{array}
+\ \Longleftarrow\ \begin{array}{l}A\text{ is normal}\\ \text{(for these 3 statements)}\end{array}
+\]
+% corrected: notes had "<=> A is normal"; normality implies the three statements, but a diagonalizable matrix need not be normal
+\explain{The three bracketed statements are equal and they imply diagonalizability.}
+\explain{$\not\Longleftarrow$: the reverse implication (to Hermitian) is not true!}
+
+\begin{insight}[Hermitian, normal, diagonalizable]
+\begin{itemize}[nosep]
+\item Hermitian $\Rightarrow$ normal $\Rightarrow$ diagonalizable; neither arrow can be reversed.
+\item $A$ is normal $\iff$ $A$ has $n$ \emph{orthonormal} eigenvectors $\iff$ $A=U\Lambda U\Hm$ with $U$ unitary. Hermitian matrices are exactly the normal matrices with real eigenvalues.
+\item Counterexamples: $\bmat{0&1\\-1&0}$ is normal (and diagonalizable over $\C$, eigenvalues $\pm j$) but not Hermitian; $\bmat{1&1\\0&2}$ is diagonalizable (two distinct eigenvalues, so $m_i=1$) but not normal, its eigenvectors $\bmat{1\\0}$ and $\bmat{1\\1}$ are not orthogonal.
+\end{itemize}
+\end{insight}

@@ -1,0 +1,12 @@
+# LaTeX build artifacts
+latex/build/
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Large original scan (29 MB) — kept locally, not versioned
+EE501 Lecture Notes of Umut Orguner (Fall 2024) by Elif Topaloglu.pdf
