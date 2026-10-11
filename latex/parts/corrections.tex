@@ -1,0 +1,137 @@
+% ===== Appendix: Corrections Log =====
+\clearpage\appendix
+\section{Corrections Log}\label{sec:corrections}
+The original handwritten notes (which the syllabus itself warns may contain typos) were corrected in the places listed below.
+Each entry gives the page of the original notes (the gray \textit{p.\,N} margin tag), the section of these notes where the correction appears, what the handwritten notes had, and the correction together with a brief reason.
+Purely cosmetic changes (layout, re-ordering, added explanations) are not listed.
+
+{\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\grp}[1]{\multicolumn{4}{@{}l}{\rule{0pt}{1.4em}\textbf{\S\ref{#1}\enspace\nameref{#1}}}\\*[2pt]}
+\begin{longtable}{@{}>{\centering\arraybackslash}p{0.95cm}>{\centering\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{5.35cm}>{\raggedright\arraybackslash}p{8.2cm}@{}}
+\toprule
+\textbf{Orig.\ page} & \textbf{Sec.} & \textbf{Notes had} & \textbf{Corrected to / reason}\\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\footnotesize\itshape Corrections Log (continued)}\\
+\toprule
+\textbf{Orig.\ page} & \textbf{Sec.} & \textbf{Notes had} & \textbf{Corrected to / reason}\\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r@{}}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+%
+\grp{sec:fields-vs}
+2 & \ref{ss:fields} & $x\oplus y = x_1+y_1+j(y_1+y_2)$ & $x\oplus y = x_1+y_1+j(x_2+y_2)$: the second component is $x_2+y_2$.\\
+3 & \ref{ss:vector-spaces} & ``$\Rightarrow$'' between the members of the chain proving $y\oplus y=y$ & ``$=$'': the steps are equalities.\\
+5 & \ref{ss:subspaces} & Middle graph labelled ``$\in\W$'' & $\in\W_2$ (the set of functions in the example).\\
+6 & \ref{ss:sums} & ``$Y\cup Z$ is not closed under addition but not closed under scalar multiplication'' & $Y\cup Z$ is closed under scalar multiplication but (in general) not under addition.\\
+6 & \ref{ss:sums} & $w_1\oplus_{\V} w_2$ and $\alpha\odot_{\V} w_1$ in $\V\times\W$ & $w_1\oplus_{\W} w_2$, $\alpha\odot_{\W} w_1$: the second components use the operations of $\W$.\\
+9 & \ref{ss:basis} & ``some of the vectors are nonzero'' & Some of the \emph{coefficients} $\alpha_i-\beta_i$ are nonzero.\\
+10 & \ref{ss:change-basis} & ``$P=[w_1]_{B_1}$'', ``$P=[w_2]_{B_1}$'' and ``$P\cdot[w_3]_{B_2}$'' on the right & Each is the corresponding column of $P$, i.e.\ $[w_j]_{B_1}$.\\
+\grp{sec:normed}
+11 & \ref{ss:norms} & $\norm{x_i}$ in step (1); sum without parentheses in step (3) & $\abs{x_i}$; $\sum_i\big(\abs{x_i}+\abs{y_i}\big)$.\\
+11 & \ref{ss:lp} & 1st quadrant: $x_1-x_2=1$ & $x_1+x_2=1$, since $\abs{x_1}+\abs{x_2}=x_1+x_2$ there; 3rd/4th quadrant cases added.\\
+12 & \ref{ss:function-norms} & $\mathcal{L}_p$ and $\mathcal{L}_2$ integrals without $dt$; $\mathcal{L}_1$ norm without subscript; $\max_t\abs{f(t)}$ for $\mathcal{L}_\infty$ & $dt$ and subscript added; $\sup_t\abs{f(t)}$ (the example below shows why the supremum is needed).\\
+%
+13 & \ref{ss:matrix-norms} & $\tr(A)$ on the left-hand side & $\tr(A\T A)$: the trace taken is that of $A\T A$.\\
+15 & \ref{ss:matrix-norms} & Stray ``7'' written below the ``8'' & $\norm{A}_1=8$ (column sums $6$ and $8$); $7$ is $\norm{A}_\infty$ from the previous page.\\
+15 & \ref{ss:convergence} & $\norm{(-1)^n-1}=(-1)^n-1$ & $\abs{(-1)^n-1}$; without the absolute value the expression is negative for odd $n$.\\
+15 & \ref{ss:convergence} & $\mathcal{L}_1$ integral over $(-\infty,\infty)$ & $\int_{-1}^{1}$: functions in $\V$ live on $[-1,1]$.\\
+16 & \ref{ss:cauchy} & Inequality step justified ``by absolute convergence'' & By the triangle inequality (and $\norm{v-v_m}=\norm{v_m-v}$ by homogeneity with $\alpha=-1$).\\
+18 & \ref{ss:cauchy} & $\lim_{n,m}\norm{f_n-f_m}_\infty=\abs{1-\frac nm}$ & The distance itself is $\norm{f_n-f_m}_\infty=\abs{1-\frac nm}$ ($m\ge n$), which does not tend to $0$.\\
+%
+\grp{sec:ips}
+19 & \ref{ss:inner-products} & Row vector $[y_1\ y_2\ \cdots]$ in $y\Hm x$ & $[\bar y_1\ \bar y_2\ \cdots]$: $y\Hm=\bar y\T$ has conjugated entries.\\
+19 & \ref{ss:inner-products} & $B\T$ with rows $b_{11}\,b_{12}$ / $b_{12}\,b_{22}$ / $b_{13}\,b_{23}$ & Entry $(1,2)$ of $B\T$ is $b_{21}$.\\
+19 & \ref{ss:cauchy-schwarz} & Equality iff $x=cy$ & Also $y=0_\V$ ($x$ arbitrary) gives $0=0$; equality iff $x,y$ are linearly dependent.\\
+24 & \ref{ss:gram-schmidt} & $w_2=\bar w_2/\norm{w_2}$ & $w_2=\bar w_2/\norm{\bar w_2}$; the last step $w_n=\bar w_n/\norm{\bar w_n}$ (implied by the pattern) added.\\
+%
+\grp{sec:lt}
+25 & \ref{ss:lt-def} & Sums for $v_1,v_2$ starting at $i=1$ & $\sum_{i=0}^{n}$: the constant term must be included (the next line already uses $i=0$).\\
+26 & \ref{ss:null} & $\Null(\mathcal{A}_1)=0_\V$ & $\Null(\mathcal{A}_1)=\{0_\V\}$: the null space is a set.\\
+28 & \ref{ss:one-to-one} & Side note labelled $\Null(\mathcal{A})=\{\text{poly.\ degree}\le1\}$ & This is $\Range(\frac{d}{dt})$ (cf.\ p.~29); the null space is the constants.\\
+28 & \ref{ss:range} & $\alpha w_1=\mathcal{A}(\alpha v_1)=\alpha\mathcal{A}v_1=\alpha w_1\in\Range(\mathcal{A})$ (circular chain) & Rewritten as the implication $\mathcal{A}(\alpha v_1)=\alpha w_1\Rightarrow\alpha w_1\in\Range(\mathcal{A})$.\\
+29 & \ref{ss:range} & $\dim\Range(\mathcal{A}_1)=0$ in the last line & $\dim\Range(\mathcal{A}_2)=0$.\\
+29 & \ref{ss:range} & $\Range(\mathcal{A})\not\subseteq\W$ (definition of ``into'') & $\Range(\mathcal{A})\subsetneq\W$: $\Range(\mathcal{A})$ is always a subset of $\W$, a proper subset is meant.\\
+31 & \ref{ss:basis-change-rep} & $[v]_B$ (no bar) in the second line & $[v]_{\bar B}$; the last two lines (combining 1) and 2), giving $\bar A=Q^{-1}AP$) added.\\
+32 & \ref{ss:basis-change-rep} & First line $\bar A=Q^{-1}\bar A$ & $\bar{\bar A}=Q^{-1}\bar A$ (double bar on the left).\\
+%
+\grp{sec:direct-sum}
+34 & \ref{ss:orth-complement} & ``$M_2$ \& $M_2$'' & $M_1$ \& $M_2$.\\
+35 & \ref{ss:orth-complement} & Un-orthogonalized $[1\ 0\ 0\ 0]\T$, $[0\ 1\ 0\ 0]\T$ labelled $e_3,e_4$, and $M^\perp=\Span\{e_3,e_4\}$ & These are not orthogonal to $M$ (e.g.\ $\inner{[1\ 0\ 0\ 0]\T}{m_1}=1$); Gram--Schmidt computation added (verified in exact arithmetic). The cramped last vector is read as $[0\ 1\ 0\ 0]\T$.\\
+40 & \ref{ss:gram} & Third basis matrix labelled $v_2$ & $v_3$.\\
+41 & \ref{ss:proj-matrices} & $Bx\Hm=[m_i\Hm x]=[\inner{x}{m_i}]=[\text{Gram matrix}]$ & $B\Hm x=[\inner{x}{m_i}]=b$; the Gram matrix is $B\Hm B$ (entry $(i,j)=\inner{m_j}{m_i}$), moved to the line above.\\
+41 & \ref{ss:proj-matrices} & $P_{M^\perp}=(I-P_M)x$ & $P_{M^\perp}=I-P_M$; $(I-P_M)x$ is the projected vector.\\
+41 & \ref{ss:proj-matrices} & $B(B\Hm B^{-1})B\Hm$ in the last step & $B(B\Hm B)^{-1}B\Hm$.\\
+%
+\grp{sec:axb}
+42 & \ref{ss:exist-unique} & Second small ``$\C^m$'' label next to the zero vector in the figure & Read as the subscript $0_{\C^m}$, consistent with $\Null(A)=\{x: Ax=0_{\C^m}\}$.\\
+43 & \ref{ss:exist-unique} & ``$=b+0=0$'' at the end; ``$x$ is exact'' & $=b+0=b$; $\hat x$ is exact.\\
+44 & \ref{ss:least-squares} & $\norm{Ax-b_1}+\norm{b_2}^2$ & $\norm{Ax-b_1}^2+\norm{b_2}^2$ (square missing).\\
+45 & \ref{ss:least-squares} & Projection applied to $[1\ 1]\T$ & Applied to $b=[2\ 1]\T$, giving $b_1=[3/2\ 3/2]\T$.\\
+49 & \ref{ss:rank-cases} & $b\in\C^m\ \forall b\in\Range(A)$ & $b\in\Range(A)\ \forall b\in\C^m$ (quantifiers swapped).\\
+49 & \ref{ss:rank-cases} & $\operatorname{Proj}_{\Range(A\Hm)}\hat x=\operatorname{Proj}_{\Range(A\Hm)}\hat x$ & $\operatorname{Proj}_{\Null^\perp(A)}\hat x=\operatorname{Proj}_{\Range(A\Hm)}\hat x$.\\
+50 & \ref{ss:rank-cases} & $\hat x+m$ & $\hat x+n$, $n\in\Null(A)$ (an element of the null space is added).\\
+50 & \ref{ss:rank-cases} & $z=[x_2\ x_3]\T$ & $z=[x_1\ x_2]\T$: $A_1$ consists of the first two columns of $A$ (consistent with the final $\hat x$).\\
+%
+\grp{sec:spectral}
+51 & \ref{ss:invariant} & ``$\notin M$'' & $\notin M_1$ (made explicit).\\
+53 & \ref{ss:eigen} & $\tr\mathcal{A}\triangleq\det A$ & $\tr\mathcal{A}\triangleq\tr A$: the trace of the operator is the trace of its matrix.\\
+53 & \ref{ss:eigen} & ``$R$: rotation vectors'' & $R$ denotes the rotation matrix.\\
+56 & \ref{ss:block-diag} & $M_1=\Span\{b_1^1,b_2^2\}$, $M_2=\Span\{b_1^1,b_2^2,b_3^3\}$ & $M_1=\Span\{b_1^1,b_1^2\}$, $M_2=\Span\{b_2^1,b_2^2,b_2^3\}$ ($b_i^j$: $j$-th basis vector of $M_i$), matching $P_1,P_2$.\\
+56 & \ref{ss:block-diag} & $M_2=\{b_2^1\}$ & $M_2=\Span\{b_2^1\}$ (span, not the set).\\
+57 & \ref{ss:block-diag} & $P=[b_1^1\ b_2^1\mid b_2^1]$ & $P=[b_1^1\ b_1^2\mid b_2^1]$: basis of $M_1$ followed by that of $M_2$, as in the next line.\\
+57 & \ref{ss:block-diag} & Small mark ($*$, $+$) on the circled exponent 2 & Dropped (it only linked the exponent to the multiplicity in $d(s)$).\\
+57 & \ref{ss:diagonalization} & $(A-\lambda_2I)e_2$ in the second term (which would be $0$) & $(A-\lambda_1I)e_2=(\lambda_2-\lambda_1)e_2\neq0$.\\
+57 & \ref{ss:diagonalization} & $A\in\C^n$ & $A\in\C^{n\times n}$.\\
+58 & \ref{ss:diagonalization} & Diagonal matrix labelled $A$ & $\bar A=P^{-1}AP$.\\
+%
+\grp{sec:polys}
+59 & \ref{ss:charpoly} & $A_{31}=1$ & $A_{31}=0$, consistent with $sI-A$ and all later computations ($A-\lambda_iI$, null spaces, the check of $AP$).\\
+60 & \ref{ss:cht} & $A-4+3A^{-1}=0$ & $A-4I+3A^{-1}=0$ (identity matrix missing).\\
+61 & \ref{ss:minpoly} & $m(A)=(A-2)(A-2)$ & $m(A)=(A-2I)(A-I)$.\\
+61 & \ref{ss:minpoly} & $d(s)=m(s)d(s)$ & $d(s)=m(s)q(s)$.\\
+61 & \ref{ss:minpoly} & Scattered list of crossed-out candidates with check marks (also on crossed-out ones and on $m(s)=s-1$); last candidate $(s-1)(s-2)^1$ & Organized by properties II and III: the only possibilities are $(s-1)(s-2)$ and $(s-1)(s-2)^2$.\\
+61 & \ref{ss:minpoly} & Upper bound $m_i\le k$ & $m_i\le r_i$ (cf.\ p.~63).\\
+62 & \ref{ss:minpoly} & $\bar r(s)=r(\alpha)/\alpha$; division $d=mq+r$ only implicit & $\bar r(s)=r(s)/\alpha$; the division $d(s)=m(s)q(s)+r(s)$ written out.\\
+62 & \ref{ss:minpoly} & $e_1$ instead of $e_i$ (twice); stray cancelled $e_i$ inside the bracket & $e_i$; stray term removed.\\
+63 & \ref{ss:minpoly-decomp} & Exponent 2 on $(s-\lambda_2)$ & All exponents are $1$ in the distinct-eigenvalue case.\\
+63 & \ref{ss:minpoly-decomp} & $(A_2-I)(A_2-2I)=0$ & The product is nonzero, which is exactly why $m_2(s)=(s-1)(s-2)^2$.\\
+%
+\grp{sec:jordan}
+65 & \ref{ss:gen-eigenspaces} & $\Null\big((A-2I)\big)$ in the last column & $\Null\big((A-2I)^3\big)$.\\
+66 & \ref{ss:nullspace-chains} & ``$=$'' missing between the two null spaces & $\Null(\Sigma_i^l)=\Null(\Sigma_i^{l+1})$.\\
+66 & \ref{ss:nullspace-chains} & $A$ instead of $A_1$ in the dimension column and last row & $A_1$.\\
+67 & \ref{ss:counting-jb} & $\dim\Null(\Sigma_i^{l+1})-\dim\Null(\Sigma_i^{l})=\#$ JB's with size $\ge l$ (off by one) & $\dim\Null(\Sigma_i^{l})-\dim\Null(\Sigma_i^{l-1})=\#$ JB's with size $\ge l$; indices shifted so that $l=1$ is the first line.\\
+69 & \ref{ss:chains} & $\Sigma_i^{m_i-1}\neq0$ (vector missing) & $\Sigma_i^{m_i-1}x\neq0$.\\
+71 & \ref{ss:jordan-examples} & ``\# of JB w.s.\ $=2$ for $\lambda_2$'', ``\# of JB with size $=3$ for $\lambda_2$'' & These counts are for $\lambda_1$ and mean size $\ge2$, $\ge3$.\\
+72 & \ref{ss:jordan-special} & ``$1\le1$'' under $\Null(\Sigma_i)$ & $\dim\Null(\Sigma_i)=1$ (each strict step gains exactly $+1$).\\
+73 & \ref{ss:jordan-special} & $(\Sigma_i^{m_i-2}x)\Sigma_i$ (factor order); $(\lambda_i+\Sigma_i)$ & $\Sigma_i(\Sigma_i^{m_i-2}x)$; $(\lambda_iI+\Sigma_i)$.\\
+%
+\grp{sec:hermitian}
+78 & \ref{ss:hermitian-props} & $\lambda_i=\lambda_j\Rightarrow\inner{e_i}{e_j}=0$ & $\lambda_i\neq\lambda_j$: the hypothesis is distinct eigenvalues.\\
+79 & \ref{ss:hermitian-props} & $1\le m_i\le r_k$ & $1\le m_i\le r_i$.\\
+80 & \ref{ss:hermitian-props} & ``For diagonalization, we need'' normality; $N^2=N^2$ & Normality is needed for \emph{unitary} diagonalization, not diagonalization in general; $N\Hm N=N^2=NN\Hm$ when $N\Hm=N$.\\
+80 & \ref{ss:hermitian-props} & ``$\Leftrightarrow$ $A$ is normal'' & ``$\Longleftarrow$'': normality implies the three statements, but a diagonalizable matrix need not be normal.\\
+83 & \ref{ss:posdef} & ``$\norm{e_i}^2$ is non-negative'' & Positive (as $e_i\neq0$): strict positivity is what is needed for $\lambda_i>0$.\\
+%
+\grp{sec:functions}
+84 & \ref{ss:fn-def} & $\frac{d^if}{dt^i}$ & $\frac{d^if}{ds^i}$: the variable is $s$.\\
+86 & \ref{ss:method1-diag} & ``Eigenvalues are invariant under functions'' & Eigenvectors $e_j$ are invariant; the eigenvalues become $f(\lambda_j)$.\\
+86 & \ref{ss:method1-diag} & $\log 0$ & $\log 1=0$: the eigenvalue is $1$.\\
+86 & \ref{ss:method1-diag} & $c_2=-\frac{\log3}{2}$ & $c_0=-\frac{\log3}{2}$.\\
+86 & \ref{ss:method1-diag} & Left-hand side $\log s$ & $\log A$.\\
+86 & \ref{ss:method1-diag} & $f'(\lambda_j)=p(\lambda_j)$ (as written) & $f(\lambda_j)=p(\lambda_j)$.\\
+86 & \ref{ss:method1-diag} & $\dot x=\bmat{2&1\\1&2}x_0$ & $\dot x=Ax$ with $x(0)=x_0$, so $x(t)=e^{At}x_0$.\\
+89 & \ref{ss:method1-general} & (Earlier transcription) $c_1$ struck through in $p(1)$ & $c_1=\pi\neq0$ is substituted, giving $c_3+c_4=-\pi$.\\
+89 & \ref{ss:method1-general} & $f^{(t)}(A_j)$ & $f^{(t)}(\lambda_j)$.\\
+89 & \ref{ss:method1-general} & ``Square root function DNA.'' & Read as ``does not apply'': $f'(0)$ does not exist (consistent with the remark above).\\
+90 & \ref{ss:method2} & Generic block labelled $J_\sigma$ (size $d_t$) and last block of $J^i$ labelled $J_t^i$ & Made consistent: blocks $J_1,\dots,J_\sigma$, generic block $J_t$.\\
+92 & \ref{ss:method2} & $\mp$ in both diagonal entries of $A^{1/2}$ & $\pm\sqrt3$, $\pm\sqrt1$: the two signs are chosen independently (4 square roots).\\
+\end{longtable}
+}
