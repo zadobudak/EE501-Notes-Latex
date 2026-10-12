@@ -1,0 +1,71 @@
+% Shared document body for main.tex, main-tablet.tex and main-notes.tex
+\begin{document}
+\title{\textbf{EE 501 --- Linear System Theory I}\\[0.4em]\large Lecture Notes}
+\author{Based on the handwritten notes by Elif Topalo\u{g}lu\\
+of Umut Orguner's lectures (Fall 2024)\\[0.6em]
+\small \LaTeX{} transcription, corrected and annotated; organized along the Fall 2026--2027 syllabus}
+\date{}
+\maketitle
+
+\begin{center}
+\begin{minipage}{0.85\linewidth}
+\small
+\textbf{How to read these notes.}
+\term{Bold blue} marks a term at the place where it is defined; \key{bold} marks a key statement.
+\begin{itemize}[nosep]
+\item Framed boxes: \textcolor{blue!55!black}{definitions}, \textcolor{red!55!black}{theorems}, \textcolor{green!45!black}{examples}.
+\item \textcolor{orange!60!black}{Yellow ``Explanation'' boxes} and \textit{$\triangleright$ italic lines} are additions that are not in the original handwritten notes.
+\item The gray \textit{p.\,N} in the margin gives the page of the original handwritten notes.
+\item Corrections to the original are listed in the Corrections Log (Appendix~\ref{sec:corrections}).
+\end{itemize}
+\end{minipage}
+\end{center}
+
+\tableofcontents
+\clearpage
+
+\section*{Course Outline}
+\addcontentsline{toc}{section}{Course Outline}
+Tentative schedule of EE501 (Fall 2026--2027) and the corresponding sections of these notes.
+{\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{@{}c p{8.2cm} l@{}}
+\toprule
+\textbf{Week} & \textbf{Subject} & \textbf{Notes} \\
+\midrule
+\endhead
+1 & Algebraic structures defined on sets, fields and vector spaces & \S\ref{ss:fields}--\ref{ss:vector-spaces} \\
+2 & Subspaces, linear independence, basis & \S\ref{ss:subspaces}--\ref{ss:change-basis} \\
+3 & Normed vector spaces, sequences, series and convergence in normed spaces, matrix norms & \S\ref{sec:normed} \\
+4 & Inner product spaces, orthogonality, Gram--Schmidt orthonormalization & \S\ref{sec:ips} \\
+5 & Linear transformations, null space, range space, matrix representations & \S\ref{sec:lt} \\
+6 & Direct sum decompositions, projection theorem, orthogonal projections & \S\ref{sec:direct-sum} \\
+7 & Systems of linear equations of the form $Ax=b$ & \S\ref{sec:axb} \\
+8 & Spectral analysis of linear transformations, eigenvalues and eigenvectors & \S\ref{ss:invariant}--\ref{ss:eigen} \\
+9 & Invariance under operators, block diagonal forms & \S\ref{ss:block-diag}--\ref{ss:diagonalization} \\
+10 & Cayley--Hamilton theorem, characteristic and minimal polynomials & \S\ref{sec:polys} \\
+11--12 & Jordan canonical forms & \S\ref{sec:jordan} \\
+13 & Hermitian matrices, positive definite matrices, positive semi-definite matrices & \S\ref{sec:hermitian} \\
+14 & Functions of a matrix & \S\ref{sec:functions} \\
+\bottomrule
+\end{longtable}
+}
+
+\paragraph{References.}
+\begin{itemize}[nosep]
+\item S.~Axler, \textit{Linear Algebra Done Right}, Springer, 1997.
+\item C.~A.~Desoer, \textit{Notes for a Second Course on Linear Systems}, Van Nostrand Reinhold, 1970.
+\item C.~D.~Meyer, \textit{Matrix Analysis and Applied Linear Algebra}, SIAM, 2000.
+\item G.~Strang, \textit{Linear Algebra and its Applications}, 4th ed., Brooks/Cole, 2006.
+\end{itemize}
+\clearpage
+
+\input{parts/part1}
+\input{parts/part2}
+\input{parts/part3}
+\input{parts/part4}
+\input{parts/part5}
+\input{parts/part6}
+\input{parts/part7}
+\input{parts/part8}
+\input{parts/corrections}
+\end{document}

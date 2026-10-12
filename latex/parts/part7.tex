@@ -248,13 +248,12 @@ J=\left[\begin{array}{cc|c}2&0&\\1&2&\\\hline &&1\end{array}\right]
 \explain{This is also a JCF, but it is not required in this course.}
 % ===== Page 72 =====
 \origpage{72}Starting the columns of $P$ with $y$ instead:
-\[
-P=\left[\begin{array}{c|cc}y&\Sigma_1x&x\end{array}\right]:\quad
-\bar A=\left[\begin{array}{c|cc}1&0&0\\\hline 0&2&1\\0&0&2\end{array}\right]\ \checkmark
-\qquad
-P=\left[\begin{array}{c|cc}y&x&\Sigma_1x\end{array}\right]:\quad
-\bar A=\left[\begin{array}{c|cc}1&0&0\\\hline 0&2&0\\0&1&2\end{array}\right]\ \times
-\]
+\begin{align*}
+P&=\left[\begin{array}{c|cc}y&\Sigma_1x&x\end{array}\right]: &
+\bar A&=\left[\begin{array}{c|cc}1&0&0\\\hline 0&2&1\\0&0&2\end{array}\right]\ \checkmark\\[4pt]
+P&=\left[\begin{array}{c|cc}y&x&\Sigma_1x\end{array}\right]: &
+\bar A&=\left[\begin{array}{c|cc}1&0&0\\\hline 0&2&0\\0&1&2\end{array}\right]\ \times
+\end{align*}
 \explain{The second one (crossed out in the notes): this ordering will not be expected in this course.}
 
 \begin{insight}[Recipe used in this example]
@@ -411,7 +410,8 @@ P\bar A&=AP\\
 &=\left[\begin{array}{cccc}\lambda_ix_1&\lambda_ix_2&\cdots&\lambda_ix_{r_i}\end{array}\right]
 \quad\text{(as they are eigenvectors)}\\[4pt]
 J&=\lambda_iI\\
-J&=P^{-1}AP\ \Rightarrow\ A=PJP^{-1}=P(\lambda_iI)P^{-1}=\lambda_iPP^{-1}=\lambda_iI
+J&=P^{-1}AP\ \Rightarrow\ A=PJP^{-1}\\
+A&=P(\lambda_iI)P^{-1}=\lambda_iPP^{-1}=\lambda_iI
 \end{align*}
 Equivalently, from the minimal polynomial:
 \begin{align*}
@@ -448,7 +448,7 @@ Jordan blocks:
 \#\text{ of JB's with size}\geq3=2\\
 \#\text{ of JB's with size}\geq4=0
 \end{array}\right\}\ \text{2 JB's of size 3}
-\qquad\qquad
+\qquad
 J=\left[\begin{array}{ccc|ccc}
 \lambda_i&1&0&&&\\
 0&\lambda_i&1&&0&\\
@@ -584,7 +584,7 @@ For $\lambda_1=1$:
 \begin{array}{l}
 \text{1 JB of size 2}\\ \text{1 JB of size 1}
 \end{array}
-\qquad\qquad
+\qquad
 \begin{array}{ccc}
 \Null(\Sigma_2)&=&\Null(\Sigma_2^2)\\
 1&&1
@@ -715,7 +715,7 @@ $\lambda_i, e_i$: one eigenvalue of $A$ and corresponding eigenvector.
 \[
 \Rightarrow\ \underline{\underline{\lambda_i\text{ is real}}}
 \]
-\explain{By the previous theorem $\inner{e_i}{Ae_i}$ is real, and $\inner{e_i}{e_i}=\norm{e_i}_2^2>0$ since $e_i\neq0$; hence $\lambda_i=\inner{e_i}{Ae_i}/\inner{e_i}{e_i}$ is real.}
+\explain{By the previous theorem $\inner{e_i}{Ae_i}$ is real. Also, since $e_i\neq0$, we have $\inner{e_i}{e_i}=\norm{e_i}_2^2>0$. Hence $\lambda_i=\inner{e_i}{Ae_i}/\inner{e_i}{e_i}$ is real.}
 \end{proof}
 
 \begin{theorem}

@@ -1,7 +1,19 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage[a4paper,margin=2.3cm,marginparwidth=1.6cm]{geometry}
+% ---------- Page geometry: three variants ----------
+% main.tex: A4 print (default) | main-tablet.tex: 16:9 landscape | main-notes.tex: A4, small text, note column
+\ifdefined\variantTablet
+  % 16:9 landscape page; text width equals the A4 version, so line breaks are unchanged
+  \usepackage[paperwidth=20cm,paperheight=11.25cm,left=1.3cm,right=2.1cm,top=0.75cm,bottom=1.05cm,
+              footskip=0.55cm,marginparwidth=1.5cm,marginparsep=0.3cm]{geometry}
+\else\ifdefined\variantNotes
+  % A4 with smaller text (9pt) and an empty column on the right for handwritten notes
+  \usepackage[a4paper,left=1.7cm,width=14.0cm,top=1.6cm,bottom=1.8cm,
+              marginparwidth=1.0cm,marginparsep=0.25cm]{geometry}
+\else
+  \usepackage[a4paper,margin=2.3cm,marginparwidth=1.6cm]{geometry}
+\fi\fi
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{bm}
 \usepackage{cancel}
@@ -19,7 +31,7 @@
 \usepackage{titlesec}
 \usepackage{marginnote}
 \usepackage{needspace}
-\titleformat{\section}{\needspace{8\baselineskip}\Large\bfseries\color{blue!45!black}}{\thesection}{0.8em}{}[{\color{blue!45!black}\titlerule[1pt]}]
+\titleformat{\section}{\Large\bfseries\color{blue!45!black}}{\thesection}{0.8em}{}[{\color{blue!45!black}\titlerule[1pt]}]
 \newcommand{\sectionbreak}{\clearpage}   % every section starts on a new page
 \titlespacing*{\section}{0pt}{2.2em}{1.2em}
 \titleformat{\subsection}{\needspace{6\baselineskip}\large\bfseries\color{blue!35!black}}{\thesubsection}{0.7em}{}[{\color{gray!60}\titlerule[0.5pt]}]
@@ -130,3 +142,30 @@
 \newcommand{\1}{1_{\F}}
 \newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\sbmat}[1]{\left[\begin{smallmatrix}#1\end{smallmatrix}\right]}   % small inline matrix
+
+% ---------- \needspace without the encouraged break (penalty -100) of the needspace package ----------
+% The package version inserts \penalty-100 even when enough space is left; directly after a heading this
+% becomes the only legal break point and strands the heading. This version only breaks when needed.
+% In the tablet variant (short pages) requests are capped at 40% of the text height.
+\makeatletter
+\renewcommand{\needspace}[1]{\par\begingroup
+  \setlength{\dimen@}{#1}%
+  \ifdefined\variantTablet\ifdim\dimen@>0.4\textheight\dimen@=0.4\textheight\fi\fi
+  \dimen@ii\pagegoal\advance\dimen@ii-\pagetotal
+  \ifdim\dimen@>\dimen@ii\ifdim\dimen@ii>\z@\vfil\fi\break\fi
+  \endgroup}
+\makeatother
+
+% ---------- Note-taking variant: page tags on the left, ruled note column on the right ----------
+\ifdefined\variantNotes
+  \reversemarginpar
+  \usepackage{eso-pic}
+  \AddToShipoutPictureBG{%
+    \begin{tikzpicture}[remember picture,overlay]
+      \coordinate (nl) at ([xshift=16.05cm]current page.south west);
+      \draw[gray!45,line width=0.4pt] ([yshift=1.2cm]nl |- current page.south) -- ([yshift=-1.2cm]nl |- current page.north);
+      \foreach \y in {1.8,2.6,...,28.2}
+        \draw[gray!18,line width=0.3pt] ([xshift=16.4cm,yshift=\y cm]current page.south west) -- ([xshift=-0.9cm,yshift=\y cm]current page.south east);
+      \node[anchor=south west,font=\tiny\color{gray!60}] at ([xshift=16.4cm,yshift=28.3cm]current page.south west) {Notes};
+    \end{tikzpicture}}
+\fi
