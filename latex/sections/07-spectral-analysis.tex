@@ -1,395 +1,4 @@
-% ===== Page 47 =====
-\subsection{General Procedure and the Fundamental Theorem}\label{ss:procedure}
-\origpage{47}%
-
-\begin{itemize}[leftmargin=1.5em]
-\item If $b\in\Range(A)$: \key{$\exists$ an exact solution} to $A\hat{x}=b$.
-\item If $b\notin\Range(A)$:
-\[
-b_1=\operatorname{Proj}_{\Range(A)} b, \qquad A\hat{x}=b_1
-\]
-\begin{itemize}
-\item If $\Null(A)=\{0\}$ $\Rightarrow$ \key{$\hat{x}$ is unique}.
-\item If $\Null(A)\neq\{0\}$ $\Rightarrow$ $\hat{x}_1=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}$.
-\end{itemize}
-\end{itemize}
-
-\begin{center}
-\begin{tabular}{@{}l@{\quad}l@{}}
-$\hat{x}$: & \term{minimum error solution} (least squares)\\
-$\hat{x}_1$: & \term{minimum error-norm solution}
-\end{tabular}
-\end{center}
-
-\begin{insight}[Why the procedure works]
-\begin{itemize}[nosep,leftmargin=1.2em]
-\item The error $b-A\hat x$ is smallest when $A\hat x$ is the point of $\Range(A)$ closest to $b$, i.e.\ $A\hat x=b_1=\operatorname{Proj}_{\Range(A)}b$ (orthogonality principle: $b-b_1\perp\Range(A)$). Writing this as $A\Hm(b-A\hat x)=0$ gives the \term{normal equations} $A\Hm A\hat x=A\Hm b$.
-\item If $\Null(A)\neq\{0\}$, every $\hat x+n$ with $n\in\Null(A)$ gives the same $A\hat x=b_1$, so the least-squares solution is not unique. Splitting $\hat x=\hat x_1+\hat x_2$ with $\hat x_1\in\Null^\perp(A)$, $\hat x_2\in\Null(A)$ gives $A\hat x_1=A\hat x=b_1$ and, by Pythagoras, $\norm{\hat x+n}^2=\norm{\hat x_1}^2+\norm{\hat x_2+n}^2\geq\norm{\hat x_1}^2$. Hence \key{$\hat x_1$ is the least-squares solution of minimum norm}, and it does not depend on which $\hat x$ we started from.
-\end{itemize}
-\end{insight}
-
-\begin{example}
-$A=\bmat{1&2&3\\1&2&3}$, \qquad $n=3$, $m=2$ \quad ($A\in\C^{m\times n}$: $n$ columns, $m$ rows).
-\begin{align*}
-\Range(A)&=\Span\left\{\bmat{1\\1}\right\}, \qquad \dim(\Range(A))=1\\
-\Null(A)&=\Span\left\{\bmat{3\\0\\-1},\bmat{2\\-1\\0}\right\}
-\end{align*}
-\[
-\underbrace{\dim(\Range(A))}_{1}+\underbrace{\dim(\Null(A))}_{2}=3,
-\qquad
-\underbrace{\dim(\Null(A))}_{2}+\underbrace{\dim(\Null^\perp(A))}_{1}=3
-\]
-For $\Null^\perp(A)$, a vector $[a\ b\ c]\T$ orthogonal to both basis vectors of $\Null(A)$:
-\[
-\begin{aligned}3a-c&=0\\2a-b&=0\end{aligned}
-\quad\Rightarrow\quad
-\begin{aligned}c&=3a\\b&=2a\end{aligned}
-\quad\Rightarrow\quad \bmat{a\\b\\c}=a\underbrace{\bmat{1\\2\\3}}_{\text{row of }A}
-\qquad\Rightarrow\qquad
-\Null^\perp(A)=\Span\left\{\bmat{1\\2\\3}\right\}
-\]
-\[
-\Null^\perp(A)=\Range(A\Hm)
-\]
-\explain{$\therefore$ \key{Fundamental theorem of linear algebra.}}
-\[
-\hat{x}_1=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}
-=\operatorname{Proj}_{\Range(A\Hm)}\hat{x}
-\]
-\explain{$\Range(A\Hm)$: row space of $A$.}
-\end{example}
-
-\paragraph{Dimensions and rank.} For $A\in\C^{m\times n}$:
-\begin{align*}
-\dim(\underbrace{\Range(A)}_{k})+\dim(\underbrace{\Null(A)}_{n-k}) &= \#\text{ of columns}=n\\
-\dim(\underbrace{\Null(A)}_{n-k})+\dim(\underbrace{\Range(A\Hm)}_{k})&=n
-\qquad \big(\dim(\Null(A))+\dim(\Null^\perp(A))=n\big)
-\end{align*}
-\[
-\left.\begin{aligned}
-\dim(\Range(A))&=\#\text{ of lin.\ indep.\ columns of }A=\text{column rank}=k\\
-\dim(\Range(A\Hm))&=\#\text{ of lin.\ indep.\ rows of }A=\text{row rank}=k
-\end{aligned}\right\}\ k=\text{\term{rank} of a matrix}
-\]
-\[
-\#\text{ linearly indep.\ rows}=\#\text{ linearly indep.\ columns}
-\quad\text{as}\quad \dim\Range(A)=k=\dim\Range(A\Hm)
-\]
-$k$: \key{\# of linearly indep.\ rows $=$ \# of linearly indep.\ columns} (column rank $=$ row rank).
-
-% ===== Page 48 =====
-\origpage{48}
-\begin{theorem}[Fundamental theorem of linear algebra]
-$\Range(A\Hm)=\Null^\perp(A)$
-\end{theorem}
-\begin{proof}
-$\inner{x}{y}\triangleq y\Hm x$.
-\[
-\inner{\underset{\C^m}{Ax}}{\underset{\C^m}{y}}_{\C^m}=y\Hm Ax=(A\Hm y)\Hm x=\inner{\underset{\C^n}{x}}{\underset{\C^n}{A\Hm y}}_{\C^n}
-\]
-Prove $\Null(A)=\Range^\perp(A\Hm)$, which is easier to prove.
-\[
-\left.\begin{aligned}
-\Null(A)&\subset\Range^\perp(A\Hm)\\
-\Range^\perp(A\Hm)&\subset\Null(A)
-\end{aligned}\right\}\ \text{prove both}\ \Rightarrow\ \Null(A)=\Range^\perp(A\Hm)
-\]
-
-\paragraph{Part 1.} $x\in\Null(A)\Rightarrow Ax=0$.
-
-\begin{minipage}{0.25\textwidth}
-\centering
-\begin{tikzpicture}
-\draw (0,0) ellipse (0.7 and 0.8);
-\draw (-0.1,0.05) circle (0.38);
-\node[font=\tiny] at (-0.1,0.05) {$\Null(A)$};
-\node[font=\scriptsize,anchor=west] at (0.72,0.25) {$\Range^\perp(A\Hm)$};
-\end{tikzpicture}
-\end{minipage}\hfill
-\begin{minipage}{0.72\textwidth}
-\begin{align*}
-&\inner{Ax}{y}\quad\text{where }\forall y\in\C^m\\
-&\inner{Ax}{y}=0\\
-&\inner{x}{A\Hm y}=0\quad\forall y\in\C^m\\
-\Rightarrow\ & x\perp A\Hm y\quad\forall y\in\C^m\\
-\Rightarrow\ & x\perp\Range(A\Hm)\Rightarrow x\in\Range^\perp(A\Hm)
-\end{align*}
-\end{minipage}
-
-\paragraph{Part 2.} $x\in\Range^\perp(A\Hm)$.
-
-\begin{minipage}{0.25\textwidth}
-\centering
-\begin{tikzpicture}
-\draw (0,0) ellipse (0.7 and 0.8);
-\draw (-0.1,0.12) circle (0.46);
-\node[font=\tiny] at (-0.1,0.12) {$\Range^\perp(A\Hm)$};
-\node[font=\scriptsize,anchor=west] at (0.55,-0.6) {$\Null(A)$};
-\end{tikzpicture}
-\end{minipage}\hfill
-\begin{minipage}{0.72\textwidth}
-\begin{align*}
-&x\in\Range^\perp(A\Hm)\\
-\Rightarrow\ & x\perp A\Hm y\quad\forall y\in\C^m\\
-&\inner{x}{A\Hm y}=0\quad\forall y\in\C^m\\
-&\inner{Ax}{y}=0\quad\forall y\in\C^m
-\end{align*}
-\explain{$Ax\in\C^m$, so choose $y=Ax$:}
-\[
-\inner{Ax}{Ax}=\norm{Ax}^2=0\Rightarrow Ax=0\Rightarrow x\in\Null(A)
-\]
-\end{minipage}
-
-Both inclusions hold, so $\Null(A)=\Range^\perp(A\Hm)$. Taking orthogonal complements of both sides (in finite dimensions $(S^\perp)^\perp=S$ for a subspace $S$) gives $\Null^\perp(A)=\Range(A\Hm)$.
-\end{proof}
-
-\begin{center}
-\begin{minipage}{0.46\textwidth}
-\centering
-\begin{tikzpicture}[scale=0.85]
-\draw (0,0) ellipse (1.1 and 1.25);
-\draw (0.05,0.15) ellipse (0.6 and 0.8);
-\node[font=\scriptsize] at (0.05,-0.85) {$\Null(A)$};
-\node at (0.9,-1.45) {$\C^n$};
-\draw (3.8,0) ellipse (1.0 and 1.25);
-\draw (3.75,0.15) ellipse (0.6 and 0.8);
-\node[font=\scriptsize] at (3.75,-0.85) {$\Range(A)$};
-\node at (4.75,-1.45) {$\C^m$};
-\fill (3.55,0.45) circle (1.2pt) node[right,font=\scriptsize]{$0$};
-\draw[-{Stealth[length=1.5mm]}] (-0.3,0.55) to[bend left=6] (3.5,0.47);
-\draw[-{Stealth[length=1.5mm]}] (-0.25,0.25) to[bend left=3] (3.5,0.45);
-\draw[-{Stealth[length=1.5mm]}] (-0.2,0.0) to[bend right=4] (3.5,0.43);
-\draw[-{Stealth[length=2mm]}] (0.3,1.5) to[bend left=15] node[above]{$A$} (3.4,1.45);
-\end{tikzpicture}
-\end{minipage}\hfill
-\begin{minipage}{0.5\textwidth}
-\begin{align*}
-&\dim(\overset{k}{\Range(A)})+\dim(\overset{n-k}{\Null(A)})=n\\
-&\dim(\Null(A))+\dim(\Null^\perp(A))=n\\
-&\underbrace{\dim(\Range(A\Hm))}_{k}+\underbrace{\dim(\Null(A))}_{n-k}=n\\
-&\underbrace{\dim(\Range(A))}_{\text{column rank}}=\underbrace{\dim(\Range(A\Hm))}_{\text{row rank}}=k
-\end{align*}
-\explain{$k$: rank.}
-\end{minipage}
-\end{center}
-
-\subsection{Special Cases by Rank}\label{ss:rank-cases}
-\subsubsection{Case I: Full Column Rank}
-$A$ is/has \term{full column rank}: columns of $A$ are linearly independent.
-\[
-m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ \\ \ &\ &\ \\ \ &\ &\ }}}_{\text{tall matrix}}
-\overset{n}{\bmat{\ \\ \ \\ \ }}=\bmat{\ \\ \ \\ \ }\Big\}m \qquad m\geq n
-\]
-\begin{itemize}[nosep,leftmargin=1.5em]
-\item $n=\#$ of unknowns, \quad $m=\#$ of equations
-\item $m>n$: \term{overdetermined} system of equations.
-\end{itemize}
-Assume
-\[
-\bmat{a&b&c\\d&e&f}\qquad\text{3 vectors cannot be linearly indep.\ for }\R^2.
-\]
-\explain{Under the columns: ``2 dim'', ``2 dimension''. Each column lies in $\R^2$, so at most $2$ of them can be linearly independent; full column rank therefore forces $m\geq n$.}
-
-% ===== Page 49 =====
-\origpage{49}
-\begin{align*}
-&\dim(\Range(A))=n\\
-&\dim(\Null(A))=0\Rightarrow \Null(A)=\{0\} \qquad A\text{ is one-to-one}
-\end{align*}
-\key{If we have an exact solution, then the solution is unique.}
-
-If $b\notin\Range(A)$:
-\begin{align*}
-P_{\Range(A)}&=B(B\Hm B)^{-1}B\Hm\\
-\intertext{with $B=A$:}
-P_{\Range(A)}&=A(A\Hm A)^{-1}A\Hm\\
-b_1=P_{\Range(A)}b&=A(A\Hm A)^{-1}A\Hm b \qquad (A\hat{x}=b_1)\\
-\Rightarrow\quad A\big(\underbrace{\hat{x}-(A\Hm A)^{-1}A\Hm b}_{\in\Null(A)}\big)&=0\\
-\Rightarrow\quad \hat{x}-(A\Hm A)^{-1}A\Hm b&=0
-\ \Rightarrow\ \boxed{\hat{x}=(A\Hm A)^{-1}A\Hm b}
-\end{align*}
-\explain{Unique solution as $\Null(A)=\{0\}$.}
-$(A\Hm A)^{-1}A\Hm$: \term{left pseudo inverse} of $A$.
-
-\begin{insight}
-\begin{itemize}[nosep,leftmargin=1.2em]
-\item \key{$A\Hm A$ ($n\times n$) is invertible exactly when $A$ has full column rank}: $A\Hm Ax=0\Rightarrow x\Hm A\Hm Ax=\norm{Ax}^2=0\Rightarrow Ax=0\Rightarrow x=0$.
-\item The same formula comes directly from the normal equations $A\Hm A\hat x=A\Hm b$.
-\item ``Left'' inverse: $\big((A\Hm A)^{-1}A\Hm\big)A=I_n$. If $b\in\Range(A)$, it returns the exact solution.
-\end{itemize}
-\end{insight}
-
-\subsubsection{Case II: Full Row Rank}
-$A$ is/has \term{full row rank}: all rows of $A$ are linearly indep.
-\[
-m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ &\ \\ \ &\ &\ &\ }}}_{\text{fat matrix}}
-\bmat{\ \\ \ \\ \ \\ \ }=\bmat{\ \\ \ } \qquad m\leq n
-\]
-\begin{itemize}[nosep,leftmargin=1.5em]
-\item $m$: \# of equations, \quad $n$: \# of unknowns
-\item $m<n$: \term{underdetermined} system of equations.
-\end{itemize}
-\begin{align*}
-\dim(\Range(A\Hm))&=m\\
-\dim(\Range(A))&=m \ \Rightarrow\ \Range(A)=\C^m
-\end{align*}
-\[
-b\in\Range(A)\quad\forall b\in\C^m\Rightarrow\text{\key{Always has an exact solution} (at least one): $A$ is onto.}
-% corrected: notes had "b in C^m  for all b in R(A)" (quantifiers swapped)
-\]
-\begin{align*}
-\hat{x}_1&=\operatorname{Proj}_{\Null^\perp(A)}\hat{x}=\operatorname{Proj}_{\Range(A\Hm)}\hat{x}\\
-% corrected: notes had Proj_{R(A^H)} x-hat = Proj_{R(A^H)} x-hat (first projection meant onto N^perp(A))
-\intertext{with $B=A\Hm$:}
-P_{\Range(A\Hm)}&=A\Hm(AA\Hm)^{-1}A\\
-\hat{x}_1&=A\Hm(AA\Hm)^{-1}\underbrace{A\hat{x}}_{b}\ \Rightarrow\ \hat{x}_1=A\Hm(AA\Hm)^{-1}b
-\end{align*}
-$A\Hm(AA\Hm)^{-1}$: \term{right pseudo inverse} of $A$.
-
-\begin{insight}
-\begin{itemize}[nosep,leftmargin=1.2em]
-\item $AA\Hm$ ($m\times m$) is invertible since the rows of $A$ are independent (same argument as for $A\Hm A$, applied to $A\Hm$).
-\item ``Right'' inverse: $A\big(A\Hm(AA\Hm)^{-1}\big)=I_m$, so $A\hat x_1=b$ is indeed an exact solution.
-\item $\hat x_1=A\Hm\big((AA\Hm)^{-1}b\big)\in\Range(A\Hm)=\Null^\perp(A)$, so \key{it is the minimum-norm one} among the infinitely many exact solutions $\hat x_1+\Null(A)$.
-\end{itemize}
-\end{insight}
-
-\subsubsection{Case III: Full Column and Full Row Rank}
-$A$ is/has both full column and row rank.
-\[
-\left.\begin{aligned}m&\geq n\\ n&\geq m\end{aligned}\right\}\ m=n:\quad
-\begin{aligned}
-&A\text{ is a square matrix}\\
-&\left.\begin{aligned}&A\text{ is one-to-one}\\&A\text{ is onto}\end{aligned}\right\}
-\ \begin{aligned}&A\text{ has an inverse}\\&A\text{ is invertible.}\end{aligned}
-\end{aligned}
-\]
-\explain{Both pseudo inverses reduce to $A^{-1}$ here: $(A\Hm A)^{-1}A\Hm=A^{-1}(A\Hm)^{-1}A\Hm=A^{-1}$ and $A\Hm(AA\Hm)^{-1}=A^{-1}$.}
-\key{Exact solution exists. The solution is unique.}
-\[
-Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
-\]
-
-% ===== Page 50 =====
-\origpage{50}
-\begin{example}
-\[
-\underset{A}{\bmat{1&2\\1&2}}\underset{x}{\bmat{x_1\\x_2}}=\underset{b}{\bmat{1\\1}},
-\qquad
-\Range(A)=\Span\left\{\bmat{1\\1}\right\},\quad b\in\Range(A)
-\ \Rightarrow\ \text{has exact solution},\quad \hat{x}=\bmat{1\\0}
-\]
-\begin{minipage}[c]{0.50\textwidth}
-\raggedright
-\begin{align*}
-&\dim\Range(A)=1\\
-&\dim\Null(A)=1\\
-&\Null(A)=\Span\left\{\bmat{-2\\1}\right\}\\
-&\hat{x}+n=\bmat{1\\0}+\alpha\bmat{-2\\1},\quad n\in\Null(A)
-% corrected: notes had "x-hat + m" (an element of N(A) is added)
-\end{align*}
-\explain{In the sketch: $\Range(A\Hm)=\Span\{[1\ 2]\T\}$; the solution set $\hat x+\Null(A)$ is the line through $\hat x=[1\ 0]\T$ parallel to $\Null(A)$; $\hat{x}_1=\tfrac15[1\ 2]\T$ is its point on $\Range(A\Hm)$, and $\hat{x}_2=\hat x-\hat x_1\in\Null(A)$ is the part to ``get rid of''.}
-\end{minipage}\hfill
-\begin{minipage}[c]{0.48\textwidth}
-\centering
-\begin{tikzpicture}[scale=0.9,>={Stealth[length=1.6mm]}]
-\draw[->] (-2.5,0)--(2.7,0) node[right]{$x_1$};
-\draw[->] (0,-1.7)--(0,2.2) node[above]{$x_2$};
-% R(A^H): y = 2x
-\draw[very thick,blue!50!black] (-0.85,-1.7)--(1.05,2.1) node[above right,font=\scriptsize]{$\Range(A\Hm)$};
-% N(A): y = -x/2 through origin
-\draw (-2.5,1.25)--(2.7,-1.35) node[below,font=\scriptsize]{$\Null(A)$};
-% solution set: through (1,0), slope -1/2
-\draw[gray!70!black] (-1.8,1.4)--(2.7,-0.85) node[right,font=\scriptsize]{$\hat x+\Null(A)$};
-% ticks
-\foreach \t in {-2,1,2} \draw (\t,0.06)--(\t,-0.06);
-\node[font=\tiny,below] at (-2,0) {$-2$};
-\node[font=\tiny,above] at (2,0) {$2$};
-\node[font=\tiny,above right] at (1,0) {$1$};
-\draw[dashed,gray] (-2,0)--(-2,1)--(0,1);
-\draw[dashed,gray] (2,0)--(2,-1)--(0,-1);
-% right angle at x1hat
-\draw ($(0.2,0.4)+(-0.0894,-0.1789)$) -- ++(0.1789,-0.0894) -- ++(0.0894,0.1789);
-\fill (0.2,0.4) circle (1.4pt);
-\node[font=\scriptsize,left] at (0.05,0.55) {$\hat{x}_1$};
-\fill (1,0) circle (1.4pt);
-\node[font=\scriptsize,below] at (1.1,0) {$\hat{x}$};
-\draw[->,dashed,thick] (0,0)--(0.8,-0.4) node[font=\scriptsize,below]{$\hat{x}_2$};
-\end{tikzpicture}
-\end{minipage}
-
-\explain{Check: $\hat x_1=\tfrac15[1\ 2]\T$ gives $A\hat x_1=[1\ 1]\T=b$, and $\norm{\hat x_1}^2=\tfrac15<1=\norm{\hat x}^2$; the right pseudo inverse cannot be used here since $AA\Hm=\left[\begin{smallmatrix}5&5\\5&5\end{smallmatrix}\right]$ is singular ($A$ has rank 1, neither full row nor full column rank), so the projection route is used.}
-\end{example}
-
-\subsubsection{Case IV: Neither Full Column nor Full Row Rank}
-$A$ is/has neither full column rank nor full row rank.
-
-\begin{example}
-\[
-\underset{A}{\bmat{1&0&1\\1&1&2\\0&1&1}}\underset{x}{\bmat{x_1\\x_2\\x_3}}=\underset{b}{\bmat{1\\0\\3}}
-\qquad
-\begin{aligned}
-&2\text{ linearly indep.\ columns}\\
-&2\text{ linearly indep.\ rows}\\
-&\dim(\Range(A))=\dim(\Range(A\Hm))=2\\
-&\dim(\Null(A))=1\\
-&\dim(\Null^\perp(A))=2
-\end{aligned}
-\]
-\[
-\bmat{1\\0\\3}=\underset{\alpha}{\underset{\parallel}{1}}\bmat{1\\1\\0}+\underset{\beta}{\underset{\parallel}{3}}\bmat{0\\1\\1}\quad\times
-\qquad\Rightarrow\qquad b\notin\Range(A)\Rightarrow\text{\key{No exact solution.}}
-\]
-\explain{Column 3 $=$ column 1 $+$ column 2, so $\Range(A)=\Span\{[1\ 1\ 0]\T,[0\ 1\ 1]\T\}$. Matching the 1st and 3rd entries of $b$ forces $\alpha=1$, $\beta=3$, but then the 2nd entry would be $\alpha+\beta=4\neq0$.}
-
-\paragraph{Method I.}
-\begin{align*}
-P_{\Range(A)}&=B(B\Hm B)^{-1}B\Hm\\
-B&=\bmat{1&0\\1&1\\0&1},\qquad B\Hm B=\bmat{1&1&0\\0&1&1}\bmat{1&0\\1&1\\0&1}=\bmat{2&1\\1&2}\\
-(B\Hm B)^{-1}&=\frac13\bmat{2&-1\\-1&2}\\
-P_{\Range(A)}&=\bmat{1&0\\1&1\\0&1}\frac13\bmat{2&-1\\-1&2}\bmat{1&1&0\\0&1&1}=\frac13\bmat{2&1&-1\\1&2&1\\-1&1&2}\\
-b_1=P_{\Range(A)}b&=\frac13\bmat{-1\\4\\5}
-\end{align*}
-\[
-\underbrace{\bmat{1&0&1\\1&1&2\\0&1&1}}_{A}\underbrace{\bmat{x_1\\x_2\\x_3}}_{\hat{x}}=\underbrace{\frac13\bmat{-1\\4\\5}}_{b_1}
-\qquad\Rightarrow\qquad \underset{\text{minimum error solution.}}{\hat{x}=\frac13\bmat{-1\\5\\0}}
-\]
-\explain{This was method I. With $x_3=0$: $x_1=-\tfrac13$, $x_1+x_2=\tfrac43\Rightarrow x_2=\tfrac53$, and the 3rd row $x_2+x_3=\tfrac53$ checks. The error is $b-b_1=\tfrac43[1\ {-1}\ 1]\T$, which is orthogonal to both columns of $B$, as it must be.}
-
-\paragraph{Method II.}
-\[
-\underbrace{\bmat{1&0\\1&1\\0&1}}_{A_1}\underbrace{\bmat{x_1\\x_2}}_{z}=\bmat{1\\0\\3}
-\qquad
-\begin{aligned}
-&\Rightarrow\Null(A_1)=\{0\}\\
-&\Rightarrow\text{full column rank}\\
-&\Rightarrow\text{Exact solution is known}
-\end{aligned}
-\]
-% corrected: notes had z = [x2; x3]; A_1 consists of the first two columns of A, so z = [x1; x2] (consistent with the final x-hat).
-\explain{Idea: drop the dependent third column (set $x_3=0$); the remaining $A_1$ has full column rank and $\Range(A_1)=\Range(A)$, so Case I applies.}
-\[
-\hat{z}=(A_1\Hm A_1)^{-1}A_1\Hm b=\frac13\bmat{2&-1\\-1&2}\bmat{1&1&0\\0&1&1}\bmat{1\\0\\3}=\underbrace{\frac13\bmat{-1\\5}}_{\hat{z}\ \to\ \text{unique}}
-\qquad\therefore\ \hat{x}=\frac13\bmat{-1\\5\\0}
-\]
-
-% ===== Page 51 =====
-\origpage{51}
-\paragraph{Minimum-norm solution.} $A\Hm=A\T$ as matrix is real.
-\begin{align*}
-A\Hm&=\bmat{1&1&0\\0&1&1\\1&2&1}\\
-P_{\Range(A\Hm)}&=B(B\Hm B)^{-1}B\Hm,\qquad B=\bmat{1&0\\0&1\\1&1}\\
-(B\Hm B)^{-1}&=\frac13\bmat{2&-1\\-1&2}\\
-P_{\Range(A\Hm)}&=\frac13\bmat{2&-1&1\\-1&2&1\\1&1&2}\\
-\hat{x}_1=P_{\Range(A\Hm)}\hat{x}&=\frac19\bmat{-7\\11\\4}
-\end{align*}
-\explain{$\therefore$ \key{$\hat{x}_1$: minimum error, minimum-norm solution.}}
-\begin{insight}[Check]
-$A\hat x_1=\tfrac19[-3\ \ 12\ \ 15]\T=\tfrac13[-1\ \ 4\ \ 5]\T=b_1$, so $\hat x_1$ has the same (minimum) error as $\hat x$. Moreover $\hat x-\hat x_1=\tfrac49[1\ \ 1\ {-1}]\T$ spans $\Null(A)$ (indeed $A[1\ 1\ {-1}]\T=0$), and
-$\norm{\hat x_1}^2=\tfrac{186}{81}\approx2.30<\tfrac{26}{9}\approx2.89=\norm{\hat x}^2$.
-\end{insight}
-\end{example}
-
+% Section 7: Spectral Analysis of Linear Transformations  (original handwritten pages 52--58)
 \section{Spectral Analysis of Linear Transformations}\label{sec:spectral}
 \syllabusweek{Weeks 8--9 --- eigenvalues and eigenvectors, invariance under operators, block diagonal forms}
 \subsection{Invariant Subspaces}\label{ss:invariant}
@@ -874,3 +483,68 @@ Then $\alpha_1e_1=0$ with $e_1\neq0$ gives $\alpha_1=0$ as well, so \key{$e_1,e_
 \begin{insight}[Eigenvectors of distinct eigenvalues are independent]
 The same trick works for $k$ distinct eigenvalues: if $\sum_{i=1}^k\alpha_ie_i=0$, apply $\prod_{i\neq j}(A-\lambda_iI)$. Every term except the $j$-th is annihilated, leaving $\alpha_j\prod_{i\neq j}(\lambda_j-\lambda_i)\,e_j=0$, so $\alpha_j=0$ for every $j$. Consequently, \key{if $A\in\C^{n\times n}$ has $n$ distinct eigenvalues, it is diagonalizable}: its eigenvectors form a basis, $\C^n=\Null(A-\lambda_1I)\oplus\dots\oplus\Null(A-\lambda_nI)$, and $P^{-1}AP=\diag(\lambda_1,\dots,\lambda_n)$ with $P=[e_1\ \dots\ e_n]$. The example above shows this can fail when an eigenvalue is repeated.
 \end{insight}
+
+% ===== Page 58 =====
+\begin{theorem}
+\leavevmode\origpage{58}Let $A$ be an $n\times n$ matrix with $n$ distinct eigenvalues, $\lambda_1,\lambda_2,\dots,\lambda_n$ where $\lambda_i\neq\lambda_j$ when $i\neq j$. Then
+\[
+\begin{array}{rccccccc@{\;}l}
+\C^n = & \Null(A-\lambda_1 I) & \oplus & \Null(A-\lambda_2 I) & \oplus\cdots\oplus & \Null(A-\lambda_n I) & & & \\
+ & \Span\{e_1\} & & \Span\{e_2\} & & \Span\{e_n\} & & & \\[4pt]
+ & 1 & + & 1 & +\cdots+ & 1 & = & n &
+\end{array}
+\]
+\end{theorem}
+Since $\Null(A-\lambda_i I)$ is invariant under $A$, \key{$A$ has a diagonal representation}:
+\[
+\bar A=\begin{bmatrix}\lambda_1 & & & 0\\ & \lambda_2 & & \\ & & \ddots & \\ 0 & & & \lambda_n\end{bmatrix},
+\qquad \bar A = P^{-1}AP \quad\text{where } P=\big[\,e_1 \mid e_2 \mid \dots \mid e_n\,\big].
+\]
+% corrected: notes label the diagonal matrix "A"; it is \bar A = P^{-1}AP
+
+\paragraph{Linear independence of $e_1,\ e_2,\ \dots,\ e_n$.}
+Suppose
+\[ \alpha_1 e_1+\alpha_2 e_2+\dots+\alpha_n e_n = 0 \]
+and use
+\[ (A-\lambda_i I)e_j = Ae_j-\lambda_i e_j = \lambda_j e_j - \lambda_i e_j = (\lambda_j-\lambda_i)e_j . \]
+Multiply with $(A-\lambda_1 I)$, then with $(A-\lambda_2 I)$, and so on:
+\begin{align*}
+\times(A-\lambda_1 I):&\quad 0 + (\lambda_2-\lambda_1)\alpha_2 e_2 + \alpha_3(\lambda_3-\lambda_1)e_3 + \dots + \alpha_n(\lambda_n-\lambda_1)e_n = 0\\
+\times(A-\lambda_2 I):&\quad 0+0+\alpha_3(\lambda_3-\lambda_1)(\lambda_3-\lambda_2)e_3+\dots+\alpha_n(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)e_n = 0\\
+&\quad\ \vdots\\
+&\quad \alpha_n\underbrace{(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)\cdots(\lambda_n-\lambda_{n-1})}_{\neq 0}\,\underbrace{e_n}_{\neq 0} = 0
+\quad\Longrightarrow\quad \alpha_n = 0 \;\Longrightarrow\; \forall \alpha_i = 0
+\end{align*}
+\explain{The product is nonzero for distinct eigenvalues (this case), and $e_n$ is nonzero.}
+\begin{insight}[Completing the argument]
+After the $n-1$ multiplications only the $e_n$-term survives, so $\alpha_n=0$. The original relation then has only the terms $e_1,\dots,e_{n-1}$; repeating the procedure with the factors $(A-\lambda_1I),\dots,(A-\lambda_{n-2}I)$ gives $\alpha_{n-1}=0$, and so on; hence all $\alpha_i=0$. Thus $\{e_1,\dots,e_n\}$ is a set of $n$ linearly independent vectors in $\C^n$, i.e.\ a basis, and each $\Null(A-\lambda_iI)$ is exactly one-dimensional (it is at least $1$-dimensional, and the dimensions cannot add up to more than $n$). This proves the direct sum in the theorem.
+\end{insight}
+
+\sep
+\[
+P=\big[\,e_1\mid e_2\mid\dots\mid e_n\,\big], \qquad \bar A = P^{-1}AP \;\Rightarrow\; P\bar A = AP
+\]
+\begin{align*}
+\big[\,e_1\mid e_2\mid\dots\mid e_n\,\big]
+\begin{bmatrix}\lambda_1 & 0 & \cdots & 0\\ 0 & \lambda_2 & & \vdots\\ \vdots & & \ddots & \vdots\\ 0 & \cdots & \cdots & \lambda_n\end{bmatrix}
+&= A\big[\,e_1\mid e_2\mid\dots\mid e_n\,\big]\\
+&= \big[\,Ae_1\mid Ae_2\mid\dots\mid Ae_n\,\big]\\
+&= \big[\,\lambda_1 e_1 \;\; \lambda_2 e_2 \;\; \dots\;\; \lambda_n e_n\,\big]
+\end{align*}
+
+\begin{keybox}
+\noindent\hfil$\displaystyle\begin{aligned}
+\therefore\ \text{Distinct eigenvalues} &\;\Rightarrow\; \text{Diagonalizable matrix}\\
+&\;\Rightarrow\; \text{we can find $P$ matrix \& $\bar A$}\\[2pt]
+\text{Distinct eigenvalues} &\;\not\Leftarrow\; \text{Diagonalizable}
+\end{aligned}$\hfil\par\smallskip
+Contrapositive ($p\Rightarrow q \;\equiv\; \bar q\Rightarrow \bar p$):\quad Non-diagonalizable $\;\Rightarrow\;$ repeated eigenvalues.
+\end{keybox}
+Two diagonal matrices with repeated eigenvalues:
+\[
+A=\bmat{1&0&0\\0&1&0\\0&0&1},\quad d(s)=(s-1)^3
+\qquad\qquad
+\bmat{2&0&0\\0&2&0\\0&0&1}
+\]
+\explain{Diagonal, but repeated eigenvalues.}
+Both matrices are already diagonal (so trivially diagonalizable with $P=I$), yet their eigenvalues are repeated: this is why the converse implication fails.

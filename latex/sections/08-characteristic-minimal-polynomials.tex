@@ -1,0 +1,339 @@
+% Section 8: Characteristic and Minimal Polynomials  (original handwritten pages 59--63)
+% ===== Page 59 =====
+\section{Characteristic and Minimal Polynomials}\label{sec:polys}
+\syllabusweek{Week 10 --- Cayley--Hamilton theorem, characteristic and minimal polynomials}
+\subsection{Similar Matrices and the Characteristic Polynomial}\label{ss:charpoly}
+\origpage{59}%
+% (a rotated personal side note in Turkish in the margin, unrelated to the material, is omitted)
+\key{Similar matrices have the same characteristic polynomial:}
+\begin{align*}
+\bar d(s) &= \det(sI-\bar A)\\
+&= \det(sI-P^{-1}AP)\\
+&= \det(sP^{-1}P-P^{-1}AP) = \det\big(P^{-1}(sI-A)P\big)\\
+&= \det P^{-1}\,\det(sI-A)\,\det P\\
+&= \frac{1}{\cancel{\det P}}\cdot\det(sI-A)\cdot\cancel{\det P}\\
+&= \det(sI-A) = d(s)
+\end{align*}
+\explain{Uses $\det(XY)=\det X\det Y$ and $\det P^{-1}=1/\det P$. Hence \key{similar matrices have the same eigenvalues} (with the same algebraic multiplicities); in particular the eigenvalues of $A$ are the diagonal entries of $\bar A$.}
+
+\begin{example}
+\[
+A=\bmat{1&0&0\\-1&2&1\\0&0&3},\qquad sI-A=\bmat{s-1&0&0\\1&s-2&-1\\0&0&s-3}
+\]
+% corrected: notes had A_{31}=1, inconsistent with sI-A (entry 0) and with all following computations (A-lambda_i I, null spaces, the check AP); A_{31}=0 is meant
+\[
+\det(sI-A)=(s-1)\begin{vmatrix}s-2&-1\\0&s-3\end{vmatrix} = (s-1)(s-2)(s-3)=0
+\quad\Rightarrow\quad \lambda=1,\ \ \lambda=2,\ \ \lambda=3
+\]
+\begin{align*}
+A-\lambda_1 I &= \bmat{0&0&0\\-1&1&1\\0&0&2}, & \Null(A-\lambda_1 I)&=\Span\left\{\bmat{1\\1\\0}\right\}\\
+A-\lambda_2 I &= \bmat{-1&0&0\\-1&0&1\\0&0&1}, & \Null(A-\lambda_2 I)&=\Span\left\{\bmat{0\\1\\0}\right\}\\
+A-\lambda_3 I &= \bmat{-2&0&0\\-1&-1&1\\0&0&0}, & \Null(A-\lambda_3 I)&=\Span\left\{\bmat{0\\1\\1}\right\}
+\end{align*}
+\begin{align*}
+P&=\bmat{1&0&0\\1&1&1\\0&0&1}, & \bar A&=\bmat{1&0&0\\0&2&0\\0&0&3}=P^{-1}AP\\
+P&=\bmat{0&0&1\\1&1&1\\1&0&0}, & \bar A&=\bmat{3&0&0\\0&2&0\\0&0&1}
+\end{align*}
+Check for the second choice ($P\bar A=AP$):
+\begin{align*}
+\bmat{0&0&1\\1&1&1\\1&0&0}\overbrace{\bmat{3&0&0\\0&2&0\\0&0&1}}^{\bar A} &= A\bmat{0&0&1\\1&1&1\\1&0&0}
+= \bmat{0&0&1\\3&2&1\\3&0&0}
+\end{align*}
+\explain{Both sides agree, so $P^{-1}AP=\bar A$. Reordering the eigenvectors in $P$ only reorders the eigenvalues on the diagonal of $\bar A$.}
+\end{example}
+
+\sep
+\paragraph{Characteristic polynomial and equation.}
+\[
+A=\bmat{2&1\\1&2},\qquad
+d(s)=\det(sI-A)=\left|\bmat{s-2&-1\\-1&s-2}\right|
+\]
+\begin{alignat*}{2}
+d(s)&=s^2-4s+3 &\qquad&\Rightarrow\ \text{\term{charac.\ poly.}}\\
+d(s)&=0 &&\Rightarrow\ \text{\term{charac.\ eqn.}}
+\end{alignat*}
+\begin{align*}
+d(A)=A^2-4A+3I &= \bmat{2&1\\1&2}\bmat{2&1\\1&2}-4\bmat{2&1\\1&2}+3\bmat{1&0\\0&1}\\
+&= \bmat{5&4\\4&5}-\bmat{8&4\\4&8}+\bmat{3&0\\0&3}=\bmat{0&0\\0&0}
+\end{align*}
+\[
+\underline{\underline{d(A)=0_{n\times n}}}
+\]
+
+% ===== Page 60 =====
+\subsection{The Cayley--Hamilton Theorem}\label{ss:cht}
+\begin{theorem}[Cayley--Hamilton, CHT]
+\leavevmode\origpage{60}\key{Every $n\times n$ matrix satisfies its characteristic equation.}
+\[ \therefore\; d(A)=0_{n\times n} \]
+\end{theorem}
+\begin{align*}
+d(s)&= s^n+d_1s^{n-1}+d_2s^{n-2}+\dots+d_{n-1}s+d_n\\
+d(A)&= A^n+d_1A^{n-1}+d_2A^{n-2}+\dots+d_{n-1}A+d_nI = 0\\
+A^n &= -d_1A^{n-1}-\dots-d_{n-1}A-d_n\underbrace{I}_{A^0}
+\end{align*}
+\explain{$\Rightarrow$ among the powers $I,A,A^2,\dots$ we can have at most $n$ linearly independent matrices.}
+\begin{remark}
+CHT says that \key{$n^{\text{th}}$ and higher order powers of an $n\times n$ matrix can be written as a linear combination of its lower powers.}
+\end{remark}
+For the matrix $A$ above, $d(A)=0$ gives:
+\begin{align*}
+A^2-4A+3I=0 \;\Rightarrow\; A^2 &= 4A-3I\\[2pt]
+A^3 &= AA^2 = A(4A-3I)=4A^2-3A = 4(4A-3I)-3A\\
+&= 13A-12I
+\end{align*}
+The inverse follows in the same way:
+\begin{align*}
+A^2-4A+3I&=0\\
+A-4I+3A^{-1}&=0 \qquad\text{(multiply by $A^{-1}$; $A$ is invertible since $d(0)=3\neq0$)}\\
+A^{-1}&=-\frac{A}{3}+\frac{4I}{3}=\frac13\bmat{2&-1\\-1&2}
+\end{align*}
+% corrected: notes had "A - 4 + 3A^{-1} = 0" (identity matrix missing)
+In general, every power $A^i$ ($i\ge n$) reduces to
+\[
+\therefore\; A^i = \alpha_1A^{n-1}+\alpha_2A^{n-2}+\dots+\alpha_{n-1}A+\alpha_nI
+\]
+% note: a stray "x" mark follows "A = 2x2" in the notes
+
+\sep
+\paragraph{The $2\times 2$ case.}
+By CHT, for a $2\times2$ matrix every power is a combination of $A$ and $I$. To find the coefficients we use eigenvectors.
+For an eigenpair $Ae_1=\lambda_1e_1$:
+\begin{align*}
+Ae_1&=\lambda_1e_1\\
+A^2e_1&=A(Ae_1)=\lambda_1^2e_1\\
+A^ie_1&=\lambda_1^ie_1\\
+p(A)e_1&=p(\lambda_1)e_1
+\end{align*}
+\explain{For any polynomial $p$: $p(A)$ acts on an eigenvector as multiplication by $p(\lambda_1)$.}
+\needspace{9\baselineskip}
+\[
+\boxed{A^i=\alpha_iA+\beta_i I}\qquad
+\lambda_1=3\ (e_1),\qquad \lambda_2=1\ (e_2)
+\]
+\begin{align*}
+\underbrace{A^ie_1}_{\lambda_1^ie_1}&=\alpha_i\underbrace{Ae_1}_{\lambda_1e_1}+\beta_i\underbrace{Ie_1}_{e_1}
+&
+A^ie_2&=\alpha_iAe_2+\beta_iIe_2\\
+3^ie_1&=3\alpha_ie_1+\beta_ie_1
+&
+\lambda_2^ie_2&=\alpha_i\lambda_2e_2+\beta_ie_2\\
+3^ie_1&=(3\alpha_i+\beta_i)e_1
+&
+\lambda_2^i&=\alpha_i\lambda_2+\beta_i
+\end{align*}
+Since $e_1,e_2\neq0$ we may compare coefficients; with $\lambda_2=1$ this gives
+\begin{align*}
+3\alpha_i+\beta_i&=3^i\\
+\alpha_i+\beta_i&=1 \qquad (=1^i)
+\end{align*}
+\explain{Subtracting: $2\alpha_i=3^i-1$.}
+\[
+\alpha_i=\frac{3^i-1}{2},\qquad \beta_i=1-\alpha_i=1-\frac{3^i-1}{2}=\frac{3-3^i}{2}
+\]
+\[
+\boxed{A^i=\frac{3^i-1}{2}A+\frac{3-3^i}{2}I}
+\]
+\begin{insight}[Check]
+$i=0$: $0\cdot A+1\cdot I=I$; \ $i=1$: $A+0\cdot I=A$; \ $i=2$: $4A-3I$ (as found from CHT); \ $i=3$: $13A-12I$ (as above). The formula holds for every $i\ge0$, and in fact also for $i=-1$: $\frac{3^{-1}-1}{2}A+\frac{3-3^{-1}}{2}I=-\frac A3+\frac{4I}{3}=A^{-1}$.
+\end{insight}
+
+% ===== Page 61 =====
+\subsection{The Minimal Polynomial}\label{ss:minpoly}
+\origpage{61}Consider
+\[
+A=\bmat{2&0&0\\0&2&0\\0&0&1},\qquad d(s)=(s-2)^2(s-1)
+\]
+\begin{align*}
+d(A)&=(A-2I)^2(A-I)\\
+&=\bmat{0&0&0\\0&0&0\\0&0&-1}^2\bmat{1&0&0\\0&1&0\\0&0&0}\\
+&=\bmat{0&0&0\\0&0&0\\0&0&1}\bmat{1&0&0\\0&1&0\\0&0&0}=\bmat{0&0&0\\0&0&0\\0&0&0}
+\end{align*}
+\begin{align*}
+m(s)&=(s-2)(s-1)\\
+m(A)&=(A-2I)(A-I)=\bmat{0&0&0\\0&0&0\\0&0&-1}\bmat{1&0&0\\0&1&0\\0&0&0}=0_{n\times n}
+\end{align*}
+% corrected: notes had m(A) = (A-2)(A-2)
+\explain{Lowest order $\Rightarrow$ minimal polynomial. (A degree-1 monic $A-cI$ cannot vanish, since $A$ is not a multiple of $I$.)}
+
+\begin{definition}
+A \term{monic polynomial} is a polynomial whose coefficient of the highest-degree term is unity ($=1$).
+\begin{itemize}[label=$\ast$]
+\item $s^2+2s+3$ \quad (Monic)
+\item $2s^2+2s+3$ \quad (Not monic)
+\end{itemize}
+\end{definition}
+\begin{definition}
+For an $n\times n$ matrix $A$, the \term{minimal polynomial} is the monic polynomial $m(s)$ with the smallest degree/order s.t.
+\[ m(A)=0_{n\times n} \]
+\end{definition}
+\begin{theorem}
+Given $A\in\C^{n\times n}$ let $m(s)$ be its minimal polynomial. Then
+\begin{enumerate}[label=\Roman*)]
+\item $m(s)$ is \key{unique};
+\item \key{$m(s)$ divides $d(s)$} without any remainder: $\exists q(s)$ s.t.\ $d(s)=m(s)q(s)$;
+% corrected: notes had "d(s) = m(s) d(s)" 
+\item \key{every root of $d(s)$ is also a root of $m(s)$}.
+\end{enumerate}
+\end{theorem}
+
+\paragraph{Candidates for $d(s)=(s-1)(s-2)^2$.}
+\begin{itemize}[itemsep=2pt]
+\item $\cancel{m(s)=(s-1)}$,\quad $\cancel{m(s)=(s-2)}$,\quad $\cancel{m(s)=(s-2)^2}$\newline {\small$\triangleright$} not possible, property III (a root of $d(s)$ is missing)
+\item $\cancel{m(s)=(s-1)(s-3)}$,\quad $\cancel{m(s)=(s-2)^3}$\newline {\small$\triangleright$} not possible, property II (they do not divide $d(s)$)
+\item $m(s)=(s-1)(s-2)\ \checkmark$\qquad $m(s)=(s-1)(s-2)^2\ \checkmark$\newline {\small$\triangleright$} the only possibilities (i.e.\ $d(s)=\underbrace{m(s)}_{(s-1)(s-2)}\underbrace{q(s)}_{(s-2)}$ or $q(s)=1$)
+\end{itemize}
+% corrected: in the notes this is a scattered list of crossed-out candidates with checkmarks
+% (also next to crossed-out ones and next to "m(s)=(s-1)"); the last candidate is written
+% "(s-1)(s-2)^1". By properties II and III the only possibilities are (s-1)(s-2) and (s-1)(s-2)^2.
+
+\sep
+In general, for $A\in\C^{n\times n}$:
+\begin{align*}
+d(s)&=(s-\lambda_1)^{r_1}(s-\lambda_2)^{r_2}\cdots(s-\lambda_k)^{r_k}, \qquad r_1+r_2+\dots+r_k=n\\
+m(s)&=(s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k}, \qquad \boxed{1\le m_i\le r_i}
+\end{align*}
+\explain{Lower bound ($1\le m_i$) by property III; upper bound by property II.}
+% corrected: notes had upper bound "k"; r_i is meant (cf. page 63)
+
+% ===== Page 62 =====
+\begin{proof}
+\leavevmode\origpage{62}% (a rotated personal doodle in the margin, unrelated to the material, is omitted)
+\textbf{I)}\quad $p\to q \;\equiv\; p\wedge\bar q=\text{False} \;\stackrel{\Delta}{=}\;$ proof by contradiction.
+
+Suppose $m(s)$ is not unique and minimal polynomial ($p\wedge\bar q$):
+\begin{align*}
+m_1(s) &\longrightarrow m_1(A)=0_{n\times n}\\
+m_2(s) &\longrightarrow m_2(A)=0_{n\times n}\\
+m_1(s)&\neq m_2(s)
+\end{align*}
+\begin{align*}
+m_1(s)&=s^l+a_1s^{l-1}+\dots+a_l\\
+m_2(s)&=s^l+b_1s^{l-1}+\dots+b_l, \qquad \exists i \text{ s.t. } a_i\neq b_i\\
+r(s)&=m_1(s)-m_2(s)\\
+r(s)&=(a_1-b_1)s^{l-1}+\dots+(a_l-b_l)\\
+\bar r(s)&=\frac{r(s)}{\alpha}
+\end{align*}
+\explain{$r(s)\neq0$ since $m_1\neq m_2$, and $\deg r<l$ since the $s^l$ terms cancel; $\alpha$: coefficient of the highest order term $\Rightarrow$ $\bar r(s)$ is monic.}
+\[ \deg\bar r(s) < \big(\deg m_1(s)=\deg m_2(s)\big) \]
+\[
+\bar r(A)=\frac{r(A)}{\alpha}=\frac{m_1(A)-m_2(A)}{\alpha}=\frac{0_{n\times n}-0_{n\times n}}{\alpha}=0_{n\times n}
+\]
+$\bar r(A)=0_{n\times n}$: we assumed $m_1,m_2$ are minimal, but found a monic $\bar r(s)$ of lower degree that also annihilates $A$ $\Rightarrow$ contradiction with minimality. Hence $m(s)$ is unique.
+
+\sep
+\textbf{II)}\quad Divide $d(s)$ by $m(s)$ (polynomial division):
+\[ d(s)=m(s)q(s)+r(s), \qquad \deg r(s)<\deg m(s). \]
+Suppose $r(s)\neq 0(s)$ (proof by contradiction). Then
+\[ \exists\,\bar r(s)=\frac{r(s)}{\alpha}\text{ and }\bar r(s)\text{ is monic}\quad(\alpha:\text{ leading coefficient of } r(s)).\qquad \bar r(A)=\,? \]
+% corrected: notes had "\bar r(s) = r(\alpha)/\alpha"; the division d = mq + r was only implicit
+\[
+\underbrace{\cancel{d(A)}}_{0_{n\times n}\text{ (CHT)}}=\underbrace{\cancel{m(A)}}_{0_{n\times n}}q(A)+r(A)\qquad\Rightarrow\qquad r(A)=0_{n\times n}\;\Rightarrow\;\bar r(A)=0_{n\times n}
+\]
+\explain{$\bar r$ is monic, annihilates $A$ and has lower degree than $m$: contradiction. So $r(s)=0$, i.e.\ $m(s)$ divides $d(s)$.}
+\begin{insight}[The same argument in general]
+The proof of II only used $d(A)=0$. Hence: \key{$m(s)$ divides every polynomial $p(s)$ with $p(A)=0$.}
+\end{insight}
+
+\sep
+\textbf{III)}\quad Roots of $d(s)$ are eigenvalues of $A$.
+\begin{align*}
+&d(\lambda_i)=0\\
+&Ae_i=\lambda_ie_i, \qquad e_i\neq 0\\
+&m(\lambda_i)\stackrel{?}{=}0\\
+&m(s)=s^l+a_1s^{l-1}+\dots+a_l\\
+&m(A)=A^l+a_1A^{l-1}+\dots+a_lI=0_{n\times n}\\
+&(A^l+a_1A^{l-1}+\dots+a_lI)e_i=0_{n\times 1}\\
+&A^le_i+a_1A^{l-1}e_i+\dots+a_{l-1}Ae_i+a_le_i=0_{n\times1}\\
+&(\lambda_i^l+a_1\lambda_i^{l-1}+\dots+a_{l-1}\lambda_i+a_l)\,\underbrace{e_i}_{\neq0}=0_{n\times1}\\
+&\lambda_i^l+a_1\lambda_i^{l-1}+\dots+a_{l-1}\lambda_i+a_l=0 \;\Rightarrow\; m(\lambda_i)=0
+\end{align*}
+% corrected: notes had e_1 instead of e_i in two places, and a stray cancelled e_i inside the bracket
+\explain{$A^je_i=\lambda_i^je_i$; a scalar times a nonzero vector is zero only if the scalar is zero.}
+\[ \therefore\;\lambda_i \text{ is a root of } m(s). \qedhere \]
+\end{proof}
+
+% ===== Page 63 =====
+\subsection{Minimal Polynomial and Null-Space Decomposition}\label{ss:minpoly-decomp}
+\begin{keybox}
+\origpage{63}\noindent\hfil$\displaystyle\begin{aligned}
+\therefore\; d(s)&=(s-\lambda_1)^{r_1}(s-\lambda_2)^{r_2}\cdots(s-\lambda_k)^{r_k}\\
+m(s)&=(s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k}\\
+&1\le m_i\le r_i, \qquad r_1+r_2+\dots+r_k=n
+\end{aligned}$\hfil
+\end{keybox}
+
+\paragraph{Distinct eigenvalue case.}
+\begin{align*}
+d(s)&=(s-\lambda_1)^1(s-\lambda_2)^1\cdots(s-\lambda_n)^1\\
+&r_i=1\Rightarrow m_i=1\\
+m(s)&=d(s)
+\end{align*}
+% corrected: notes had exponent 2 on (s-lambda_2); all exponents are 1 in the distinct case
+\[
+A=\bmat{1&0&0\\0&2&0\\0&0&3},\qquad d(s)=(s-1)(s-2)(s-3)=m(s)
+\]
+\[
+\C^3=\underbrace{\Null(A-\underset{\substack{\shortparallel\\1}}{\lambda_1}I)}_{\dim=1}
+\oplus\underbrace{\Null(A-\underset{\substack{\shortparallel\\2}}{\lambda_2}I)}_{\dim=1}
+\oplus\underbrace{\Null(A-\underset{\substack{\shortparallel\\3}}{\lambda_3}I)}_{\dim=1}
+\]
+\[
+\C^n=\underbrace{\Null\big((A-\lambda_1I)^1\big)}_{\dim=1}\oplus\cdots\oplus\underbrace{\Null\big((A-\lambda_nI)^1\big)}_{\dim=1}
+\]
+
+\begin{example}
+\[
+A_1=\bmat{1&0&0\\0&2&0\\0&0&2},\qquad\qquad A_2=\bmat{1&0&0\\0&2&1\\0&0&2}
+\]
+\paragraph{Matrix $A_1$.}
+\begin{align*}
+d_1(s)&=(s-1)(s-2)^2\\
+m_1(s)&=\boxed{(s-1)(s-2)}\ \checkmark\\
+&=\cancel{(s-1)}\cancel{(s-2)}^2
+\end{align*}
+\begin{alignat*}{2}
+A_1-I&=\bmat{0&0&0\\0&1&0\\0&0&1}, &\qquad&\rank=2,\ \dim=3,\ \text{null}=1\\[2pt]
+A_1-2I&=\bmat{-1&0&0\\0&0&0\\0&0&0}, &&\rank=1,\ \dim=3,\ \text{null}=2
+\end{alignat*}
+\explain{Columns 2, 3 of $A_1-I$: linearly independent vectors.}
+\[ (A_1-I)(A_1-2I)=0_{3\times3} \]
+\begin{align*}
+\Null(A_1-I)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
+\Null(A_1-2I)&=\Span\left\{\bmat{0\\1\\0},\bmat{0\\0\\1}\right\}
+\end{align*}
+\explain{Linearly independent $\Rightarrow$ direct sum.}
+\[
+\underbrace{\Null\big((A_1-I)^1\big)}_{\dim=1}\oplus\underbrace{\Null\big((A_1-2I)^1\big)}_{\dim=2}=\C^3
+\]
+
+\paragraph{Matrix $A_2$.}
+\begin{align*}
+d_2(s)&=(s-1)(s-2)^2\\
+m_2(s)&=\cancel{(s-1)}\cancel{(s-2)}\\
+&=\boxed{(s-1)(s-2)^2}\ \checkmark
+\end{align*}
+\begin{alignat*}{2}
+A_2-I&=\bmat{0&0&0\\0&1&1\\0&0&1}, &\qquad&\rank=2,\ \dim=3,\ \text{null}=1\\[2pt]
+A_2-2I&=\bmat{-1&0&0\\0&0&1\\0&0&0}\neq 0_{3\times3}, &&\rank=2,\ \dim=3,\ \text{null}=1\\[2pt]
+(A_2-2I)^2&=\bmat{1&0&0\\0&0&0\\0&0&0}
+\end{alignat*}
+\[ (A_2-I)(A_2-2I)=\bmat{0&0&0\\0&0&1\\0&0&0}\neq0_{3\times3} \]
+% corrected: notes had "(A_2-I)(A_2-2I) = 0"; the product is nonzero, which is exactly why m_2 = (s-1)(s-2)^2
+\explain{Hence $(s-1)(s-2)$ is not the minimal polynomial; only $(A_2-I)(A_2-2I)^2=0_{3\times3}$.}
+\begin{align*}
+\Null\big((A_2-I)\big)&=\Span\left\{\bmat{1\\0\\0}\right\}\\
+\Null\big((A_2-2I)\big)&=\Span\left\{\bmat{0\\1\\0}\right\}
+\end{align*}
+\[
+\C^3\;\cancel{=}\;\underbrace{\Null\big((A_2-I)\big)}_{\dim=1}\oplus\underbrace{\Null\big((A_2-2I)\big)}_{\dim=1}
+\]
+\[
+\Null\big((A_2-2I)^2\big)=\Span\left\{\bmat{0\\1\\0},\bmat{0\\0\\1}\right\}
+\]
+\[
+\C^3=\underbrace{\Null\big((A_2-I)^{1}\big)}_{\dim=1}\oplus\underbrace{\Null\big((A_2-2I)^{2}\big)}_{\dim=2}
+\]
+\begin{insight}[What the example shows]
+In both cases $\C^3$ splits into null spaces of powers of $A-\lambda_iI$, and the power needed for $\lambda_i$ is exactly the exponent $m_i$ in the minimal polynomial. For $A_1$ ($m_i=1$) the eigenvectors alone span $\C^3$, so $A_1$ is diagonalizable. For $A_2$ there are only two independent eigenvectors; the missing direction $\bmat{0&0&1}\T$ is not an eigenvector but satisfies $(A_2-2I)^2x=0$ (a \emph{generalized eigenvector}). This is made precise in the next theorem.
+\end{insight}
+\end{example}

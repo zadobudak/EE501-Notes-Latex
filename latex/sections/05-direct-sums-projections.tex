@@ -1,3 +1,296 @@
+% Section 5: Direct Sums and Orthogonal Projections  (original handwritten pages 33--42)
+\section{Direct Sums and Orthogonal Projections}\label{sec:direct-sum}
+\syllabusweek{Week 6 --- direct sum decompositions, projection theorem, orthogonal projections}
+
+\subsection{Direct Sums}\label{ss:direct-sums}
+
+\begin{definition}
+Let $\V$ be a vector space and let $M_1,\dots,M_k$ be subspaces of $\V$. The \term{sum} of these subspaces is defined as
+\[
+M=M_1+M_2+\dots+M_k=\{m\in\V \mid m=m_1+m_2+\dots+m_k,\ m_i\in M_i\ \forall i\}.
+\]
+The subspaces are called \term{linearly independent} iff
+\[
+m_1+m_2+\dots+m_k=0_V \quad\text{where } m_i\in M_i\ \forall i
+\quad\Rightarrow\quad m_1=m_2=\dots=m_k=0_V .
+\]
+\end{definition}
+
+\begin{center}
+\begin{minipage}{0.42\textwidth}\centering
+\begin{tikzpicture}[scale=1.0]
+% axes
+\draw[->] (-2.2,0) -- (2.3,0);
+\draw[->] (0,-1.5) -- (0,1.6);
+% subspaces (lines through the origin)
+\draw (-0.9,-1.42) -- (0.95,1.5) node[above right] {$y$};
+\draw (-2.1,-0.78) -- (2.1,0.78) node[above right] {$z$};
+\draw (-1.0,1.45) -- (1.0,-1.45);
+\node[above left] at (-1.0,1.45) {$\gamma$};
+% vectors y, z and y+z = gamma
+\draw[->,thick] (0,0) -- (0.6,0.95) node[right] {$y$};
+\draw[->,thick] (0,0) -- (-1.0,-0.37) node[below] {$z$};
+\draw[->,dashed] (-1.0,-0.37) -- (-0.4,0.58);
+\draw[dashed] (0.6,0.95) -- (-0.4,0.58);
+\fill (-0.4,0.58) circle (1pt);
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+$y+z-\gamma=0$\\
+$\Rightarrow$ not linearly independent
+\end{minipage}
+\end{center}
+
+% ===== Page 33 =====
+\begin{remark}\leavevmode\origpage{33}
+Let $\V=M_1+M_2+\dots+M_k$ and let $M_1,\dots,M_k$ be linearly independent. Then for $x\in\V$,
+\[
+x=m_1+m_2+\dots+m_k, \qquad m_i\in M_i\ \forall i,
+\]
+\key{$m_1,m_2,\dots,m_k$ are unique.}
+\end{remark}
+
+\begin{proof}
+Assume $m_1,\dots,m_k$ are not unique, i.e.\ $\exists i$ s.t.\ $m_i\ne\bar m_i$:
+\begin{align*}
+x&=m_1+\dots+m_k\\
+x&=\bar m_1+\dots+\bar m_k\\
+0_V&=\underbrace{(m_1-\bar m_1)}_{\in M_1}+\underbrace{(m_2-\bar m_2)}_{\in M_2}+\dots+\underbrace{(m_k-\bar m_k)}_{\in M_k}
+\end{align*}
+$\Rightarrow M_1,\dots,M_k$ are not linearly independent. \qedhere
+\end{proof}
+
+\begin{definition}
+Let $M_1,\dots,M_k$ be subspaces of $\V$. Let
+\begin{enumerate}[label=\roman*-)]
+\item $M=M_1+M_2+\dots+M_k$
+\item $M_1,M_2,\dots,M_k$ are linearly independent.
+\end{enumerate}
+Then $M$ is said to be the \term{direct sum} of $M_1,\dots,M_k$. This is shown as
+\[
+M=M_1\oplus M_2\oplus\dots\oplus M_k .
+\]
+\end{definition}
+
+\begin{example}
+$\V=\R^4$, \quad $x=(x_1,x_2,x_3,x_4)^T\in\R^4$.
+\begin{alignat*}{3}
+M_1&\triangleq\{x\in\R^4\mid x_4=x_3=0\}: &\quad &\bmat{x_1\\x_2\\0\\0}, &\quad \dim&=2\\
+M_2&\triangleq\{x\in\R^4\mid x_1=x_2=0\}: & &\bmat{0\\0\\x_3\\x_4}, & \dim&=2\\
+M_3&\triangleq\{x\in\R^4\mid x_1=0\}: & &\bmat{0\\x_2\\x_3\\x_4}, & \dim&=3
+\end{alignat*}
+\begin{align*}
+M_1+M_2&=\R^4 && \Rightarrow \text{direct sum: } M_1\,\&\,M_2 \text{ linearly independent} \Rightarrow M_1\oplus M_2=\R^4\\
+M_1+M_3&=\R^4 && \Rightarrow \text{not direct sum}\\
+M_2+M_3&=M_3 && \Rightarrow \text{not direct sum } (M_2\subset M_3)
+\end{align*}
+
+\sep
+For $M_1$ and $M_3$:
+\[
+\bmat{x_1\\x_2\\0\\0}+\bmat{0\\x_2'\\x_3'\\x_4'}=\bmat{0\\0\\0\\0},
+\qquad\text{e.g.}\qquad
+\underset{\in M_1}{\bmat{0\\1\\0\\0}}+\underset{\in M_3}{\bmat{0\\-1\\0\\0}}=\underset{0_V}{\bmat{0\\0\\0\\0}}
+\]
+As the two summands are nonzero, $M_1\,\&\,M_3$ are linearly dependent. $\therefore$ Not a direct sum.
+
+$M_2\,\&\,M_3$ are linearly dependent (e.g.\ $m_2=(0,0,1,0)^T\in M_2$, $m_3=-m_2\in M_3$). $\therefore$ Not a direct sum.
+\begin{insight}[Dimension test]
+For two subspaces, $M_1+M_2$ is direct $\iff M_1\cap M_2=\{0_V\}\iff\dim(M_1+M_2)=\dim M_1+\dim M_2$. Here: $M_1\cap M_2=\{0\}$ and $2+2=4$ (direct); $M_1\cap M_3=\{(0,x_2,0,0)^T\}$, $2+3=5\ne4$ (not direct); $M_2\cap M_3=M_2$, $2+3\ne3$ (not direct).
+\end{insight}
+\end{example}
+
+% ===== Page 34 =====
+\subsection{Orthogonal Direct Sums and Orthogonal Complements}\label{ss:orth-complement}
+
+\begin{definition}\leavevmode\origpage{34}
+Let $\V$ be an inner product space. Two subspaces $M_1\,\&\,M_2$ are said to be \term{orthogonal} iff
+\[
+\inner{m_1}{m_2}=0 \qquad \forall m_1\in M_1,\ \forall m_2\in M_2 .
+\]
+We denote this $M_1\perp M_2$.
+\end{definition}
+% corrected: notes had "M_2 & M_2" in the first line; M_1 & M_2 meant.
+
+\needspace{8\baselineskip}
+\begin{definition}
+Let $M$ be equal to $M_1+M_2+\dots+M_k$ and $M_i\perp M_j$ for $i\ne j$. Then $M$ is said to be an \term{orthogonal direct sum} of $M_1,\dots,M_k$. We show this as
+\[
+M=M_1\overset{\perp}{\oplus}M_2\overset{\perp}{\oplus}\dots\overset{\perp}{\oplus}M_k .
+\]
+If $M=\V$ then
+\[
+\V=M_1\overset{\perp}{\oplus}M_2\overset{\perp}{\oplus}\dots\overset{\perp}{\oplus}M_k
+\]
+is called an \term{orthogonal direct sum decomposition} of $\V$.
+\end{definition}
+
+\paragraph{\key{Orthogonality implies linear independence.}}
+Let $\sum_{i=1}^{k}m_i=0_V$, \ $m_i\in M_i$. Then
+\begin{align*}
+\Big\langle\sum_{i=1}^{k}m_i,\,m_j\Big\rangle&=\inner{0_V}{m_j}=0\\
+\sum_{i=1}^{k}\inner{m_i}{m_j}&=0
+\end{align*}
+Since $\inner{m_i}{m_j}=0$ when $i\ne j$:
+\[
+\inner{m_j}{m_j}=0 \ \Rightarrow\ m_j=0_V .
+\]
+\explain{The last step uses positive definiteness of the inner product. Since $j$ was arbitrary, all $m_j=0_V$: orthogonality implies linear independence.}
+
+\begin{definition}
+Let $M$ be a subspace of an inner product space $\V$. The \term{orthogonal complement} $M^\perp$ of the subspace is defined as
+\[
+M^\perp=\{x\in\V\mid \inner{x}{m}=0\ \forall m\in M\}.
+\]
+\end{definition}
+The zero vector is orthogonal to every vector, so $0_V\in M^\perp$ always. Two examples:
+
+\begin{center}
+\begin{minipage}{0.34\textwidth}\centering
+\begin{tikzpicture}[scale=0.85]
+\draw[->] (-1.8,0) -- (1.8,0) node[right] {$x_1$};
+\draw[->] (0,-1.5) -- (0,1.7) node[above] {$x_2$};
+\draw[thick] (-1.4,-1.4) -- (1.4,1.4) node[right] {$M$};
+\draw[thick,dashed] (-1.4,1.4) -- (1.4,-1.4) node[right] {$M^\perp$};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.6\textwidth}
+\begin{align*}
+M&=\Span\left\{\bmat{1\\1}\right\}, & \bmat{-1\\1}&\in M^\perp, \quad \bmat{2\\-2}\in M^\perp\\
+M^\perp&=\Span\left\{\bmat{-1\\1}\right\}, & M+M^\perp&=M\overset{\perp}{\oplus}M^\perp
+\end{align*}
+\end{minipage}
+\end{center}
+\begin{center}
+\begin{minipage}{0.3\textwidth}\centering
+\begin{tikzpicture}[scale=0.85]
+\fill[pattern=vertical lines, pattern color=gray!70] (-0.2,0) -- (2,0) -- (1.2,-1.2) -- (-1.0,-1.2) -- cycle;
+\draw[->] (0,0) -- (0,2) node[above] {$z$};
+\draw[->] (0,0) -- (2.3,0) node[right] {$y$};
+\draw[->] (0,0) -- (-0.95,-1.45) node[below left] {$x$};
+\node at (1.25,-0.75) {$M$};
+\node[right] at (0,1.4) {$M^\perp$};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.55\textwidth}
+\begin{align*}
+M&=\{x\text{-}y \text{ plane}\}\\
+M^\perp&=\{z \text{ axis}\}\\
+\underset{\dim=2}{M}\overset{\perp}{\oplus}\underset{\dim=1}{M^\perp}&=\underset{\dim 3}{\R^3}
+\end{align*}
+\end{minipage}
+\end{center}
+Orthogonality implies linear independence, thus this is a direct sum; since the summands are also orthogonal, it is an orthogonal direct sum.
+
+\needspace{9\baselineskip}
+\begin{claim}
+\key{$M^\perp$ is a subspace of $\V$.}
+\end{claim}
+Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$. Then
+\begin{align*}
+\inner{x+y}{m}&=\underbrace{\inner{x}{m}+\inner{y}{m}}_{0} \quad (m\in M)\\
+&=0 \quad \forall m\in M &&\Rightarrow\ x+y\in M^\perp\\
+\inner{\alpha x}{m}&=\alpha\inner{x}{m}=0 \quad\forall m\in M &&\Rightarrow\ \alpha x\in M^\perp
+\end{align*}
+$\therefore$ $M^\perp$ is closed under addition and scalar multiplication, hence a subspace of $\V$.
+
+% ===== Page 35 =====
+\begin{theorem}[Orthogonal decomposition]\leavevmode\origpage{35}
+Let $\V$ be an inner product space and $M$ a subspace of $\V$. Then \key{$\V$ is the orthogonal direct sum of $M$ and $M^\perp$}:
+\[
+\boxed{\V=M\overset{\perp}{\oplus}M^\perp}
+\]
+To prove this we check:
+\begin{itemize}[nosep]
+\item $\V=M+M^\perp$ \ (to be shown, proof below);
+\item $M\,\&\,M^\perp$ are linearly independent \ $\checkmark$;
+\item $M\perp M^\perp$ \ $\checkmark$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+\textbf{Part I:} $\dim M=n\triangleq\dim\V \Rightarrow M=\V$ \ \textcircled{?}\par
+\explain{Answer to \textcircled{?}: a basis of $M$ consists of $n$ linearly independent vectors of $\V$; in an $n$-dimensional space any $n$ independent vectors form a basis, so they span $\V$ and $M=\V$.}
+
+\begin{center}
+\begin{minipage}{0.25\textwidth}\centering
+\begin{tikzpicture}
+\draw (0,0) ellipse (0.6 and 0.85);
+\draw (0,0) ellipse (0.45 and 0.7);
+\node at (0,0) {$M$};
+\node[right] at (0.55,-0.75) {$\dim\V=n$};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.6\textwidth}
+\begin{align*}
+M^\perp&=\V^\perp=\{0_V\}\\
+\V&=M+M^\perp\\
+x&=\underset{\in M}{x_1}+\underset{\in M^\perp}{x_2}
+\ \Rightarrow\ x=\underset{\in M}{x}+\underset{\in M^\perp}{0_V} \quad\checkmark
+\end{align*}
+\end{minipage}
+\end{center}
+
+\textbf{Part II:} $\dim M<n$, with $\dim M = k$. Let
+\begin{align*}
+B&=\{m_1,m_2,m_3,\dots,m_k\} && \text{(basis for } M)\\
+C&=\{m_1,m_2,\dots,m_k,m_{k+1},\dots,m_n\} && \text{(basis for } \V)
+\end{align*}
+Apply Gram--Schmidt orthogonalization to $C$:
+\[
+\bar C=\{\underbrace{\underset{\uparrow\, m_1}{e_1},e_2,\dots,e_k}_{\text{form a basis for } M},\ \overbrace{e_{k+1},\dots,e_n}^{\text{basis for } M^\perp}\},
+\qquad
+\Span\{e_1,\dots,e_k\}=\Span\{m_1,\dots,m_k\}.
+\]
+$\bar C$ is a basis for $\V$. For $x\in\V$:
+\[
+x=\sum_{i=1}^{n}\alpha_ie_i=\underbrace{\sum_{i=1}^{k}\alpha_ie_i}_{x_1\in M}+\underbrace{\sum_{j=k+1}^{n}\alpha_je_j}_{x_2\in M^\perp}
+\]
+\explain{$x_2\in M^\perp$ by construction: Gram--Schmidt makes each $e_j$ ($j>k$) orthogonal to $e_1,\dots,e_k$, which span $M$; hence $e_j\perp m$ for all $m\in M$, and so is every combination of them.}
+\[
+\Rightarrow\ x=\underset{\in M}{x_1}+\underset{\in M^\perp}{x_2}\ \Rightarrow\ \V=M+M^\perp \qedhere
+\]
+\end{proof}
+\begin{insight}[The remaining two items]
+The other two items are immediate: $M\perp M^\perp$ by the definition of $M^\perp$, and orthogonality implies linear independence (shown above), equivalently $M\cap M^\perp=\{0_V\}$ since $x\in M\cap M^\perp\Rightarrow\inner{x}{x}=0$. Consequently $\dim M^\perp=\dim\V-\dim M$, and $\{e_{k+1},\dots,e_n\}$ is in fact a basis of $M^\perp$. (Finite dimension of $\V$ is assumed in the proof.)
+\end{insight}
+
+\begin{example}
+$\V=\R^4$,
+\[
+M=\Span\left\{\bmat{1\\2\\3\\4},\bmat{4\\3\\2\\1}\right\}. \qquad \text{Find a basis for } M^\perp.
+\]
+Complete the basis of $M$ with two canonical vectors to a basis of $\R^4$ and orthogonalize:
+\[
+C=\Big\{\underset{m_1}{\bmat{1\\2\\3\\4}},\ \underset{m_2}{\bmat{4\\3\\2\\1}},\ \underset{m_3}{\bmat{1\\0\\0\\0}},\ \underset{m_4}{\bmat{0\\1\\0\\0}}\Big\}
+\ \xrightarrow{\text{Gram--Schmidt}}\ \bar C=\{e_1,e_2,e_3,e_4\}
+\]
+% corrected: notes labelled the un-orthogonalized vectors [1,0,0,0], [0,1,0,0] themselves as e_3, e_4 and wrote M^perp = sp{e_3,e_4};
+% these vectors are NOT orthogonal to M (e.g. <[1,0,0,0],m_1> = 1). The last vector is cramped in the scan (could be read as 0,1,3);
+% [0,1,0,0] is the reading used. The Gram--Schmidt computation below is added and verified with exact (Fraction) arithmetic.
+\begin{align*}
+e_1&=m_1=\bmat{1\\2\\3\\4}, \qquad \inner{e_1}{e_1}=30\\
+e_2&=m_2-\frac{\inner{m_2}{e_1}}{\inner{e_1}{e_1}}e_1=\bmat{4\\3\\2\\1}-\frac{20}{30}\bmat{1\\2\\3\\4}=\frac53\bmat{2\\1\\0\\-1}\ \to\ \bmat{2\\1\\0\\-1}\\
+e_3&=m_3-\frac{\inner{m_3}{e_1}}{\inner{e_1}{e_1}}e_1-\frac{\inner{m_3}{e_2}}{\inner{e_2}{e_2}}e_2
+ =\bmat{1\\0\\0\\0}-\frac{1}{30}\bmat{1\\2\\3\\4}-\frac{2}{6}\bmat{2\\1\\0\\-1}=\frac1{10}\bmat{3\\-4\\-1\\2}\ \to\ \bmat{3\\-4\\-1\\2}\\
+e_4&=m_4-\frac{\inner{m_4}{e_1}}{\inner{e_1}{e_1}}e_1-\frac{\inner{m_4}{e_2}}{\inner{e_2}{e_2}}e_2-\frac{\inner{m_4}{e_3}}{\inner{e_3}{e_3}}e_3\\
+ &=\bmat{0\\1\\0\\0}-\frac{2}{30}\bmat{1\\2\\3\\4}-\frac{1}{6}\bmat{2\\1\\0\\-1}+\frac{4}{30}\bmat{3\\-4\\-1\\2}=\frac16\bmat{0\\1\\-2\\1}\ \to\ \bmat{0\\1\\-2\\1}
+\end{align*}
+\explain{Scaling a vector does not affect orthogonality, so after each step the vector is rescaled to integer entries ($\to$) and the scaled version is used in the following steps.}
+\[
+\boxed{M^\perp=\Span\{e_3,e_4\}=\Span\left\{\bmat{3\\-4\\-1\\2},\bmat{0\\1\\-2\\1}\right\}}
+\]
+\begin{insight}[Verification]
+$\inner{e_3}{m_1}=3-8-3+8=0$, \ $\inner{e_3}{m_2}=12-12-2+2=0$, \ $\inner{e_4}{m_1}=2-6+4=0$, \ $\inner{e_4}{m_2}=3-4+1=0$, \ and $\inner{e_3}{e_4}=-4+2+2=0$. Since $e_3,e_4\ne0$, the set $C$ was indeed a basis of $\R^4$.
+
+Alternatively,
+\[
+x\in M^\perp\iff\bmat{1&2&3&4\\4&3&2&1}x=0, \qquad\text{i.e.}\qquad M^\perp=\Null\!\left(\bmat{1&2&3&4\\4&3&2&1}\right),
+\]
+which has dimension $4-2=2$ and is spanned e.g.\ by $(1,-2,1,0)^T$ and $(0,1,-2,1)^T$; note $(3,-4,-1,2)^T=3(1,-2,1,0)^T+2(0,1,-2,1)^T$, so both answers describe the same subspace. Gram--Schmidt additionally gives an \emph{orthogonal} basis.
+\end{insight}
+\end{example}
+
 % ===== Page 36 =====
 \subsection{The Projection Theorem}\label{ss:projection-thm}
 \begin{theorem}[Hilbert's Projection Theorem]
@@ -500,315 +793,4 @@ x-\operatorname{Proj}_M x &= \bmat{1\\0\\0} - \bmat{1/2\\0\\1/2} = \bmat{1/2\\0\
 \bmat{1&1&1}\bmat{1/2\\0\\-1/2} = 0, \qquad \bmat{1&-1&1}\bmat{1/2\\0\\-1/2} = 0 \quad\checkmark\\*[4pt]
 P_M = \frac18 B\bmat{3&-1\\-1&3}B\T = \frac12\bmat{1&0&1\\0&2&0\\1&0&1}
 \end{gather*}
-\end{example}
-
-\section{Systems of Linear Equations $Ax=b$}\label{sec:axb}
-\syllabusweek{Week 7 --- systems of linear equations of the form $Ax=b$}
-\subsection{Existence and Uniqueness of Solutions}\label{ss:exist-unique}
-\[
-Ax = b, \qquad A\in\C^{m\times n}, \quad x\in\C^n, \quad b\in\C^m
-\]
-\begin{center}
-\begin{tikzpicture}[scale=0.9]
-  % domain C^n
-  \draw (0,0) ellipse (1.3 and 1.4);
-  \draw (-0.1,0.3) circle (0.65);
-  \node at (-0.1,0.65) {\scriptsize $\Null(A)$};
-  \node at (-0.1,-0.85) {\small $\C^n$};
-  % codomain C^m
-  \draw (6,0) ellipse (1.3 and 1.4);
-  \draw (5.85,0.4) circle (0.7);
-  \node at (5.8,0.75) {\scriptsize $\Range(A)$};
-  \draw (6.0,0.3) circle (0.12);
-  \fill (6.0,0.3) circle (0.03);
-  \node at (6.75,-0.05) {\scriptsize $0_{\C^m}$};
-  % corrected: second small "C^m" label next to the zero vector; read as the subscript of 0 (0_{C^m}), consistent with N(A)={x: Ax=0_{C^m}}
-  \node at (6,-0.9) {\small $\C^m$};
-  % map
-  \draw[->] (-0.3,1.35) to[bend left=25] node[above] {$A$} (5.6,1.3);
-  \draw (0.15,0.15) -- (5.92,0.33);
-  \draw (0.15,0.0) -- (5.93,0.29);
-  \draw (0.15,-0.15) -- (5.94,0.25);
-\end{tikzpicture}
-\end{center}
-\explain{$A$ maps every vector of $\Null(A)$ to $0_{\C^m}$.}
-The two fundamental subspaces of $A$:
-\begin{align*}
-\text{\term{range space}: }\Range(A) &= \{y\in\C^m \mid \exists x\in\C^n \text{ satisfying } y=Ax\}\\
-\text{\term{null space}: }\Null(A) &= \{x\in\C^n \mid Ax = 0_{\C^m}\}
-\end{align*}
-Rank--nullity:
-\begin{gather*}
-\underbrace{\dim(\Range(A))}_{\text{rank}} + \underbrace{\dim(\Null(A))}_{\text{nullity}} = n = \#\text{ of columns of } A
-\end{gather*}
-Recall also, for a subspace $M$ of $\V$:
-\begin{align*}
-&\V = M\overset{\perp}{\oplus}M^\perp\\
-&v = v_1+v_2, \qquad v_1\in M, \quad v_2\in M^\perp, \qquad v_1,v_2 \text{ are unique}\\
-&v_1\perp v_2, \qquad \dim M + \dim M^\perp = \dim \V
-\end{align*}
-Two questions:
-\begin{enumerate}[label=\arabic*-), nosep]
-  \item Is there an exact solution? \ ($\Range(A)$)
-  \item If there is, is it unique? \ ($\Null(A)$)
-\end{enumerate}
-\explain{Question 1 is answered by $\Range(A)\subseteq\C^m$ (the codomain side), question 2 by $\Null(A)\subseteq\C^n$ (the domain side).}
-
-% ===== Page 43 =====
-\sep
-\paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1\\1}}_{A}\underset{\in\R}{x} = \underbrace{\bmat{2\\2}}_{b}$,
-\qquad $b\in\Range(A)$\origpage{43}\\
-$\Rightarrow$ $\exists$ an exact solution. \quad $\Rightarrow$ The solution is unique.
-
-\paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1\\1}}_{A}x = \underbrace{\bmat{2\\1}}_{b}$
-\quad $\Rightarrow$ No exact solution! \qquad $b\notin\Range(A)$
-\begin{align*}
-y = Ax &= \big[\,a_1 \,\vdots\, a_2 \,\vdots\, a_3 \,\vdots\, \cdots \,\vdots\, a_n\,\big]\bmat{x_1\\x_2\\ \vdots\\ x_n}
-= x_1\vec a_1 + x_2\vec a_2 + \dots + x_n\vec a_n\\[4pt]
-\Range(A) &= \Span\{\vec a_1,\vec a_2,\dots,\vec a_n\} \triangleq \text{\term{column space} of } A\\
-\Range(A) &= \Span\left\{\bmat{1\\1}\right\}, \qquad \bmat{2\\1}\notin\Range(A)
-\end{align*}
-
-\begin{keybox}
-$\therefore$ 1-) \key{There exists an exact solution iff $b\in\Range(A)$.}
-\end{keybox}
-
-\paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1&2\\1&2}}_{A}\underset{\in\R^2}{x} = \underbrace{\bmat{2\\2}}_{b}$:
-\quad $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$ \& $b\in\Range(A)$ $\Rightarrow$ $\therefore\ \exists$ an exact solution
-\[
-x_1 = \bmat{2\\0} \quad\text{or}\quad x_2 = \bmat{0\\1} \quad\text{or}\quad x_3 = \bmat{4\\-1} \quad\dots
-\]
-
-\needspace{14\baselineskip}
-\sep
-Dimensions in the first example:
-\begin{gather*}
-\left.\begin{aligned}
-A &= \bmat{1\\1}, \qquad \dim\C = 1\\
-\Range(A) &= \Span\left\{\bmat{1\\1}\right\}, \qquad \dim\Range(A) = 1
-\end{aligned}\right\}
-\quad
-\begin{aligned}
-&\underbrace{\dim(\Range(A))}_{1} + \underbrace{\dim(\Null(A))}_{0} = 1 \leftarrow \#\text{ of columns}\\
-&\Null(A) = \{0\}, \qquad \dim(\Null(A)) = 0
-\end{aligned}
-\end{gather*}
-and in the third example:
-\begin{align*}
-&A = \bmat{1&2\\1&2}, \qquad \Range(A) = \Span\left\{\bmat{1\\1}\right\}, \qquad \dim\Range(A) = 1\\
-&\underbrace{\dim\Range(A)}_{1} + \underbrace{\dim\Null(A)}_{1} = 2, \qquad
-\Null(A) = \Span\left\{\bmat{2\\-1}\right\}\\[4pt]
-&x_1-x_2 = \bmat{2\\-1}, \qquad x_1-x_3 = \bmat{-2\\1}, \qquad x_2-x_3 = \bmat{-4\\2} \qquad \text{all inside null space.}
-\end{align*}
-
-\needspace{10\baselineskip}
-\sep
-In general:
-\begin{align*}
-&A\hat x = b \qquad \hat x \text{ is exact}\\
-&\underset{\substack{\uparrow\\ \in\Null(A)}}{\hat x + m} \;\Rightarrow\; A(\hat x+m) = A\hat x + \underbrace{\overset{\in\Null(A)}{Am}}_{0} = b+0 = b
-\end{align*}
-% corrected: notes had "= b+0 = 0" at the end (meant "= b") and "x is exact" (meant \hat x)
-\begin{itemize}[nosep]
-  \item if $\hat x$ satisfies $A\hat x = b$ exactly $\Rightarrow$ $\hat x + m$ satisfies $A(\hat x+m) = b$ exactly \ ($m\in\Null(A)$);
-  \item if $m\neq 0 \Rightarrow \hat x \neq \hat x + m$;
-  \item if $\Null(A)$ includes nonzero vectors $\Rightarrow$ \key{infinitely many exact solutions}.
-\end{itemize}
-
-% ===== Page 44 =====
-\origpage{44}
-\begin{keybox}
-$\therefore$ 2-) If an exact solution $\hat x$ exists, then \key{it is unique
-$\iff \Null(A) = \{0\}$} \ or \ $\dim\Null(A) = 0$.
-\end{keybox}
-\begin{insight}
-Conversely, if $A\hat x = b$ and $A\tilde x = b$, then $A(\hat x-\tilde x) = 0$, i.e.\ any two exact solutions
-differ by a vector of $\Null(A)$. Hence \key{the full solution set is the affine set
-$\{\hat x + m : m\in\Null(A)\}$}. By rank--nullity, $\Null(A)=\{0\}$ iff $\rank A = n$ (the columns of $A$ are
-linearly independent); this requires $m\ge n$.
-\end{insight}
-
-\subsection{Least-Squares Solutions}\label{ss:least-squares}
-\paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $Ax = b$, \qquad $b\notin\Range(A)$
-
-\paragraph{\term{Least squares problem}.}
-\[
-\min_{x\in\C^n} \underbrace{\norm{Ax-b}^{2}}_{\text{error}}
-\]
-\explain{The exponent $2$ doesn't matter; $\norm{\cdot}$ is the induced norm of the inner product.}
-\[
-\hat x = \arg\min_{x\in\C^n}\norm{Ax-b}
-\]
-\explain{$\hat x$: \term{minimum error solution} / \term{least squares solution}.}
-Since $b\in\C^m$, decompose it:
-\begin{align*}
-\C^m &= M\overset{\perp}{\oplus}M^\perp\\
-\C^m &= \Range(A)\overset{\perp}{\oplus}\Range^\perp(A)\\
-b &= \underset{\in\Range(A)}{b_1} + \underset{\in\Range^\perp(A)}{b_2}
-\;\Rightarrow\; b_1 = \operatorname{Proj}_{\Range(A)} b, \quad b_2 = \operatorname{Proj}_{\Range^\perp(A)} b
-\;\Rightarrow\; b_1\perp b_2
-\end{align*}
-\needspace{15\baselineskip}
-Then
-\begin{align*}
-\norm{Ax-b}^2 &= \inner{Ax-b}{Ax-b}\\
-&= \big\langle (\underset{\in\Range(A)}{Ax}-\underset{\in\Range(A)}{b_1}) - \underset{\in\Range^\perp(A)}{b_2},\ (Ax-b_1)-b_2\big\rangle
-&& (\Range(A) \text{ is a subspace})\\
-&= \inner{Ax-b_1}{Ax-b_1}\\
-&\quad \cancel{-\inner{Ax-b_1}{b_2}}\\
-&\quad \cancel{-\inner{b_2}{Ax-b_1}} && (\to 0 \text{ because of orthogonality})\\
-&\quad +\inner{b_2}{b_2}\\
-&= \inner{Ax-b_1}{Ax-b_1} + \inner{b_2}{b_2}\\
-&= \overbrace{\Big\lVert A\underset{\substack{\uparrow\\ \text{find an } x}}{x}-\underset{\in\Range(A)}{b_1}\Big\rVert^2}^{\text{zero}} + \norm{b_2}^2 \geq \norm{b_2}^2
-\end{align*}
-% corrected: notes had the first term without the square, i.e. ||Ax-b_1|| + ||b_2||^2
-\explain{\key{The first term can be made zero}: $b_1\in\Range(A)$, so some $x$ satisfies $Ax=b_1$ exactly.}
-Therefore
-\begin{gather*}
-\boxed{\min_{x\in\C^n}\norm{Ax-b} = \norm{b_2} = \norm{\operatorname{Proj}_{\Range^\perp(A)} b}}\\[4pt]
-A\hat x = b_1, \qquad \hat x = \arg\min_{x\in\C^n}\norm{Ax-b}, \qquad
-b_1 = \operatorname{Proj}_{\Range(A)} b\\[4pt]
-\underbrace{\hat x}_{\substack{\text{min error /}\\ \text{least squares solution}}} = \arg\min_{x\in\C^n}\norm{Ax-b}
-\end{gather*}
-\begin{insight}[Normal equations]
-$A\hat x = b_1$ is equivalent to $b - A\hat x = b_2 \perp \Range(A)$, i.e.\ $a_j\Hm(b-A\hat x) = 0$ for every
-column $a_j$ of $A$:
-\[
-A\Hm(b-A\hat x) = 0 \quad\Longleftrightarrow\quad \boxed{A\Hm A\,\hat x = A\Hm b}
-\]
-(the same equations as $B\Hm B\alpha^* = B\Hm x$ before, with $B=A$). \key{These normal equations always have a
-solution.} If the columns of $A$ are linearly independent, $A\Hm A$ is invertible and
-$\hat x = (A\Hm A)^{-1}A\Hm b$ is unique; otherwise there are infinitely many least squares solutions,
-differing by elements of $\Null(A\Hm A)=\Null(A)$.
-\end{insight}
-
-% ===== Page 45 =====
-\sep
-\paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $b\notin\Range(A)$, \qquad
-$\Range(A) = \Span\left\{\bmat{1\\1}\right\}$\origpage{45}
-\begin{align*}
-&P_{\Range(A)} = B(B\Hm B)^{-1}B\Hm, \qquad B = \bmat{1\\1}, \qquad B\Hm B = \bmat{1&1}\bmat{1\\1} = 2\\
-&P_{\Range(A)} = \bmat{1\\1}\frac12\bmat{1&1} = \bmat{1/2&1/2\\1/2&1/2}\\
-&b_1 = P_{\Range(A)}b = \bmat{1/2&1/2\\1/2&1/2}\bmat{2\\1} = \bmat{3/2\\3/2}\\
-&\underbrace{\bmat{1\\1}}_{A}\hat x = \underbrace{\bmat{3/2\\3/2}}_{b_1},
-\qquad \hat x = \frac32
-\end{align*}
-\explain{$\hat x = \tfrac32$ is the average of the entries of $b = \bmat{2 & 1}\T$.}
-\explain{Same result from the normal equations: $A\Hm A = 2$, $A\Hm b = 3$ $\Rightarrow$ $\hat x = \tfrac32$; $b-b_1 = \bmat{1/2 & -1/2}\T$, so the minimum error is $\norm{b-b_1} = \tfrac1{\sqrt2}$.}
-
-\paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad
-$\Range(A) = \Span\left\{\bmat{1\\1}\right\}$
-\[
-b_1 = P_{\Range(A)}b = \bmat{1/2&1/2\\1/2&1/2}\bmat{2\\1} = \bmat{3/2\\3/2}
-\]
-% corrected: notes had the multiplied vector as [1;1] (it is b=[2;1])
-Then
-\begin{alignat*}{2}
-&A\hat x = b_1, &\qquad& \hat x = 3/2\\
-&\Null(A) = \{0\},\ \dim\Null(A) = 0 &\qquad& \Rightarrow\ \hat x \text{ \key{is unique.}}
-\end{alignat*}
-
-\paragraph{$\bigstar$} $\displaystyle \bmat{1&2\\1&2}x = \bmat{2\\1}$, \qquad
-$\Range(A) = \Span\left\{\bmat{1\\1}\right\}$, \qquad $b\notin\Range(A)$
-\begin{align*}
-&b_1 = P_{\Range(A)}b = \bmat{3/2\\3/2}\\
-&\bmat{1&2\\1&2}\hat x = \bmat{3/2\\3/2}
-\quad\Rightarrow\quad \hat x = \bmat{3/2\\0}, \quad \hat x = \bmat{0\\3/4}, \quad \hat x = \bmat{1/2\\1/2}\\
-&\Null(A) = \Span\left\{\bmat{2\\-1}\right\}
-\quad\Rightarrow\quad \hat x \text{ \key{is not unique!}}
-\end{align*}
-\explain{All least squares solutions: $\hat x = \bmat{3/2 & 0}\T + t\bmat{2 & -1}\T$, $t\in\R$ (e.g.\ $t=-\tfrac34$ gives $\bmat{0 & 3/4}\T$, $t=-\tfrac12$ gives $\bmat{1/2 & 1/2}\T$). Each leaves the same error $\norm{b_2} = \tfrac1{\sqrt2}$.}
-
-\subsection{Minimum-Norm Solutions}\label{ss:min-norm}
-\paragraph{\term{Minimum norm solution}.}
-\begin{gather*}
-b\in\Range(A) \;\Rightarrow\; \min_{Ax=b}\norm{x}, \qquad
-\hat x_1 = \arg\min_{Ax=b}\norm{x}, \qquad x = \hat x + \overset{\in\Null(A)}{m}\\[4pt]
-\min_{m\in\Null(A)}\norm{\hat x + m}, \qquad A\hat x = b
-\end{gather*}
-\explain{When there are infinitely many solutions, pick the one with the smallest norm. Every solution has the form $\hat x+m$ for one fixed solution $\hat x$, so we minimize over $m\in\Null(A)$.}
-\begin{center}
-\begin{tikzpicture}[scale=0.8]
-  \draw (0,0) ellipse (0.95 and 1.3);
-  \draw (0.05,0.15) ellipse (0.45 and 0.8);
-  \node at (0.85,-1.35) {\small $\C^n$};
-  \node (NA) at (-1.6,1.3) {\small $\Null(A)$};
-  \draw (-0.35,0.65) -- (NA.south east);
-  \draw (4.5,0) ellipse (0.95 and 1.3);
-  \draw (4.55,0.15) ellipse (0.45 and 0.8);
-  \node at (5.35,-1.35) {\small $\C^m$};
-  \node (RA) at (5.9,1.45) {\small $\Range(A)$};
-  \draw (4.9,0.6) -- (RA.south west);
-  \draw[->] (0.3,1.25) to[bend left=30] node[above] {$A$} (4.2,1.25);
-\end{tikzpicture}
-\end{center}
-\begin{align*}
-&\C^m = \Range(A)\overset{\perp}{\oplus}\Range^\perp(A)\\
-&\C^n = \Null^\perp(A)\overset{\perp}{\oplus}\Null(A)\\
-&\hat x = \underset{\in\Null^\perp(A)}{\hat x_1} + \underset{\in\Null(A)}{\hat x_2},
-\qquad \hat x_1 = \operatorname{Proj}_{\Null^\perp(A)}\hat x, \quad \hat x_2 = \operatorname{Proj}_{\Null(A)}\hat x,
-\qquad \hat x_1\perp\hat x_2
-\end{align*}
-
-% ===== Page 46 =====
-Then\origpage{46}
-\begin{align*}
-\norm{\hat x + m}^2 &= \inner{\hat x + m}{\hat x + m}\\
-&= \big\langle \underset{\in\Null^\perp}{\hat x_1} + (\underset{\in\Null}{\hat x_2} + \underset{\in\Null}{m}),\ \underset{\in\Null^\perp}{\hat x_1} + (\underset{\in\Null}{\hat x_2} + \underset{\in\Null}{m})\big\rangle\\
-&= \inner{\hat x_1}{\hat x_1} + \inner{\hat x_2 + m}{\hat x_2 + m}\\
-&= \norm{\hat x_1}^2 + \norm{\hat x_2 + m}^2\\
-&\geq \norm{\hat x_1}^2
-\end{align*}
-\explain{Equality for $m^* = -\hat x_2 \;\Rightarrow\; \norm{\hat x_2 + m} = 0$.}
-Hence
-\begin{gather*}
-\min_{\substack{Ax=b\\ m\in\Null(A)}} \norm{\hat x + m} = \norm{\hat x - \hat x_2} = \norm{\hat x_1}
-\end{gather*}
-and $\hat x_1$ is itself a solution:
-\begin{align*}
-A\hat x &= b\\
-A(\hat x_1 + \hat x_2) &= b\\
-A\hat x_1 + \underbrace{\cancel{A\hat x_2}}_{0} &= b\\
-\Rightarrow\quad A\hat x_1 &= b\\[4pt]
-&\boxed{\hat x_1 = \operatorname{Proj}_{\Null^\perp(A)}\hat x = \text{minimum norm solution}}
-\end{align*}
-\begin{insight}[Summary of the method]
-\begin{itemize}[nosep]
-  \item $\hat x_1$ does not depend on which solution $\hat x$ we start from: two solutions differ by an element
-        of $\Null(A)$, which the projection onto $\Null^\perp(A)$ removes. So \key{the minimum norm solution is unique}.
-  \item $\Null^\perp(A) = \Range(A\Hm)$ (since $Ax=0 \iff x\perp$ every row of $A$, i.e.\ every column of $A\Hm$).
-        Hence the minimum norm solution can be written $\hat x_1 = A\Hm z$, and $AA\Hm z = b$; if $A$ has
-        linearly independent rows, $\hat x_1 = A\Hm(AA\Hm)^{-1}b$.
-  \item If $b\notin\Range(A)$, combine both steps: replace $b$ by $b_1 = \operatorname{Proj}_{\Range(A)}b$, take any
-        least squares solution and project it onto $\Null^\perp(A)$. The result is the \term{minimum norm least
-        squares solution} (this is what the pseudo-inverse $A^{+}b$ computes); the example below does exactly this.
-\end{itemize}
-\end{insight}
-
-\begin{example}
-\begin{gather*}
-\bmat{1&2\\1&2}x = \bmat{2\\1}, \qquad
-b_1 = \operatorname{Proj}_{\Range(A)} b = \bmat{3/2\\3/2}\\[4pt]
-\bmat{1&2\\1&2}\hat x = \bmat{3/2\\3/2}
-\quad\Rightarrow\quad
-\hat x = \bmat{3/2\\0}\\[4pt]
-\Null(A) = \Span\left\{\bmat{2\\-1}\right\}, \qquad
-\underbrace{\dim\Null(A)}_{1} + \underbrace{\dim\Null^\perp(A)}_{1} = 2\\[4pt]
-\Null^\perp(A) = \Span\Big\{\underbrace{\bmat{1\\2}}_{v}\Big\} = \Range(A\Hm)\\[4pt]
-P_{\Null^\perp(A)} = B(B\Hm B)^{-1}B\Hm \;\overset{B=v}{=}\; \frac{vv\Hm}{v\Hm v}
-= \frac{\bmat{1\\2}\bmat{1&2}}{\bmat{1&2}\bmat{1\\2}} = \frac15\bmat{1&2\\2&4}\\[4pt]
-\hat x_1 = \frac15\bmat{1&2\\2&4}\bmat{3/2\\0} = \frac15\bmat{3/2\\3} = \bmat{3/10\\3/5}
-\end{gather*}
-\begin{insight}[Checking the answer]
-\begin{itemize}[nosep]
-  \item $A\hat x_1 = \bmat{3/10+6/5\\ 3/10+6/5} = \bmat{3/2\\3/2} = b_1$, so $\hat x_1$ is a least squares solution.
-  \item $\hat x_1 = \tfrac{3}{10}\bmat{1 & 2}\T\in\Null^\perp(A)$, i.e.\ $\hat x_1\perp\bmat{2 & -1}\T$.
-  \item Starting from $\bmat{0 & 3/4}\T$ or $\bmat{1/2 & 1/2}\T$ instead gives the same $\hat x_1$, e.g.
-        \[
-        \tfrac15\bmat{1&2\\2&4}\bmat{0\\3/4} = \bmat{3/10\\3/5}.
-        \]
-  \item Norms: $\norm{\hat x_1}^2 = \tfrac{9}{20} = 0.45$, smaller than
-        $\norm{\bmat{3/2 & 0}\T}^2 = 2.25$, $\norm{\bmat{0 & 3/4}\T}^2 = 0.5625$ and $\norm{\bmat{1/2 & 1/2}\T}^2 = 0.5$.
-\end{itemize}
-\end{insight}
 \end{example}

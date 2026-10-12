@@ -1,3 +1,33 @@
+% Section 4: Linear Transformations  (original handwritten pages 25--32)
+\section{Linear Transformations}\label{sec:lt}
+\syllabusweek{Week 5 --- linear transformations, null space, range space, matrix representations}
+\subsection{Definition and Examples}\label{ss:lt-def}
+\begin{definition}
+Let $\V$ \& $\W$ be two vector spaces over the same field $\F$. A \term{linear transformation} $\mathcal{A}$ is a mapping from $\V$ into $\W$ shown as $\mathcal{A}:\V\to\W$ s.t.
+\[
+\mathcal{A}(\alpha_1 v_1 + \alpha_2 v_2) = \alpha_1\mathcal{A}v_1 + \alpha_2\mathcal{A}v_2
+\]
+for all $v_1,v_2\in\V$ and all $\alpha_1,\alpha_2\in\F$.
+\end{definition}
+\begin{center}
+\begin{tikzpicture}
+  \draw (0,0) circle (0.7);
+  \draw (2.4,0) circle (0.7);
+  \node at (0,0.35) {$\V$};
+  \node at (2.4,0.35) {$\W$};
+  \fill (0,-0.15) circle (1.2pt); \node at (0,-0.4) {$v$};
+  \fill (2.4,-0.15) circle (1.2pt); \node at (2.4,-0.4) {$w$};
+  \draw[->] (0.08,-0.15) -- (2.32,-0.15);
+  \draw[->] (0.35,0.6) to[out=40,in=140] (2.05,0.6);
+  \node[below] at (0,-0.8) {Domain};
+  \node[below,align=center] at (2.4,-0.8) {Co-domain\\ range};
+\end{tikzpicture}
+\end{center}
+\explain{$\V$ is the \term{domain} and $\W$ the \term{co-domain}; the \term{range} $\Range(\mathcal A) = \{\mathcal A v : v\in\V\}$ is the subset of $\W$ actually reached (in general $\Range(\mathcal A)\subseteq\W$).}
+\begin{insight}
+The single condition is equivalent to additivity $\mathcal A(v_1+v_2) = \mathcal Av_1+\mathcal Av_2$ together with homogeneity $\mathcal A(\alpha v) = \alpha\mathcal Av$. Taking $\alpha_1=\alpha_2=0$ gives $\mathcal A 0_\V = 0_\W$. Standard examples: $x\mapsto Ax$ for $A\in\F^{m\times n}$ ($\V=\F^n$, $\W=\F^m$, as in the induced-norm section), differentiation $f\mapsto f'$ on polynomials, and $f\mapsto\int_0^1 f(t)\,dt$.
+\end{insight}
+
 % ===== Page 25 =====
 \needspace{8\baselineskip}
 \begin{example}\leavevmode\origpage{25}
@@ -495,296 +525,4 @@ R=\bmat{1&1&1\\0&1&1\\0&0&1}=Q^{-1},
 $\bar{\bar A}$ is the matrix of $\frac{d}{dt}$ in the canonical bases: $1\mapsto0$, $t\mapsto1$, $t^2\mapsto2t$, $t^3\mapsto3t^2$, which gives exactly the columns $\bmat{0\\0\\0},\bmat{1\\0\\0},\bmat{0\\2\\0},\bmat{0\\0\\3}$. Altogether $\bar{\bar A}=Q^{-1}AP=RAP$.
 \end{insight}
 \end{itemize}
-\end{example}
-
-\section{Direct Sums and Orthogonal Projections}\label{sec:direct-sum}
-\syllabusweek{Week 6 --- direct sum decompositions, projection theorem, orthogonal projections}
-
-\subsection{Direct Sums}\label{ss:direct-sums}
-
-\begin{definition}
-Let $\V$ be a vector space and let $M_1,\dots,M_k$ be subspaces of $\V$. The \term{sum} of these subspaces is defined as
-\[
-M=M_1+M_2+\dots+M_k=\{m\in\V \mid m=m_1+m_2+\dots+m_k,\ m_i\in M_i\ \forall i\}.
-\]
-The subspaces are called \term{linearly independent} iff
-\[
-m_1+m_2+\dots+m_k=0_V \quad\text{where } m_i\in M_i\ \forall i
-\quad\Rightarrow\quad m_1=m_2=\dots=m_k=0_V .
-\]
-\end{definition}
-
-\begin{center}
-\begin{minipage}{0.42\textwidth}\centering
-\begin{tikzpicture}[scale=1.0]
-% axes
-\draw[->] (-2.2,0) -- (2.3,0);
-\draw[->] (0,-1.5) -- (0,1.6);
-% subspaces (lines through the origin)
-\draw (-0.9,-1.42) -- (0.95,1.5) node[above right] {$y$};
-\draw (-2.1,-0.78) -- (2.1,0.78) node[above right] {$z$};
-\draw (-1.0,1.45) -- (1.0,-1.45);
-\node[above left] at (-1.0,1.45) {$\gamma$};
-% vectors y, z and y+z = gamma
-\draw[->,thick] (0,0) -- (0.6,0.95) node[right] {$y$};
-\draw[->,thick] (0,0) -- (-1.0,-0.37) node[below] {$z$};
-\draw[->,dashed] (-1.0,-0.37) -- (-0.4,0.58);
-\draw[dashed] (0.6,0.95) -- (-0.4,0.58);
-\fill (-0.4,0.58) circle (1pt);
-\end{tikzpicture}
-\end{minipage}%
-\begin{minipage}{0.4\textwidth}
-$y+z-\gamma=0$\\
-$\Rightarrow$ not linearly independent
-\end{minipage}
-\end{center}
-
-% ===== Page 33 =====
-\begin{remark}\leavevmode\origpage{33}
-Let $\V=M_1+M_2+\dots+M_k$ and let $M_1,\dots,M_k$ be linearly independent. Then for $x\in\V$,
-\[
-x=m_1+m_2+\dots+m_k, \qquad m_i\in M_i\ \forall i,
-\]
-\key{$m_1,m_2,\dots,m_k$ are unique.}
-\end{remark}
-
-\begin{proof}
-Assume $m_1,\dots,m_k$ are not unique, i.e.\ $\exists i$ s.t.\ $m_i\ne\bar m_i$:
-\begin{align*}
-x&=m_1+\dots+m_k\\
-x&=\bar m_1+\dots+\bar m_k\\
-0_V&=\underbrace{(m_1-\bar m_1)}_{\in M_1}+\underbrace{(m_2-\bar m_2)}_{\in M_2}+\dots+\underbrace{(m_k-\bar m_k)}_{\in M_k}
-\end{align*}
-$\Rightarrow M_1,\dots,M_k$ are not linearly independent. \qedhere
-\end{proof}
-
-\begin{definition}
-Let $M_1,\dots,M_k$ be subspaces of $\V$. Let
-\begin{enumerate}[label=\roman*-)]
-\item $M=M_1+M_2+\dots+M_k$
-\item $M_1,M_2,\dots,M_k$ are linearly independent.
-\end{enumerate}
-Then $M$ is said to be the \term{direct sum} of $M_1,\dots,M_k$. This is shown as
-\[
-M=M_1\oplus M_2\oplus\dots\oplus M_k .
-\]
-\end{definition}
-
-\begin{example}
-$\V=\R^4$, \quad $x=(x_1,x_2,x_3,x_4)^T\in\R^4$.
-\begin{alignat*}{3}
-M_1&\triangleq\{x\in\R^4\mid x_4=x_3=0\}: &\quad &\bmat{x_1\\x_2\\0\\0}, &\quad \dim&=2\\
-M_2&\triangleq\{x\in\R^4\mid x_1=x_2=0\}: & &\bmat{0\\0\\x_3\\x_4}, & \dim&=2\\
-M_3&\triangleq\{x\in\R^4\mid x_1=0\}: & &\bmat{0\\x_2\\x_3\\x_4}, & \dim&=3
-\end{alignat*}
-\begin{align*}
-M_1+M_2&=\R^4 && \Rightarrow \text{direct sum: } M_1\,\&\,M_2 \text{ linearly independent} \Rightarrow M_1\oplus M_2=\R^4\\
-M_1+M_3&=\R^4 && \Rightarrow \text{not direct sum}\\
-M_2+M_3&=M_3 && \Rightarrow \text{not direct sum } (M_2\subset M_3)
-\end{align*}
-
-\sep
-For $M_1$ and $M_3$:
-\[
-\bmat{x_1\\x_2\\0\\0}+\bmat{0\\x_2'\\x_3'\\x_4'}=\bmat{0\\0\\0\\0},
-\qquad\text{e.g.}\qquad
-\underset{\in M_1}{\bmat{0\\1\\0\\0}}+\underset{\in M_3}{\bmat{0\\-1\\0\\0}}=\underset{0_V}{\bmat{0\\0\\0\\0}}
-\]
-As the two summands are nonzero, $M_1\,\&\,M_3$ are linearly dependent. $\therefore$ Not a direct sum.
-
-$M_2\,\&\,M_3$ are linearly dependent (e.g.\ $m_2=(0,0,1,0)^T\in M_2$, $m_3=-m_2\in M_3$). $\therefore$ Not a direct sum.
-\begin{insight}[Dimension test]
-For two subspaces, $M_1+M_2$ is direct $\iff M_1\cap M_2=\{0_V\}\iff\dim(M_1+M_2)=\dim M_1+\dim M_2$. Here: $M_1\cap M_2=\{0\}$ and $2+2=4$ (direct); $M_1\cap M_3=\{(0,x_2,0,0)^T\}$, $2+3=5\ne4$ (not direct); $M_2\cap M_3=M_2$, $2+3\ne3$ (not direct).
-\end{insight}
-\end{example}
-
-% ===== Page 34 =====
-\subsection{Orthogonal Direct Sums and Orthogonal Complements}\label{ss:orth-complement}
-
-\begin{definition}\leavevmode\origpage{34}
-Let $\V$ be an inner product space. Two subspaces $M_1\,\&\,M_2$ are said to be \term{orthogonal} iff
-\[
-\inner{m_1}{m_2}=0 \qquad \forall m_1\in M_1,\ \forall m_2\in M_2 .
-\]
-We denote this $M_1\perp M_2$.
-\end{definition}
-% corrected: notes had "M_2 & M_2" in the first line; M_1 & M_2 meant.
-
-\needspace{8\baselineskip}
-\begin{definition}
-Let $M$ be equal to $M_1+M_2+\dots+M_k$ and $M_i\perp M_j$ for $i\ne j$. Then $M$ is said to be an \term{orthogonal direct sum} of $M_1,\dots,M_k$. We show this as
-\[
-M=M_1\overset{\perp}{\oplus}M_2\overset{\perp}{\oplus}\dots\overset{\perp}{\oplus}M_k .
-\]
-If $M=\V$ then
-\[
-\V=M_1\overset{\perp}{\oplus}M_2\overset{\perp}{\oplus}\dots\overset{\perp}{\oplus}M_k
-\]
-is called an \term{orthogonal direct sum decomposition} of $\V$.
-\end{definition}
-
-\paragraph{\key{Orthogonality implies linear independence.}}
-Let $\sum_{i=1}^{k}m_i=0_V$, \ $m_i\in M_i$. Then
-\begin{align*}
-\Big\langle\sum_{i=1}^{k}m_i,\,m_j\Big\rangle&=\inner{0_V}{m_j}=0\\
-\sum_{i=1}^{k}\inner{m_i}{m_j}&=0
-\end{align*}
-Since $\inner{m_i}{m_j}=0$ when $i\ne j$:
-\[
-\inner{m_j}{m_j}=0 \ \Rightarrow\ m_j=0_V .
-\]
-\explain{The last step uses positive definiteness of the inner product. Since $j$ was arbitrary, all $m_j=0_V$: orthogonality implies linear independence.}
-
-\begin{definition}
-Let $M$ be a subspace of an inner product space $\V$. The \term{orthogonal complement} $M^\perp$ of the subspace is defined as
-\[
-M^\perp=\{x\in\V\mid \inner{x}{m}=0\ \forall m\in M\}.
-\]
-\end{definition}
-The zero vector is orthogonal to every vector, so $0_V\in M^\perp$ always. Two examples:
-
-\begin{center}
-\begin{minipage}{0.34\textwidth}\centering
-\begin{tikzpicture}[scale=0.85]
-\draw[->] (-1.8,0) -- (1.8,0) node[right] {$x_1$};
-\draw[->] (0,-1.5) -- (0,1.7) node[above] {$x_2$};
-\draw[thick] (-1.4,-1.4) -- (1.4,1.4) node[right] {$M$};
-\draw[thick,dashed] (-1.4,1.4) -- (1.4,-1.4) node[right] {$M^\perp$};
-\end{tikzpicture}
-\end{minipage}%
-\begin{minipage}{0.6\textwidth}
-\begin{align*}
-M&=\Span\left\{\bmat{1\\1}\right\}, & \bmat{-1\\1}&\in M^\perp, \quad \bmat{2\\-2}\in M^\perp\\
-M^\perp&=\Span\left\{\bmat{-1\\1}\right\}, & M+M^\perp&=M\overset{\perp}{\oplus}M^\perp
-\end{align*}
-\end{minipage}
-\end{center}
-\begin{center}
-\begin{minipage}{0.3\textwidth}\centering
-\begin{tikzpicture}[scale=0.85]
-\fill[pattern=vertical lines, pattern color=gray!70] (-0.2,0) -- (2,0) -- (1.2,-1.2) -- (-1.0,-1.2) -- cycle;
-\draw[->] (0,0) -- (0,2) node[above] {$z$};
-\draw[->] (0,0) -- (2.3,0) node[right] {$y$};
-\draw[->] (0,0) -- (-0.95,-1.45) node[below left] {$x$};
-\node at (1.25,-0.75) {$M$};
-\node[right] at (0,1.4) {$M^\perp$};
-\end{tikzpicture}
-\end{minipage}%
-\begin{minipage}{0.55\textwidth}
-\begin{align*}
-M&=\{x\text{-}y \text{ plane}\}\\
-M^\perp&=\{z \text{ axis}\}\\
-\underset{\dim=2}{M}\overset{\perp}{\oplus}\underset{\dim=1}{M^\perp}&=\underset{\dim 3}{\R^3}
-\end{align*}
-\end{minipage}
-\end{center}
-Orthogonality implies linear independence, thus this is a direct sum; since the summands are also orthogonal, it is an orthogonal direct sum.
-
-\needspace{9\baselineskip}
-\begin{claim}
-\key{$M^\perp$ is a subspace of $\V$.}
-\end{claim}
-Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$. Then
-\begin{align*}
-\inner{x+y}{m}&=\underbrace{\inner{x}{m}+\inner{y}{m}}_{0} \quad (m\in M)\\
-&=0 \quad \forall m\in M &&\Rightarrow\ x+y\in M^\perp\\
-\inner{\alpha x}{m}&=\alpha\inner{x}{m}=0 \quad\forall m\in M &&\Rightarrow\ \alpha x\in M^\perp
-\end{align*}
-$\therefore$ $M^\perp$ is closed under addition and scalar multiplication, hence a subspace of $\V$.
-
-% ===== Page 35 =====
-\begin{theorem}[Orthogonal decomposition]\leavevmode\origpage{35}
-Let $\V$ be an inner product space and $M$ a subspace of $\V$. Then \key{$\V$ is the orthogonal direct sum of $M$ and $M^\perp$}:
-\[
-\boxed{\V=M\overset{\perp}{\oplus}M^\perp}
-\]
-To prove this we check:
-\begin{itemize}[nosep]
-\item $\V=M+M^\perp$ \ (to be shown, proof below);
-\item $M\,\&\,M^\perp$ are linearly independent \ $\checkmark$;
-\item $M\perp M^\perp$ \ $\checkmark$.
-\end{itemize}
-\end{theorem}
-
-\begin{proof}
-\textbf{Part I:} $\dim M=n\triangleq\dim\V \Rightarrow M=\V$ \ \textcircled{?}\par
-\explain{Answer to \textcircled{?}: a basis of $M$ consists of $n$ linearly independent vectors of $\V$; in an $n$-dimensional space any $n$ independent vectors form a basis, so they span $\V$ and $M=\V$.}
-
-\begin{center}
-\begin{minipage}{0.25\textwidth}\centering
-\begin{tikzpicture}
-\draw (0,0) ellipse (0.6 and 0.85);
-\draw (0,0) ellipse (0.45 and 0.7);
-\node at (0,0) {$M$};
-\node[right] at (0.55,-0.75) {$\dim\V=n$};
-\end{tikzpicture}
-\end{minipage}%
-\begin{minipage}{0.6\textwidth}
-\begin{align*}
-M^\perp&=\V^\perp=\{0_V\}\\
-\V&=M+M^\perp\\
-x&=\underset{\in M}{x_1}+\underset{\in M^\perp}{x_2}
-\ \Rightarrow\ x=\underset{\in M}{x}+\underset{\in M^\perp}{0_V} \quad\checkmark
-\end{align*}
-\end{minipage}
-\end{center}
-
-\textbf{Part II:} $\dim M<n$, with $\dim M = k$. Let
-\begin{align*}
-B&=\{m_1,m_2,m_3,\dots,m_k\} && \text{(basis for } M)\\
-C&=\{m_1,m_2,\dots,m_k,m_{k+1},\dots,m_n\} && \text{(basis for } \V)
-\end{align*}
-Apply Gram--Schmidt orthogonalization to $C$:
-\[
-\bar C=\{\underbrace{\underset{\uparrow\, m_1}{e_1},e_2,\dots,e_k}_{\text{form a basis for } M},\ \overbrace{e_{k+1},\dots,e_n}^{\text{basis for } M^\perp}\},
-\qquad
-\Span\{e_1,\dots,e_k\}=\Span\{m_1,\dots,m_k\}.
-\]
-$\bar C$ is a basis for $\V$. For $x\in\V$:
-\[
-x=\sum_{i=1}^{n}\alpha_ie_i=\underbrace{\sum_{i=1}^{k}\alpha_ie_i}_{x_1\in M}+\underbrace{\sum_{j=k+1}^{n}\alpha_je_j}_{x_2\in M^\perp}
-\]
-\explain{$x_2\in M^\perp$ by construction: Gram--Schmidt makes each $e_j$ ($j>k$) orthogonal to $e_1,\dots,e_k$, which span $M$; hence $e_j\perp m$ for all $m\in M$, and so is every combination of them.}
-\[
-\Rightarrow\ x=\underset{\in M}{x_1}+\underset{\in M^\perp}{x_2}\ \Rightarrow\ \V=M+M^\perp \qedhere
-\]
-\end{proof}
-\begin{insight}[The remaining two items]
-The other two items are immediate: $M\perp M^\perp$ by the definition of $M^\perp$, and orthogonality implies linear independence (shown above), equivalently $M\cap M^\perp=\{0_V\}$ since $x\in M\cap M^\perp\Rightarrow\inner{x}{x}=0$. Consequently $\dim M^\perp=\dim\V-\dim M$, and $\{e_{k+1},\dots,e_n\}$ is in fact a basis of $M^\perp$. (Finite dimension of $\V$ is assumed in the proof.)
-\end{insight}
-
-\begin{example}
-$\V=\R^4$,
-\[
-M=\Span\left\{\bmat{1\\2\\3\\4},\bmat{4\\3\\2\\1}\right\}. \qquad \text{Find a basis for } M^\perp.
-\]
-Complete the basis of $M$ with two canonical vectors to a basis of $\R^4$ and orthogonalize:
-\[
-C=\Big\{\underset{m_1}{\bmat{1\\2\\3\\4}},\ \underset{m_2}{\bmat{4\\3\\2\\1}},\ \underset{m_3}{\bmat{1\\0\\0\\0}},\ \underset{m_4}{\bmat{0\\1\\0\\0}}\Big\}
-\ \xrightarrow{\text{Gram--Schmidt}}\ \bar C=\{e_1,e_2,e_3,e_4\}
-\]
-% corrected: notes labelled the un-orthogonalized vectors [1,0,0,0], [0,1,0,0] themselves as e_3, e_4 and wrote M^perp = sp{e_3,e_4};
-% these vectors are NOT orthogonal to M (e.g. <[1,0,0,0],m_1> = 1). The last vector is cramped in the scan (could be read as 0,1,3);
-% [0,1,0,0] is the reading used. The Gram--Schmidt computation below is added and verified with exact (Fraction) arithmetic.
-\begin{align*}
-e_1&=m_1=\bmat{1\\2\\3\\4}, \qquad \inner{e_1}{e_1}=30\\
-e_2&=m_2-\frac{\inner{m_2}{e_1}}{\inner{e_1}{e_1}}e_1=\bmat{4\\3\\2\\1}-\frac{20}{30}\bmat{1\\2\\3\\4}=\frac53\bmat{2\\1\\0\\-1}\ \to\ \bmat{2\\1\\0\\-1}\\
-e_3&=m_3-\frac{\inner{m_3}{e_1}}{\inner{e_1}{e_1}}e_1-\frac{\inner{m_3}{e_2}}{\inner{e_2}{e_2}}e_2
- =\bmat{1\\0\\0\\0}-\frac{1}{30}\bmat{1\\2\\3\\4}-\frac{2}{6}\bmat{2\\1\\0\\-1}=\frac1{10}\bmat{3\\-4\\-1\\2}\ \to\ \bmat{3\\-4\\-1\\2}\\
-e_4&=m_4-\frac{\inner{m_4}{e_1}}{\inner{e_1}{e_1}}e_1-\frac{\inner{m_4}{e_2}}{\inner{e_2}{e_2}}e_2-\frac{\inner{m_4}{e_3}}{\inner{e_3}{e_3}}e_3\\
- &=\bmat{0\\1\\0\\0}-\frac{2}{30}\bmat{1\\2\\3\\4}-\frac{1}{6}\bmat{2\\1\\0\\-1}+\frac{4}{30}\bmat{3\\-4\\-1\\2}=\frac16\bmat{0\\1\\-2\\1}\ \to\ \bmat{0\\1\\-2\\1}
-\end{align*}
-\explain{Scaling a vector does not affect orthogonality, so after each step the vector is rescaled to integer entries ($\to$) and the scaled version is used in the following steps.}
-\[
-\boxed{M^\perp=\Span\{e_3,e_4\}=\Span\left\{\bmat{3\\-4\\-1\\2},\bmat{0\\1\\-2\\1}\right\}}
-\]
-\begin{insight}[Verification]
-$\inner{e_3}{m_1}=3-8-3+8=0$, \ $\inner{e_3}{m_2}=12-12-2+2=0$, \ $\inner{e_4}{m_1}=2-6+4=0$, \ $\inner{e_4}{m_2}=3-4+1=0$, \ and $\inner{e_3}{e_4}=-4+2+2=0$. Since $e_3,e_4\ne0$, the set $C$ was indeed a basis of $\R^4$.
-
-Alternatively,
-\[
-x\in M^\perp\iff\bmat{1&2&3&4\\4&3&2&1}x=0, \qquad\text{i.e.}\qquad M^\perp=\Null\!\left(\bmat{1&2&3&4\\4&3&2&1}\right),
-\]
-which has dimension $4-2=2$ and is spanned e.g.\ by $(1,-2,1,0)^T$ and $(0,1,-2,1)^T$; note $(3,-4,-1,2)^T=3(1,-2,1,0)^T+2(0,1,-2,1)^T$, so both answers describe the same subspace. Gram--Schmidt additionally gives an \emph{orthogonal} basis.
-\end{insight}
 \end{example}
