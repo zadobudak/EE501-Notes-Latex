@@ -245,11 +245,11 @@ $f\neq0$ but $\norm{f}_1=0$, so property (N1) fails on the set of all functions.
 &= \left(\sum_{i,j}\abs{a_{ij}}^p\right)^{1/p}, \qquad p\ge1
 \end{align*}
 \begin{insight}[Numbers for this $A$]
-\[
+{\centering $\displaystyle
 \norm{A}_1 = 1+2+3+4 = 10, \quad
 \norm{A}_2 = \sqrt{1+4+9+16}=\sqrt{30}\approx5.48, \quad
 \norm{A}_\infty = \max_{i,j}\abs{a_{ij}} = 4
-\]
+$\par}
 The case $p=2$ is the \term{Frobenius norm} $\norm{A}_F$. Since $\R^{m\times n}$ is a vector space that is identified with $\R^{mn}$ through $\operatorname{Vec}$, every vector norm gives a matrix norm in this way.
 \end{insight}
 
@@ -263,20 +263,21 @@ The case $p=2$ is the \term{Frobenius norm} $\norm{A}_F$. Since $\R^{m\times n}$
 &= \sqrt{\tr(A\Hm A)} && \text{(complex)}
 \end{align*}
 For example, with
-\[
+\begin{gather*}
 A = \bmat{a_{11} & a_{12}\\ a_{21} & a_{22}},
 \qquad
 A\T A = \underbrace{\bmat{a_{11} & a_{21}\\ a_{12} & a_{22}}}_{A\T}
 \underbrace{\bmat{a_{11} & a_{12}\\ a_{21} & a_{22}}}_{A}
 = \bmat{a_{11}^2 + a_{21}^2 & \\ & a_{12}^2 + a_{22}^2}
-\]
+\\[8pt]
 % corrected: notes had tr(A) on the left-hand side (the trace taken is that of A^T A)
-\needspace{5\baselineskip}
-\begin{align*}
-\tr(A\T A) &= a_{11}^2 + a_{21}^2 + a_{12}^2 + a_{22}^2\\*
+\begin{aligned}
+\tr(A\T A) &= a_{11}^2 + a_{21}^2 + a_{12}^2 + a_{22}^2\\
 &= \sum_{i,j} a_{ij}^2
-\end{align*}
+\end{aligned}
+\end{gather*}
 \explain{Only the diagonal of $A\T A$ matters for the trace, so its off-diagonal entries ($a_{11}a_{12}+a_{21}a_{22}$) are left blank.}
+\needspace{8\baselineskip}
 \begin{insight}
 In general $(A\Hm A)_{jj} = \sum_i \overline{a_{ij}}\,a_{ij} = \sum_i |a_{ij}|^2$ is the squared length of the $j$-th column of $A$, so
 $\tr(A\Hm A) = \sum_j\sum_i |a_{ij}|^2$. The Frobenius norm is simply the Euclidean norm of $A$ viewed as a long vector in $\F^{mn}$; we write it $\norm{A}_F$ to distinguish it from the \emph{induced} $2$-norm of the 2nd method below (which is in general different, e.g.\ $\norm{I_n}_F = \sqrt n$ but the induced norm of $I_n$ is $1$).
@@ -603,16 +604,16 @@ Suppose that $\{v_n\}_{n=0}^\infty$ is convergent to $v\in\V$, i.e.\ $\lim_{n\to
 \origpage{17}
 \begin{example}
 $\V = \Q$: set of rational numbers, $\F = \Q$ as well.
-\[
-\sqrt{2} = 1.41421356237310\ldots \;\Rightarrow\; \text{not a rational number}
-\]
-\begin{align*}
+\begin{gather*}
+\sqrt{2} = 1.41421356237310\ldots \;\Rightarrow\; \text{not a rational number}\\[6pt]
+\begin{aligned}
 v_0 &= 1 = \tfrac11\\
 v_1 &= 1.4 = \tfrac{14}{10}\\
 v_2 &= 1.41 = \tfrac{141}{100}\\
 v_3 &= 1.414 = \tfrac{1414}{1000}\\
 &\ \,\vdots
-\end{align*}
+\end{aligned}
+\end{gather*}
 \needspace{7\baselineskip}
 We need $v\in\V$ such that $\norm{v_n - v}\to 0$ as $n\to\infty$, where $v_n \in\V\ \forall n$.
 But $v$ should be $\sqrt2$ for $\norm{v_n - v}\to 0$ as $n\to\infty$.

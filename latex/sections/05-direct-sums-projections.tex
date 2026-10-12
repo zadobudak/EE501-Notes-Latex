@@ -140,7 +140,7 @@ Since $\inner{m_i}{m_j}=0$ when $i\ne j$:
 \[
 \inner{m_j}{m_j}=0 \ \Rightarrow\ m_j=0_V .
 \]
-\explain{The last step uses positive definiteness of the inner product. Since $j$ was arbitrary, all $m_j=0_V$: orthogonality implies linear independence.}
+\explain{The last step uses positive definiteness of the inner product. Since $j$ was arbitrary, all $m_j=0_V$: orthogonality implies linear independence.\qedhere}
 \end{proof}
 
 \begin{definition}
@@ -457,6 +457,7 @@ x-m^* = \left(\bmat{1\\2} - \alpha^*\bmat{1\\1}\right) &\perp \bmat{1\\1}\\
   \node[above] at (1.2,2.6) {$(x-m^*)\perp M$};
 \end{tikzpicture}
 \end{minipage}
+\par\smallskip
 \explain{Check: $x-m^* = \bmat{-1/2 & 1/2}\T$ and $\bmat{-1/2 & 1/2}\bmat{1 & 1}\T = 0$; the distance from $x$ to $M$ is $\norm{x-m^*} = 1/\sqrt2$.}
 \end{example}
 
@@ -744,7 +745,7 @@ P_M^2 &= B(B\Hm B)^{-1}\cancel{B\Hm B}\,\cancel{(B\Hm B)^{-1}}B\Hm = B(B\Hm B)^{
   \coordinate (X) at (2.6,3.0);
   \draw[->,thick] (O) -- (X) node[above right] {$x$};
   \draw[->,thick] (O) -- (P);
-  \node[below right,xshift=3pt,yshift=-2pt] at (P) {$P_M x$};
+  \node[below,yshift=-1pt] at (P) {$P_M x$};
   \draw[->] (X) -- (P);
 \end{tikzpicture}
 \qquad\qquad

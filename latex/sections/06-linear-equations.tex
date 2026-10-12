@@ -54,7 +54,7 @@ Two questions:
 % ===== Page 43 =====
 \sep
 \point $\displaystyle \underbrace{\bmat{1\\1}}_{A}\underset{\in\R}{x} = \underbrace{\bmat{2\\2}}_{b}$,
-\qquad $b\in\Range(A)$\origpage{43}\\
+\qquad $b\in\Range(A)$\origpage{43}\\[4pt]
 $\Rightarrow$ $\exists$ an exact solution. \quad $\Rightarrow$ The solution is unique.
 
 \point $\displaystyle \underbrace{\bmat{1\\1}}_{A}x = \underbrace{\bmat{2\\1}}_{b}$
@@ -118,6 +118,7 @@ In general:
 $\therefore$ 2-) If an exact solution $\hat x$ exists, then \key{it is unique
 $\iff \Null(A) = \{0\}$} \ or \ $\dim\Null(A) = 0$.
 \end{keybox}
+\needspace{7\baselineskip}
 \begin{insight}
 Conversely, if $A\hat x = b$ and $A\tilde x = b$, then $A(\hat x-\tilde x) = 0$, i.e.\ any two exact solutions
 differ by a vector of $\Null(A)$. Hence \key{the full solution set is the affine set
@@ -160,11 +161,12 @@ Then
 \end{align*}
 % corrected: notes had the first term without the square, i.e. ||Ax-b_1|| + ||b_2||^2
 \explain{\key{The first term can be made zero}: $b_1\in\Range(A)$, so some $x$ satisfies $Ax=b_1$ exactly.}
+\needspace{8\baselineskip}
 Therefore
 \begin{gather*}
-\boxed{\min_{x\in\C^n}\norm{Ax-b} = \norm{b_2} = \norm{\operatorname{Proj}_{\Range^\perp(A)} b}}\\[4pt]
+\boxed{\min_{x\in\C^n}\norm{Ax-b} = \norm{b_2} = \norm{\operatorname{Proj}_{\Range^\perp(A)} b}}\\*[4pt]
 A\hat x = b_1, \qquad \hat x = \arg\min_{x\in\C^n}\norm{Ax-b}, \qquad
-b_1 = \operatorname{Proj}_{\Range(A)} b\\[4pt]
+b_1 = \operatorname{Proj}_{\Range(A)} b\\*[4pt]
 \underbrace{\hat x}_{\substack{\text{min error /}\\ \text{least-squares solution}}} = \arg\min_{x\in\C^n}\norm{Ax-b}
 \end{gather*}
 \begin{insight}[Normal equations]
@@ -312,10 +314,8 @@ P_{\Null^\perp(A)} = B(B\Hm B)^{-1}B\Hm \;\overset{B=v}{=}\; \frac{vv\Hm}{v\Hm v
 
 % ===== Page 47 =====
 \subsection{General Procedure and the Fundamental Theorem}\label{ss:procedure}
-\origpage{47}%
-
-\begin{itemize}[leftmargin=1.5em]
-\item If $b\in\Range(A)$: \key{$\exists$ an exact solution} to $A\hat{x}=b$.
+\begin{itemize}[leftmargin=1.5em,topsep=0pt]
+\item If $b\in\Range(A)$:\origpage{47} \key{$\exists$ an exact solution} to $A\hat{x}=b$.
 \item If $b\notin\Range(A)$:
 \[
 b_1=\operatorname{Proj}_{\Range(A)} b, \qquad A\hat{x}=b_1
@@ -390,8 +390,7 @@ For $\Null^\perp(A)$, a vector $[a\ b\ c]\T$ orthogonal to both basis vectors of
 $k$: \key{\# of linearly independent rows $=$ \# of linearly independent columns} (column rank $=$ row rank).
 
 % ===== Page 48 =====
-\origpage{48}
-\begin{theorem}[Fundamental theorem of linear algebra]
+\begin{theorem}[Fundamental theorem of linear algebra]\leavevmode\origpage{48}
 $\Range(A\Hm)=\Null^\perp(A)$
 \end{theorem}
 \begin{proof}
@@ -583,8 +582,7 @@ Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \]
 
 % ===== Page 50 =====
-\origpage{50}
-\begin{example}
+\begin{example}\leavevmode\origpage{50}
 \[
 \underset{A}{\bmat{1&2\\1&2}}\underset{x}{\bmat{x_1\\x_2}}=\underset{b}{\bmat{1\\1}},
 \qquad
@@ -593,13 +591,13 @@ Ax=b,\qquad x_1=\hat{x}=x=A^{-1}b
 \]
 \begin{minipage}[c]{0.50\textwidth}
 \raggedright
-\begin{align*}
+$\begin{aligned}
 &\dim\Range(A)=1\\
 &\dim\Null(A)=1\\
 &\Null(A)=\Span\left\{\bmat{-2\\1}\right\}\\
 &\hat{x}+n=\bmat{1\\0}+\alpha\bmat{-2\\1},\quad n\in\Null(A)
 % corrected: notes had "x-hat + m" (an element of N(A) is added)
-\end{align*}
+\end{aligned}$
 \explain{In the sketch: $\Range(A\Hm)=\Span\{[1\ 2]\T\}$; the solution set $\hat x+\Null(A)$ is the line through $\hat x=[1\ 0]\T$ parallel to $\Null(A)$; $\hat{x}_1=\tfrac15[1\ 2]\T$ is its point on $\Range(A\Hm)$, and $\hat{x}_2=\hat x-\hat x_1\in\Null(A)$ is the part to ``get rid of''.}
 \end{minipage}\hfill
 \begin{minipage}[c]{0.48\textwidth}
@@ -686,8 +684,7 @@ b_1=P_{\Range(A)}b&=\frac13\bmat{-1\\4\\5}
 \]
 
 % ===== Page 51 =====
-\origpage{51}
-\paragraph{Minimum-norm solution.} $A\Hm=A\T$ as matrix is real.
+\paragraph{Minimum-norm solution.} $A\Hm=A\T$\origpage{51} as matrix is real.
 \begin{align*}
 A\Hm&=\bmat{1&1&0\\0&1&1\\1&2&1}\\
 P_{\Range(A\Hm)}&=B(B\Hm B)^{-1}B\Hm,\qquad B=\bmat{1&0\\0&1\\1&1}\\

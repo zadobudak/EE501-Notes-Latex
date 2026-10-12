@@ -295,6 +295,7 @@ Let $\mathcal{A}:\V\to\W$ be a linear transformation. The \term{range space} of 
 \]
 \end{definition}
 
+\needspace{6\baselineskip}
 \begin{claim}
 \key{$\Range(\mathcal{A})$ is a subspace of $\W$.}
 \end{claim}
@@ -342,13 +343,13 @@ A linear transformation $\mathcal{A}:\V\to\W$ is called \term{onto} iff \key{$\R
 
 \begin{example}
 $\V=\W=\{\text{polynomials with degree}\le 2\}$ \ ($\to\dim 3$),
-\[
-\mathcal{A}=\frac{d}{dt}, \qquad \mathcal{A}(at^2+bt+c)=2at+b.
-\]
-\begin{align*}
-\Null(\mathcal{A})&=\{\text{constant polynomials}\}, & \dim\Null(\mathcal{A})&=1\\
+\begin{gather*}
+\mathcal{A}=\frac{d}{dt}, \qquad \mathcal{A}(at^2+bt+c)=2at+b.\\[0.4em]
+\begin{aligned}
+\Null(\mathcal{A})&=\{\text{constant polynomials}\}, &\qquad \dim\Null(\mathcal{A})&=1\\
 \Range(\mathcal{A})&=\{\text{polynomials with degree}\le 1\}, & \dim\Range(\mathcal{A})&=2
-\end{align*}
+\end{aligned}
+\end{gather*}
 $\Range(\mathcal{A})\ne \W \ \Rightarrow\ \therefore$ \key{$\mathcal{A}$ is not onto.}
 \explain{Sum: $1+2=3$, the same as $\dim \V$.}
 \end{example}
@@ -444,6 +445,7 @@ w&=-w_1+w_2+3w_3\\
 \explain{Indeed $\frac{d}{dt}(t^3+2t^2+3t+4)=3t^2+4t+3$. ($[v]_B$: $v=1\cdot v_1+1\cdot v_2+1\cdot v_3+1\cdot v_4$, since $v_1+v_2+v_3+v_4=4+3t+2t^2+t^3$.)}
 \end{example}
 
+\needspace{14\baselineskip}
 \subsection{Change of Basis and Similar Matrices}\label{ss:basis-change-rep}
 
 \needspace{10\baselineskip}

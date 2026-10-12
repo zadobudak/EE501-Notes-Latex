@@ -65,7 +65,7 @@ $\lambda_i, e_i$: one eigenvalue of $A$ and corresponding eigenvector.
 \[
 \Rightarrow\ \boxed{\lambda_i\text{ is real}}
 \]
-\explain{By the previous theorem $\inner{e_i}{Ae_i}$ is real. Also, since $e_i\neq0$, we have $\inner{e_i}{e_i}=\norm{e_i}_2^2>0$. Hence $\lambda_i=\inner{e_i}{Ae_i}/\inner{e_i}{e_i}$ is real.}
+\explain{By the previous theorem $\inner{e_i}{Ae_i}$ is real. Also, since $e_i\neq0$, we have $\inner{e_i}{e_i}=\norm{e_i}_2^2>0$. Hence $\lambda_i=\inner{e_i}{Ae_i}/\inner{e_i}{e_i}$ is real.\qedhere}
 \end{proof}
 
 \begin{theorem}
@@ -90,7 +90,7 @@ Let $A$ be Hermitian, and let $\lambda_i,\lambda_j$ be two distinct eigenvalues 
 \explain{Top row: $\inner{e_i}{\lambda_je_j}=\bar\lambda_j\inner{e_i}{e_j}=\lambda_j\inner{e_i}{e_j}$ since $\lambda_j$ is real. Left equality: $\inner{e_i}{Ae_j}=\inner{A\Hm e_i}{e_j}=\inner{Ae_i}{e_j}$.}
 Hence
 \[
-\Null(A-\lambda_iI)\perp\Null(A-\lambda_jI)\ :\ \text{Eigenspaces are also orthogonal.}
+\Null(A-\lambda_iI)\perp\Null(A-\lambda_jI)\ :\ \text{Eigenspaces are also orthogonal.}\qedhere
 \]
 \end{proof}
 
@@ -318,7 +318,7 @@ Gram--Schmidt inside each eigenspace keeps the vectors in that eigenspace (they 
 \end{insight}
 \point We can apply \key{Gram--Schmidt orthonormalization to the two basis sets} and obtain the unitary matrix
 \[
-P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\; e_3^2 \,\bigr].
+P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\; e_3^2 \,\bigr].\qedhere
 \]
 \end{proof}
 

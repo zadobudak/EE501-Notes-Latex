@@ -228,7 +228,7 @@ This solves
 % ===== Page 87 =====
 \subsection{Method I: Non-Diagonalizable and General Case}\label{ss:method1-general}
 \origpage{87}%
-\paragraph{Case II: $A$ is not diagonalizable.}
+\paragraph{Case II: $A$ is not diagonalizable.}\leavevmode\par\vspace{-0.6em}
 
 \begin{example}
 Let us have $A\in\R^{3\times3}$ and
@@ -548,7 +548,7 @@ f(\lambda_j) & f'(\lambda_j) & \frac{f''(\lambda_j)}{2!} & \cdots & \frac{f^{(d_
  & & & & f(\lambda_j)}
 \]
 \end{keybox}
-\begin{itemize}[nosep]
+\begin{itemize}[nosep,topsep=0.4em]
 \item The $0^{\text{th}}$ power ($I$) forms the main diagonal.
 \item The $1^{\text{st}}$ power forms the first superdiagonal.
 \item And so on: the $i^{\text{th}}$ power forms the $i^{\text{th}}$ superdiagonal.
@@ -598,16 +598,15 @@ A = \left[\begin{array}{ccc|cc|c}
 
 % ===== Page 92 =====
 \origpage{92}
-\[
+\begin{gather*}
 f(s) = \sin(\pi s), \qquad f'(s) = \pi\cos(\pi s), \qquad f''(s) = -\pi^2\sin(\pi s)
-\]
-\[
+\\
 \sin(\pi J_1) = \bmat{1 & 0 & -\frac{\pi^2}{2}\\ 0 & 1 & 0\\ 0 & 0 & 1},
 \qquad
 \sin(\pi J_2) = \bmat{-1 & 0\\ 0 & -1},
 \qquad
 \sin(\pi J_3) = \bmat{1}
-\]
+\end{gather*}
 \explain{$J_1$ ($\lambda=\tfrac12$, size 3): $f(\tfrac12)=1$, \ $f'(\tfrac12)=\pi\cos\tfrac{\pi}{2}=0$, \ $f''(\tfrac12)/2!=-\pi^2/2$.}
 \explain{$J_2$ ($\lambda=\tfrac32$, size 2): $f(\tfrac32)=-1$, \ $f'(\tfrac32)=\pi\cos\tfrac{3\pi}{2}=0$.}
 \explain{$J_3$ ($\lambda=\tfrac52$, size 1): $f(\tfrac52)=\sin\tfrac{5\pi}{2}=1$.}
@@ -640,6 +639,9 @@ A^{1/2} &= P\bmat{\pm\sqrt3 & 0\\ 0 & \pm\sqrt1}P^{-1}
 \end{align*}
 % corrected: notes had \mp in both entries; the two signs can be chosen independently (4 matrices)
 \explain{These are all valid for the definition $A^{1/2}A^{1/2} = A$ (signs chosen independently: 4 matrices).}
+If $A$ is positive definite $\Rightarrow$ the square root is wanted to be positive definite, which is given by the function.
+\end{example}
+\needspace{12\baselineskip}
 \begin{insight}[The numbers]
 With $P=\left[\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right]$,
 \[
@@ -653,5 +655,3 @@ A^{1/2} = \text{\texttt{sqrtm(A)}} =\frac12\bmat{\sqrt3+1 & \sqrt3-1\\ \sqrt3-1 
 \]
 whose eigenvalues $\sqrt3,1$ are positive: it is \key{the unique positive-definite square root}. The other three choices $(a,b)=(-\sqrt3,1),(\sqrt3,-1),(-\sqrt3,-1)$ also square to $A$ but are not positive definite.
 \end{insight}
-If $A$ is positive definite $\Rightarrow$ the square root is wanted to be positive definite, which is given by the function.
-\end{example}

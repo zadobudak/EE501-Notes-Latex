@@ -88,7 +88,7 @@ d(s)&=(s-1)^3(s-2)\\
 m(s)&=\,?\quad\text{3 possibilities:}
 \end{aligned}
 \]
-\begin{enumerate}[label=\arabic*)]
+\begin{enumerate}[label=\arabic*),itemsep=2pt,topsep=2pt]
 \item $(s-1)(s-2)$
 \item $(s-1)^2(s-2)$\quad $\Leftarrow$ This is the minimal polynomial
 \item $(s-1)^3(s-2)$
@@ -317,10 +317,9 @@ Block sizes from the increments $5,2,1,0$: \ $5$ JB's in total; $5-2=3$ of size 
 
 \begin{example}
 Let $A\in\R^{4\times4}$. Single eigenvalue at $\lambda=7$, $m_1=2$. Find all possible JCFs the matrix $A$ can have.
-\begin{align*}
-d(s)&=(s-7)^4\\
-m(s)&=(s-7)^2
-\end{align*}
+\[
+d(s)=(s-7)^4,\qquad m(s)=(s-7)^2
+\]
 \[
 \begin{array}{ccc}
 \Null(A-7I) & \subsetneq & \Null\big((A-7I)^2\big)\\
@@ -833,7 +832,7 @@ Suppose a combination of the six vectors vanishes. Applying $\Sigma_i^2$ kills e
 P=\left[\begin{array}{ccc|ccc}\Sigma_i^2x&\Sigma_ix&x&\Sigma_i^2y&\Sigma_iy&y\end{array}\right]
 \]
 
-\needspace{10\baselineskip}
+\tcbbreak
 \sep
 \paragraph{Variant.} Continue the same example but with $\dim\Null(\Sigma_i)=3$, $\dim\Null(\Sigma_i^2)=5$.
 \[

@@ -53,6 +53,7 @@ The trivial subspaces $\{0\}$ and $\V$ are always invariant. \key{A one-dimensio
 
 % ===== Page 52 =====
 \origpage{52}
+\needspace{8\baselineskip}
 \begin{example}
 $\Null(\mathcal{A})$ \& $\Range(\mathcal{A})$ are invariant under $\mathcal{A}$.
 
@@ -89,11 +90,11 @@ When the domain and the codomain are the same, we can define the powers of a lin
 \point \term{Polynomials of $\mathcal{A}$} can be constructed using linear combinations of powers of $\mathcal{A}$.
 \begin{center}
 \begin{minipage}{0.66\textwidth}
-\begin{align*}
+\centering$\displaystyle\begin{aligned}
 p(s)&=\alpha_0s^n+\alpha_1s^{n-1}+\dots+\alpha_{n-1}s+\alpha_n\,(s^0)\\
 p(\mathcal{A})&=\alpha_0\mathcal{A}^n+\alpha_1\mathcal{A}^{n-1}+\dots+\alpha_{n-1}\mathcal{A}^1+\alpha_n\mathcal{A}^0\\
 p(\mathcal{A})&=\alpha_0\mathcal{A}^n+\dots+\alpha_{n-1}\mathcal{A}+\alpha_nI
-\end{align*}
+\end{aligned}$
 \end{minipage}\hfill
 \begin{minipage}{0.28\textwidth}
 \begin{keybox}
@@ -216,6 +217,7 @@ x_1=\bmat{1\\0}\qquad x_2=\bmat{0\\1}\qquad x_3=\bmat{1\\1}
 \end{align*}
 \end{minipage}
 % corrected: notes had "R: rotation vectors"; R denotes the rotation matrix
+\needspace{7\baselineskip}
 \begin{insight}
 No real vector keeps its direction under a $90^\circ$ rotation, so there are no real eigenvectors; the eigenvectors are complex: $A[1\ {-j}]\T=[j\ 1]\T=j\,[1\ {-j}]\T$ and $A[1\ j]\T=-j\,[1\ j]\T$. A rotation preserves length, $\norm{Re}=\norm{e}$ (also for complex $e$, since $R\Hm R=I$), which is what forces $\abs{\lambda_i}=1$; here $\lambda=\pm j=e^{\pm j\pi/2}$, i.e.\ $\omega=\pm\pi/2$ is the rotation angle.
 \end{insight}
@@ -309,6 +311,7 @@ P=[e_1\mid e_2],\qquad \bar{A}=f(A)=\ ?
 \[
 \begin{aligned}Ae_1&=\lambda_1e_1\\Ae_2&=\lambda_2e_2\end{aligned}
 \]
+\needspace{9\baselineskip}% keep the derivation together with its explanation below
 \begin{align*}
 [\lambda_1e_1\mid\lambda_2e_2]&=[Ae_1\mid Ae_2]=A[e_1\mid e_2]\\
 \underbrace{[e_1\mid e_2]}_{P}\underbrace{\bmat{\lambda_1&0\\0&\lambda_2}}_{\bar{A}}&=A\cdot P
@@ -513,8 +516,8 @@ Multiply with $(A-\lambda_1 I)$, then with $(A-\lambda_2 I)$, and so on:
 \times(A-\lambda_1 I):&\quad 0 + (\lambda_2-\lambda_1)\alpha_2 e_2 + \alpha_3(\lambda_3-\lambda_1)e_3 + \dots + \alpha_n(\lambda_n-\lambda_1)e_n = 0\\
 \times(A-\lambda_2 I):&\quad 0+0+\alpha_3(\lambda_3-\lambda_1)(\lambda_3-\lambda_2)e_3+\dots+\alpha_n(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)e_n = 0\\
 &\quad\ \vdots\\
-&\quad \alpha_n\underbrace{(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)\cdots(\lambda_n-\lambda_{n-1})}_{\neq 0}\,\underbrace{e_n}_{\neq 0} = 0
-\quad\Longrightarrow\quad \alpha_n = 0 \;\Longrightarrow\; \forall \alpha_i = 0\qedhere
+&\quad \alpha_n\underbrace{(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)\cdots(\lambda_n-\lambda_{n-1})}_{\neq 0}\,\underbrace{e_n}_{\neq 0} = 0\\
+&\quad\Longrightarrow\quad \alpha_n = 0 \;\Longrightarrow\; \forall \alpha_i = 0\qedhere
 \end{align*}
 \end{proof}
 \explain{The product is nonzero for distinct eigenvalues (this case), and $e_n$ is nonzero.}
