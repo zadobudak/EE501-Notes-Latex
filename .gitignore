@@ -10,3 +10,6 @@ latex/build/
 
 # Large original scan (29 MB) — kept locally, not versioned
 EE501 Lecture Notes of Umut Orguner (Fall 2024) by Elif Topaloglu.pdf
+
+# compiled PDF inside latex/ (the copy in the repository root is tracked)
+latex/main.pdf
