@@ -20,6 +20,7 @@
 \usepackage{marginnote}
 \usepackage{needspace}
 \titleformat{\section}{\needspace{8\baselineskip}\Large\bfseries\color{blue!45!black}}{\thesection}{0.8em}{}[{\color{blue!45!black}\titlerule[1pt]}]
+\newcommand{\sectionbreak}{\clearpage}   % every section starts on a new page
 \titlespacing*{\section}{0pt}{2.2em}{1.2em}
 \titleformat{\subsection}{\needspace{6\baselineskip}\large\bfseries\color{blue!35!black}}{\thesubsection}{0.7em}{}[{\color{gray!60}\titlerule[0.5pt]}]
 \titleformat{name=\subsection,numberless}{\needspace{6\baselineskip}\large\bfseries\color{blue!35!black}}{}{0pt}{}[{\color{gray!60}\titlerule[0.5pt]}]
@@ -68,7 +69,9 @@
 \setcounter{tocdepth}{2}
 
 % Thin separator between logically distinct blocks inside a section
-\newcommand{\sep}{\par\vspace{0.4em}\noindent{\color{gray!45}\rule{\linewidth}{0.4pt}}\par\vspace{0.2em}}
+\makeatletter
+\newcommand{\sep}{\par\needspace{4\baselineskip}\vspace{0.4em}\noindent{\color{gray!45}\rule{\linewidth}{0.4pt}}\par\nopagebreak\vspace{0.2em}}
+\makeatother
 % Explanation of a step (replaces hand-written side notes): placed directly below/above the math
 \makeatletter
 % If a display follows directly, do not end the paragraph (avoids an empty line before the display).

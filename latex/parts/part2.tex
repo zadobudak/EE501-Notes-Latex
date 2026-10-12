@@ -16,8 +16,9 @@ A\T A = \underbrace{\bmat{a_{11} & a_{21}\\ a_{12} & a_{22}}}_{A\T}
 = \bmat{a_{11}^2 + a_{21}^2 & \\ & a_{12}^2 + a_{22}^2}
 \]
 % corrected: notes had tr(A) on the left-hand side (the trace taken is that of A^T A)
+\needspace{5\baselineskip}
 \begin{align*}
-\tr(A\T A) &= a_{11}^2 + a_{21}^2 + a_{12}^2 + a_{22}^2\\
+\tr(A\T A) &= a_{11}^2 + a_{21}^2 + a_{12}^2 + a_{22}^2\\*
 &= \sum_{i,j} a_{ij}^2
 \end{align*}
 \explain{Only the diagonal of $A\T A$ matters for the trace, so its off-diagonal entries ($a_{11}a_{12}+a_{21}a_{22}$) are left blank.}
@@ -57,6 +58,7 @@ The induced norm is the largest ``gain'' $\norm{Ax}/\norm{x}$ of $A$, so $\norm{
 &= \max_{\norm{x}_{\R^n}=1} \norm{Ax}_{\R^m}
 \end{align*}
 \explain{First step: absolute homogeneity of the norm, $\frac{\norm{Ax}}{\norm{x}} = \norm{A\frac{x}{\norm{x}}}$, and $\frac{x}{\norm{x}}$ ranges over all unit vectors.}
+\needspace{10\baselineskip}
 \begin{keybox}
 \[
 \therefore\ \norm{A} = \max_{\norm{x}_{\R^n}=1} \norm{Ax}_{\R^m}
@@ -129,6 +131,7 @@ Ax^* &= \bmat{3\\ -7\\ -4} \;\Rightarrow\; \norm{Ax^*}_\infty = 7
 \underline{\underline{\norm{A}_\infty = 7}}
 \]
 \end{example}
+\needspace{11\baselineskip}
 \begin{keybox}
 \[
 \norm{A}_\infty = \max_i \sum_{j=1}^n |a_{ij}| \qquad \text{(max row sum)}
@@ -181,6 +184,7 @@ Ax = \bmat{1\\ -3\\ -2}x_1 + \bmat{-2\\ 4\\ 2}x_2
 \]
 % corrected: notes have a stray "7" written below the "8"; the value of ||A||_1 is 8 (column sums 6 and 8); 7 is ||A||_inf from the previous page
 \explain{Column sums: $|1|+|-3|+|-2| = 6$ and $|-2|+|4|+|2| = 8$, so $\norm{A}_1 = 8$ (compare $\norm{A}_\infty = 7$: different vector norms give different matrix norms).}
+\needspace{9\baselineskip}
 \begin{keybox}
 \[
 \norm{A}_1 = \max_j \sum_i |a_{ij}| \qquad \text{(max column sum)}
@@ -235,6 +239,7 @@ $\V = \left\{ f : [-1,1]\to\R \;\middle|\; f(\cdot) \text{ is continuous}, \ \in
 \norm{f(\cdot)} = \int_{-1}^{1} |f(t)|\,dt \qquad (\mathcal{L}_1 \text{ norm})
 \]
 % corrected: notes had the integral over (-infinity, infinity); functions in V live on [-1,1]
+\needspace{7\baselineskip}
 Is $f_n$ convergent?
 \begin{align*}
 f_n(t) &= e^{-n|t|}, \quad n\ge 0\\
@@ -300,7 +305,7 @@ Candidate limit: the zero function $0(t)$.\\ $v\in\V$ is satisfied \checkmark
 $\therefore$ \key{It is convergent to the zero function.}
 \end{example}
 
-\needspace{6\baselineskip}
+\needspace{12\baselineskip}
 \sep
 \key{Convergence depends on the distance definition} (the norm):
 \begin{itemize}[nosep]
@@ -353,6 +358,7 @@ v_2 &= 1.41 = \tfrac{141}{100}\\
 v_3 &= 1.414 = \tfrac{1414}{1000}\\
 &\ \,\vdots
 \end{align*}
+\needspace{7\baselineskip}
 We need $v\in\V$ s.t.\ $\norm{v_n - v}\to 0$ as $n\to\infty$, where $v_n \in\V\ \forall n$.
 But $v$ should be $\sqrt2$ for $\norm{v_n - v}\to 0$ as $n\to\infty$.
 \begin{center}
@@ -514,7 +520,6 @@ $n$ ve $m$'in nasıl $\infty$'a gittiği fark etmez, her zaman limit sonucu sıf
 \explain{The maximum is at $t=\frac1m$: on $[0,\frac1m]$ the difference $(m-n)t$ increases, and on $[\frac1m,\frac1n]$ it equals $1-nt$, which decreases.}
 $\therefore$ \key{$\{f_n\}$ is not Cauchy} in the sup norm.
 
-\needspace{16\baselineskip}
 \section{Inner Product Spaces}\label{sec:ips}
 \syllabusweek{Week 4 --- inner product spaces, orthogonality, Gram--Schmidt}
 \subsection{Inner Products}\label{ss:inner-products}
@@ -566,6 +571,7 @@ Check the axioms:
 \[
 \overline{\inner{y}{x}} = \overline{x\Hm y} = \overline{\bar x\T y} = \underbrace{x\T\bar y = \bar y\T x}_{\text{scalar} = \text{its transpose}} = y\Hm x = \inner{x}{y}
 \]
+\needspace{3\baselineskip}
 \item \begin{enumerate}[label=\alph*)]
   \item $\inner{x+y}{z} = z\Hm(x+y) = z\Hm x + z\Hm y = \inner{x}{z} + \inner{y}{z}$
   \item $\inner{\alpha x}{y} = y\Hm(\alpha x) = \alpha y\Hm x = \alpha\inner{x}{y}$
@@ -619,6 +625,7 @@ Equality holds iff $x = cy$ for some $c\in\C$ or $y = 0_\V$, i.e.\ \key{equality
 
 % ===== Page 20 =====
 \origpage{20}
+\needspace{6\baselineskip}
 \begin{proof}[Proof of theorem]
 \textbf{Case 1: $y = 0_{\V}$.}
 \begin{align*}
@@ -666,9 +673,9 @@ An inner product \key{induces a norm} (the \term{induced norm}) defined as
 &\le \inner{x}{x} + 2|\inner{x}{y}| + \inner{y}{y}
 \intertext{\origpage{21}By Cauchy--Schwarz, $|\inner{x}{y}| \le \sqrt{\inner{x}{x}\inner{y}{y}}$:}
 % ===== Page 21 =====
-&\le \inner{x}{x} + 2\sqrt{\inner{x}{x}}\sqrt{\inner{y}{y}} + \inner{y}{y}\\
-&= \left(\sqrt{\inner{x}{x}} + \sqrt{\inner{y}{y}}\right)^2\\
-&= (\norm{x} + \norm{y})^2\\
+&\le \inner{x}{x} + 2\sqrt{\inner{x}{x}}\sqrt{\inner{y}{y}} + \inner{y}{y}\\*
+&= \left(\sqrt{\inner{x}{x}} + \sqrt{\inner{y}{y}}\right)^2\\*
+&= (\norm{x} + \norm{y})^2\\*
 \norm{x+y}^2 &\le (\norm{x} + \norm{y})^2 \;\Rightarrow\; \norm{x+y}\le\norm{x}+\norm{y} \ \checkmark
 \end{align*}
 \explain{Both sides are nonnegative, so taking square roots preserves the inequality: the triangle inequality holds.}
@@ -699,6 +706,7 @@ An inner product space that is complete wrt the induced norm is called a \term{c
 Two vectors $x,y\in\V$ are said to be \term{orthogonal} iff $\inner{x}{y} = 0$.
 Similarly subsets $S_1, S_2\subset\V$ are orthogonal iff $\inner{x}{y} = 0$ $\forall x\in S_1$, $\forall y\in S_2$.
 \end{definition}
+\needspace{9\baselineskip}
 \paragraph{Examples.}
 \begin{enumerate}[label=\arabic*)]
 \item $\V=\R^n$, $\F=\R$, \quad $\inner{x}{y} = \sum_{i=1}^n x_iy_i = y\T x = x\T y$
@@ -794,7 +802,7 @@ $f(t) = \sum_{n=-\infty}^{\infty}\alpha_n e^{jnt}$:
 \end{enumerate}
 \key{Yes!} (constructively, by the following algorithm)
 
-\needspace{16\baselineskip}
+\needspace{9\baselineskip}
 \paragraph{Gram--Schmidt orthogonalization algorithm.} The $w_k$ are constructed one at a time.
 \paragraph{Step 1.} $w_1 = v_1$
 
@@ -924,7 +932,6 @@ Require $\norm{w_i} = 1$, i.e.\ $\inner{w_i}{w_i} = 1$:
 % corrected: notes had w_2 = \bar w_2 / ||w_2||; the normalisation divides by ||\bar w_2||. The last normalisation w_n = \bar w_n/||\bar w_n|| is implied by the pattern and added.
 \explain{Since $\inner{w_i}{w_i} = 1$, the projection coefficients $\frac{\inner{v_k}{w_i}}{\inner{w_i}{w_i}}$ simplify to $\inner{v_k}{w_i}$. The resulting set is \term{orthonormal}: $\inner{w_i}{w_j} = \delta_{ij}$.}
 
-\needspace{16\baselineskip}
 \section{Linear Transformations}\label{sec:lt}
 \syllabusweek{Week 5 --- linear transformations, null space, range space, matrix representations}
 \subsection{Definition and Examples}\label{ss:lt-def}

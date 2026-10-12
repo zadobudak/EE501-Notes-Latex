@@ -1,5 +1,6 @@
 % ===== Page 25 =====
-\begin{example}\origpage{25}
+\needspace{8\baselineskip}
+\begin{example}\leavevmode\origpage{25}
 $\V=\W \triangleq \{\text{polynomials with degree} \le n\}$, \quad $\mathcal{A} = \dfrac{d}{dt}$,
 \[
 v_1=\sum_{i=0}^{n}\alpha_i t^i, \qquad v_2=\sum_{i=0}^{n}\beta_i t^i .
@@ -60,7 +61,7 @@ Every linear transformation maps $0_V$ to $0_W$ (take $\alpha_1=0$ in $\mathcal{
 \end{example}
 
 % ===== Page 26 =====
-\begin{example}\origpage{26}
+\begin{example}\leavevmode\origpage{26}
 \begin{align*}
 \V &= \{f \mid f:[0,1]\to\R,\ f \text{ is integrable}\}, \qquad \W = \R\\
 \mathcal{A}f &= \int_0^1 f(t)\,dt
@@ -126,9 +127,10 @@ x_1+x_2 &\overset{?}{\in}\Null(\mathcal{A})\\
 \end{aligned}\right\}
 \Rightarrow \Null(\mathcal{A}) \text{ is a subspace.}
 \]
+\needspace{5\baselineskip}
 We have $\mathcal{A}x_1=0_W$, $\mathcal{A}x_2=0_W$. Then
 \begin{align*}
-\mathcal{A}(x_1+x_2) &= \underbrace{\mathcal{A}x_1}_{0_W}+\underbrace{\mathcal{A}x_2}_{0_W}=0_W &&\Rightarrow\ x_1+x_2\in\Null(\mathcal{A})\\
+\mathcal{A}(x_1+x_2) &= \underbrace{\mathcal{A}x_1}_{0_W}+\underbrace{\mathcal{A}x_2}_{0_W}=0_W &&\Rightarrow\ x_1+x_2\in\Null(\mathcal{A})\\*
 \mathcal{A}(\alpha x_1) &= \alpha\mathcal{A}x_1=\alpha 0_W=0_W &&\Rightarrow\ \alpha x_1\in\Null(\mathcal{A})
 \end{align*}
 $\therefore$ $\Null(\mathcal{A})$ is closed under addition and scalar multiplication, hence a subspace of $\V$.
@@ -218,7 +220,7 @@ For a linear map, $\mathcal{A}v_1=\mathcal{A}v_2\iff\mathcal{A}(v_1-v_2)=0_W\iff
 \end{insight}
 
 % ===== Page 28 =====
-\begin{example}\origpage{28}
+\begin{example}\leavevmode\origpage{28}
 $\V=\W=\{\text{polynomials with degree}\le 2\}$, \quad $\mathcal{A}=\dfrac{d}{dt}$. \quad Is $\mathcal{A}$ one-to-one?
 \begin{align*}
 &\mathcal{A}(at^2+bt+c)=2at+b=0_W=0(t) \ \Rightarrow\ a=0,\ b=0\\
@@ -275,7 +277,7 @@ Let $w_1,w_2\in\Range(\mathcal{A})$. By the definition of range space,
 $\therefore$ $\Range(\mathcal{A})$ is closed under addition and scalar multiplication, hence a subspace of $\W$.
 
 % ===== Page 29 =====
-\begin{example}\origpage{29}
+\begin{example}\leavevmode\origpage{29}
 $\V=\W=\R$.
 \begin{center}
 \begin{minipage}{0.36\textwidth}\centering
@@ -360,7 +362,7 @@ for any $w,v$ satisfying $w=\mathcal{A}v$.
 
 % ===== Page 30 =====
 \needspace{16\baselineskip}
-\begin{example}\origpage{30}
+\begin{example}\leavevmode\origpage{30}
 \begin{align*}
 \V&=\{\text{polynomials with degree}\le 3\}, \qquad
 \W=\{\text{polynomials with degree}\le 2\}\\
@@ -465,7 +467,7 @@ A=\bmat{0&1&-1&-1\\0&0&2&-1\\0&0&0&3}
 
 % ===== Page 32 =====
 \begin{itemize}[label=$*$]
-\item\origpage{32}Change the basis in the domain to $\bar B=\{1,t,t^2,t^3\}$:
+\item\leavevmode\origpage{32}Change the basis in the domain to $\bar B=\{1,t,t^2,t^3\}$:
 \[
 \bar A=AP, \qquad [v]_B=P\,[v]_{\bar B}
 \]
@@ -495,7 +497,6 @@ $\bar{\bar A}$ is the matrix of $\frac{d}{dt}$ in the canonical bases: $1\mapsto
 \end{itemize}
 \end{example}
 
-\needspace{16\baselineskip}
 \section{Direct Sums and Orthogonal Projections}\label{sec:direct-sum}
 \syllabusweek{Week 6 --- direct sum decompositions, projection theorem, orthogonal projections}
 
@@ -539,7 +540,7 @@ $\Rightarrow$ not linearly independent
 \end{center}
 
 % ===== Page 33 =====
-\begin{remark}\origpage{33}
+\begin{remark}\leavevmode\origpage{33}
 Let $\V=M_1+M_2+\dots+M_k$ and let $M_1,\dots,M_k$ be linearly independent. Then for $x\in\V$,
 \[
 x=m_1+m_2+\dots+m_k, \qquad m_i\in M_i\ \forall i,
@@ -600,7 +601,7 @@ For two subspaces, $M_1+M_2$ is direct $\iff M_1\cap M_2=\{0_V\}\iff\dim(M_1+M_2
 % ===== Page 34 =====
 \subsection{Orthogonal Direct Sums and Orthogonal Complements}\label{ss:orth-complement}
 
-\begin{definition}\origpage{34}
+\begin{definition}\leavevmode\origpage{34}
 Let $\V$ be an inner product space. Two subspaces $M_1\,\&\,M_2$ are said to be \term{orthogonal} iff
 \[
 \inner{m_1}{m_2}=0 \qquad \forall m_1\in M_1,\ \forall m_2\in M_2 .
@@ -609,6 +610,7 @@ We denote this $M_1\perp M_2$.
 \end{definition}
 % corrected: notes had "M_2 & M_2" in the first line; M_1 & M_2 meant.
 
+\needspace{8\baselineskip}
 \begin{definition}
 Let $M$ be equal to $M_1+M_2+\dots+M_k$ and $M_i\perp M_j$ for $i\ne j$. Then $M$ is said to be an \term{orthogonal direct sum} of $M_1,\dots,M_k$. We show this as
 \[
@@ -691,7 +693,7 @@ Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$.
 $\therefore$ $M^\perp$ is closed under addition and scalar multiplication, hence a subspace of $\V$.
 
 % ===== Page 35 =====
-\begin{theorem}[Orthogonal decomposition]\origpage{35}
+\begin{theorem}[Orthogonal decomposition]\leavevmode\origpage{35}
 Let $\V$ be an inner product space and $M$ a subspace of $\V$. Then \key{$\V$ is the orthogonal direct sum of $M$ and $M^\perp$}:
 \[
 \boxed{\V=M\overset{\perp}{\oplus}M^\perp}

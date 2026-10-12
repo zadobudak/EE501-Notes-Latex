@@ -187,9 +187,10 @@ G\cdot\alpha^* = b, \quad \boxed{\alpha^* = G^{-1}\cdot b}
 \end{gather*}
 
 % ===== Page 38 =====
+\needspace{5\baselineskip}
 The determinant of $G$:\origpage{38}
 \begin{align*}
-\det G &= \inner{v_1}{v_1}\inner{v_2}{v_2} - \inner{v_1}{v_2}\underbrace{\inner{v_2}{v_1}}_{\overline{\inner{v_1}{v_2}}}\\
+\det G &= \inner{v_1}{v_1}\inner{v_2}{v_2} - \inner{v_1}{v_2}\underbrace{\inner{v_2}{v_1}}_{\overline{\inner{v_1}{v_2}}}\\*
 &= \inner{v_1}{v_1}\inner{v_2}{v_2} - \abs{\inner{v_1}{v_2}}^2
 \end{align*}
 \explain{Cauchy--Schwarz: equality is satisfied if $v_1=\alpha v_2$; only in this case $\det G = 0$.}
@@ -225,6 +226,7 @@ Find $m^* = \operatorname{Proj}_M f$, with $v_1(t) = 1$, $v_2(t) = t$:
 \min_{m(t)\in M} \sqrt{\int_0^1 \abs{t^2-m(t)}^2\,dt}
 \end{gather*}
 % note: the "=" between the two minimizations is added for readability (in the notes they are written side by side)
+\needspace{14\baselineskip}
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
@@ -495,12 +497,11 @@ x-\operatorname{Proj}_M x &= \bmat{1\\0\\0} - \bmat{1/2\\0\\1/2} = \bmat{1/2\\0\
 % Turkish: "can be used to verify (the result)"
 \explain{Check, and the full projection matrix (its first column is indeed $\operatorname{Proj}_M x$):}
 \begin{gather*}
-\bmat{1&1&1}\bmat{1/2\\0\\-1/2} = 0, \qquad \bmat{1&-1&1}\bmat{1/2\\0\\-1/2} = 0 \quad\checkmark\\[4pt]
+\bmat{1&1&1}\bmat{1/2\\0\\-1/2} = 0, \qquad \bmat{1&-1&1}\bmat{1/2\\0\\-1/2} = 0 \quad\checkmark\\*[4pt]
 P_M = \frac18 B\bmat{3&-1\\-1&3}B\T = \frac12\bmat{1&0&1\\0&2&0\\1&0&1}
 \end{gather*}
 \end{example}
 
-\needspace{18\baselineskip}
 \section{Systems of Linear Equations $Ax=b$}\label{sec:axb}
 \syllabusweek{Week 7 --- systems of linear equations of the form $Ax=b$}
 \subsection{Existence and Uniqueness of Solutions}\label{ss:exist-unique}
