@@ -1,15 +1,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-% ---------- Page geometry: two variants ----------
-% main.tex: A4 print (default) | main-notes.tex: A4, small text, empty column on the right for notes
-\ifdefined\variantNotes
-  % A4 with smaller text (9pt) and an empty column on the right for handwritten notes
-  \usepackage[a4paper,left=1.7cm,width=14.0cm,top=1.6cm,bottom=1.8cm,
-              marginparwidth=1.0cm,marginparsep=0.25cm]{geometry}
-\else
-  \usepackage[a4paper,margin=2.3cm,marginparwidth=1.6cm]{geometry}
-\fi
+% ---------- Page geometry ----------
+\usepackage[a4paper,margin=2.3cm,marginparwidth=1.6cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{bm}
 \usepackage{cancel}
@@ -50,10 +43,24 @@
 \newtheorem{corollary}[definition]{Corollary}
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{example}[definition]{Example}
+% Unnumbered run-in statements: bold label in the same dark blue as \paragraph headings
+\newtheoremstyle{runin}{0.6em}{0.6em}{\normalfont}{}{\bfseries\color{blue!30!black}}{.}{0.5em}{}
+\theoremstyle{runin}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 \newtheorem*{claim}{Claim}
 \newtheorem*{fact}{Fact}
+\theoremstyle{definition}
+
+% Proofs: bold dark-blue label on its own run-in line, end marked by the QED square
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par\pushQED{\qed}\normalfont\topsep0.6em\relax
+  \trivlist\item[\hskip\labelsep{\bfseries\color{blue!30!black}#1.}]\ignorespaces}
+  {\popQED\endtrivlist\@endpefalse}
+\makeatother
+
+% A standalone point / remark marker (one style for the hand-written stars and arrows)
+\newcommand{\point}{\par\noindent{\color{blue!45!black}$\blacktriangleright$}\enspace\ignorespaces}
 
 % Visual framing of the theorem-like environments
 \tcolorboxenvironment{definition}{enhanced,breakable,colback=blue!3,colframe=blue!3,
@@ -150,8 +157,4 @@
   \endgroup}
 \makeatother
 
-% ---------- Note-taking variant: page tags go to the left margin, the right column stays empty ----------
-\ifdefined\variantNotes
-  \reversemarginpar
-\fi
 
