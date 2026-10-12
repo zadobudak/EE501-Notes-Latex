@@ -5,8 +5,10 @@ reorganized along the METU EE501 syllabus for Fall 2026–2027.
 
 **[Download the PDF](EE501_Lecture_Notes_Latex_Transcribed.pdf)**
 
-> **Note:** the notes were transcribed, corrected, annotated and formatted with the help of AI, so they may still
-> contain mistakes. They are not an official version of the course material. If you find a mistake, please
+> **Note:** these notes were transcribed directly by AI from scans of the handwritten notes — the AI read the
+> handwriting and wrote the LaTeX itself, and also produced the corrections, added explanations and layout. They
+> have not been checked by the lecturer or the original author and may contain mistakes; they are not an official
+> version of the course material. If you find a mistake, please
 > [open an issue](https://github.com/zadobudak/EE501-Notes-Latex/issues).
 
 ## Contents
