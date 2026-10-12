@@ -4,9 +4,10 @@
 % ---------- Page geometry: three variants ----------
 % main.tex: A4 print (default) | main-tablet.tex: 16:9 landscape | main-notes.tex: A4, small text, note column
 \ifdefined\variantTablet
-  % 16:9 landscape page; text width equals the A4 version, so line breaks are unchanged
-  \usepackage[paperwidth=20cm,paperheight=11.25cm,left=1.3cm,right=2.1cm,top=0.75cm,bottom=1.05cm,
-              footskip=0.55cm,marginparwidth=1.5cm,marginparsep=0.3cm]{geometry}
+  % 16:9 landscape page with the physical size of a 13-inch screen (28.8 x 16.2 cm),
+  % so 11pt text appears at its true printed size when the page fills the screen
+  \usepackage[paperwidth=28.8cm,paperheight=16.2cm,left=3.0cm,right=3.8cm,top=1.0cm,bottom=1.4cm,
+              footskip=0.7cm,marginparwidth=1.8cm,marginparsep=0.4cm]{geometry}
 \else\ifdefined\variantNotes
   % A4 with smaller text (9pt) and an empty column on the right for handwritten notes
   \usepackage[a4paper,left=1.7cm,width=14.0cm,top=1.6cm,bottom=1.8cm,
