@@ -25,7 +25,6 @@ In the PDF, the gray *p. N* in the margin gives the page of the original handwri
 EE501_Lecture_Notes_Latex_Transcribed.pdf   compiled notes
 build.sh                                    builds the PDF
 test_section.sh                             compiles a single section (quick check)
-syllabus_2026_2027.pdf                      course syllabus
 latex/
   main.tex                                  document entry point (preamble + body)
   preamble.tex                              packages, layout, colors, macros

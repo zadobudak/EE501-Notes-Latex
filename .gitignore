@@ -13,3 +13,6 @@ EE501 Lecture Notes of Umut Orguner (Fall 2024) by Elif Topaloglu.pdf
 
 # compiled PDF inside latex/ (the copy in the repository root is tracked)
 latex/main.pdf
+
+# course syllabus (kept locally, not versioned)
+syllabus_2026_2027.pdf
