@@ -179,7 +179,7 @@ Since $y=\0\odot x$, this proves $\0\odot x=0_{\V}$. The same trick ($y\oplus y=
 
 % ===== Page 4 =====
 \begin{example}
-Linear\origpage{4} space $(\overset{\V}{\F^n},\overset{\F}{\F})$; i.e., the vector space of $n$ tuples in $\F$ over the field $\F$.
+Linear\origpage{4} space $(\overset{\V}{\F^n},\overset{\F}{\F})$; i.e.\ the vector space of $n$ tuples in $\F$ over the field $\F$.
 \[
 x = (x_1,x_2,\dots,x_n), \qquad y = (y_1,y_2,\dots,y_n), \qquad \text{where } x_i,y_i\in\F\ \forall i
 \]
@@ -211,7 +211,7 @@ Set of all polynomials with degree $n=2$
 \[ \V = \{a_0t^2+a_1t+a_2 \mid a_0,a_1,a_2\in\R \ \&\ a_0\neq0\} \]
 $\oplus$ and $\odot$ are standard polynomial addition and scalar multiplication.
 
-$\therefore$ Not a vector space!
+$\therefore$ \key{Not a vector space.}
 \begin{align*}
 P_1(t) &= t^2+2t+3 \in\V\\
 P_2(t) &= -t^2+2t+3 \in\V\\
@@ -256,7 +256,7 @@ $\V=\R^2$,\origpage{5} $\F=\R$, \quad $\W = \left\{ \bmat{a\\0} \;\middle|\; a\i
 w_1\in\W:&\quad w_1 = \bmat{a\\0} & w_1\oplus w_2 &= \bmat{a+b\\0}\in\W\\
 w_2\in\W:&\quad w_2 = \bmat{b\\0} & c\odot w_1 &= \bmat{ca\\0}\in\W
 \end{align*}
-$\therefore$ $\W$ is a subspace of $\V$.
+$\therefore$ \key{$\W$ is a subspace of $\V$.}
 \end{example}
 
 \needspace{10\baselineskip}
@@ -267,11 +267,11 @@ w_1 = \bmat{a\\1}, \quad w_2=\bmat{b\\1} \qquad\Rightarrow\qquad w_1\oplus w_2 =
 \]
 Not closed under vector addition or scalar multiplication (e.g.\ $0\odot w_1 = (0,0)\T\notin\W$: $\W$ does not contain the zero vector).
 
-$\therefore$ $\W$ is \underline{not} a subspace.
+$\therefore$ \key{$\W$ is \underline{not} a subspace.}
 \end{example}
 
 \sep
-$\blacktriangleright$ $\{0_{\V}\}$: zero dimensional vector space $\Rightarrow$ subspace.
+\point $\{0_{\V}\}$: zero dimensional vector space $\Rightarrow$ subspace.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.9,baseline=(o.base)]
@@ -293,7 +293,7 @@ $\begin{aligned}
 a\odot x = 0_{\V} \ \text{ with } a=\0$
 \end{center}
 \explain{E.g.\ the line $\W=\Span\{(1,1)\T\}$ (the line $x_2=x_1$): with $(1,1)\T$ it also contains $-(1,1)\T$, and $\0\odot x=0_{\V}$ must lie in $\W$.}
-\begin{itemize}[label=$\Rightarrow$,nosep]
+\begin{itemize}[nosep]
 \item \key{All subspaces should cross origin.}
 \item For two dimensional subspace, include all $\R^2$.
 \end{itemize}
@@ -307,7 +307,7 @@ $\V=\R^{2\times2}$, $\F=\R$, \quad $\W = \{\text{set of $2\times2$ real valued s
 \bmat{a_1&b_1\\b_1&c_1}\oplus\bmat{a_2&b_2\\b_2&c_2} &= \bmat{a_1+a_2 & b_1+b_2\\ b_1+b_2 & c_1+c_2}\in\W\\
 \alpha\bmat{a_1&b_1\\b_1&c_1} &= \bmat{\alpha a_1&\alpha b_1\\ \alpha b_1&\alpha c_1}\in\W
 \end{align*}
-$\therefore$ $\W$ is a subspace of $\V$.
+$\therefore$ \key{$\W$ is a subspace of $\V$.}
 \end{example}
 
 \needspace{14\baselineskip}
@@ -357,7 +357,9 @@ $\therefore$ $\W_1$ is a subspace. For $\W_2$:
 \end{center}
 % corrected: the middle graph is labeled "\in W" in the notes; it is meant as \in W_2
 \explain{$f_1$ and $f_2$ both jump at $t=1$, but $f_1+f_2$ is the zero function, which is continuous.}
-$\therefore$ Not closed under vector addition \& scalar multiplication (multiply with zero: $0\cdot f_1$ is the zero function, which is continuous, so $\notin\W_2$). Hence $\W_2$ is \underline{not} a subspace.
+$\therefore$ Not closed under vector addition \& scalar multiplication (multiply with zero: $0\cdot f_1$ is the zero function, which is continuous, so $\notin\W_2$). 
+
+Hence \key{$\W_2$ is \underline{not} a subspace.}
 \begin{insight}
 $\W_1$ is a subspace because sums and scalar multiples of continuous functions are continuous (and the zero function is continuous). $\W_2$ fails already the quick test: the zero vector of $\V$ (the zero function) is not in $\W_2$.
 \end{insight}
@@ -448,9 +450,10 @@ If $Y$ \& $Z$ are subspaces, then \key{$Y\cap Z$ is a subspace}.
 % corrected: notes had "Y u Z is not closed under addition but not closed under scalar multiplication"; Y u Z is always closed under scalar multiplication
 \end{remark}
 \begin{insight}
-\emph{Proof for $Y\cap Z$:} if $x_1,x_2\in Y\cap Z$, then $x_1+x_2\in Y$ and $x_1+x_2\in Z$ (both are subspaces), so $x_1+x_2\in Y\cap Z$; similarly $\alpha x_1\in Y\cap Z$.
-
-\emph{Why $Y\cup Z$ fails:} for the two lines, $y\in Y$, $z\in Z$ nonzero give $y+z$, which lies on neither line. In fact $Y\cup Z$ is a subspace only if $Y\subseteq Z$ or $Z\subseteq Y$. The sum $Y+Z$ is the \key{smallest subspace containing $Y\cup Z$}.
+\begin{proof}[Proof for $Y\cap Z$]
+If $x_1,x_2\in Y\cap Z$, then $x_1+x_2\in Y$ and $x_1+x_2\in Z$ (both are subspaces), so $x_1+x_2\in Y\cap Z$; similarly $\alpha x_1\in Y\cap Z$.
+\end{proof}
+\paragraph{Why $Y\cup Z$ fails.} For the two lines, $y\in Y$, $z\in Z$ nonzero give $y+z$, which lies on neither line. In fact $Y\cup Z$ is a subspace only if $Y\subseteq Z$ or $Z\subseteq Y$. The sum $Y+Z$ is the \key{smallest subspace containing $Y\cup Z$}.
 \end{insight}
 
 \begin{definition}[Product space]
@@ -508,9 +511,9 @@ a_1\bmat{1\\0}+a_2\bmat{0\\1}+a_3\bmat{1\\1} = \bmat{0\\0}
 \ \Rightarrow\
 \begin{aligned} a_1+a_3&=0\\ a_2+a_3&=0 \end{aligned}
 \ \Rightarrow\
-\text{e.g. } a_1=a_2=1,\ a_3=-1
+\text{e.g.\ } a_1=a_2=1,\ a_3=-1
 \]
-$\therefore$ linearly dependent.
+$\therefore$ \key{Linearly dependent.}
 \end{example}
 
 \begin{example}
@@ -524,7 +527,7 @@ Is $P$ linearly independent?
 \Rightarrow\ & (a_1+a_2+a_3)+(a_2+a_3)t+a_3t^2 = 0(t) \ \Rightarrow\ a_1=a_2=a_3=0
 \end{align*}
 \explain{A polynomial is the zero polynomial only if all its coefficients vanish: $a_3=0$ (from $t^2$), then $a_2+a_3=0\Rightarrow a_2=0$ (from $t$), then $a_1+a_2+a_3=0\Rightarrow a_1=0$.}
-$\therefore$ $P$ is linearly independent.
+$\therefore$ \key{$P$ is linearly independent.}
 \end{example}
 
 % ===== Page 8 =====
@@ -583,7 +586,7 @@ $\V$ is the set of $2\times2$ real valued symmetric matrices:
 B = \left\{ \bmat{1&0\\0&0},\bmat{0&1\\1&0},\bmat{0&0\\0&1} \right\}
 \end{gather*}
 \explain{3 elements (dimension 3).}
-Infinite dimensional linear space $\Rightarrow$ set of continuous functions.
+\point Infinite dimensional linear space $\Rightarrow$ set of continuous functions.
 \explain{For every $n$, the functions $1,t,t^2,\dots,t^n$ are continuous and linearly independent, so no finite set can span this space.}
 \end{example}
 
@@ -598,9 +601,9 @@ With $B$ the basis of symmetric matrices above:
 y = \bmat{1&2\\2&3}\in\V, \qquad [y]_B = \underset{\substack{\uparrow\\\text{unique}}}{\bmat{1\\2\\3}}, \qquad y\in\V, \quad [y]_B\in\R^3
 \]
 
-$\blacktriangleright$ Why should representation be unique?
-\begin{proof}
-$[y]_B$ is unique. (Proof by contradiction)
+\point Why should representation be unique?
+\begin{proof}[Proof (by contradiction)]
+$[y]_B$ is unique.
 
 Suppose $[y]_B$ is \underline{not} unique:
 \[

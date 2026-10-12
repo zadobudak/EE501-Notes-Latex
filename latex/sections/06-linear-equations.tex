@@ -53,11 +53,11 @@ Two questions:
 
 % ===== Page 43 =====
 \sep
-\paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1\\1}}_{A}\underset{\in\R}{x} = \underbrace{\bmat{2\\2}}_{b}$,
+\point $\displaystyle \underbrace{\bmat{1\\1}}_{A}\underset{\in\R}{x} = \underbrace{\bmat{2\\2}}_{b}$,
 \qquad $b\in\Range(A)$\origpage{43}\\
 $\Rightarrow$ $\exists$ an exact solution. \quad $\Rightarrow$ The solution is unique.
 
-\paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1\\1}}_{A}x = \underbrace{\bmat{2\\1}}_{b}$
+\point $\displaystyle \underbrace{\bmat{1\\1}}_{A}x = \underbrace{\bmat{2\\1}}_{b}$
 \quad $\Rightarrow$ No exact solution! \qquad $b\notin\Range(A)$
 \begin{align*}
 y = Ax &= \big[\,a_1 \,\vdots\, a_2 \,\vdots\, a_3 \,\vdots\, \cdots \,\vdots\, a_n\,\big]\bmat{x_1\\x_2\\ \vdots\\ x_n}
@@ -70,7 +70,7 @@ y = Ax &= \big[\,a_1 \,\vdots\, a_2 \,\vdots\, a_3 \,\vdots\, \cdots \,\vdots\, 
 $\therefore$ 1-) \key{There exists an exact solution iff $b\in\Range(A)$.}
 \end{keybox}
 
-\paragraph{$\bigstar$} $\displaystyle \underbrace{\bmat{1&2\\1&2}}_{A}\underset{\in\R^2}{x} = \underbrace{\bmat{2\\2}}_{b}$:
+\point $\displaystyle \underbrace{\bmat{1&2\\1&2}}_{A}\underset{\in\R^2}{x} = \underbrace{\bmat{2\\2}}_{b}$:
 \quad $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$ \& $b\in\Range(A)$ $\Rightarrow$ $\therefore\ \exists$ an exact solution
 \[
 x_1 = \bmat{2\\0} \quad\text{or}\quad x_2 = \bmat{0\\1} \quad\text{or}\quad x_3 = \bmat{4\\-1} \quad\dots
@@ -126,9 +126,9 @@ linearly independent); this requires $m\ge n$.
 \end{insight}
 
 \subsection{Least-Squares Solutions}\label{ss:least-squares}
-\paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $Ax = b$, \qquad $b\notin\Range(A)$
+\point $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $Ax = b$, \qquad $b\notin\Range(A)$
 
-\paragraph{\term{Least squares problem}.}
+\paragraph{\term{Least-squares problem}.}
 \[
 \min_{x\in\C^n} \underbrace{\norm{Ax-b}^{2}}_{\text{error}}
 \]
@@ -136,7 +136,7 @@ linearly independent); this requires $m\ge n$.
 \[
 \hat x = \arg\min_{x\in\C^n}\norm{Ax-b}
 \]
-\explain{$\hat x$: \term{minimum error solution} / \term{least squares solution}.}
+\explain{$\hat x$: \term{minimum error solution} / \term{least-squares solution}.}
 Since $b\in\C^m$, decompose it:
 \begin{align*}
 \C^m &= M\overset{\perp}{\oplus}M^\perp\\
@@ -165,7 +165,7 @@ Therefore
 \boxed{\min_{x\in\C^n}\norm{Ax-b} = \norm{b_2} = \norm{\operatorname{Proj}_{\Range^\perp(A)} b}}\\[4pt]
 A\hat x = b_1, \qquad \hat x = \arg\min_{x\in\C^n}\norm{Ax-b}, \qquad
 b_1 = \operatorname{Proj}_{\Range(A)} b\\[4pt]
-\underbrace{\hat x}_{\substack{\text{min error /}\\ \text{least squares solution}}} = \arg\min_{x\in\C^n}\norm{Ax-b}
+\underbrace{\hat x}_{\substack{\text{min error /}\\ \text{least-squares solution}}} = \arg\min_{x\in\C^n}\norm{Ax-b}
 \end{gather*}
 \begin{insight}[Normal equations]
 $A\hat x = b_1$ is equivalent to $b - A\hat x = b_2 \perp \Range(A)$, i.e.\ $a_j\Hm(b-A\hat x) = 0$ for every
@@ -175,13 +175,13 @@ A\Hm(b-A\hat x) = 0 \quad\Longleftrightarrow\quad \boxed{A\Hm A\,\hat x = A\Hm b
 \]
 (the same equations as $B\Hm B\alpha^* = B\Hm x$ before, with $B=A$). \key{These normal equations always have a
 solution.} If the columns of $A$ are linearly independent, $A\Hm A$ is invertible and
-$\hat x = (A\Hm A)^{-1}A\Hm b$ is unique; otherwise there are infinitely many least squares solutions,
+$\hat x = (A\Hm A)^{-1}A\Hm b$ is unique; otherwise there are infinitely many least-squares solutions,
 differing by elements of $\Null(A\Hm A)=\Null(A)$.
 \end{insight}
 
 % ===== Page 45 =====
 \sep
-\paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $b\notin\Range(A)$, \qquad
+\point $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad $b\notin\Range(A)$, \qquad
 $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$\origpage{45}
 \begin{align*}
 &P_{\Range(A)} = B(B\Hm B)^{-1}B\Hm, \qquad B = \bmat{1\\1}, \qquad B\Hm B = \bmat{1&1}\bmat{1\\1} = 2\\
@@ -193,7 +193,7 @@ $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$\origpage{45}
 \explain{$\hat x = \tfrac32$ is the average of the entries of $b = \bmat{2 & 1}\T$.}
 \explain{Same result from the normal equations: $A\Hm A = 2$, $A\Hm b = 3$ $\Rightarrow$ $\hat x = \tfrac32$; $b-b_1 = \bmat{1/2 & -1/2}\T$, so the minimum error is $\norm{b-b_1} = \tfrac1{\sqrt2}$.}
 
-\paragraph{$\bigstar$} $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad
+\point $\displaystyle \bmat{1\\1}x = \bmat{2\\1}$, \qquad
 $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$
 \[
 b_1 = P_{\Range(A)}b = \bmat{1/2&1/2\\1/2&1/2}\bmat{2\\1} = \bmat{3/2\\3/2}
@@ -205,7 +205,7 @@ Then
 &\Null(A) = \{0\},\ \dim\Null(A) = 0 &\qquad& \Rightarrow\ \hat x \text{ \key{is unique.}}
 \end{alignat*}
 
-\paragraph{$\bigstar$} $\displaystyle \bmat{1&2\\1&2}x = \bmat{2\\1}$, \qquad
+\point $\displaystyle \bmat{1&2\\1&2}x = \bmat{2\\1}$, \qquad
 $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$, \qquad $b\notin\Range(A)$
 \begin{align*}
 &b_1 = P_{\Range(A)}b = \bmat{3/2\\3/2}\\
@@ -214,10 +214,10 @@ $\Range(A) = \Span\left\{\bmat{1\\1}\right\}$, \qquad $b\notin\Range(A)$
 &\Null(A) = \Span\left\{\bmat{2\\-1}\right\}
 \quad\Rightarrow\quad \hat x \text{ \key{is not unique!}}
 \end{align*}
-\explain{All least squares solutions: $\hat x = \bmat{3/2 & 0}\T + t\bmat{2 & -1}\T$, $t\in\R$ (e.g.\ $t=-\tfrac34$ gives $\bmat{0 & 3/4}\T$, $t=-\tfrac12$ gives $\bmat{1/2 & 1/2}\T$). Each leaves the same error $\norm{b_2} = \tfrac1{\sqrt2}$.}
+\explain{All least-squares solutions: $\hat x = \bmat{3/2 & 0}\T + t\bmat{2 & -1}\T$, $t\in\R$ (e.g.\ $t=-\tfrac34$ gives $\bmat{0 & 3/4}\T$, $t=-\tfrac12$ gives $\bmat{1/2 & 1/2}\T$). Each leaves the same error $\norm{b_2} = \tfrac1{\sqrt2}$.}
 
 \subsection{Minimum-Norm Solutions}\label{ss:min-norm}
-\paragraph{\term{Minimum norm solution}.}
+\paragraph{\term{Minimum-norm solution}.}
 \begin{gather*}
 b\in\Range(A) \;\Rightarrow\; \min_{Ax=b}\norm{x}, \qquad
 \hat x_1 = \arg\min_{Ax=b}\norm{x}, \qquad x = \hat x + \overset{\in\Null(A)}{m}\\[4pt]
@@ -267,18 +267,18 @@ A\hat x &= b\\
 A(\hat x_1 + \hat x_2) &= b\\
 A\hat x_1 + \underbrace{\cancel{A\hat x_2}}_{0} &= b\\
 \Rightarrow\quad A\hat x_1 &= b\\[4pt]
-&\boxed{\hat x_1 = \operatorname{Proj}_{\Null^\perp(A)}\hat x = \text{minimum norm solution}}
+&\boxed{\hat x_1 = \operatorname{Proj}_{\Null^\perp(A)}\hat x = \text{minimum-norm solution}}
 \end{align*}
 \begin{insight}[Summary of the method]
 \begin{itemize}[nosep]
   \item $\hat x_1$ does not depend on which solution $\hat x$ we start from: two solutions differ by an element
-        of $\Null(A)$, which the projection onto $\Null^\perp(A)$ removes. So \key{the minimum norm solution is unique}.
+        of $\Null(A)$, which the projection onto $\Null^\perp(A)$ removes. So \key{the minimum-norm solution is unique}.
   \item $\Null^\perp(A) = \Range(A\Hm)$ (since $Ax=0 \iff x\perp$ every row of $A$, i.e.\ every column of $A\Hm$).
-        Hence the minimum norm solution can be written $\hat x_1 = A\Hm z$, and $AA\Hm z = b$; if $A$ has
+        Hence the minimum-norm solution can be written $\hat x_1 = A\Hm z$, and $AA\Hm z = b$; if $A$ has
         linearly independent rows, $\hat x_1 = A\Hm(AA\Hm)^{-1}b$.
   \item If $b\notin\Range(A)$, combine both steps: replace $b$ by $b_1 = \operatorname{Proj}_{\Range(A)}b$, take any
-        least squares solution and project it onto $\Null^\perp(A)$. The result is the \term{minimum norm least
-        squares solution} (this is what the pseudo-inverse $A^{+}b$ computes); the example below does exactly this.
+        least-squares solution and project it onto $\Null^\perp(A)$. The result is the \term{minimum-norm
+        least-squares solution} (this is what the pseudo-inverse $A^{+}b$ computes); the example below does exactly this.
 \end{itemize}
 \end{insight}
 
@@ -298,7 +298,7 @@ P_{\Null^\perp(A)} = B(B\Hm B)^{-1}B\Hm \;\overset{B=v}{=}\; \frac{vv\Hm}{v\Hm v
 \end{gather*}
 \begin{insight}[Checking the answer]
 \begin{itemize}[nosep]
-  \item $A\hat x_1 = \bmat{3/10+6/5\\ 3/10+6/5} = \bmat{3/2\\3/2} = b_1$, so $\hat x_1$ is a least squares solution.
+  \item $A\hat x_1 = \bmat{3/10+6/5\\ 3/10+6/5} = \bmat{3/2\\3/2} = b_1$, so $\hat x_1$ is a least-squares solution.
   \item $\hat x_1 = \tfrac{3}{10}\bmat{1 & 2}\T\in\Null^\perp(A)$, i.e.\ $\hat x_1\perp\bmat{2 & -1}\T$.
   \item Starting from $\bmat{0 & 3/4}\T$ or $\bmat{1/2 & 1/2}\T$ instead gives the same $\hat x_1$, e.g.
         \[
@@ -328,7 +328,7 @@ b_1=\operatorname{Proj}_{\Range(A)} b, \qquad A\hat{x}=b_1
 
 \begin{center}
 \begin{tabular}{@{}l@{\quad}l@{}}
-$\hat{x}$: & \term{minimum error solution} (least squares)\\
+$\hat{x}$: & \term{minimum error solution} (least-squares)\\
 $\hat{x}_1$: & \term{minimum error-norm solution}
 \end{tabular}
 \end{center}
@@ -336,7 +336,7 @@ $\hat{x}_1$: & \term{minimum error-norm solution}
 \begin{insight}[Why the procedure works]
 \begin{itemize}[nosep,leftmargin=1.2em]
 \item The error $b-A\hat x$ is smallest when $A\hat x$ is the point of $\Range(A)$ closest to $b$, i.e.\ $A\hat x=b_1=\operatorname{Proj}_{\Range(A)}b$ (orthogonality principle: $b-b_1\perp\Range(A)$). Writing this as $A\Hm(b-A\hat x)=0$ gives the \term{normal equations} $A\Hm A\hat x=A\Hm b$.
-\item If $\Null(A)\neq\{0\}$, every $\hat x+n$ with $n\in\Null(A)$ gives the same $A\hat x=b_1$, so the least-squares solution is not unique. Splitting $\hat x=\hat x_1+\hat x_2$ with $\hat x_1\in\Null^\perp(A)$, $\hat x_2\in\Null(A)$ gives $A\hat x_1=A\hat x=b_1$ and, by Pythagoras, $\norm{\hat x+n}^2=\norm{\hat x_1}^2+\norm{\hat x_2+n}^2\geq\norm{\hat x_1}^2$. Hence \key{$\hat x_1$ is the least-squares solution of minimum norm}, and it does not depend on which $\hat x$ we started from.
+\item If $\Null(A)\neq\{0\}$, every $\hat x+n$ with $n\in\Null(A)$ gives the same $A\hat x=b_1$, so the least-squares solution is not unique. Splitting $\hat x=\hat x_1+\hat x_2$ with $\hat x_1\in\Null^\perp(A)$, $\hat x_2\in\Null(A)$ gives $A\hat x_1=A\hat x=b_1$ and, by Pythagoras, $\norm{\hat x+n}^2=\norm{\hat x_1}^2+\norm{\hat x_2+n}^2\geq\norm{\hat x_1}^2$. Hence \key{$\hat x_1$ is the least-squares solution of minimum-norm}, and it does not depend on which $\hat x$ we started from.
 \end{itemize}
 \end{insight}
 
@@ -387,7 +387,7 @@ For $\Null^\perp(A)$, a vector $[a\ b\ c]\T$ orthogonal to both basis vectors of
 \#\text{ linearly indep.\ rows}=\#\text{ linearly indep.\ columns}
 \quad\text{as}\quad \dim\Range(A)=k=\dim\Range(A\Hm)
 \]
-$k$: \key{\# of linearly indep.\ rows $=$ \# of linearly indep.\ columns} (column rank $=$ row rank).
+$k$: \key{\# of linearly independent rows $=$ \# of linearly independent columns} (column rank $=$ row rank).
 
 % ===== Page 48 =====
 \origpage{48}
@@ -494,7 +494,7 @@ m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ \\ \ &\ &\ \\ \ &\ &\ }}}_{\text{ta
 \]
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $n=\#$ of unknowns, \quad $m=\#$ of equations
-\item $m>n$: \term{overdetermined} system of equations.
+\item $m>n$: \term{overdetermined} system of equations
 \end{itemize}
 Assume
 \[
@@ -532,14 +532,14 @@ $(A\Hm A)^{-1}A\Hm$: \term{left pseudo inverse} of $A$.
 \end{insight}
 
 \subsubsection{Case II: Full Row Rank}
-$A$ is/has \term{full row rank}: all rows of $A$ are linearly indep.
+$A$ is/has \term{full row rank}: all rows of $A$ are linearly independent.
 \[
 m\Big\{\underbrace{\overset{n}{\bmat{\ &\ &\ &\ \\ \ &\ &\ &\ }}}_{\text{fat matrix}}
 \bmat{\ \\ \ \\ \ \\ \ }=\bmat{\ \\ \ } \qquad m\leq n
 \]
 \begin{itemize}[nosep,leftmargin=1.5em]
 \item $m$: \# of equations, \quad $n$: \# of unknowns
-\item $m<n$: \term{underdetermined} system of equations.
+\item $m<n$: \term{underdetermined} system of equations
 \end{itemize}
 \begin{align*}
 \dim(\Range(A\Hm))&=m\\

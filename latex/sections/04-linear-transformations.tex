@@ -3,7 +3,7 @@
 \syllabusweek{Week 5 --- linear transformations, null space, range space, matrix representations}
 \subsection{Definition and Examples}\label{ss:lt-def}
 \begin{definition}
-Let $\V$ \& $\W$ be two vector spaces over the same field $\F$. A \term{linear transformation} $\mathcal{A}$ is a mapping from $\V$ into $\W$ shown as $\mathcal{A}:\V\to\W$ s.t.
+Let $\V$ \& $\W$ be two vector spaces over the same field $\F$. A \term{linear transformation} $\mathcal{A}$ is a mapping from $\V$ into $\W$ shown as $\mathcal{A}:\V\to\W$ such that
 \[
 \mathcal{A}(\alpha_1 v_1 + \alpha_2 v_2) = \alpha_1\mathcal{A}v_1 + \alpha_2\mathcal{A}v_2
 \]
@@ -51,7 +51,7 @@ $\V=\W=\R^2$, \quad $x=\bmat{\alpha_1\\ \alpha_2}$, \quad $y=\bmat{\beta_1\\ \be
 \mathcal{A}x &= \bmat{\alpha_1\\ \alpha_1+\alpha_2}, \qquad
 ax+by=\bmat{a\alpha_1+b\beta_1\\ a\alpha_2+b\beta_2}\\
 \mathcal{A}(ax+by) &= \bmat{a\alpha_1+b\beta_1\\ a\alpha_1+b\beta_1+a\alpha_2+b\beta_2}\\
-&= a\bmat{\alpha_1\\ \alpha_1+\alpha_2}+b\bmat{\beta_1\\ \beta_1+\beta_2} = a\mathcal{A}x+b\mathcal{A}y \quad /\!/
+&= a\bmat{\alpha_1\\ \alpha_1+\alpha_2}+b\bmat{\beta_1\\ \beta_1+\beta_2} = a\mathcal{A}x+b\mathcal{A}y \ \checkmark
 \end{align*}
 \end{example}
 
@@ -148,7 +148,7 @@ Let $\mathcal{A}:\V\to\W$ be a linear transformation. The \term{null space} of $
 \node at (1.5,0.95) {$\mathcal{A}$};
 \end{tikzpicture}
 \end{center}
-
+\begin{proof}
 Let $x_1 \,\&\, x_2\in\Null(\mathcal{A})$. Show
 \[
 \left.\begin{aligned}
@@ -157,13 +157,13 @@ x_1+x_2 &\overset{?}{\in}\Null(\mathcal{A})\\
 \end{aligned}\right\}
 \Rightarrow \Null(\mathcal{A}) \text{ is a subspace.}
 \]
-\needspace{5\baselineskip}
 We have $\mathcal{A}x_1=0_W$, $\mathcal{A}x_2=0_W$. Then
 \begin{align*}
 \mathcal{A}(x_1+x_2) &= \underbrace{\mathcal{A}x_1}_{0_W}+\underbrace{\mathcal{A}x_2}_{0_W}=0_W &&\Rightarrow\ x_1+x_2\in\Null(\mathcal{A})\\*
 \mathcal{A}(\alpha x_1) &= \alpha\mathcal{A}x_1=\alpha 0_W=0_W &&\Rightarrow\ \alpha x_1\in\Null(\mathcal{A})
 \end{align*}
-$\therefore$ $\Null(\mathcal{A})$ is closed under addition and scalar multiplication, hence a subspace of $\V$.
+$\therefore$ $\Null(\mathcal{A})$ is closed under addition and scalar multiplication, hence \key{a subspace of $\V$}.
+\end{proof}
 
 \begin{example}
 $\V=\{\text{polynomials with degree}\le 2 \text{ on } [0,1]\}$, \quad $\W=\R$,
@@ -182,7 +182,7 @@ Hence\origpage{27}
 at^2+bt+c &= at^2+bt-\frac a3-\frac b2\\
 &= a\left(t^2-\frac13\right)+b\left(t-\frac12\right)
 \end{align*}
-A basis for $\Null(\mathcal{A})$: $\left\{t^2-\frac13,\ t-\frac12\right\}$.
+\key{A basis for $\Null(\mathcal{A})$:} $\left\{t^2-\frac13,\ t-\frac12\right\}$.
 \explain{Check: $\int_0^1(t^2-\frac13)\,dt=\frac13-\frac13=0$, $\int_0^1(t-\frac12)\,dt=\frac12-\frac12=0$; the two polynomials have different degrees, so they are linearly independent. Consistent with rank--nullity: $\dim\V=3=\dim\Null(\mathcal{A})+\dim\Range(\mathcal{A})=2+1$.}
 \end{example}
 
@@ -209,7 +209,7 @@ A linear transformation $\mathcal{A}:\V\to\W$ is called \term{one-to-one} iff
 A linear transformation $\mathcal{A}:\V\to\W$ is \key{one-to-one iff $\Null(\mathcal{A})=\{0_V\}$}:
 \[
 \text{one-to-one} \ \iff\ \Null(\mathcal{A})=\{0_V\}
-\ \iff\ \dim\Null(\mathcal{A})=\underline{\underline{0}}.
+\ \iff\ \dim\Null(\mathcal{A})=0.
 \]
 \end{proposition}
 % note: in the notes, the second equivalence is written as stacked "<= , =>" arrows under the first one.
@@ -223,7 +223,8 @@ A linear transformation $\mathcal{A}:\V\to\W$ is \key{one-to-one iff $\Null(\mat
 \end{align*}
 
 \begin{proof}
-\textbf{One-to-one $\Rightarrow \Null(\mathcal{A})=\{0_V\}$.}
+We prove the two directions separately.
+\paragraph{One-to-one $\Rightarrow \Null(\mathcal{A})=\{0_V\}$.}
 We use contraposition ($p\Rightarrow q$ \ $\equiv$ \ $\bar q\Rightarrow \bar p$), i.e.\ we show
 \[
 \Null(\mathcal{A})\ne\{0_V\} \ \Rightarrow\ \text{not one-to-one.}
@@ -234,8 +235,8 @@ We use contraposition ($p\Rightarrow q$ \ $\equiv$ \ $\bar q\Rightarrow \bar p$)
 &\mathcal{A}v_2=\mathcal{A}v_1+\underbrace{\mathcal{A}x}_{0_W}=\mathcal{A}v_1
   \ \Rightarrow\ \mathcal{A} \text{ is not one-to-one.}
 \end{align*}
-
-\textbf{$\Null(\mathcal{A})=\{0_V\}\Rightarrow$ one-to-one.}
+\par
+\paragraph{$\Null(\mathcal{A})=\{0_V\}\Rightarrow$ one-to-one.}
 Again by contraposition: not one-to-one $\Rightarrow \Null(\mathcal{A})\ne\{0_V\}$.
 \begin{align*}
 &\exists v_1\ne v_2 \text{ s.t. } \mathcal{A}v_1=\mathcal{A}v_2\\
@@ -270,7 +271,7 @@ Take
 \[
 f(t)=2t-1\ne 0_V, \qquad \mathcal{A}f=\left(t^2-t\right)\Big|_0^1=0.
 \]
-$\therefore$ Not one-to-one. \quad ($\dim\Null(\mathcal{A})=\infty$)
+$\therefore$ \key{Not one-to-one.} \quad ($\dim\Null(\mathcal{A})=\infty$)
 \explain{E.g.\ $t^k-\frac{1}{k+1}$, $k=1,2,3,\dots$ all integrate to $0$ and are linearly independent, so the null space is infinite dimensional.}
 \end{example}
 
@@ -297,6 +298,7 @@ Let $\mathcal{A}:\V\to\W$ be a linear transformation. The \term{range space} of 
 \begin{claim}
 \key{$\Range(\mathcal{A})$ is a subspace of $\W$.}
 \end{claim}
+\begin{proof}
 Let $w_1,w_2\in\Range(\mathcal{A})$. By the definition of range space,
 \begin{align*}
 &\exists v_1,v_2 \text{ s.t. } \mathcal{A}v_1=w_1, \quad \mathcal{A}v_2=w_2\\
@@ -304,7 +306,8 @@ Let $w_1,w_2\in\Range(\mathcal{A})$. By the definition of range space,
 &\mathcal{A}(\alpha v_1)=\alpha\mathcal{A}v_1=\alpha w_1 \ \Rightarrow\ \alpha w_1\in\Range(\mathcal{A})
 \end{align*}
 % corrected: notes had "alpha w_1 = A(alpha v_1) = alpha A v_1 = alpha w_1 in R(A)" (circular chain); rewritten as an implication
-$\therefore$ $\Range(\mathcal{A})$ is closed under addition and scalar multiplication, hence a subspace of $\W$.
+$\therefore$ $\Range(\mathcal{A})$ is closed under addition and scalar multiplication, hence \key{a subspace of $\W$}.
+\end{proof}
 
 % ===== Page 29 =====
 \begin{example}\leavevmode\origpage{29}
@@ -346,7 +349,7 @@ $\V=\W=\{\text{polynomials with degree}\le 2\}$ \ ($\to\dim 3$),
 \Null(\mathcal{A})&=\{\text{constant polynomials}\}, & \dim\Null(\mathcal{A})&=1\\
 \Range(\mathcal{A})&=\{\text{polynomials with degree}\le 1\}, & \dim\Range(\mathcal{A})&=2
 \end{align*}
-$\Range(\mathcal{A})\ne \W \ \Rightarrow\ \therefore \mathcal{A}$ is not onto.
+$\Range(\mathcal{A})\ne \W \ \Rightarrow\ \therefore$ \key{$\mathcal{A}$ is not onto.}
 \explain{Sum: $1+2=3$, the same as $\dim \V$.}
 \end{example}
 
@@ -373,16 +376,17 @@ If $\V$ is finite dimensional and $\mathcal{A}$ is a linear transformation from 
 \]
 \end{theorem}
 \begin{insight}[Proof sketch and consequences]
+\begin{proof}[Proof sketch]
 Take a basis $\{u_1,\dots,u_r\}$ of $\Null(\mathcal{A})$ and extend it to a basis $\{u_1,\dots,u_r,v_{r+1},\dots,v_n\}$ of $\V$. Then $\Range(\mathcal{A})=\Span\{\mathcal{A}v_{r+1},\dots,\mathcal{A}v_n\}$ (since $\mathcal{A}u_i=0_W$), and these $n-r$ images are linearly independent: $\sum\beta_j\mathcal{A}v_j=0_W\Rightarrow\sum\beta_jv_j\in\Null(\mathcal{A})\Rightarrow$ all $\beta_j=0$. Hence $\dim\Range(\mathcal{A})=n-r$.
-
-Consequences: $\mathcal{A}$ one-to-one $\iff$ $\dim\Range(\mathcal{A})=\dim\V$; and if $\dim\V=\dim\W<\infty$, then one-to-one $\iff$ onto. In the examples above: $\frac{d}{dt}$ on polynomials of degree $\le2$: nullity $+$ rank $=1+2=3=\dim\V$, so it is neither one-to-one nor onto.
+\end{proof}
+\paragraph{Consequences.} $\mathcal{A}$ one-to-one $\iff$ $\dim\Range(\mathcal{A})=\dim\V$; and if $\dim\V=\dim\W<\infty$, then one-to-one $\iff$ onto. In the examples above: $\frac{d}{dt}$ on polynomials of degree $\le2$: nullity $+$ rank $=1+2=3=\dim\V$, so it is neither one-to-one nor onto.
 \end{insight}
 
 \subsection{Matrix Representations}\label{ss:matrix-rep}
 
 \begin{definition}
 Let $\V$ ($\dim=n$) and $\W$ ($\dim=m$) be two linear spaces over the same field $\F$.
-Let $\mathcal{A}:\V\to\W$ be a linear transformation. Given the bases $B=\{v_1,v_2,\dots,v_n\}$ and $C=\{w_1,w_2,\dots,w_m\}$ for $\V$ and $\W$, the transformation can be represented by a matrix $A=[a_{ij}]$ ($a_{ij}\in\F$), its \term{matrix representation}, s.t.
+Let $\mathcal{A}:\V\to\W$ be a linear transformation. Given the bases $B=\{v_1,v_2,\dots,v_n\}$ and $C=\{w_1,w_2,\dots,w_m\}$ for $\V$ and $\W$, the transformation can be represented by a matrix $A=[a_{ij}]$ ($a_{ij}\in\F$), its \term{matrix representation}, such that
 \[
 [w]_C=A\,[v]_B
 \]
@@ -403,7 +407,7 @@ C&=\{\underbrace{1}_{w_1},\ \underbrace{1+t}_{w_2},\ \underbrace{1+t+t^2}_{w_3}\
 \end{align*}
 
 \paragraph{Procedure.}
-\begin{itemize}[label=$*$]
+\begin{enumerate}[label=\arabic*.]
 \item Choose $v=v_j$ for $j=1,\dots,n$:
 \[
 [v]_B=e_j=\bmat{0\\0\\ \vdots\\ 1\\ \vdots\\ 0}\leftarrow j\text{th element}
@@ -411,7 +415,7 @@ C&=\{\underbrace{1}_{w_1},\ \underbrace{1+t}_{w_2},\ \underbrace{1+t+t^2}_{w_3}\
 \explain{$A\,e_j$ picks out the $j$th column of $A$: this gives the first column for $j=1$, and in general the $j$th column.}
 \item Find $w=\mathcal{A}v_j$.
 \item \key{$j$th column of $A$ is $[\mathcal{A}v_j]_C$.}
-\end{itemize}
+\end{enumerate}
 
 \paragraph{Columns of $A$.}
 \begin{align*}
@@ -435,7 +439,7 @@ v=v_4:\quad [v_4]_B&=\bmat{0\\0\\0\\1}, & \mathcal{A}v_4&=3t^2+2t+1 &&\\*
 \]
 \begin{align*}
 w&=-w_1+w_2+3w_3\\
-&=-1+1+t+3+3t+3t^2=3t^2+4t+3 \quad /\!/
+&=-1+1+t+3+3t+3t^2=3t^2+4t+3 \ \checkmark
 \end{align*}
 \explain{Indeed $\frac{d}{dt}(t^3+2t^2+3t+4)=3t^2+4t+3$. ($[v]_B$: $v=1\cdot v_1+1\cdot v_2+1\cdot v_3+1\cdot v_4$, since $v_1+v_2+v_3+v_4=4+3t+2t^2+t^3$.)}
 \end{example}
@@ -496,7 +500,7 @@ A=\bmat{0&1&-1&-1\\0&0&2&-1\\0&0&0&3}
 \]
 
 % ===== Page 32 =====
-\begin{itemize}[label=$*$]
+\begin{enumerate}[label=\arabic*.]
 \item\leavevmode\origpage{32}Change the basis in the domain to $\bar B=\{1,t,t^2,t^3\}$:
 \[
 \bar A=AP, \qquad [v]_B=P\,[v]_{\bar B}
@@ -524,5 +528,5 @@ R=\bmat{1&1&1\\0&1&1\\0&0&1}=Q^{-1},
 \begin{insight}[Check]
 $\bar{\bar A}$ is the matrix of $\frac{d}{dt}$ in the canonical bases: $1\mapsto0$, $t\mapsto1$, $t^2\mapsto2t$, $t^3\mapsto3t^2$, which gives exactly the columns $\bmat{0\\0\\0},\bmat{1\\0\\0},\bmat{0\\2\\0},\bmat{0\\0\\3}$. Altogether $\bar{\bar A}=Q^{-1}AP=RAP$.
 \end{insight}
-\end{itemize}
+\end{enumerate}
 \end{example}

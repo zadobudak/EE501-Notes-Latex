@@ -9,7 +9,7 @@
 &\bmat{2&1\\1&2}^{1/2} \neq \cancel{\bmat{\sqrt2 & 1\\ 1 & \sqrt2}}
 && \text{MATLAB: } \cancel{\texttt{sqrt(A)}},\ \texttt{sqrtm(A)}\ \checkmark
 \end{align*}
-Motivation:
+\paragraph{Motivation.}
 \[
 \begin{array}{ll}
 \dot{x} = Ax, & \dot{x} = ax,\\
@@ -76,8 +76,8 @@ Repeatedly substituting $A^\ell = -g_1A^{\ell-1}-\cdots-g_\ell I$ reduces every 
 
 Two methods to find $f(A)$:
 \begin{itemize}[nosep]
-\item \textbf{Method I:} Interpolating polynomial
-\item \textbf{Method II:} Jordan canonical form
+\item Method I: interpolating polynomial
+\item Method II: Jordan canonical form
 \end{itemize}
 
 \subsection{Method I: Interpolating Polynomial (Diagonalizable Case)}\label{ss:method1-diag}
@@ -163,7 +163,7 @@ p(s) &= c_0 + c_1 s
 \end{align*}
 Find $e^A$ \& $\log A$.
 
-\paragraph{$e^A$.} $f(s) = e^s$; \ from $f(A) = p(A)$: \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
+\paragraph{Finding $e^A$.} $f(s) = e^s$; \ from $f(A) = p(A)$: \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
 \begin{align*}
 f(3) &= e^3 = p(3) = c_0 + 3c_1\\
 f(1) &= e = p(1) = c_0 + c_1\\[6pt]
@@ -188,7 +188,7 @@ e^A\approx\bmat{11.402 & 8.684\\ 8.684 & 11.402},
 which agrees with summing the series $\sum_i A^i/i!$ (MATLAB \texttt{expm(A)}), while the entrywise $\left[\begin{smallmatrix}e^2&e\\e&e^2\end{smallmatrix}\right]$ is different.
 \end{insight}
 
-\paragraph{$\log A$.} $f(s) = \log s$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
+\paragraph{Finding $\log A$.} $f(s) = \log s$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
 \begin{align*}
 \log 3 &= c_0 + 3c_1\\
 \log 1 &= c_0 + c_1 = 0 \ \Rightarrow\ c_0 = -c_1 \\ % corrected: notes had "log 0"; the eigenvalue is 1 and log 1 = 0
@@ -202,7 +202,7 @@ which agrees with summing the series $\sum_i A^i/i!$ (MATLAB \texttt{expm(A)}), 
 % corrected: notes had left-hand side "log s"; log A is meant
 \explain{Check: $\log A\,e_1 = \log 3\; e_1$, \ $\log A\,e_2 = 0 = \log 1\; e_2$; and $e^{\log A}=A$.}
 
-\paragraph{$e^{At}$.} $f(s) = e^{st}$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
+\paragraph{Finding $e^{At}$.} $f(s) = e^{st}$, \ $f(\lambda_j) = p(\lambda_j)$, \ $j = 1,2$:
 % corrected: written like f'(lambda_j) in the notes; f(lambda_j) is meant
 \begin{align*}
 e^{3t} &= c_0 + 3c_1 = c_0(t) + 3c_1(t)\\
@@ -377,9 +377,9 @@ p(s) &= c_0 + c_1s + c_2s^2 + c_3s^3 + c_4s^4 \qquad (4^{\text{th}}\text{ order}
 Conditions and derivatives:
 \[
 \begin{array}{ll}
-\bullet\ f(0) = p(0) & \bullet\ f(1) = p(1)\\
-\bullet\ f'(0) = p'(0) & \bullet\ f'(1) = p'(1)\\
-\bullet\ f''(0) = p''(0) &
+f(0) = p(0) & f(1) = p(1)\\
+f'(0) = p'(0) & f'(1) = p'(1)\\
+f''(0) = p''(0) &
 \end{array}
 \qquad\qquad
 \begin{aligned}
@@ -429,7 +429,7 @@ From $c_3+c_4=-\pi$: $c_4=-\pi-c_3$, so $3c_3-4\pi-4c_3=-2\pi \Rightarrow c_3=-2
 \[
 f^{(t)}(\lambda_j), \qquad t = 0,\dots,m_j-1, \quad j = 1,\dots,k
 \]
-If any derivative does not exist ($\infty$ or div 0), then \key{$f(A)$ does not exist}.
+If any derivative does not exist ($\infty$ or division by 0), then \key{$f(A)$ does not exist}.
 
 \begin{remark}
 $f(A)$ does not exist when one of the $f^{(t)}(\lambda_j)$, $j = 1,2,\dots,k$; $t = 0,\dots,m_j-1$ does not exist.
@@ -456,7 +456,7 @@ f'(s) = \frac{1}{2\sqrt s} \to \infty \text{ at } s = 0
 \end{align*}
 \explain{The square root function does not apply here: its derivative is not defined at the eigenvalue $s=0$.}
 % corrected: notes had "Square root function DNA."; read as "does not apply" (f'(0) does not exist), consistent with the remark above
-$\Rightarrow$ $\sqrt{A}$ does not exist for $A=\left[\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right]$.
+$\Rightarrow$ \key{$\sqrt{A}$ does not exist} for $A=\left[\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right]$.
 \begin{insight}[Direct confirmation]
 Suppose $X^2=A$ with $A=\left[\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right]$. Then $X^4=A^2=0$, so $X$ is nilpotent; a nilpotent $2\times2$ matrix satisfies $X^2=0$ (its minimal polynomial divides $s^2$). Hence $A=X^2=0$, a contradiction. So \emph{no} matrix squares to this $A$. In contrast, the zero matrix $\left[\begin{smallmatrix}0&0\\0&0\end{smallmatrix}\right]$ (with $m(s)=s$, only $f(0)$ needed) has the square root $0$: whether $f(A)$ exists depends on which derivatives the minimal polynomial requires, not only on the eigenvalues.
 \end{insight}
@@ -551,7 +551,7 @@ f(\lambda_j) & f'(\lambda_j) & \frac{f''(\lambda_j)}{2!} & \cdots & \frac{f^{(d_
 \begin{itemize}[nosep]
 \item The $0^{\text{th}}$ power ($I$) forms the main diagonal.
 \item The $1^{\text{st}}$ power forms the first superdiagonal.
-\item[] \quad $\vdots$
+\item And so on: the $i^{\text{th}}$ power forms the $i^{\text{th}}$ superdiagonal.
 \end{itemize}
 \begin{insight}[Link with Method I]
 $f(J_t)$ only uses $f(\lambda_j),f'(\lambda_j),\dots,f^{(d_t-1)}(\lambda_j)$. The largest block of $\lambda_j$ has size $m_j$ (the exponent in $m(s)$), so Methods I and II use exactly the same data $f^{(t)}(\lambda_j)$, $t=0,\dots,m_j-1$; in particular $f(A)$ exists iff these derivatives exist. Method II avoids solving for $c_0,\dots,c_{\ell-1}$ and computing powers of $A$, but needs $P$ and $P^{-1}$.

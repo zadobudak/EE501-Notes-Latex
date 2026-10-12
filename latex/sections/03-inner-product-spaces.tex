@@ -10,7 +10,7 @@ Let $(\V,\C)$ be a vector space. An \term{inner product} is a function from $\V\
 satisfying the following properties:
 \begin{enumerate}[label=\arabic*)]
 \item $\inner{x}{y} = \overline{\inner{y}{x}}$ \quad $\forall x,y\in\V$ \hfill (conjugate symmetry)
-\item Linearity with respect to (wrt) the first argument:
+\item Linearity with respect to (w.r.t.) the first argument:
   \begin{enumerate}[label=\alph*)]
   \item $\inner{x+y}{z} = \inner{x}{z} + \inner{y}{z}$ \quad $\forall x,y,z\in\V$ \hfill (additivity)
   \item $\inner{\alpha x}{y} = \alpha\inner{x}{y}$ \quad $\forall\alpha\in\C$ and $\forall x,y\in\V$ \hfill (homogeneity)
@@ -23,11 +23,11 @@ $\therefore$ The triplet $(\V,\C,\inner{\cdot}{\cdot})$ is called an \term{inner
 \begin{align*}
 \inner{x}{y+z} &= \overline{\inner{y+z}{x}} = \overline{\inner{y}{x}} + \overline{\inner{z}{x}} = \inner{x}{y} + \inner{x}{z}
 \end{align*}
-\explain{Additivity wrt second argument \checkmark}
+\explain{Additivity w.r.t.\ second argument \checkmark}
 \begin{align*}
 \inner{x}{\alpha y} &= \overline{\inner{\alpha y}{x}} = \bar\alpha\,\overline{\inner{y}{x}} = \bar\alpha\inner{x}{y}
 \end{align*}
-\explain{Homogeneity wrt second argument $\times$ ($\alpha$ should be real). We have \key{conjugate homogeneity wrt second argument}.}
+\explain{Homogeneity w.r.t.\ second argument $\times$ ($\alpha$ should be real). We have \key{conjugate homogeneity w.r.t.\ second argument}.}
 \begin{insight}
 So an inner product is linear in the first argument and \emph{conjugate}-linear in the second:
 $\inner{\textstyle\sum_i\alpha_i x_i}{\sum_j\beta_j y_j} = \sum_{i,j}\alpha_i\bar\beta_j\inner{x_i}{y_j}$.
@@ -44,7 +44,7 @@ $x = [x_1\ x_2 \ldots x_n]\T$, \ $y = [y_1\ y_2 \ldots y_n]\T$, \quad $x_i, y_i\
 \qquad \Big(\begin{bmatrix} \bar y_1 & \bar y_2 & \cdots\end{bmatrix}\bmat{x_1\\ x_2\\ \vdots}\Big)
 % corrected: notes had the row vector [y_1 y_2 ...]; y^H = conj(y)^T has conjugated entries
 \]
-Check the axioms:
+\paragraph{Check of the axioms.}
 \begin{enumerate}[label=\arabic*)]
 \item $\inner{x}{y} = \sum_{i=1}^n x_i\bar y_i = \bar y\T x = y\Hm x$
 \[
@@ -106,14 +106,14 @@ Equality holds iff $x = cy$ for some $c\in\C$ or $y = 0_\V$, i.e.\ \key{equality
 \origpage{20}
 \needspace{6\baselineskip}
 \begin{proof}[Proof of theorem]
-\textbf{Case 1: $y = 0_{\V}$.}
+We distinguish two cases.
+\paragraph{Case 1: $y = 0_{\V}$.}
 \begin{align*}
 \inner{x}{y} &= \inner{x}{0_{\V}} = \inner{x}{0\cdot 0_{\V}} = 0\cdot\inner{x}{0_{\V}} = 0\\
 \inner{y}{y} &= 0 \quad \text{(by axioms)}\\
 \underbrace{|\inner{x}{y}|^2}_{0} &\le \underbrace{\inner{x}{x}}_{\ge 0}\underbrace{\inner{y}{y}}_{0} \;\Rightarrow\; 0\le 0 \ \checkmark
 \end{align*}
-
-\textbf{Case 2: $y\neq 0_{\V}$.} Then $\inner{y}{y}\neq 0$ (in fact $\inner{y}{y}>0$ by axiom 3, so we may divide by it and multiply inequalities by it).
+\paragraph{Case 2: $y\neq 0_{\V}$.} Then $\inner{y}{y}\neq 0$ (in fact $\inner{y}{y}>0$ by axiom 3, so we may divide by it and multiply inequalities by it).
 For $\alpha\in\C$ (in field):
 \begin{align*}
 0 &\le \inner{x-\alpha y}{x-\alpha y}\\
@@ -178,7 +178,7 @@ $\norm{x+y}^2 + \norm{x-y}^2 = 2\norm{x}^2 + 2\norm{y}^2$.
 For example $\norm{\cdot}_1$ on $\R^2$ fails it: $x = e_1$, $y = e_2$ give $4+4 = 8 \neq 4 = 2+2$. So $\ell_1$ and $\ell_\infty$ are norms without an inner product behind them; only $\ell_2$ is induced by $\inner{x}{y} = y\T x$.
 \end{insight}
 \begin{definition}
-An inner product space that is complete wrt the induced norm is called a \term{complete inner product space} / \term{Hilbert space}.
+An inner product space that is complete w.r.t.\ the induced norm is called a \term{complete inner product space} / \term{Hilbert space}.
 \end{definition}
 \subsection{Orthogonality and Orthogonal Expansions}\label{ss:orthogonality}
 \begin{definition}
@@ -243,8 +243,7 @@ Consider $\{e^{jnt}\}_{n=-\infty}^{\infty}$, \quad $e^{jnt}\in\V$ for all $n$.
 \sep
 \paragraph{Expansion in an orthogonal set.}
 \begin{itemize}
-\item[$\blacktriangleright$]
-$z = \alpha_1 z_1 + \alpha_2 z_2$ \quad if $z_1\perp z_2$:
+\item $z = \alpha_1 z_1 + \alpha_2 z_2$ \quad if $z_1\perp z_2$:
 \begin{align*}
 \inner{z}{z_1} &= \inner{\alpha_1 z_1 + \alpha_2 z_2}{z_1}\\
 &= \alpha_1\inner{z_1}{z_1} + \alpha_2\underbrace{\cancel{\inner{z_2}{z_1}}}_{0} \;\Rightarrow\; \alpha_1 = \frac{\inner{z}{z_1}}{\inner{z_1}{z_1}}
@@ -254,7 +253,7 @@ In general,
 z = \sum_{i=1}^n \alpha_i z_i, \qquad \alpha_i = \frac{\inner{z}{z_i}}{\inner{z_i}{z_i}} \quad \forall i
 \]
 \explain{Valid when $z\in\Span\{z_1,\ldots,z_n\}$ and the $z_i\neq 0_\V$ are mutually orthogonal: take $\inner{\cdot}{z_k}$ of both sides and all terms with $i\neq k$ vanish. \key{No linear system has to be solved; each coefficient is computed independently.}}
-Example (as $z_1\perp z_2$):
+\paragraph{Example (as $z_1\perp z_2$).}
 \[
 {\underbrace{\bmat{2\\ 3}}_{z}} = \beta_1{\underbrace{\bmat{1\\ 1}}_{z_1}} + \beta_2{\underbrace{\bmat{1\\ -1}}_{z_2}},
 \qquad
@@ -263,8 +262,7 @@ Example (as $z_1\perp z_2$):
 \beta_2 = \frac{\inner{z}{z_2}}{\inner{z_2}{z_2}} = \frac{2-3}{2} = -\frac12
 \]
 \explain{Check: $\frac52\bmat{1\\1} - \frac12\bmat{1\\-1} = \bmat{2\\3}$ \checkmark}
-\item[$\blacktriangleright$]
-$f(t) = \sum_{n=-\infty}^{\infty}\alpha_n e^{jnt}$:
+\item $f(t) = \sum_{n=-\infty}^{\infty}\alpha_n e^{jnt}$:
 \[
 \alpha_n = \frac{\inner{f(t)}{e^{jnt}}}{\inner{e^{jnt}}{e^{jnt}}} = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(t)e^{-jnt}\,dt \qquad \text{(Fourier series coefficients)}
 \]
@@ -274,7 +272,7 @@ $f(t) = \sum_{n=-\infty}^{\infty}\alpha_n e^{jnt}$:
 % ===== Page 23 =====
 \subsection{Gram--Schmidt Orthogonalization}\label{ss:gram-schmidt}
 \origpage{23}%
-\paragraph{Question.} Let $\V$ be an inner product space. Let $S_1 = \{v_1, v_2, \ldots, v_n\}$ be a linearly independent set. Can we obtain another set $S_2 = \{w_1, w_2, \ldots, w_n\}$ s.t.
+\paragraph{Question.} Let $\V$ be an inner product space. Let $S_1 = \{v_1, v_2, \ldots, v_n\}$ be a linearly independent set. Can we obtain another set $S_2 = \{w_1, w_2, \ldots, w_n\}$ such that
 \begin{enumerate}[label=\arabic*)]
 \item $w_i\perp w_j$ when $i\neq j$
 \item $\Span\{S_1\} = \Span\{S_2\}$?

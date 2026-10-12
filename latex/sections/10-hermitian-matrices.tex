@@ -5,7 +5,7 @@
 
 \subsection{Hermitian Matrices and Their Eigenstructure}\label{ss:hermitian-props}
 
-\begin{itemize}[label=$\ast$]
+\begin{itemize}
 \item\leavevmode\origpage{77}An $n\times n$, in general, complex matrix $A\in\C^{n\times n}$ is called \term{Hermitian} iff
 \[
 \bar A^{T}=A, \qquad\text{i.e.}\qquad A\Hm=A,
@@ -27,7 +27,7 @@ A\T=A:\ \text{Symmetric matrices are Hermitian.}
 Let $A\in\C^{n\times n}$ be Hermitian. Then \key{$\inner{x}{Ax}$ is real $\forall x\in\C^n$}.
 \end{theorem}
 
-$\ast$ $\inner{x}{y}=y\Hm x$: $\ell_2$-inner product. Properties:
+\point $\inner{x}{y}=y\Hm x$: $\ell_2$-inner product. Properties:
 \begin{align*}
 &\inner{\alpha x}{y}=\alpha\inner{x}{y}, & &\inner{x}{x}\text{ is real},\\
 &\inner{x}{\alpha y}=\bar\alpha\inner{x}{y}, & &\inner{x}{x}\geq0\ \ \forall x\in\C^n,\\
@@ -63,7 +63,7 @@ $\lambda_i, e_i$: one eigenvalue of $A$ and corresponding eigenvector.
 &=\lambda_i\underbrace{\inner{e_i}{e_i}}_{\text{always real}}\ \Rightarrow\ \text{should be real}
 \end{align*}
 \[
-\Rightarrow\ \underline{\underline{\lambda_i\text{ is real}}}
+\Rightarrow\ \boxed{\lambda_i\text{ is real}}
 \]
 \explain{By the previous theorem $\inner{e_i}{Ae_i}$ is real. Also, since $e_i\neq0$, we have $\inner{e_i}{e_i}=\norm{e_i}_2^2>0$. Hence $\lambda_i=\inner{e_i}{Ae_i}/\inner{e_i}{e_i}$ is real.}
 \end{proof}
@@ -118,10 +118,10 @@ Let $\Sigma_i=A-\lambda_iI$. In general
 \Null(\Sigma_i)=\Null(\Sigma_i^2)\ :\ \text{Theorem's Claim.}
 \]
 We show both inclusions.
-\[
-\Null(\Sigma_i)\subset\Null(\Sigma_i^2)\colon\quad \Sigma_ix=0\ \text{implies}\ \Sigma_i(\Sigma_ix)=0 \qquad\checkmark
-\]
-$\Null(\Sigma_i^2)\subset\Null(\Sigma_i)$:
+
+\paragraph{Inclusion $\Null(\Sigma_i)\subset\Null(\Sigma_i^2)$.} $\Sigma_ix=0$ implies $\Sigma_i(\Sigma_ix)=0$. \checkmark
+
+\paragraph{Inclusion $\Null(\Sigma_i^2)\subset\Null(\Sigma_i)$.}
 \begin{align*}
 x\in\Null(\Sigma_i^2)\ &\Rightarrow\ \Sigma_i^2x=0\\
 &\Rightarrow\ \inner{x}{\Sigma_i^2x}=0\\
@@ -134,7 +134,7 @@ x\in\Null(\Sigma_i^2)\ &\Rightarrow\ \Sigma_i^2x=0\\
 Hence $\Null(\Sigma_i)=\Null(\Sigma_i^2)$, the chain of null spaces stops at the first step, and $m_i=1$ for every $i$.
 \end{proof}
 
-\begin{itemize}[label=$\ast$]
+\begin{itemize}
 \item Direct sum decompositions:
 \begin{align*}
 \C^n&=\Null(\Sigma_1^{m_1})\oplus\Null(\Sigma_2^{m_2})\oplus\cdots\oplus\Null(\Sigma_k^{m_k})\\
@@ -151,7 +151,7 @@ Hence $\Null(\Sigma_i)=\Null(\Sigma_i^2)$, the chain of null spaces stops at the
 \end{array}
 \qquad\Rightarrow\qquad
 \begin{aligned}
-&(\#\text{ of JB's for }\lambda_i)=r_i\\
+&(\#\text{ of Jordan blocks (JB's) for }\lambda_i)=r_i\\
 &(\#\text{ of JB's with size}\geq2\text{ for }\lambda_i)=0\\
 &\Rightarrow\ r_i\text{ JB's of size }1\text{ for }\lambda_i
 \end{aligned}
@@ -216,7 +216,7 @@ n\text{ linearly independent eigenvectors}
 \subsection{Unitary Diagonalization}\label{ss:unitary}
 \origpage{81}%
 \begin{theorem}[Unitary diagonalization]
-Let $A$ be an $n\times n$ Hermitian matrix. Then, \key{there exists a unitary matrix $P$} s.t.
+Let $A$ be an $n\times n$ Hermitian matrix. Then, \key{there exists a unitary matrix $P$} such that
 \[
 J = P\Hm A P .
 \]
@@ -225,9 +225,9 @@ J = P\Hm A P .
 For a Hermitian matrix the Jordan form $J$ is \emph{diagonal} with \emph{real} entries: the eigenvalues of $A=A\Hm$ are real, and $A$ is always diagonalizable (every eigenvalue has $m_j=1$ in the minimal polynomial). The theorem adds that the diagonalizing matrix can be chosen \emph{unitary}, i.e.\ $P^{-1}=P\Hm$, so that $A = PJP\Hm$ (unitary diagonalization).
 \end{insight}
 \begin{itemize}
-\item[$\star$] \term{Unitary matrix}: $P^{-1} = P\Hm$.
-\item[$\rightarrow$] \term{Orthogonal matrix} (real-valued unitary matrix): $P^{-1} = P\T$.
-\item[$\star$] $P^{-1}P = PP^{-1} = I$, \quad i.e.\ \quad $P\Hm P = PP\Hm = I$.
+\item \term{Unitary matrix}: $P^{-1} = P\Hm$.
+\item \term{Orthogonal matrix} (real-valued unitary matrix): $P^{-1} = P\T$.
+\item $P^{-1}P = PP^{-1} = I$, \quad i.e.\ \quad $P\Hm P = PP\Hm = I$.
 \end{itemize}
 
 \sep
@@ -316,7 +316,7 @@ If $Ax=\lambda_1x$, $Ay=\lambda_2y$ with $A=A\Hm$ (so $\lambda_1,\lambda_2\in\R$
 \]
 Gram--Schmidt inside each eigenspace keeps the vectors in that eigenspace (they remain eigenvectors), so the orthonormalized set still diagonalizes $A$.
 \end{insight}
-$\star$ We can apply \key{Gram--Schmidt orthonormalization to the two basis sets} and obtain the unitary matrix
+\point We can apply \key{Gram--Schmidt orthonormalization to the two basis sets} and obtain the unitary matrix
 \[
 P = \bigl[\, e_1^1 \;\vdots\; e_2^1 \;\vdots\; e_1^2 \;\vdots\; e_2^2 \;\vdots\; e_3^2 \,\bigr].
 \]
@@ -382,7 +382,7 @@ If all $\lambda_i>0$ this is $>0$ for $x\neq0$ (not all $e_i\Hm x$ vanish since 
 
 % ===== Page 84 =====
 \origpage{84}
-\paragraph{Geometric interpretation.} $\star$ $\inner{x}{y} = \norm{x}\norm{y}\cdot\cos\theta$, so
+\paragraph{Geometric interpretation.} $\inner{x}{y} = \norm{x}\norm{y}\cdot\cos\theta$, so
 \[
 \inner{x}{Ax} = \underbrace{\norm{x}}_{>0}\;\underbrace{\norm{Ax}}_{>0}\;\cos\theta > 0 \quad \forall x\neq 0 .
 \]

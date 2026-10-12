@@ -54,7 +54,7 @@ x = \bmat{x_1\\\vdots\\x_n}, \qquad \norm{x}_1 \overset{?}{=} \sum_{i=1}^{n}\abs
 \end{example}
 
 \subsection{The $\ell_p$ Norms and Unit Spheres}\label{ss:lp}
-$\blacktriangleright$ $\norm{\cdot}_1$ is called \term{$\ell_1$ norm}.
+\point $\norm{\cdot}_1$ is called \term{$\ell_1$ norm}.
 
 \begin{example}[$\ell_2$ norm]
 \[
@@ -115,7 +115,7 @@ For $\V=\R^2$: $x=(x_1,x_2)\T$, \ $\norm{x}_p = \left(\abs{x_1}^p+\abs{x_2}^p\ri
 \explain{$\left(\tfrac23\right)^p\to0$, so the factor $\left(1+(\tfrac23)^p\right)^{1/p}\to1$. In general the largest $\abs{x_i}$ dominates the sum: $\max_i\abs{x_i}\le\norm{x}_p\le n^{1/p}\max_i\abs{x_i}$ and $n^{1/p}\to1$.}
 
 \sep
-$\blacktriangleright$ Unit spheres $\norm{x}_p=1$, i.e.\ $\norm{x-0_{\V}}_p=1$. The $\ell_\infty$ unit sphere is $\max(\abs{x_1},\abs{x_2}) = 1$.
+\point Unit spheres $\norm{x}_p=1$, i.e.\ $\norm{x-0_{\V}}_p=1$. The $\ell_\infty$ unit sphere is $\max(\abs{x_1},\abs{x_2}) = 1$.
 \begin{center}
 \begin{tikzpicture}[scale=1.0]
 \draw[->] (-1.6,0) -- (1.8,0);
@@ -155,7 +155,7 @@ For $p=1/2$:
 \norm{x}_{1/2} = \left(\abs{x_1}^{1/2}+\abs{x_2}^{1/2}\right)^2
 \]
 \explain{It satisfies (N1) \& (N2) but need not satisfy the triangle inequality (N3).}
-Counterexample:
+\paragraph{Counterexample.}
 \[
 x=\bmat{9\\0}, \quad y=\bmat{0\\4}, \quad x+y=\bmat{9\\4}
 \]
@@ -383,7 +383,7 @@ x^* &= \bmat{1\\ -1} \quad\text{or}\quad x^* = \bmat{-1\\ 1}\\
 Ax^* &= \bmat{3\\ -7\\ -4} \;\Rightarrow\; \norm{Ax^*}_\infty = 7
 \end{align*}
 \[
-\underline{\underline{\norm{A}_\infty = 7}}
+\boxed{\norm{A}_\infty = 7}
 \]
 \end{example}
 \needspace{11\baselineskip}
@@ -453,7 +453,7 @@ with equality for $x = e_{j^*}$ (a corner of the diamond), $j^*$ the column of l
 
 \subsection{Convergence of Sequences}\label{ss:convergence}
 \begin{definition}
-Let $(\V,\F,\norm{\cdot})$ be a normed space. Let $\{v_n\}_{n=1}^\infty$ be a sequence of vectors in $\V$, i.e., $v_n\in\V\ \forall n$. The sequence $\{v_n\}_{n=1}^\infty$ is said to \term{converge} to the \term{limit} $\boxed{v\in\V}$ iff
+Let $(\V,\F,\norm{\cdot})$ be a normed space. Let $\{v_n\}_{n=1}^\infty$ be a sequence of vectors in $\V$, i.e.\ $v_n\in\V\ \forall n$. The sequence $\{v_n\}_{n=1}^\infty$ is said to \term{converge} to the \term{limit} $\boxed{v\in\V}$ iff
 \[
 \boxed{\norm{v_n - v} \to 0 \quad \text{as } n\to\infty}
 \]
@@ -614,7 +614,7 @@ v_3 &= 1.414 = \tfrac{1414}{1000}\\
 &\ \,\vdots
 \end{align*}
 \needspace{7\baselineskip}
-We need $v\in\V$ s.t.\ $\norm{v_n - v}\to 0$ as $n\to\infty$, where $v_n \in\V\ \forall n$.
+We need $v\in\V$ such that $\norm{v_n - v}\to 0$ as $n\to\infty$, where $v_n \in\V\ \forall n$.
 But $v$ should be $\sqrt2$ for $\norm{v_n - v}\to 0$ as $n\to\infty$.
 \begin{center}
 \begin{tikzpicture}
@@ -626,7 +626,7 @@ But $v$ should be $\sqrt2$ for $\norm{v_n - v}\to 0$ as $n\to\infty$.
   \node at (2.85,0.3) {$\cdots$};
 \end{tikzpicture}
 \end{center}
-Since $\sqrt2\notin\V$, $\therefore\ \{v_n\}$ is not convergent (in $\V$).
+Since $\sqrt2\notin\V$: $\therefore$ \key{$\{v_n\}$ is not convergent (in $\V$).}
 
 \paragraph{What about Cauchyness?}
 \[

@@ -12,7 +12,7 @@
 \[ m(s)=(s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k} \]
 \end{theorem}
 
-$\ast$ If we form a $P$ matrix out of the columns which are the basis vectors for the null spaces $\Null\big((A-\lambda_iI)^{m_i}\big)$ then we can have
+\point If we form a $P$ matrix out of the columns which are the basis vectors for the null spaces $\Null\big((A-\lambda_iI)^{m_i}\big)$ then we can have
 \begin{align*}
 \bar A&=P^{-1}AP,\\
 P&=\big[\,P_1\mid P_2\mid\dots\mid P_k\,\big]_{n\times n},\\
@@ -24,12 +24,12 @@ P_i&=\big[\,\underbrace{b_1^i\;\; b_2^i\;\;\dots\;\; b_{r_i}^i}_{\substack{\text
 \]
 where the size of $\bar A_i$ is $r_i\times r_i$.
 
-$\ast$ If $P_i$ is selected in a specific way, we can have
+\point If $P_i$ is selected in a specific way, we can have
 \[
 \bar A_i=\begin{bmatrix}\lambda_i & \ast & & 0\\ & \lambda_i & \ast & \\ & & \ddots & \ast\\ 0 & & & \lambda_i\end{bmatrix}_{r_i\times r_i},
 \qquad\qquad \ast\in\{0,1\}
 \]
-In this case $\bar A$ is called the \term{Jordan Canonical Form} of $A$.
+In this case $\bar A$ is called the \term{Jordan Canonical Form} (JCF) of $A$.
 \begin{insight}[Why $\bar A$ is block diagonal]
 Each subspace $\Null\big((A-\lambda_iI)^{m_i}\big)$ is invariant under $A$: if $(A-\lambda_iI)^{m_i}x=0$ then, since $A$ commutes with $(A-\lambda_iI)^{m_i}$, also $(A-\lambda_iI)^{m_i}(Ax)=A(A-\lambda_iI)^{m_i}x=0$. So $A$ maps the columns of $P_i$ into the span of the columns of $P_i$, and in the basis given by the columns of $P$ the matrix $\bar A=P^{-1}AP$ has no entries coupling different blocks. Each $\bar A_i$ has the single eigenvalue $\lambda_i$ (with multiplicity $r_i$). The ``specific way'' of choosing $P_i$ is via Jordan chains $x,\ (A-\lambda_iI)x,\ (A-\lambda_iI)^2x,\dots$; every chain produces one Jordan block (a $\lambda_i$-diagonal with $1$'s above it).
 \end{insight}
@@ -103,7 +103,7 @@ m(s)&=\,?\quad\text{3 possibilities:}
 % ===== Page 66 =====
 \subsection{Chains of Null Spaces}\label{ss:nullspace-chains}
 \origpage{66}%
-$\ast$\quad Let $\Sigma_i \triangleq A-\lambda_iI$. Then
+\point Let $\Sigma_i \triangleq A-\lambda_iI$. Then
 \[
 \begin{array}{ccccccccccc}
 \Null(\Sigma_i) & \subsetneq & \Null(\Sigma_i^2) & \subsetneq & \Null(\Sigma_i^3) & \cdots & \subsetneq & \Null(\Sigma_i^{m_i}) & = & \Null(\Sigma_i^{m_i+1}) & \cdots\\
@@ -137,10 +137,10 @@ If $\Null(\Sigma_i^l)=\Null(\Sigma_i^{l+1})$ then $\Null(\Sigma_i^{l+1})=\Null(\
 % corrected: notes omitted "=" between the two null spaces
 \end{claim}
 Assume $\Null(\Sigma_i^l)=\Null(\Sigma_i^{l+1})$. Need to show $\Null(\Sigma_i^{l+1})=\Null(\Sigma_i^{l+2})$, i.e.
-\begin{itemize}[itemsep=2pt,topsep=2pt]
-\item[$\checkmark$] $\Null(\Sigma_i^{l+1})\subset\Null(\Sigma_i^{l+2})$
-\item[] $\Null(\Sigma_i^{l+2})\subset\Null(\Sigma_i^{l+1})$
-\end{itemize}
+\begin{enumerate}[label=(\roman*),itemsep=2pt,topsep=2pt]
+\item $\Null(\Sigma_i^{l+1})\subset\Null(\Sigma_i^{l+2})$ \quad $\checkmark$ (first claim)
+\item $\Null(\Sigma_i^{l+2})\subset\Null(\Sigma_i^{l+1})$
+\end{enumerate}
 \begin{align*}
 x\in\Null(\Sigma_i^{l+2})&\Rightarrow\Sigma_i^{l+2}x=0\\
 &\Rightarrow \Sigma_i^{l+1}\,\Sigma_ix=0\Rightarrow\Sigma_ix\in\Null(\Sigma_i^{l+1})\\
@@ -206,7 +206,6 @@ d(s)=(s-2)^7(s-3)^3
 \end{example}
 
 \subsection{Counting Jordan Blocks}\label{ss:counting-jb}
-(JB: Jordan block.)
 \begin{align*}
 \dim\Null(\Sigma_i)&=\#\text{ of JB's for }\lambda_i\\
 &=\#\text{ of JB's with size}\ge1\text{ for }\lambda_i\\
@@ -220,7 +219,7 @@ d(s)=(s-2)^7(s-3)^3
 \end{align*}
 % corrected: notes had dim N(Sigma^{l+1}) - dim N(Sigma^l) = # JB's with size >= l (off by one);
 % shifted indices so that the case l=1 below is the first line
-For $l=1$:
+\paragraph{For $l=1$.}
 \[
 \dim\Null(\Sigma_i)-\underbrace{\dim\Null\big(\overbrace{\Sigma_i^0}^{I}\big)}_{0}=\#\text{ of JB's with size}\ge1\text{ for }\lambda_i
 \]
@@ -237,7 +236,7 @@ Reason: a block of size $p$ contributes $1$ to $\dim\Null(\Sigma_i^l)$ for each 
 
 \sep
 \needspace{10\baselineskip}
-$\Rightarrow$ For diagonalizable matrix, minimal polynomial should have the power at most 1:
+\point For diagonalizable matrix, minimal polynomial should have the power at most 1:
 \begin{keybox}
 \centering JCF is diagonal iff $m_i=1\ \forall i$
 \end{keybox}
@@ -248,7 +247,7 @@ $\Rightarrow$ For diagonalizable matrix, minimal polynomial should have the powe
 \explain{$\Null(\Sigma_1)$: at most $r_1$ linearly independent eigenvectors.}
 The second decomposition holds exactly when $m_i=1$ for all $i$, i.e.\ when $\dim\Null(\Sigma_i)=r_i$ for every eigenvalue.
 
-$\Rightarrow$ \key{$A$ is diagonalizable iff there exist $n$ linearly independent eigenvectors for $A$.}
+Hence \key{$A$ is diagonalizable iff there exist $n$ linearly independent eigenvectors for $A$.}
 
 % ===== Page 68 =====
 \begin{example}
@@ -278,11 +277,11 @@ A^3=\bmat{0&0&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0}
 &\#\text{ of JB's with size}\ge3=1 &&(4-3)\\
 &\#\text{ of JB's with size}\ge4=0 &&(4-4)
 \end{align*}
-$\Rightarrow$ one JB with size $=3$, zero JB with size $=2$, one JB with size $=1$:
+Hence one JB with size $=3$, zero JB with size $=2$, one JB with size $=1$:
 \[
 \text{JCF}=\left[\begin{array}{ccc|c}0&1&0&0\\0&0&1&0\\0&0&0&0\\\hline0&0&0&0\end{array}\right]
 \]
-$\Rightarrow$ \key{Not diagonalizable!} Only $\dim\Null(A)=2<4$ independent eigenvectors exist; equivalently, $m_1=3\neq1$.
+Hence \key{not diagonalizable!} Only $\dim\Null(A)=2<4$ independent eigenvectors exist; equivalently, $m_1=3\neq1$.
 \end{example}
 
 \needspace{12\baselineskip}
@@ -386,7 +385,7 @@ A=\left[\begin{array}{cc|cc}
 \]
 \explain{These increments must decrease or stay constant $\Rightarrow$ no such matrix $A$ exists!}
 
-$\therefore$ Two possibilities.
+$\therefore$ \key{Two possibilities.}
 
 \begin{insight}[Why the increments cannot grow]
 The increment $\dim\Null(A-7I)^{k}-\dim\Null(A-7I)^{k-1}$ equals the number of Jordan blocks of size $\geq k$. Every block of size $\geq k+1$ also has size $\geq k$, so the increments form a non-increasing sequence. In Case~III they would be $1,3,0$: there would be one block in total but three blocks of size $\geq2$, which is impossible. Equivalently: with $\dim\Null(A-7I)=1$ there is a single Jordan block, so it must be $4\times4$; then $m(s)=(s-7)^4$ and $\dim\Null(A-7I)^2=2$, not $4$.
@@ -405,7 +404,11 @@ Let $x\in\Null(\Sigma_i^{m_i})$, $x\notin\Null(\Sigma_i^{m_i-1})$:
 \]
 \explain{If $\Sigma_i^{m_i-2}x$ were zero, then $\Sigma_i(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x$ would be zero $\Rightarrow$ it cannot be.}
 
-Linear independence: suppose
+\begin{claim}
+The vectors of the Jordan chain are linearly independent.
+\end{claim}
+\begin{proof}
+Suppose
 \begin{align*}
 &\alpha_1\Sigma_i^{m_i-1}x+\alpha_2\Sigma_i^{m_i-2}x+\dots+\alpha_{m_i-1}\Sigma_i x+\alpha_{m_i}x=0.
 \end{align*}
@@ -421,6 +424,7 @@ Multiplying the remaining equation
 &\alpha_{m_i-1}\Sigma_i^{m_i-1}x=0\ \Rightarrow\ \alpha_{m_i-1}=0.
 \end{align*}
 Continuing in this way (multiplying by $\Sigma_i^{m_i-3},\dots,\Sigma_i,I$) gives $\alpha_{m_i-2}=\dots=\alpha_1=0$.
+\end{proof}
 
 $\therefore$ \key{All vectors of the chain are linearly independent.}
 
@@ -472,7 +476,7 @@ d(s)=\det(sI-A)&=(s-1)\begin{vmatrix}s-1&-1\\1&s-3\end{vmatrix}\\
 \Sigma_1=A-2I=\bmat{-1&1&-1\\-1&1&2\\0&0&-1},\qquad \rank=2,\quad \dim\Null(\Sigma_1)=1
 \]
 $m(s)$ possibilities:
-\begin{enumerate}[label=\arabic*-,nosep]
+\begin{enumerate}[label=\arabic*),nosep]
 \item $(s-1)(s-2)$ \quad $\times$
 \item $(s-1)(s-2)^2$ \quad $\checkmark$
 \end{enumerate}
@@ -500,7 +504,7 @@ Further,
 \dim: & 1 & & 1
 \end{array}
 \]
-\origpage{71}$\Rightarrow$ 1 JB of size 1 for $\lambda_2$.
+\origpage{71}Hence 1 JB of size 1 for $\lambda_2$.
 % corrected: notes had "# of JB w.s.=2 for lambda_2" and "# of JB with size=3 for lambda_2"; these counts are for lambda_1 and mean size >= 2, >= 3
 \begin{align*}
 (\#\text{ of JB's for }\lambda_1)&=\dim\Null(\Sigma_1)=1\\
@@ -508,7 +512,7 @@ Further,
 (\#\text{ of JB's with size}\geq3\text{ for }\lambda_1)&=\dim\Null(\Sigma_1^3)-\dim\Null(\Sigma_1^2)=0
 \end{align*}
 \explain{Differences of consecutive counts: $1-1=0$ JB of size exactly $1$, \ $1-0=1$ JB of size exactly $2$.}
-$\Rightarrow$ 1 JB of size 2 for $\lambda_1$:
+Hence 1 JB of size 2 for $\lambda_1$:
 \[
 J=\left[\begin{array}{cc|c}2&1&0\\0&2&0\\\hline 0&0&1\end{array}\right]
 \]
@@ -543,7 +547,7 @@ x=\bmat{0\\1\\0},\qquad \Sigma_1x=\bmat{1\\1\\0},\qquad \{\Sigma_1 x, x\}
 \]
 \begin{itemize}[noitemsep]
 \item $x$: generalized eigenvector; \quad \key{$\Sigma_1 x$: should be eigenvector.}
-\item $\{\Sigma_1x,x\}$: linearly indep., form a basis for $\Null(\Sigma_1^2)$.
+\item $\{\Sigma_1x,x\}$: linearly independent, form a basis for $\Null(\Sigma_1^2)$.
 \end{itemize}
 
 \begin{minipage}[c]{0.2\textwidth}
@@ -617,7 +621,7 @@ d(s)=(s-\lambda_i)^{r_i},\qquad m(s)=(s-\lambda_i)^{m_i=r_i}=d(s)
 \]
 % corrected: notes had "1 <= 1" under N(Sigma_i) (i.e. dim N(Sigma_i) >= 1 and = 1)
 \explain{$n$ dimensions have to be gained in $m_i=n$ strict steps, each of at least $+1$ $\Rightarrow$ every increment is exactly $+1$, in particular $\dim\Null(\Sigma_i)=1$.}
-Counting Jordan blocks:
+\paragraph{Counting Jordan blocks.}
 \begin{align*}
 \#\text{ of JB's}&=1\\
 \#\text{ of JB's with size}\geq 2&=1\\
@@ -645,7 +649,7 @@ Counting Jordan blocks:
 \node at (3.6,0.2) {$\Null(\Sigma_i^{m_i})$};
 \node at (3.6,-0.35) {$x$};
 \end{tikzpicture}\\[6pt]
-$\displaystyle\underbrace{\{\Sigma_i^{m_i-1}x,\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}}_{m_i=r_i=n\ \text{l.\ indep.\ vectors}}
+$\displaystyle\underbrace{\{\Sigma_i^{m_i-1}x,\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}}_{m_i=r_i=n\ \text{linearly independent vectors}}
 \qquad \text{1 chain with $n$ elements}$
 \end{center}
 % ===== Page 73 =====
@@ -660,21 +664,21 @@ P=\left[\begin{array}{c|c|c|c}\Sigma_i^{m_i-1}x&\cdots&\Sigma_i x&x\end{array}\r
 &=\left[\begin{array}{c|c|c|c}A\Sigma_i^{m_i-1}x&\cdots&A\Sigma_i x&Ax\end{array}\right]
 \end{align*}
 
-$\Rightarrow$ $x\in\Null(\Sigma_i^{m_i})$ \& $x\notin\Null(\Sigma_i^{m_i-1})$:
+\point Since $x\in\Null(\Sigma_i^{m_i})$ \& $x\notin\Null(\Sigma_i^{m_i-1})$:
 \begin{align*}
 &\Sigma_i^{m_i}x=0,\qquad \Sigma_i^{m_i-1}x\neq 0\\
 &\Sigma_i(\Sigma_i^{m_i-1}x)=0\\
 &(A-\lambda_iI)(\Sigma_i^{m_i-1}x)=A\Sigma_i^{m_i-1}x-\lambda_i\underbrace{I}_{1}\Sigma_i^{m_i-1}x=0\\
 &A\Sigma_i^{m_i-1}x=\lambda_i\Sigma_i^{m_i-1}x
 \end{align*}
-$\Rightarrow$ Next vector of the chain:
+\point Next vector of the chain:
 \begin{align*}
 % corrected: notes had "(Sigma_i^{m_i-2}x) Sigma_i" (factor order) and "(lambda_i + Sigma_i)" (lambda_i I + Sigma_i)
 &\Sigma_i(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x\\
 &(A-\lambda_iI)(\Sigma_i^{m_i-2}x)=\Sigma_i^{m_i-1}x\\
 &A\Sigma_i^{m_i-2}x=\lambda_i\Sigma_i^{m_i-2}x+\Sigma_i^{m_i-1}x
 \end{align*}
-$\Rightarrow$ and similarly:
+\point Similarly:
 \begin{align*}
 &\Sigma_i(\Sigma_i^{m_i-3}x)=\Sigma_i^{m_i-2}x\\
 &(A-\lambda_iI)(\Sigma_i^{m_i-3}x)=\Sigma_i^{m_i-2}x\ \Rightarrow\ A\Sigma_i^{m_i-3}x=\lambda_i\Sigma_i^{m_i-3}x+\Sigma_i^{m_i-2}x
@@ -685,6 +689,7 @@ Altogether:
 \{\Sigma_i^{m_i-1}x,\ \Sigma_i^{m_i-2}x,\ \dots,\ \Sigma_i x,\ x\}\quad\text{single chain of size } m_i.
 \]
 
+\needspace{10\baselineskip}
 \sep
 \paragraph{Case II: $A\in\C^{n\times n}$, single eigenvalue $\lambda_i$, $m_i=1$.}
 \[
@@ -723,14 +728,13 @@ J=\bmat{\boxed{\lambda_i}&&&\\&\boxed{\lambda_i}&&\\&&\boxed{\lambda_i}&\\&&&\dd
 \end{tikzpicture}
 \end{minipage}\hfill
 \begin{minipage}[c]{0.73\textwidth}
-\begin{itemize}[nosep,leftmargin=1em]
-\item[] $x_1\in\Null(\Sigma_i)$, \quad $x_1\notin\underbrace{\Null(\Sigma_i^0)}_{I}\ \Rightarrow\ x_1\neq 0$: \quad chain $\{x_1\}$
-\item[] $x_2\in\Null(\Sigma_i)$, \quad $x_2\notin\Null(\Sigma_i^0)$: \quad chain $\{x_2\}$
-\item[] \qquad $\Rightarrow$ $x_1$ \& $x_2$ are linearly indep.
-\item[] \quad$\vdots$
-\item[] $x_{r_i}\in\Null(\Sigma_i)$, \quad $x_{r_i}\notin\Null(\Sigma_i^0)$: \quad chain $\{x_{r_i}\}$
-\end{itemize}
-$\Rightarrow$ $r_i=n$ chains of size 1.
+$x_1\in\Null(\Sigma_i)$, \quad $x_1\notin\underbrace{\Null(\Sigma_i^0)}_{I}\ \Rightarrow\ x_1\neq 0$: \quad chain $\{x_1\}$\\
+$x_2\in\Null(\Sigma_i)$, \quad $x_2\notin\Null(\Sigma_i^0)$: \quad chain $\{x_2\}$\\
+\qquad $\Rightarrow$ $x_1$ \& $x_2$ are linearly independent\\
+\quad$\vdots$\\
+$x_{r_i}\in\Null(\Sigma_i)$, \quad $x_{r_i}\notin\Null(\Sigma_i^0)$: \quad chain $\{x_{r_i}\}$
+
+Hence $r_i=n$ chains of size 1.
 \end{minipage}
 
 Each of these vectors is an eigenvector:
@@ -770,10 +774,10 @@ m(s)&=(s-\lambda_i)^3, & \dim\Null(\Sigma_i^2)&=4.
 \]
 \begin{itemize}[nosep]
 \item $m(s)=(s-\lambda_i)$ would be needed for diagonalizability.
-\item At most 2 linearly indep.\ eigenvectors.
+\item At most 2 linearly independent eigenvectors.
 \item $\Rightarrow$ \key{not diagonalizable} (it should be 6).
 \end{itemize}
-Jordan blocks:
+\paragraph{Jordan blocks.}
 \[
 \left.\begin{array}{l}
 \#\text{ of JB's}=2\\
@@ -813,14 +817,14 @@ J=\left[\begin{array}{ccc|ccc}
 \fill (2.15,-0.55) circle (1.2pt) node[right] {$y$};
 \end{tikzpicture}
 \end{center}
-Chains:
+\paragraph{Chains.}
 \begin{align*}
 &x\in\Null(\Sigma_i^3),\ x\notin\Null(\Sigma_i^2): && \{\Sigma_i^2x,\Sigma_ix,x\}\ \Rightarrow\ \text{alone not sufficient to form a basis}\\
 &y\in\Null(\Sigma_i^3),\ y\notin\Null(\Sigma_i^2): && \{\Sigma_i^2y,\Sigma_iy,y\}
 \end{align*}
-\explain{The two chains together should be linearly indep.\ to form a basis.}
+\explain{The two chains together should be linearly independent to form a basis.}
 
-$\Rightarrow$ Condition: \key{$\Sigma_i^2x$ \& $\Sigma_i^2y$ should be linearly indep.}
+\point Condition: \key{$\Sigma_i^2x$ \& $\Sigma_i^2y$ should be linearly independent.}
 
 \begin{insight}[Why this condition suffices]
 Suppose a combination of the six vectors vanishes. Applying $\Sigma_i^2$ kills everything except the coefficients of $x$ and $y$, leaving $a\Sigma_i^2x+b\Sigma_i^2y=0$, so $a=b=0$ by the condition. Applying $\Sigma_i$ to what remains gives the same relation for the coefficients of $\Sigma_ix,\Sigma_iy$, and finally for $\Sigma_i^2x,\Sigma_i^2y$. So independence of the eigenvectors at the bottom of the chains implies independence of the whole set (the same argument as for a single chain).
@@ -829,8 +833,9 @@ Suppose a combination of the six vectors vanishes. Applying $\Sigma_i^2$ kills e
 P=\left[\begin{array}{ccc|ccc}\Sigma_i^2x&\Sigma_ix&x&\Sigma_i^2y&\Sigma_iy&y\end{array}\right]
 \]
 
+\needspace{10\baselineskip}
 \sep
-$\Rightarrow$ Continue same example but $\dim\Null(\Sigma_i)=3$, $\dim\Null(\Sigma_i^2)=5$.
+\paragraph{Variant.} Continue the same example but with $\dim\Null(\Sigma_i)=3$, $\dim\Null(\Sigma_i^2)=5$.
 \[
 \begin{aligned}
 \#\text{ of JB's}&=3\\
@@ -876,13 +881,13 @@ J=\left[\begin{array}{ccc|cc|c}
 \fill (2.0,-0.1) circle (1.2pt) node[right] {$x$};
 \end{tikzpicture}
 \end{center}
-Chains:
+\paragraph{Chains.}
 \begin{align*}
 &x\in\Null(\Sigma_i^3),\ x\notin\Null(\Sigma_i^2): && \{\Sigma_i^2x,\Sigma_ix,x\}\\
 &y\in\Null(\Sigma_i^2),\ y\notin\Null(\Sigma_i): && \{\Sigma_iy,y\}\\
 &z\in\Null(\Sigma_i),\ z\notin\Null(\Sigma_i^0)\Rightarrow z\neq0: && \{z\}
 \end{align*}
-$\Rightarrow$ \key{$\Sigma_i^2x,\ \Sigma_iy,\ z$ should be linearly indep.}\origpage{76}
+Hence \key{$\Sigma_i^2x,\ \Sigma_iy,\ z$ should be linearly independent.}\origpage{76}
 \[
 P=\left[\begin{array}{ccc|cc|c}\Sigma_i^2x&\Sigma_ix&x&\Sigma_iy&y&z\end{array}\right]
 \]
@@ -898,7 +903,7 @@ A=\bmat{1&1&0&0\\0&1&0&0\\0&0&1&0\\-1&1&0&2}
 \end{aligned}
 \]
 \explain{You should know how to calculate $d(s)$.}
-For $\lambda_1=1$:
+\paragraph{For $\lambda_1=1$.}
 \[
 \Sigma_1=\bmat{0&1&0&0\\0&0&0&0\\0&0&0&0\\-1&1&0&1},
 \quad
@@ -950,7 +955,7 @@ J=\left[\begin{array}{cc|c|c}1&1&&\\0&1&&\\\hline &&1&\\\hline &&&2\end{array}\r
 \end{minipage}\hfill
 \begin{minipage}[c]{0.64\textwidth}
 $x\in\Null(\Sigma_1^2)$, $x\notin\Null(\Sigma_1)$;\\
-$y\in\Null(\Sigma_1)$ \& $y\neq0$;\quad $y$ \& $\Sigma_1x$ lin.\ indep.
+$y\in\Null(\Sigma_1)$ \& $y\neq0$;\quad $y$ \& $\Sigma_1x$ linearly independent.
 \[
 x=\bmat{0\\1\\0\\0},\qquad \Sigma_1x=\bmat{1\\0\\0\\1},\qquad
 y=\bmat{0\\0\\1\\0}\ \text{(eigenvector)}

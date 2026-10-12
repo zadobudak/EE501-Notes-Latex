@@ -51,7 +51,7 @@ x=m_1+m_2+\dots+m_k, \qquad m_i\in M_i\ \forall i,
 \end{remark}
 
 \begin{proof}
-Assume $m_1,\dots,m_k$ are not unique, i.e.\ $\exists i$ s.t.\ $m_i\ne\bar m_i$:
+Assume $m_1,\dots,m_k$ are not unique, i.e.\ there is an $i$ such that $m_i\ne\bar m_i$:
 \begin{align*}
 x&=m_1+\dots+m_k\\
 x&=\bar m_1+\dots+\bar m_k\\
@@ -63,7 +63,7 @@ $\Rightarrow M_1,\dots,M_k$ are not linearly independent. \qedhere
 \begin{definition}
 Let $M_1,\dots,M_k$ be subspaces of $\V$. Let
 \begin{enumerate}[label=\roman*-)]
-\item $M=M_1+M_2+\dots+M_k$
+\item $M=M_1+M_2+\dots+M_k$.
 \item $M_1,M_2,\dots,M_k$ are linearly independent.
 \end{enumerate}
 Then $M$ is said to be the \term{direct sum} of $M_1,\dots,M_k$. This is shown as
@@ -92,9 +92,11 @@ For $M_1$ and $M_3$:
 \qquad\text{e.g.}\qquad
 \underset{\in M_1}{\bmat{0\\1\\0\\0}}+\underset{\in M_3}{\bmat{0\\-1\\0\\0}}=\underset{0_V}{\bmat{0\\0\\0\\0}}
 \]
-As the two summands are nonzero, $M_1\,\&\,M_3$ are linearly dependent. $\therefore$ Not a direct sum.
+As the two summands are nonzero, $M_1\,\&\,M_3$ are linearly dependent.\\
+$\therefore$ \key{$M_1+M_3$ is not a direct sum.}
 
-$M_2\,\&\,M_3$ are linearly dependent (e.g.\ $m_2=(0,0,1,0)^T\in M_2$, $m_3=-m_2\in M_3$). $\therefore$ Not a direct sum.
+$M_2\,\&\,M_3$ are linearly dependent (e.g.\ $m_2=(0,0,1,0)^T\in M_2$, $m_3=-m_2\in M_3$).\\
+$\therefore$ \key{$M_2+M_3$ is not a direct sum.}
 \begin{insight}[Dimension test]
 For two subspaces, $M_1+M_2$ is direct $\iff M_1\cap M_2=\{0_V\}\iff\dim(M_1+M_2)=\dim M_1+\dim M_2$. Here: $M_1\cap M_2=\{0\}$ and $2+2=4$ (direct); $M_1\cap M_3=\{(0,x_2,0,0)^T\}$, $2+3=5\ne4$ (not direct); $M_2\cap M_3=M_2$, $2+3\ne3$ (not direct).
 \end{insight}
@@ -125,7 +127,10 @@ If $M=\V$ then
 is called an \term{orthogonal direct sum decomposition} of $\V$.
 \end{definition}
 
-\paragraph{\key{Orthogonality implies linear independence.}}
+\begin{claim}
+\key{Orthogonality implies linear independence.}
+\end{claim}
+\begin{proof}
 Let $\sum_{i=1}^{k}m_i=0_V$, \ $m_i\in M_i$. Then
 \begin{align*}
 \Big\langle\sum_{i=1}^{k}m_i,\,m_j\Big\rangle&=\inner{0_V}{m_j}=0\\
@@ -136,6 +141,7 @@ Since $\inner{m_i}{m_j}=0$ when $i\ne j$:
 \inner{m_j}{m_j}=0 \ \Rightarrow\ m_j=0_V .
 \]
 \explain{The last step uses positive definiteness of the inner product. Since $j$ was arbitrary, all $m_j=0_V$: orthogonality implies linear independence.}
+\end{proof}
 
 \begin{definition}
 Let $M$ be a subspace of an inner product space $\V$. The \term{orthogonal complement} $M^\perp$ of the subspace is defined as
@@ -186,6 +192,7 @@ Orthogonality implies linear independence, thus this is a direct sum; since the 
 \begin{claim}
 \key{$M^\perp$ is a subspace of $\V$.}
 \end{claim}
+\begin{proof}
 Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$. Then
 \begin{align*}
 \inner{x+y}{m}&=\underbrace{\inner{x}{m}+\inner{y}{m}}_{0} \quad (m\in M)\\
@@ -193,6 +200,7 @@ Let $x,y\in M^\perp$, i.e.\ $\inner{x}{m}=0$, $\inner{y}{m}=0$ $\forall m\in M$.
 \inner{\alpha x}{m}&=\alpha\inner{x}{m}=0 \quad\forall m\in M &&\Rightarrow\ \alpha x\in M^\perp
 \end{align*}
 $\therefore$ $M^\perp$ is closed under addition and scalar multiplication, hence a subspace of $\V$.
+\end{proof}
 
 % ===== Page 35 =====
 \begin{theorem}[Orthogonal decomposition]\leavevmode\origpage{35}
@@ -209,7 +217,9 @@ To prove this we check:
 \end{theorem}
 
 \begin{proof}
-\textbf{Part I:} $\dim M=n\triangleq\dim\V \Rightarrow M=\V$ \ \textcircled{?}\par
+It remains to show $\V=M+M^\perp$.
+
+\paragraph{Part I.} $\dim M=n\triangleq\dim\V \Rightarrow M=\V$ \ \textcircled{?}\par
 \explain{Answer to \textcircled{?}: a basis of $M$ consists of $n$ linearly independent vectors of $\V$; in an $n$-dimensional space any $n$ independent vectors form a basis, so they span $\V$ and $M=\V$.}
 
 \begin{center}
@@ -231,7 +241,7 @@ x&=\underset{\in M}{x_1}+\underset{\in M^\perp}{x_2}
 \end{minipage}
 \end{center}
 
-\textbf{Part II:} $\dim M<n$, with $\dim M = k$. Let
+\paragraph{Part II.} $\dim M<n$, with $\dim M = k$. Let
 \begin{align*}
 B&=\{m_1,m_2,m_3,\dots,m_k\} && \text{(basis for } M)\\
 C&=\{m_1,m_2,\dots,m_k,m_{k+1},\dots,m_n\} && \text{(basis for } \V)
@@ -347,10 +357,11 @@ m^* = \operatorname{Proj}_M x : \text{ ``\term{Orthogonal Projection} of $x$ ont
   \draw[->,densely dotted] (O) -- (2.0,0.4);
 \end{tikzpicture}
 \end{center}
+Hence:
 \begin{itemize}[nosep]
-  \item[$\Rightarrow$] solution exists
-  \item[$\Rightarrow$] solution is unique
-  \item[$\Rightarrow$] $x-m^*\perp M$
+  \item a solution exists;
+  \item the solution is unique;
+  \item $x-m^*\perp M$.
 \end{itemize}
 
 \needspace{14\baselineskip}
@@ -359,6 +370,7 @@ m^* = \operatorname{Proj}_M x : \text{ ``\term{Orthogonal Projection} of $x$ ont
 $H = M\overset{\perp}{\oplus} M^\perp, \qquad
 x = \underbrace{x_1}_{\in M} + \underbrace{x_2}_{\in M^\perp}$
 \end{keybox}
+\begin{proof}
 For any $m\in M$:
 \begin{align*}
 \norm{x-m}^2 &= \inner{x-m}{x-m} = \inner{x_1+x_2-m}{x_1+x_2-m}\\
@@ -372,8 +384,9 @@ For any $m\in M$:
 \begin{itemize}[nosep]
   \item $x_1$ exists;
   \item $x_1$ is unique, as $M\oplus M^\perp$ is a direct sum;
-  \item $x-m^* = x-x_1 = x_2\in M^\perp$.
+  \item $x-m^* = x-x_1 = x_2\in M^\perp$. \qedhere
 \end{itemize}
+\end{proof}
 
 \begin{insight}[Why the proof works]
 The key identity is the Pythagorean theorem $\norm{x-m}^2 = \norm{x_1-m}^2 + \norm{x_2}^2$, valid because
@@ -448,7 +461,9 @@ x-m^* = \left(\bmat{1\\2} - \alpha^*\bmat{1\\1}\right) &\perp \bmat{1\\1}\\
 \end{example}
 
 \begin{example}
-\textbf{(1)} $\V$, \quad $M=\Span\{v_1\}$.
+Projection onto the span of one or two vectors.
+
+\paragraph{Case 1: one spanning vector.} $\V$, \quad $M=\Span\{v_1\}$.
 \[
 m^* = \operatorname{Proj}_M x = \,? \qquad m^* = \alpha^* v_1, \qquad x-m^* = (x-\alpha^* v_1)\perp v_1
 \]
@@ -459,7 +474,7 @@ Hence
 \Rightarrow\quad \alpha^* &= \frac{\inner{x}{v_1}}{\inner{v_1}{v_1}}, \qquad m^* = \frac{\inner{x}{v_1}}{\inner{v_1}{v_1}}\cdot v_1
 \end{align*}
 
-\par\textbf{(2)} $\V$, \quad $M=\Span\{v_1,v_2\}$.
+\paragraph{Case 2: two spanning vectors.} $\V$, \quad $M=\Span\{v_1,v_2\}$.
 \begin{align*}
 m^* &= \operatorname{Proj}_M x = \,?\\
 m^* &= \alpha_1^* v_1 + \alpha_2^* v_2\\
@@ -580,7 +595,7 @@ In matrix form:
 \underbrace{\bmat{\alpha_1^*\\ \vdots\\ \alpha_k^*}}_{\alpha^*}
 = \underbrace{\bmat{\inner{x}{v_1}\\ \vdots\\ \inner{x}{v_k}}}_{b}
 \end{gather*}
-\key{$G$ is invertible iff $v_1,\dots,v_k$ are linearly indep.} \qquad $\alpha^* = G^{-1}b$
+\key{$G$ is invertible iff $v_1,\dots,v_k$ are linearly independent}, and then $\alpha^* = G^{-1}b$.
 \explain{These $k$ equations are the \term{normal equations}; $G$ is the \term{Gram matrix}. $G$ is Hermitian and positive definite for independent $v_i$:
 $\beta\Hm G\beta = \norm{\textstyle\sum_i\beta_i v_i}^2 > 0$ for $\beta\neq0$ (written for $\F=\C$ with $G_{ji}=\inner{v_i}{v_j}$).}
 

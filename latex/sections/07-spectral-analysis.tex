@@ -57,14 +57,14 @@ The trivial subspaces $\{0\}$ and $\V$ are always invariant. \key{A one-dimensio
 $\Null(\mathcal{A})$ \& $\Range(\mathcal{A})$ are invariant under $\mathcal{A}$.
 
 \begin{minipage}[t]{0.48\textwidth}
-\underline{$\Null(\mathcal{A})$:}\quad $x\in\Null(\mathcal{A})$
+\paragraph{$\Null(\mathcal{A})$.} $x\in\Null(\mathcal{A})$
 \[
 \mathcal{A}x=0_{\V}\in\Null(\mathcal{A})
 \]
 $\Null(\mathcal{A})$ is invariant under $\mathcal{A}$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.48\textwidth}
-\underline{$\Range(\mathcal{A})$:}\quad $x\in\Range(\mathcal{A})$
+\paragraph{$\Range(\mathcal{A})$.} $x\in\Range(\mathcal{A})$
 \[
 \mathcal{A}x\in\Range(\mathcal{A})
 \]
@@ -86,7 +86,7 @@ When the domain and the codomain are the same, we can define the powers of a lin
 \end{itemize}
 
 \sep
-$\star$ \term{Polynomials of $\mathcal{A}$} can be constructed using linear combinations of powers of $\mathcal{A}$.
+\point \term{Polynomials of $\mathcal{A}$} can be constructed using linear combinations of powers of $\mathcal{A}$.
 \begin{center}
 \begin{minipage}{0.66\textwidth}
 \begin{align*}
@@ -119,7 +119,7 @@ p(\mathcal{A})\mathcal{A}=\mathcal{A}p(\mathcal{A})
 \begin{example}
 $\Null(p(\mathcal{A}))$ \& $\Range(p(\mathcal{A}))$ are invariant under $\mathcal{A}$.
 
-\underline{$\Null(p(\mathcal{A}))$:} \ $x\in\Null(p(\mathcal{A}))$. \ Is $\mathcal{A}x\in\Null(p(\mathcal{A}))$?
+\paragraph{$\Null(p(\mathcal{A}))$.} $x\in\Null(p(\mathcal{A}))$. \ Is $\mathcal{A}x\in\Null(p(\mathcal{A}))$?
 \begin{align*}
 p(\mathcal{A})\mathcal{A}x&=\mathcal{A}\underbrace{p(\mathcal{A})x}_{0_{\V}}=\mathcal{A}0_{\V}=0_{\V}\\
 &\Rightarrow\mathcal{A}x\in\Null(p(\mathcal{A}))
@@ -128,7 +128,7 @@ p(\mathcal{A})\mathcal{A}x&=\mathcal{A}\underbrace{p(\mathcal{A})x}_{0_{\V}}=\ma
 % ===== Page 53 =====
 \needspace{6\baselineskip}
 \origpage{53}%
-\underline{$\Range(p(\mathcal{A}))$:} \ $x\in\Range(p(\mathcal{A}))$, \ $x=p(\mathcal{A})y$.
+\paragraph{$\Range(p(\mathcal{A}))$.} $x\in\Range(p(\mathcal{A}))$, \ $x=p(\mathcal{A})y$.
 \begin{align*}
 \mathcal{A}x&=\mathcal{A}p(\mathcal{A})y=p(\mathcal{A})\underbrace{\mathcal{A}y}_{y'}=p(\mathcal{A})y'\\
 &\Rightarrow\mathcal{A}x\in\Range(p(\mathcal{A}))
@@ -136,7 +136,7 @@ p(\mathcal{A})\mathcal{A}x&=\mathcal{A}\underbrace{p(\mathcal{A})x}_{0_{\V}}=\ma
 \end{example}
 
 \subsection{Eigenvalues and Eigenvectors}\label{ss:eigen}
-$\star$ Matrix representation:
+\point Matrix representation:
 \[
 \mathcal{A}:\underset{\substack{\downarrow\\ B\\ \text{basis set}\\ \text{for }\V}}{\overset{n}{\V}}\to\underset{\substack{\downarrow\\ B\\ \text{basis set}\\ \text{for }\V}}{\overset{n}{\V}}
 \qquad A:\C^n\to\C^n
@@ -223,7 +223,7 @@ No real vector keeps its direction under a $90^\circ$ rotation, so there are no 
 % ===== Page 54 =====
 \origpage{54}
 \sep
-$\star$ Existence of eigenvectors:
+\point Existence of eigenvectors:
 \[
 A\overset{\neq0}{e_i}=\lambda_ie_i\qquad d(\lambda_i)=\det(\lambda_iI-A)=0
 \]
@@ -233,7 +233,7 @@ A\overset{\neq0}{e_i}=\lambda_ie_i\qquad d(\lambda_i)=\det(\lambda_iI-A)=0
 &\qquad\alpha_1c_1+\alpha_2c_2+\dots+\alpha_nc_n=0\\
 &\qquad\underset{A}{[c_1\ c_2\ \dots\ c_n]}\bmat{\alpha_1\\\alpha_2\\\vdots\\\alpha_n}=0
 \end{align*}
-\explain{$A$ is not full column rank $\Rightarrow$ $\exists\alpha\neq0$ s.t.\ $A\alpha=0$. Apply this to the singular matrix $\lambda_iI-A$ ($\det(\lambda_iI-A)=0$ means its columns are dependent):}
+\explain{$A$ is not full column rank $\Rightarrow$ $\exists\alpha\neq0$ such that $A\alpha=0$. Apply this to the singular matrix $\lambda_iI-A$ ($\det(\lambda_iI-A)=0$ means its columns are dependent):}
 \begin{align*}
 &\exists\alpha\ \text{s.t.}\ (\lambda_iI-A)\alpha=0\\
 &\qquad A\alpha=\lambda_i\alpha\ \Rightarrow\ \text{Eğer bir eigenvalue varsa en az 1 eigenvector vardır}
@@ -283,7 +283,7 @@ A-\lambda_2I&=\bmat{1&1\\1&1},&\qquad e_2&=\bmat{1\\-1}
 % ===== Page 55 =====
 \origpage{55}
 \sep
-$\star$ Change of basis:
+\point Change of basis:
 \[
 y=Ax,\qquad B=\left\{\bmat{1\\0},\bmat{0\\1}\right\}\ \to\ \text{canonical basis set}
 \]
@@ -356,7 +356,7 @@ P_i&=[b_i^1\ b_i^2\ b_i^3\ \dots\ b_i^{n_i}],\qquad n_i=\dim M_i
 $b_i^1,\dots,b_i^{n_i}\in\C^n$ are basis vectors of $M_i$. $\bar{A}_i$ is of size $n_i\times n_i$.
 \end{theorem}
 
-\paragraph{Sketch of a proof.}
+\begin{proof}[Proof sketch]
 \begin{align*}
 &k=2,\qquad \C^n=M_1\oplus M_2,\qquad n=5\\
 &M_1=\Span\{b_1^1,b_1^2\},\qquad\dim M_1=2\\
@@ -382,8 +382,9 @@ P_2&=[b_2^1\ b_2^2\ b_2^3]_{5\times3}
 0&0&\alpha_2^3&\beta_2^3&\gamma_2^3
 \end{array}\right]}}_{\bar{A}\quad\left(\substack{3\times3\\ \dim M_2\times\dim M_2}\right)}
 &=A\overbrace{[b_1^1\ b_1^2\ b_2^1\ b_2^2\ b_2^3]}^{P}\\
-&=[\underbrace{Ab_1^1}_{\in M_1}\mid\underbrace{Ab_1^2}_{\in M_1}\mid\underbrace{Ab_2^1}_{\in M_2}\mid\underbrace{Ab_2^2}_{\in M_2}\mid\underbrace{Ab_2^3}_{\in M_2}]
+&=[\underbrace{Ab_1^1}_{\in M_1}\mid\underbrace{Ab_1^2}_{\in M_1}\mid\underbrace{Ab_2^1}_{\in M_2}\mid\underbrace{Ab_2^2}_{\in M_2}\mid\underbrace{Ab_2^3}_{\in M_2}]\qedhere
 \end{align*}
+\end{proof}
 \explain{$\in M_1$: lin.\ comb.\ of $M_1$ vectors; \ $\in M_2$: lin.\ comb.\ of $M_2$ vectors.}
 \begin{insight}[Why the off-diagonal blocks are zero]
 Column $j$ of $P\bar A$ is $P$ times column $j$ of $\bar A$, i.e.\ the combination of the basis vectors with the coefficients in that column. Since $M_1$ is invariant, $Ab_1^1=\alpha_1^1b_1^1+\alpha_1^2b_1^2$ needs \emph{no} $M_2$ vectors, so the lower entries of columns 1--2 are zero; likewise $Ab_2^j\in M_2$ gives zeros in the upper part of columns 3--5. The coefficients are unique because the five vectors form a basis of $\C^5$ ($\C^n=M_1\oplus M_2$), which also makes $P$ invertible. Each block $\bar A_i$ is the matrix of $A$ restricted to $M_i$.
@@ -502,7 +503,7 @@ Since $\Null(A-\lambda_i I)$ is invariant under $A$, \key{$A$ has a diagonal rep
 \]
 % corrected: notes label the diagonal matrix "A"; it is \bar A = P^{-1}AP
 
-\paragraph{Linear independence of $e_1,\ e_2,\ \dots,\ e_n$.}
+\begin{proof}[Proof of the linear independence of $e_1,\ e_2,\ \dots,\ e_n$]
 Suppose
 \[ \alpha_1 e_1+\alpha_2 e_2+\dots+\alpha_n e_n = 0 \]
 and use
@@ -513,8 +514,9 @@ Multiply with $(A-\lambda_1 I)$, then with $(A-\lambda_2 I)$, and so on:
 \times(A-\lambda_2 I):&\quad 0+0+\alpha_3(\lambda_3-\lambda_1)(\lambda_3-\lambda_2)e_3+\dots+\alpha_n(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)e_n = 0\\
 &\quad\ \vdots\\
 &\quad \alpha_n\underbrace{(\lambda_n-\lambda_1)(\lambda_n-\lambda_2)\cdots(\lambda_n-\lambda_{n-1})}_{\neq 0}\,\underbrace{e_n}_{\neq 0} = 0
-\quad\Longrightarrow\quad \alpha_n = 0 \;\Longrightarrow\; \forall \alpha_i = 0
+\quad\Longrightarrow\quad \alpha_n = 0 \;\Longrightarrow\; \forall \alpha_i = 0\qedhere
 \end{align*}
+\end{proof}
 \explain{The product is nonzero for distinct eigenvalues (this case), and $e_n$ is nonzero.}
 \begin{insight}[Completing the argument]
 After the $n-1$ multiplications only the $e_n$-term survives, so $\alpha_n=0$. The original relation then has only the terms $e_1,\dots,e_{n-1}$; repeating the procedure with the factors $(A-\lambda_1I),\dots,(A-\lambda_{n-2}I)$ gives $\alpha_{n-1}=0$, and so on; hence all $\alpha_i=0$. Thus $\{e_1,\dots,e_n\}$ is a set of $n$ linearly independent vectors in $\C^n$, i.e.\ a basis, and each $\Null(A-\lambda_iI)$ is exactly one-dimensional (it is at least $1$-dimensional, and the dimensions cannot add up to more than $n$). This proves the direct sum in the theorem.

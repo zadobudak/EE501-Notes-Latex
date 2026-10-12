@@ -34,7 +34,7 @@ A-\lambda_3 I &= \bmat{-2&0&0\\-1&-1&1\\0&0&0}, & \Null(A-\lambda_3 I)&=\Span\le
 P&=\bmat{1&0&0\\1&1&1\\0&0&1}, & \bar A&=\bmat{1&0&0\\0&2&0\\0&0&3}=P^{-1}AP\\
 P&=\bmat{0&0&1\\1&1&1\\1&0&0}, & \bar A&=\bmat{3&0&0\\0&2&0\\0&0&1}
 \end{align*}
-Check for the second choice ($P\bar A=AP$):
+\paragraph{Check for the second choice ($P\bar A=AP$).}
 \begin{align*}
 \bmat{0&0&1\\1&1&1\\1&0&0}\overbrace{\bmat{3&0&0\\0&2&0\\0&0&1}}^{\bar A} &= A\bmat{0&0&1\\1&1&1\\1&0&0}
 = \bmat{0&0&1\\3&2&1\\3&0&0}
@@ -57,7 +57,7 @@ d(A)=A^2-4A+3I &= \bmat{2&1\\1&2}\bmat{2&1\\1&2}-4\bmat{2&1\\1&2}+3\bmat{1&0\\0&
 &= \bmat{5&4\\4&5}-\bmat{8&4\\4&8}+\bmat{3&0\\0&3}=\bmat{0&0\\0&0}
 \end{align*}
 \[
-\underline{\underline{d(A)=0_{n\times n}}}
+\boxed{d(A)=0_{n\times n}}
 \]
 
 % ===== Page 60 =====
@@ -157,20 +157,20 @@ m(A)&=(A-2I)(A-I)=\bmat{0&0&0\\0&0&0\\0&0&-1}\bmat{1&0&0\\0&1&0\\0&0&0}=0_{n\tim
 
 \begin{definition}
 A \term{monic polynomial} is a polynomial whose coefficient of the highest-degree term is unity ($=1$).
-\begin{itemize}[label=$\ast$]
+\begin{itemize}
 \item $s^2+2s+3$ \quad (Monic)
 \item $2s^2+2s+3$ \quad (Not monic)
 \end{itemize}
 \end{definition}
 \begin{definition}
-For an $n\times n$ matrix $A$, the \term{minimal polynomial} is the monic polynomial $m(s)$ with the smallest degree/order s.t.
+For an $n\times n$ matrix $A$, the \term{minimal polynomial} is the monic polynomial $m(s)$ with the smallest degree/order such that
 \[ m(A)=0_{n\times n} \]
 \end{definition}
 \begin{theorem}
 Given $A\in\C^{n\times n}$ let $m(s)$ be its minimal polynomial. Then
 \begin{enumerate}[label=\Roman*)]
 \item $m(s)$ is \key{unique};
-\item \key{$m(s)$ divides $d(s)$} without any remainder: $\exists q(s)$ s.t.\ $d(s)=m(s)q(s)$;
+\item \key{$m(s)$ divides $d(s)$} without any remainder: $\exists q(s)$ such that $d(s)=m(s)q(s)$;
 % corrected: notes had "d(s) = m(s) d(s)" 
 \item \key{every root of $d(s)$ is also a root of $m(s)$}.
 \end{enumerate}
@@ -196,9 +196,10 @@ m(s)&=(s-\lambda_1)^{m_1}(s-\lambda_2)^{m_2}\cdots(s-\lambda_k)^{m_k}, \qquad \b
 % corrected: notes had upper bound "k"; r_i is meant (cf. page 63)
 
 % ===== Page 62 =====
+\needspace{8\baselineskip}
 \begin{proof}
-\leavevmode\origpage{62}% (a rotated personal doodle in the margin, unrelated to the material, is omitted)
-\textbf{I)}\quad $p\to q \;\equiv\; p\wedge\bar q=\text{False} \;\stackrel{\Delta}{=}\;$ proof by contradiction.
+\origpage{62}% (a rotated personal doodle in the margin, unrelated to the material, is omitted)
+\paragraph{Part I.} $p\to q \;\equiv\; p\wedge\bar q=\text{False} \;\stackrel{\Delta}{=}\;$ proof by contradiction.
 
 Suppose $m(s)$ is not unique and minimal polynomial ($p\wedge\bar q$):
 \begin{align*}
@@ -221,7 +222,7 @@ r(s)&=(a_1-b_1)s^{l-1}+\dots+(a_l-b_l)\\
 $\bar r(A)=0_{n\times n}$: we assumed $m_1,m_2$ are minimal, but found a monic $\bar r(s)$ of lower degree that also annihilates $A$ $\Rightarrow$ contradiction with minimality. Hence $m(s)$ is unique.
 
 \sep
-\textbf{II)}\quad Divide $d(s)$ by $m(s)$ (polynomial division):
+\paragraph{Part II.} Divide $d(s)$ by $m(s)$ (polynomial division):
 \[ d(s)=m(s)q(s)+r(s), \qquad \deg r(s)<\deg m(s). \]
 Suppose $r(s)\neq 0(s)$ (proof by contradiction). Then
 \[ \exists\,\bar r(s)=\frac{r(s)}{\alpha}\text{ and }\bar r(s)\text{ is monic}\quad(\alpha:\text{ leading coefficient of } r(s)).\qquad \bar r(A)=\,? \]
@@ -235,7 +236,7 @@ The proof of II only used $d(A)=0$. Hence: \key{$m(s)$ divides every polynomial 
 \end{insight}
 
 \sep
-\textbf{III)}\quad Roots of $d(s)$ are eigenvalues of $A$.
+\paragraph{Part III.} Roots of $d(s)$ are eigenvalues of $A$.
 \begin{align*}
 &d(\lambda_i)=0\\
 &Ae_i=\lambda_ie_i, \qquad e_i\neq 0\\
@@ -334,6 +335,6 @@ A_2-2I&=\bmat{-1&0&0\\0&0&1\\0&0&0}\neq 0_{3\times3}, &&\rank=2,\ \dim=3,\ \text
 \C^3=\underbrace{\Null\big((A_2-I)^{1}\big)}_{\dim=1}\oplus\underbrace{\Null\big((A_2-2I)^{2}\big)}_{\dim=2}
 \]
 \begin{insight}[What the example shows]
-In both cases $\C^3$ splits into null spaces of powers of $A-\lambda_iI$, and the power needed for $\lambda_i$ is exactly the exponent $m_i$ in the minimal polynomial. For $A_1$ ($m_i=1$) the eigenvectors alone span $\C^3$, so $A_1$ is diagonalizable. For $A_2$ there are only two independent eigenvectors; the missing direction $\bmat{0&0&1}\T$ is not an eigenvector but satisfies $(A_2-2I)^2x=0$ (a \emph{generalized eigenvector}). This is made precise in the next theorem.
+In both cases $\C^3$ splits into null spaces of powers of $A-\lambda_iI$, and the power needed for $\lambda_i$ is exactly the exponent $m_i$ in the minimal polynomial. For $A_1$ ($m_i=1$) the eigenvectors alone span $\C^3$, so $A_1$ is diagonalizable. For $A_2$ there are only two independent eigenvectors; the missing direction $[0\ 0\ 1]\T$ is not an eigenvector but satisfies $(A_2-2I)^2x=0$ (a \emph{generalized eigenvector}). This is made precise in the next theorem.
 \end{insight}
 \end{example}
